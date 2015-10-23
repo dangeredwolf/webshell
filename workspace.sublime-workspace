@@ -1,0 +1,260 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Apr",
+				"April"
+			],
+			[
+				"Feb",
+				"February"
+			],
+			[
+				"win",
+				"windowtitle"
+			],
+			[
+				"in",
+				"innerHTML"
+			],
+			[
+				"min",
+				"minimise"
+			],
+			[
+				"max",
+				"maximise"
+			],
+			[
+				"windowc",
+				"windowcontrols"
+			],
+			[
+				"backgr",
+				"background-image"
+			],
+			[
+				"fi",
+				"filehandler"
+			],
+			[
+				"open",
+				"openstart"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/C/Users/dangeredwolf/Documents/RESTBYPASS SESSION",
+		"/C/Users/dangeredwolf/Documents/com.dangeredwolf.webshell.native/webshell.py",
+		"/C/Users/dangeredwolf/Documents/ei.cfg",
+		"/C/Users/dangeredwolf/Downloads/AutoUnattend.xml",
+		"/C/Users/dangeredwolf/Documents/webshellembedded/C/Windows/System32/Drivers/background.js",
+		"/C/Users/dangeredwolf/Documents/webshellembedded/manifest.json",
+		"/C/Users/dangeredwolf/Documents/webshellembedded/C/Windows/System32/winver.html",
+		"/C/Users/dangeredwolf/AppData/Roaming/.minecraft/versions/1.8-Forge11.14.3.1450/1.8-Forge11.14.3.1450.json",
+		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/rundll32.js",
+		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/shellstyle.css",
+		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/runasdll.js",
+		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/dwm.html",
+		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/runas.html",
+		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/shell32.js",
+		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/bios.html",
+		"/C/Windows/System32/drivers/etc/hosts"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"logo",
+			"logoco",
+			".sbsb_c",
+			"sbfcn",
+			"gb_ca",
+			"typeof",
+			"e[",
+			"e",
+			"e[0]",
+			"d+",
+			"ui.element[0]",
+			"ui.element[0].childNodes[2]",
+			"ui.element[0].childNodes[2].childNodes[0]",
+			"-webkit-filter",
+			"moz-fil",
+			"webview",
+			".windowbody",
+			"webview",
+			"originalPosition",
+			"webview",
+			"windowbody",
+			"window",
+			"document",
+			"closew",
+			"close",
+			"iframe"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"div",
+			"webview",
+			"ui.element[0].childNodes[2]",
+			"originalSize"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "C:\\Users\\dangeredwolf\\Documents\\chromedesk"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 160.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

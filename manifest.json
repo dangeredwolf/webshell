@@ -1,0 +1,48 @@
+{	
+	"app": {
+		"launch": {
+			"local_path": "bios.html",
+			"content_security_policy": " "
+		}
+	},
+
+	"permissions": [
+		"<all_urls>",
+		"webview",
+		"fullscreen",
+		"alwaysOnTopWindows",
+		"storage"
+	],
+
+	"webview": {
+		"partitions": [
+			{
+				"name":"system",
+				"accessible_resources":["C/*","C/*/*","C/*/*/*","C/*/*/*/*","C/*/*/*/*/*","http://*","https://*"]
+			},
+			{
+				"name":"userland",
+				"accessible_resources":["http://*","https://*"]
+			},
+			{
+				"name":"immersive",
+				"accessible_resources":["http://*","https://*","*.css","*.js","*.woff","*.woff2","*.ttf","*.otf"]
+			}
+		]
+	},
+
+	"description": "Window Manager with Apps",
+	"icons": {
+	},
+
+	"manifest_version": 2,
+	"name": "WebShell",
+	"offline_enabled": true,
+	"version": "1.0",
+
+	"app": {
+		"background": {
+			"scripts": ["C/Windows/System32/Drivers/background.js"]
+		}
+	}
+}

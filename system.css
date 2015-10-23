@@ -1,0 +1,22 @@
+html {
+	background:#000!important;
+	color:#fff!important;
+}
+
+body  {
+	padding:0;
+}
+
+.bios {
+	font-family:Courier;
+	font-weight:700;
+	margin:0;
+	padding:10px;
+	height:100%;
+	width:100%;
+	position:absolute;
+	font-size:14px;
+	top:0;
+	bottom:0;
+	left:0;
+}

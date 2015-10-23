@@ -1,0 +1,554 @@
+html {
+	background:#fff;
+	color:#000;
+	font-size:1.32em;
+}
+
+html,body,input,button {
+	font-family:"Segoe UI",SegoeUI,"Segoe WP",SegoeWP,Segoe,Roboto,"San Francisco","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+body  {
+	padding:0;
+	overflow:hidden;
+	margin:0;
+}
+
+iframe {
+	border:none;
+}
+
+webview {
+	border:none;
+	background:transparent;
+}
+
+.window webview {
+	min-width:225px;
+	min-height:75px;
+	transition:-webkit-filter 0.8s,filter 0.8s,-moz-filter 0.8s;
+	bottom: -5px;
+	position: relative;
+	top: -3px;
+}
+
+.immersive .windowcontrols {
+	margin-top: 10px;
+}
+
+.immersive.window webview {
+	top:0px;
+}
+
+html,body,.dwm {
+	width:100%;
+	height:100%;
+}
+
+.dwm {
+	pointer-events:none;
+}
+
+.dwm * {
+	pointer-events:all;
+}
+
+.window {
+	/* border-top: #15d8be solid 10px; */
+	background-color:#15d8be;
+	color:#333;
+	width:auto;
+	position:absolute;
+	box-shadow: 0px 8px 16px rgba(0,0,0,0.35);
+	animation:openwindow 300ms cubic-bezier(0,0.8,0.8,1);
+	min-width:225px;
+	min-height:100px;
+}
+
+.window:not(.immersive) {
+	padding-top: 10px;
+}
+
+.window:not(.windowunfocussed) {
+	z-index:10;
+}
+
+.window.windowunfocussed {
+	background:#eee
+}
+
+.windowclosed {
+	animation:closewindow 350ms cubic-bezier(0.75,0,0,0);
+	transform-style: preserve-3d;
+	animation-fill-mode:forwards;
+	pointer-events:none;
+}
+
+button {
+	background:#eee;
+	border:#e0e0e0 solid 2px;
+	padding:6px;
+	padding-left:10px;
+	padding-right:10px;
+	margin:3px;
+	font-size:1em;
+	transition:background 300ms,border 300ms;
+}
+
+button:hover {
+	background:#cef;
+	border:#acd solid 2px;
+}
+
+button:active {
+	background:#aaa;
+	border:#999 solid 2px;
+}
+
+button:focus {
+	border:#999 solid 2px;
+}
+
+@keyframes openwindow {
+	0% {
+		transform:scale(0.83) rotate3d(-1,0.05,0,20deg);
+		opacity:0;
+	}
+
+	100% {
+		transform:scale(1)
+		opacity:1;
+	}
+}
+
+@keyframes closewindow {
+	0% {
+		transform:scale(1);
+		opacity:1;
+	}
+
+	100% {
+		transform:scale(0.85);
+		opacity:0;
+	}
+}
+
+.windowcontrols {
+	margin-left:auto;
+	position:absolute;
+	width:100%;
+	z-index:9;
+	display:block;
+}
+
+.windowcontrol {
+	background:none;
+	border:none!important;
+	position:absolute;
+	right: 7px;
+	display:inline;
+	width: 48px;
+	outline:none;
+	height:30px;
+	font-size:17px;
+	line-height:0px;
+	font-weight:600;
+	top: -13px;
+	opacity:0.8;
+	font-family: "Material Icons";
+	font-weight:100
+}
+
+.windowcontrol:hover {
+	background:rgba(0,0,0,0.3);
+	transition:background 300ms,opacity 300ms;
+	opacity:1
+}
+
+.windowcontrol:focus,.windowcontrol.close:focus {
+	outline:none;
+}
+
+.windowcontrol.close {
+	right:-3px
+}
+
+.windowcontrol.close:hover {
+	background:#e44;
+	color:#fff
+}
+
+.windowcontrol.close:active {
+	background:#e55;
+}
+
+.windowtitle {
+	text-align: left;
+	padding-bottom:6px;
+	pointer-events:none;
+	font-size: 14px;
+	margin-top: -3px;
+	padding-left: 10px;
+	margin-bottom: 3px;
+}
+
+.windowbody {
+	background-color:#fff;
+}
+
+.windowbody {
+	padding:0px;
+	pointer-events: fill;
+}
+
+.taskbar {
+	width:100%;
+	margin:0;
+	height:50px;
+	position:absolute;
+	margin-top:-50px;
+	bottom:0;
+	opacity:0.999;
+	z-index:13;
+	min-height:50px;
+	max-height:50px;
+}
+
+.wallpaper {
+	min-height:100%;
+	height:100%;
+	padding:0;
+	z-index:-1;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-image:url("../Resources/wallpaper.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:50% 50%
+}
+
+.hidden {
+	display:none;
+}
+
+.bios {
+	font-family:Courier;
+	font-weight:700;
+	margin:0;
+	padding:10px;
+	height:100%;
+	width:100%;
+	position:absolute;
+	font-size:14px;
+	top:0;
+	bottom:0;
+	left:0;
+}
+
+.bootimage {
+	height:130px;
+	width:130px;
+	position: absolute;
+    margin: auto;
+    margin-top:140px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.fadeout,.fadeout * {
+	transition:opacity 350ms;
+	opacity:0;
+}
+
+.fadein,.fadein * {
+	transition:opacity 350ms;
+	opacity:1;
+}
+
+.lockscreen.hidden {
+	display:block!important;
+	margin-left:-100%!important;
+	margin-right:100%!important;
+	transition: margin 500ms cubic-bezier(0,1,.46,1)!important;
+}
+
+.lockscreen.wallpaper {
+	z-index: 14;
+	visibility:visible;
+	opacity:1;
+	transition:margin 500ms cubic-bezier(0,1,.46,1)!important;
+	background-image:url(../Resources/lockscreen.jpg);
+	margin-right:0px;
+	margin-left:0px
+}
+
+.lockscreen.hidewallpaper.wallpaper {
+	opacity:0;
+	visibility:visible;
+}
+
+.lockscreentime {
+	font-weight:100;
+	font-size: 150px;
+	text-align: center;
+	top: 100px;
+	display:block;
+	position:absolute;
+	transition:all 350ms;
+	font-family:Roboto,"Segoe UI",SegoeUI,"Segoe WP",SegoeWP,Segoe,Roboto,"San Francisco","Helvetica Neue",Helvetica,Arial,sans-serif;
+	width: 100%;
+}
+
+.lockscreendate {
+	font-weight:400;
+	font-size: 36px;
+}
+
+@keyframes loganim {
+	0% {
+		margin-top:15%;
+		opacity:0;
+	}
+
+	100% {
+		margin-top:20%;
+		opacity:1;
+	}
+}
+
+.authentication {
+	bottom:200px;
+	left:50%;
+	width:100%;
+	position:absolute
+}
+
+.authentication img {
+	margin-left:-250px;
+	position:absolute;
+	display:block;
+	margin-top:20px;
+	border-radius:100px
+}
+
+.authentication img.branding {
+	margin-top:300px;
+	margin-left:-150px;
+	display:block;
+	position:absolute;
+}
+
+.authentication div {
+	font-size:32px;
+	margin-top:50px;
+}
+
+.authentication div.welcome {
+	font-size:26px;
+	margin-top:28px;
+	margin-left:48px;
+	position:absolute;	
+}
+
+input {
+	padding:8px;
+	padding-left:12px;
+	font-size:1em;
+	margin:8px;
+	border:2px solid #e0e0e0;
+}
+
+input:focus {
+	outline:none!important;
+}
+
+.authentication input {
+	margin:auto;
+	position:absolute;
+	top:120px;
+}
+
+.displaynone {
+	display:none;
+}
+
+input.displaynone.hidden {
+	margin:-10000px!important;
+	position:absolute;
+}
+
+body.bodyperspective {
+	perspective: 1000px;
+}
+
+a {
+	color:#27d;
+	text-decoration:none;
+}
+
+a:hover {
+	color:#5af;
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+.startbutton {
+	background:url(../Resources/startbutton.png) no-repeat;
+	width:55px;
+	height:50px;
+	margin-top:0px;
+	margin-left:0px;
+	background-size:32px 32px;
+	background-position:10px 10px;
+	border:none;
+	outline:none;
+	background-color:transparent;
+	z-index:11
+}
+
+.startbutton:hover,.startbutton:focus,.startbutton:active {
+	background-color:transparent!important;
+	background:url(../Resources/startbutton.png) no-repeat;
+	background-position:10px 10px;
+	background-size:32px 32px;
+	border:none;
+}
+
+button.startbutton:active {
+	background-color:rgba(100,100,100,0.5)!important;
+	transition:background-color 0s;
+}
+
+.startbutton:after {
+	content:"";
+	width:32px;
+	height:32px;
+	position:absolute;
+	left:10px;
+	bottom:8px;
+	border:none;
+	color:transparent;
+	background-color:transparent!important;
+	background:url(../Resources/startbuttonhover.png) no-repeat;
+	background-size:32px 32px;
+	z-index:12;
+	opacity:0;
+	transition:opacity 0.3s;
+}
+
+.startbutton:hover:after {
+	opacity:1;
+}
+
+.startmenu {
+	width:100%;
+	height:100%;
+	max-width:700px;
+	max-height:500px;
+	position:absolute;
+	bottom:50px;
+	left:0;
+	opacity:0.999;
+	z-index:11;
+	transition:bottom 450ms cubic-bezier(0,1,.46,1), opacity 400ms cubic-bezier(0,1,.46,1);
+	/* background-color: transparent; */
+}
+
+.startmenubody {
+	color:#fff;
+	padding:10px;
+}
+
+.startmenu.startmenuclosed {
+	bottom:-100px;
+	opacity:0;
+	pointer-events:none;
+	transition:bottom 200ms cubic-bezier(0,.46,1,1), opacity 150ms cubic-bezier(0,.46,1,1);
+}
+
+.startmenubody button {
+	width:100px;
+	height:100px;
+	color:#fff;
+	background:#06e;
+	border:none;
+	margin:3px;
+	transition:border 0s,transform 0.18s;
+	font-size:14px;
+	text-align:left;
+	font-weight:400;
+	padding-top:70px;
+}
+
+.startmenubody button:active {
+	transform:scale(0.9);
+}
+
+.startmenubody button:hover {
+	border:2px solid #fff;
+	padding-left:8px;
+}
+
+.shelltransfix {
+	opacity:0.01;
+	pointer-events:none;
+}
+
+.windowcontrol.max {
+	right: 45px;
+}
+
+.windowcontrol.min {
+	right: 95px;
+}
+
+webview.unresponsive {
+	-webkit-filter: blur(2px) brightness(0.9) grayscale(1);
+	-moz-filter: blur(2px) brightness(0.9) grayscale(1);
+	filter: blur(2px) brightness(0.9) grayscale(1);
+}
+
+.window.immersive .windowbody,.window.immersive webview {
+	background:transparent;
+	margin-top:0px
+}
+
+.window.immersive .windowtitle {
+	display:none;
+}
+
+::-webkit-scrollbar {
+	border:none;
+	width:6px;
+	height:6px;
+	padding:10px;
+	margin:10px
+}
+
+::-webkit-scrollbar-thumb {
+	background:#888;
+	opacity:0.5;
+	border-radius:10px;
+	padding:10px;
+	border:1px #ccc solid;
+}
+
+::-webkit-scroller-corner {
+	display:none
+}
+
+.windowdraghandle {
+	position:absolute;
+	display:block;
+	box-sizing:content-box;
+	top:0;
+	left:0;
+	right:100px;
+	height: 36px;
+	z-index: 10;
+}

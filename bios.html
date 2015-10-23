@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<link rel="stylesheet" href="C/Windows/System32/jqui.css">
+		<link rel="stylesheet" href="system.css">
+		<link rel="stylesheet" href="C/Windows/System32/shellstyle.css">
+		<link rel="stylesheet" href="C/Windows/Fonts/fonts.css">
+
+		<script src="C/Windows/System32/ntoskrnl.js"></script>
+		<script src="C/Windows/System32/win32kbase.js"></script>
+		<script src="C/Windows/System32/rundll32.js"></script>
+		<script src="C/Windows/System32/crypto.js"></script>
+
+	</head>
+	<body class="">
+
+		<div class="dwm hidden">
+			<webview class="taskbar" src="C/Windows/System32/taskbar.html" partition="persist:system" allowtransparency="on" name="taskbar"></webview>
+			<webview class="startmenuclosed startmenu" src="C/Windows/System32/startmenu.html" partition="persist:system" allowtransparency="on" name="startmenu"></webview>
+		</div>
+
+		<div class="wallpaper hidewallpaper lockscreen">
+			<div class="lockscreentime time"></div>
+			<div class="authentication">
+				<img width="180" src="C/Windows/Resources/profile.png">
+				<div>Hey, User!</div>
+				<input type="password" placeholder="Password">
+			</div>
+		</div>
+
+		<script src="C/Windows/System32/interact.js"></script>
+		<script src="C/Windows/System32/shellui.js"></script>
+		<script src="C/Windows/System32/shell32.js"></script>
+	</body>
+
+	<div class="wallpaper hidden"></div>
+</html>
