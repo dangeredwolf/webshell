@@ -131,6 +131,10 @@ function testLogin() {
 		},0);
 	} else {
 		$(".authentication div")[0].innerHTML = "Incorrect Password";
+
+		setTimeout(function(){
+			$(".authentication div")[0].innerHTML = "Hey, User!";
+		},1500)
 	}
 }
 
@@ -200,6 +204,8 @@ function initShellEvents() {
 	  	document.body.classList.add('hover');
 	  }, 1000);
 	}, false);
+
+	$(".watermark")[0].innerHTML = "WebShell Version " + os.systemVersion + "<br>Experimental Copy. Build " + os.systemBuild
 }
 
 function generateRandomCharacter() {
