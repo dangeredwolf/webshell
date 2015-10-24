@@ -54,8 +54,8 @@ html,body,.dwm {
 }
 
 .window {
-	/* border-top: #15d8be solid 10px; */
-	background-color:#15d8be;
+	/* border-top: #19BDA7 solid 10px; */
+	background-color:#19BDA7;
 	color:#333;
 	width:auto;
 	position:absolute;
@@ -214,14 +214,13 @@ button:focus {
 .taskbar {
 	width:100%;
 	margin:0;
-	height:50px;
 	position:absolute;
-	margin-top:-50px;
 	bottom:0;
 	opacity:0.999;
 	z-index:13;
-	min-height:50px;
-	max-height:50px;
+	height: 350px;
+	margin-top: -150px;
+	max-height: 350px;
 }
 
 .wallpaper {
@@ -410,26 +409,30 @@ a:hover {
 	text-decoration:underline;
 }
 
-.startbutton {
+.startmenubody button.startbutton {
 	background:url(../Resources/startbutton.png) no-repeat;
 	width:55px;
 	height:50px;
-	margin-top:0px;
-	margin-left:0px;
+	margin-top: 5px;
+	margin-left: -8px;
+	bottom:-30px!important;
+	position:absolute;
 	background-size:32px 32px;
 	background-position:10px 10px;
 	border:none;
 	outline:none;
 	background-color:transparent;
-	z-index:11
+	z-index:11;
+	padding-top: 71px;
 }
 
-.startbutton:hover,.startbutton:focus,.startbutton:active {
+.startmenubody button.startbutton:hover,.startmenubody button.startbutton:focus,.startbutton:active {
 	background-color:transparent!important;
 	background:url(../Resources/startbutton.png) no-repeat;
 	background-position:10px 10px;
 	background-size:32px 32px;
 	border:none;
+	transform:scale(1)!important;
 }
 
 button.startbutton:active {
@@ -443,7 +446,24 @@ button.startbutton:active {
 	height:32px;
 	position:absolute;
 	left:10px;
-	bottom:8px;
+	bottom:34px;
+	border:none;
+	color:transparent;
+	background-color:transparent!important;
+	background:url(../Resources/startbuttonhover.png) no-repeat;
+	background-size:32px 32px;
+	z-index:12;
+	opacity:0;
+	transition:opacity 0.3s;
+}
+
+.startbutton:after {
+	content:"";
+	width:32px;
+	height:32px;
+	position:absolute;
+	left:10px;
+	bottom: 35px;
 	border:none;
 	color:transparent;
 	background-color:transparent!important;
@@ -469,26 +489,26 @@ button.startbutton:active {
 	opacity:0.999;
 	z-index:11;
 	transition:bottom 450ms cubic-bezier(0,1,.46,1), opacity 400ms cubic-bezier(0,1,.46,1);
-	/* background-color: transparent; */
 }
 
 .startmenubody {
 	color:#fff;
-	padding:10px;
+	position:absolute;
+	padding:0px;
+	bottom:0px;
+	height:50px;
+	transition:height 300ms cubic-bezier(0,1,.46,1)
 }
 
-.startmenu.startmenuclosed {
-	bottom:-100px;
-	opacity:0;
-	pointer-events:none;
-	transition:bottom 200ms cubic-bezier(0,.46,1,1), opacity 150ms cubic-bezier(0,.46,1,1);
+.startmenubody.startmenubodyopen {
+	height:100%;
 }
 
 .startmenubody button {
 	width:100px;
 	height:100px;
 	color:#fff;
-	background:#06e;
+	background: #19BDA7;
 	border:none;
 	margin:3px;
 	transition:border 0s,transform 0.18s;
@@ -496,6 +516,8 @@ button.startbutton:active {
 	text-align:left;
 	font-weight:400;
 	padding-top:70px;
+	margin-top:190px;
+	display:inline-block!important;
 }
 
 .startmenubody button:active {
@@ -574,4 +596,46 @@ webview.unresponsive {
 	right:20px;
 	text-align:right;
 	line-height:22px;
+}
+
+.taskbartime {
+	position:absolute;
+	bottom:14px;
+	right:16px;
+	text-align:right;
+	transition:all 250ms;
+}
+
+.startmenubackground {
+	background:rgba(0,0,0,0.15);
+	background:linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.8));
+	padding-left:8px;
+	height:100%;
+
+}
+
+.startmenubody .startmenubackground>* {
+	transition:opacity 350ms cubic-bezier(0,1,.46,1)
+}
+
+.startmenubody:not(.startmenubodyopen) .startmenubackground>* {
+	opacity:0;
+	pointer-events:none;
+}
+
+.coretaskbar {
+	opacity:1!important;
+	pointer-events:all!important;
+}
+
+.coretaskbar * {
+	pointer-events:all!important;
+}
+
+.startmenubodyopen .taskbartime {
+	font-size:24px;
+}
+
+.hidden .authentication {
+	pointer-events:none;
 }

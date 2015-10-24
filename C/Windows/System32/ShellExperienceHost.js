@@ -1,45 +1,54 @@
 var os = window.parent.window;
+var startopened = false;
 
 if (typeof $(".startbutton")[0] !== "undefined") {
 	$(".startbutton").click(function(){
-		//os.startmenuopen = !os.startmenuopen;
-		//if (os.startmenuopen) {
-		//	os.openstart();
-		//} else {
-		//	os.closestart();
-		//}
-		sendEvent({eventname:"starttoggle"},function(){})
+		startopened = !startopened;
+
+		if (startopened) {
+			$(".startmenubody")[0].className = "startmenubody startmenubodyopen"
+		} else {
+			$(".startmenubody")[0].className = "startmenubody"
+		}
 	});
-} else {
+
 	$("#searchbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
 		sendEvent({eventname:"openwindow",args:["https://google.com","Google Search",1180,720]});
 	});
 
 	$("#mcbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
 		sendEvent({eventname:"openwindow",args:["C/Windows/explorer.html","File Explorer"]});
 	});
 
 	$("#runbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
 		sendEvent({eventname:"openwindow",args:["C/Windows/System32/runas.html","Run",425,190]});
 	});
 
 	$("#shutdownbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
 		sendEvent({eventname:"shutdown"});
 	});
 
 	$("#lockbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
 		sendEvent({eventname:"lockscreen"});
 	});
 
 	$("#aboutbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
 		sendEvent({eventname:"openwindow",args:["C/Windows/System32/winver.html","About",600,380]});
 	});
 
 	$("#immtestbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
 		sendEvent({eventname:"openwindow",args:["C/Windows/System32/immersive.html","Immersive Test"]});
 	});
 
 	$("#gimmbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
 		sendEvent({eventname:"openwindow",args:["https://google.com","",undefined,undefined,undefined,undefined,true,[
 			{
 				name:"googleRule",

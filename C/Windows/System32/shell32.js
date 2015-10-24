@@ -121,14 +121,13 @@ function testLogin() {
 	if (CryptoJS.SHA3($(".authentication input")[0].value + pwSalt + "") + "" === pwHash + "") {
 		$(".dwm")[0].className = "dwm";
 		document.body.className += "bodyperspective";
-		setTimeout(function(){
-			$(".wallpaper.hidden")[0].className = "wallpaper";
-			$("html>.wallpaper").on("mousedown",function(){
-				unfocusWindows();
-				console.log("click wallpaper!!!!!!");
-			});
-			$(".lockscreen")[0].className = "lockscreen lockscreenopened wallpaper hidden"
-		},0);
+		$(".wallpaper.hidden")[0].className = "wallpaper";
+		$(".authentication input")[0].value = "";
+		$("html>.wallpaper").on("mousedown", function(){
+			unfocusWindows();
+			console.log("click wallpaper!!!!!!");
+		});
+		$(".lockscreen")[0].className = "lockscreen lockscreenopened wallpaper hidden"
 	} else {
 		$(".authentication div")[0].innerHTML = "Incorrect Password";
 
@@ -157,13 +156,13 @@ function unfocusWindows() {
 function initShellEvents() {
 
 	window.openstart = function() {
-		$(".startmenu")[0].className = "startmenu";
+		$(".taskbar")[0].className = "taskbar taskbarexpanded";
 		startmenuopen = true;
 		console.log("open!");
 	}
 
 	window.closestart = function() {
-		$(".startmenu")[0].className = "startmenuclosed startmenu";
+		$(".taskbar")[0].className = "taskbar";
 		startmenuopen = false;
 		console.log("close!");
 	}
@@ -179,6 +178,8 @@ function initShellEvents() {
 
 	window.onEvent("lockscreen",function(args){
 		$(".lockscreen")[0].className = "lockscreen wallpaper";
+
+		$(".authentication input")[0].focus();
 		
 		setTimeout(function(){
 			document.body.className = "";
@@ -205,7 +206,9 @@ function initShellEvents() {
 	  }, 1000);
 	}, false);
 
-	$(".watermark")[0].innerHTML = "WebShell Version " + os.systemVersion + "<br>Experimental Copy. Build " + os.systemBuild
+	$(".watermark")[0].innerHTML = "WebShell Version " + os.systemVersion + "<br>Experimental Copy. Build " + os.systemBuild;
+
+	$(".authentication input")[0].focus();
 }
 
 function generateRandomCharacter() {
