@@ -4,14 +4,14 @@ var os = window;
 window.os = window;
 var ntkapi = [];
 os.currentUser = "User";
+os.storage = [];
 
 ntkapi.useBrowserRestartForShutdown = true;
 
 os.shuttingdown = false;
 os.bypassLockscreen = false;
 os.systemVersion = "1.0";
-os.systemBuild = "3866";
-os.storage = [];
+os.systemBuild = "4516";
 
 os.import = function(library) {
 	if (library === "jquery") {
@@ -20,11 +20,14 @@ os.import = function(library) {
 }
 
 os.getRegistryValue = function(key,callback) {
+	console.log(key);
 	chrome.storage.local.get(key,callback)
 }
 
 os.setRegistryValue = function(key,value,callback) {
-	var tmp = [];
+	var tmp = Object.create(window);
+	console.log(key);
+	console.log(value);
 	tmp[key] = value;
 	chrome.storage.local.set(tmp,callback);
 }

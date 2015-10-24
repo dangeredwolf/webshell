@@ -1,11 +1,11 @@
 window.sendEvent = function(msg,onrespond) {
-	chrome.runtime.sendMessage(msg,onrespond);
+	chrome.runtime.sendMessage(msg,onrespond || function(){});
 }
 
 window.onEvent = function(evnt,func) {
 	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 		if (request.eventname === evnt) {
-			(func || sendResponse)(request.args);
+			(func ? func : sendResponse)(request.args);
 		}
 	});
 }

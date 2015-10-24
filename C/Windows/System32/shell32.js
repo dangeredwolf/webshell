@@ -1,26 +1,57 @@
 const debugWindowAnimations = false;
+const debugAuthentication = false;
 var scrollTimer = 0;
 var startmenuopen = false;
-const debugAuthentication = true;
+var pwHash;
+var pwSalt;
+window.tickedNewbie = false;
+
+os.storage.login = new IDBStore({
+	dbVersion: '1',
+	storeName: 'login',
+	keyPath: 'id',
+	autoIncrement: true,
+	onStoreReady: function () {
+		console.log("login store ready!");
+		loadLoginData();
+	}
+});
 
 function loadLoginData() {
-	os.storage[os.currentUser] = [];
-	chrome.storage.local.get(os.currentUser + "_passwordHash",function(e) {
-		os.storage[os.currentUser].passwordHash = e + "";
-		checkIfAllLoginDataReady();
-	});
-	chrome.storage.local.get(os.currentUser + "_passwordSalt",function(e) {
-		os.storage[os.currentUser].passwordSalt = e + "";
-		checkIfAllLoginDataReady();
-	});
-}
+	os.storage.login.get("passwordSalt",function(e){
+		pwSalt = e ? e.value : undefined;
 
-function checkIfAllLoginDataReady() {
-	if (os.storage[os.currentUser].passwordHash && os.storage[os.currentUser].passwordSalt) {
-		initLockscreen();
-	} else if (!os.storage[os.currentUser].passwordHash && !os.storage[os.currentUser].passwordSalt) {
-		initLockScreen();
-	}
+		console.log("loading this salt thing " + pwSalt);
+
+		if (tickedNewbie) {
+			setupLogin();
+		}
+
+		if (typeof pwSalt === "undefined") {
+			tickedNewbie = true;
+		}
+
+		if (typeof pwHash !== "undefined" && typeof pwSalt !== "undefined") {
+			initLockscreen();
+		}
+	});
+	os.storage.login.get("passwordHash",function(e){
+		pwHash = e ? e.value : undefined;
+
+		console.log("loading this hash thing " + pwHash);
+
+		if (tickedNewbie) {
+			setupLogin();
+		}
+
+		if (typeof pwHash === "undefined") {
+			tickedNewbie = true;
+		}
+
+		if (typeof pwHash !== "undefined" && typeof pwSalt !== "undefined") {
+			initLockscreen();
+		}
+	});
 }
 
 function FormatMonth(monthstring) {
@@ -55,7 +86,6 @@ function FormatMonth(monthstring) {
 }
 
 function initShell() {
-	loadLoginData();
 	lockscreenTimeUpdate();
 	initShellEvents();
 }
@@ -83,15 +113,12 @@ function parseBool(a) {
 }
 
 function testLogin() {
-	if (!!!os.storage[os.currentUser]) {
+	if (!pwHash) {
 		throw "The account storage container for this user has not been set up";
 		$(".authentication div")[0].innerHTML = "Something happened";
 	}
 
-	console.log(os.storage[os.currentUser].passwordHash);
-	console.log(CryptoJS.SHA3($(".authentication input")[0].value + os.storage[os.currentUser].passwordSalt) + "");
-
-	if (CryptoJS.SHA3($(".authentication input")[0].value + os.storage[os.currentUser].passwordSalt + "") + "" === os.storage[os.currentUser].passwordHash + "") {
+	if (CryptoJS.SHA3($(".authentication input")[0].value + pwSalt + "") + "" === pwHash + "") {
 		$(".dwm")[0].className = "dwm";
 		document.body.className += "bodyperspective";
 		setTimeout(function(){
@@ -101,7 +128,7 @@ function testLogin() {
 				console.log("click wallpaper!!!!!!");
 			});
 			$(".lockscreen")[0].className = "lockscreen lockscreenopened wallpaper hidden"
-		},700);
+		},0);
 	} else {
 		$(".authentication div")[0].innerHTML = "Incorrect Password";
 	}
@@ -148,7 +175,6 @@ function initShellEvents() {
 
 	window.onEvent("lockscreen",function(args){
 		$(".lockscreen")[0].className = "lockscreen wallpaper";
-		$(".authentication")[0].className = "authentication hidden";
 		
 		setTimeout(function(){
 			document.body.className = "";
@@ -192,7 +218,7 @@ function generateRandomCharacters(num) {
 }
 
 function setupLogin() {
-	chrome.storage.local[os.currentUser] = chrome.storage.local[os.currentUser] || [];
+	
 	$(".authentication div")[0].innerHTML = "Let's set up your account. Enter a new password.";
 	os.setupPass = undefined;
 	os.confirmPass = undefined;
@@ -245,17 +271,17 @@ function saveCredentials(setupPass) {
 		$(".authentication div")[0].innerHTML = "DEBUG!!!!!!! hash: " + hash + ", salt: " + salt;
 	}
 
-	os.setRegistryValue(os.currentUser + "_passwordSalt",salt)
-	os.setRegistryValue(os.currentUser + "_passwordHash",hash)
+	os.storage.login.put({"id":"passwordSalt","value":salt});
+	os.storage.login.put({"id":"passwordHash","value":hash});
 	os.setupPass = undefined;
 	os.confirmPass = undefined;
 	$(".authentication input")[0].value = "";
-
 	$(".authentication div")[0].innerHTML = "You may now log in!";
 
 	os.savedCredentialsJustNow = true;
 
-	
+	initLockscreen();
+
 	return;
 }
 

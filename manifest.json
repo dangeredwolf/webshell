@@ -8,11 +8,37 @@
 
 	"permissions": [
 		"<all_urls>",
+		"accessibilityFeatures",
 		"webview",
 		"fullscreen",
 		"alwaysOnTopWindows",
-		"storage"
+		"storage",
+		"serial",
+		"fileSystem",
+		"syncFileSystem",
+		"hid",
+		"alarms",
+		"browser",
+		"commands",
+		"contextMenus",
+		"gcm",
+		"idle",
+		"mdns",
+		"power",
+		"printerProvider",
+		"system.cpu",
+		"system.display",
+		"system.memory",
+		"system.network",
+		"system.storage",
+		"tts",
+		"identity"
 	],
+
+	"bluetooth": {
+		"lowEnergy":true,
+		"socket":true
+	},
 
 	"webview": {
 		"partitions": [
@@ -28,6 +54,12 @@
 				"name":"immersive",
 				"accessible_resources":["http://*","https://*","*.css","*.js","*.woff","*.woff2","*.ttf","*.otf"]
 			}
+		]
+	},
+
+	"sockets": {
+		"*": [
+			"*"
 		]
 	},
 

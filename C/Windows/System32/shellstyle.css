@@ -133,6 +133,16 @@ button:focus {
 	}
 }
 
+@keyframes fadein {
+	0% {
+		opacity:0
+	}
+
+	100% {
+		opacity:1
+	}
+}
+
 .windowcontrols {
 	margin-left:auto;
 	position:absolute;
@@ -280,11 +290,14 @@ button:focus {
 .lockscreen.wallpaper {
 	z-index: 14;
 	visibility:visible;
-	opacity:1;
+	opacity: 0;
 	transition:margin 500ms cubic-bezier(0,1,.46,1)!important;
 	background-image:url(../Resources/lockscreen.jpg);
 	margin-right:0px;
-	margin-left:0px
+	margin-left:0px;
+	animation: fadein 350ms;
+	animation-fill-mode: forwards;
+	animation-delay: 500ms;
 }
 
 .lockscreen.hidewallpaper.wallpaper {
