@@ -14,10 +14,6 @@ body  {
 	margin:0;
 }
 
-iframe {
-	border:none;
-}
-
 webview {
 	border:none;
 	background:transparent;
@@ -29,15 +25,7 @@ webview {
 	transition:-webkit-filter 0.8s,filter 0.8s,-moz-filter 0.8s;
 	bottom: -5px;
 	position: relative;
-	top: -3px;
-}
-
-.immersive .windowcontrols {
-	margin-top: 10px;
-}
-
-.immersive.window webview {
-	top:0px;
+	top:0
 }
 
 html,body,.dwm {
@@ -54,8 +42,6 @@ html,body,.dwm {
 }
 
 .window {
-	/* border-top: #19BDA7 solid 10px; */
-	background-color:#19BDA7;
 	color:#333;
 	width:auto;
 	position:absolute;
@@ -65,16 +51,8 @@ html,body,.dwm {
 	min-height:100px;
 }
 
-.window:not(.immersive) {
-	padding-top: 10px;
-}
-
 .window:not(.windowunfocussed) {
 	z-index:10;
-}
-
-.window.windowunfocussed {
-	background:#eee
 }
 
 .windowclosed {
@@ -149,6 +127,7 @@ button:focus {
 	width:100%;
 	z-index:9;
 	display:block;
+	margin-top:-10px
 }
 
 .windowcontrol {
@@ -157,16 +136,16 @@ button:focus {
 	position:absolute;
 	right: 7px;
 	display:inline;
-	width: 48px;
+	width: 42px;
 	outline:none;
-	height:30px;
+	height: 38px;
 	font-size:17px;
 	line-height:0px;
 	font-weight:600;
 	top: -13px;
 	opacity:0.8;
 	font-family: "Material Icons";
-	font-weight:100
+	font-weight: 600;
 }
 
 .windowcontrol:hover {
@@ -180,7 +159,7 @@ button:focus {
 }
 
 .windowcontrol.close {
-	right:-3px
+	right: -3px;
 }
 
 .windowcontrol.close:hover {
@@ -192,21 +171,8 @@ button:focus {
 	background:#e55;
 }
 
-.windowtitle {
-	text-align: left;
-	padding-bottom:6px;
-	pointer-events:none;
-	font-size: 14px;
-	margin-top: -3px;
-	padding-left: 10px;
-	margin-bottom: 3px;
-}
-
 .windowbody {
 	background-color:#fff;
-}
-
-.windowbody {
 	padding:0px;
 	pointer-events: fill;
 }
@@ -229,32 +195,6 @@ button:focus {
 
 .hidden {
 	display:none;
-}
-
-.bios {
-	font-family:Courier;
-	font-weight:700;
-	margin:0;
-	padding:10px;
-	height:100%;
-	width:100%;
-	position:absolute;
-	font-size:14px;
-	top:0;
-	bottom:0;
-	left:0;
-}
-
-.bootimage {
-	height:130px;
-	width:130px;
-	position: absolute;
-    margin: auto;
-    margin-top:140px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
 .fadeout,.fadeout * {
@@ -434,23 +374,6 @@ button.startbutton:active {
 	height:32px;
 	position:absolute;
 	left:10px;
-	bottom:34px;
-	border:none;
-	color:transparent;
-	background-color:transparent!important;
-	background:url(../Resources/startbuttonhover.png) no-repeat;
-	background-size:32px 32px;
-	z-index:12;
-	opacity:0;
-	transition:opacity 0.3s;
-}
-
-.startbutton:after {
-	content:"";
-	width:32px;
-	height:32px;
-	position:absolute;
-	left:10px;
 	bottom: 35px;
 	border:none;
 	color:transparent;
@@ -488,13 +411,15 @@ button.startbutton:active {
 	background: #19BDA7;
 	border:none;
 	margin:3px;
-	transition:border 0s,transform 0.18s;
 	font-size:14px;
 	text-align:left;
 	font-weight:400;
-	padding-top:70px;
 	margin-top:620px;
 	display:inline-block!important;
+	font-family:"Material Icons";
+	font-size:48px;
+	padding-left:26px;
+	padding-top:8px;
 }
 
 .startmenubody button:active {
@@ -503,7 +428,7 @@ button.startbutton:active {
 
 .startmenubody button:hover {
 	border:2px solid #fff;
-	padding-left:8px;
+	padding-left:24px;
 }
 
 .shelltransfix {
@@ -512,11 +437,11 @@ button.startbutton:active {
 }
 
 .windowcontrol.max {
-	right: 45px;
+	right: 38px;
 }
 
 .windowcontrol.min {
-	right: 95px;
+	right: 79px;
 }
 
 webview.unresponsive {
@@ -615,4 +540,43 @@ webview.unresponsive {
 
 .hidden .authentication {
 	pointer-events:none;
+}
+
+.powerbutton,.lockbutton {
+	background-color:transparent!important;
+	height:35px!important;
+	width:35px!important;
+	position:absolute;
+	bottom:200px;
+	font-size:0px!important;
+	padding:0!important
+}
+
+.powerbutton:hover,.lockbutton:hover {
+	height:35px!important;
+	max-height:35px!important;
+	border:none!important;
+	padding:0
+}
+
+.lockbutton {
+	left:60px
+}
+
+.powerbutton {
+	left:10px
+}
+
+.lockbutton:before {
+	content:"\e897";
+	padding-right:10px;
+	font-size:24px;
+	margin-top:3px
+}
+
+.powerbutton:before {
+	content:"\e8ac";
+	padding-right:10px;
+	font-size:24px;
+	margin-top:3px
 }

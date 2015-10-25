@@ -21,8 +21,6 @@ function loadLoginData() {
 	os.storage.login.get("passwordSalt",function(e){
 		pwSalt = e ? e.value : undefined;
 
-		console.log("loading this salt thing " + pwSalt);
-
 		if (tickedNewbie) {
 			setupLogin();
 		}
@@ -37,8 +35,6 @@ function loadLoginData() {
 	});
 	os.storage.login.get("passwordHash",function(e){
 		pwHash = e ? e.value : undefined;
-
-		console.log("loading this hash thing " + pwHash);
 
 		if (tickedNewbie) {
 			setupLogin();
@@ -151,6 +147,7 @@ function login() {
 	$(".authentication input")[0].value = "";
 	$("html>.wallpaper").on("mousedown", function(){
 		unfocusWindows();
+		closestart();
 		console.log("click wallpaper!!!!!!");
 	});
 }
