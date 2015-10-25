@@ -108,6 +108,18 @@ function lockscreenTimeUpdate() {
 	setTimeout(lockscreenTimeUpdate,2000);
 }
 
+function lockDeviceScreen() {
+	$(".lockscreen")[0].className = "lockscreen wallpaper";
+
+	$(".authentication input")[0].focus();
+		
+	setTimeout(function(){
+		document.body.className = "";
+		$("html>body>.wallpaper:not(.lockscreen)")[0].className = "wallpaper hidden"
+	},400);
+	lockscreenTimeUpdate();
+}
+
 function parseBool(a) {
 	return a === "true";
 }
@@ -119,15 +131,8 @@ function testLogin() {
 	}
 
 	if (CryptoJS.SHA3($(".authentication input")[0].value + pwSalt + "") + "" === pwHash + "") {
-		$(".dwm")[0].className = "dwm";
-		document.body.className += "bodyperspective";
-		$(".wallpaper.hidden")[0].className = "wallpaper";
-		$(".authentication input")[0].value = "";
-		$("html>.wallpaper").on("mousedown", function(){
-			unfocusWindows();
-			console.log("click wallpaper!!!!!!");
-		});
-		$(".lockscreen")[0].className = "lockscreen lockscreenopened wallpaper hidden"
+		$(".lockscreen")[0].className = "lockscreen lockscreenopened wallpaper hidden";
+		login();
 	} else {
 		$(".authentication div")[0].innerHTML = "Incorrect Password";
 
@@ -135,6 +140,19 @@ function testLogin() {
 			$(".authentication div")[0].innerHTML = "Hey, User!";
 		},1500)
 	}
+}
+
+function login() {
+	startShellExperienceHost();
+
+	$(".dwm")[0].className = "dwm";
+	document.body.className += "bodyperspective";
+	$(".wallpaper.hidden:not(.lockscreen)")[0].className = "wallpaper";
+	$(".authentication input")[0].value = "";
+	$("html>.wallpaper").on("mousedown", function(){
+		unfocusWindows();
+		console.log("click wallpaper!!!!!!");
+	});
 }
 
 function linkWindow(awindow) {
@@ -156,13 +174,13 @@ function unfocusWindows() {
 function initShellEvents() {
 
 	window.openstart = function() {
-		$(".taskbar")[0].className = "taskbar taskbarexpanded";
+		$(".startmenubody")[0].className = "startmenubody startmenubodyopen";
 		startmenuopen = true;
 		console.log("open!");
 	}
 
 	window.closestart = function() {
-		$(".taskbar")[0].className = "taskbar";
+		$(".startmenubody")[0].className = "startmenubody";
 		startmenuopen = false;
 		console.log("close!");
 	}
@@ -177,15 +195,7 @@ function initShellEvents() {
 	});
 
 	window.onEvent("lockscreen",function(args){
-		$(".lockscreen")[0].className = "lockscreen wallpaper";
-
-		$(".authentication input")[0].focus();
-		
-		setTimeout(function(){
-			document.body.className = "";
-			$("html>body>.wallpaper:not(.lockscreen)")[0].className = "wallpaper hidden"
-		},400);
-		lockscreenTimeUpdate();
+		lockDeviceScreen();
 	});
 
 	window.onEvent("starttoggle",function(){
@@ -396,7 +406,7 @@ function openWindow(url,title,sizex,sizey,posx,posy,immersive,extracontent,dragl
 	webview.src = url;
 
 	webview.addEventListener("contentload",function() {
-		div.className = "window draggable resizable windownative";
+		
 		webview.executeScript({code:"document.querySelector('meta[name=\"Immersive\"]').content"},function(e){
 			if (parseBool(e[0]) || immersive) {
 				immersive = true;
@@ -407,9 +417,13 @@ function openWindow(url,title,sizex,sizey,posx,posy,immersive,extracontent,dragl
 				console.log("No immersive drag props");
 			}
 
-			if (immersive) {
-				div.className += " immersive";
-			}
+			setTimeout(function(){
+				div.className = "window draggable resizable windownative";
+
+				//if (immersive) {
+					div.className += " immersive";
+				//}
+			},300)
 		});
 
 		if (!!extracontent) {
@@ -456,6 +470,68 @@ function openWindow(url,title,sizex,sizey,posx,posy,immersive,extracontent,dragl
 		webview.executeScript({code:"window.close();"},function(e){console.log(e)});
 	});
 
+}
+
+function startShellExperienceHost() {
+	var startopened = false;
+
+	$(".startbutton").click(function(){
+		startopened = !startopened;
+
+		if (startopened) {
+			$(".startmenubody")[0].className = "startmenubody startmenubodyopen"
+		} else {
+			$(".startmenubody")[0].className = "startmenubody"
+		}
+	});
+
+	$("#searchbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		openWindow("https://google.com","Google Search",1180,720);
+	});
+
+	$("#mcbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		openWindow("C/Windows/explorer.html","File Explorer");
+	});
+
+	$("#runbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		openWindow("C/Windows/System32/runas.html","Run",425,190);
+	});
+
+	$("#shutdownbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		os.shutdown();
+	});
+
+	$("#lockbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		lockDeviceScreen();
+	});
+
+	$("#aboutbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		openWindow("C/Windows/System32/winver.html","About",600,380);
+	});
+
+	$("#immtestbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		openWindow("C/Windows/System32/immersive.html","Immersive Test");
+	});
+
+	$("#gimmbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		openWindow("https://google.com","",undefined,undefined,undefined,undefined,true,[
+			{
+				name:"googleRule",
+				matches: ["https://*.google.com/*","http://*.google.com/*"],
+				css: {files: ["C/Program Files/Google/Search/immersivesearch.css"]},
+				js: {files: ["C/Windows/System32/rundll32.js","C/Windows/System32/shellui.js"]},
+				run_at: "document_end"
+			}
+		],520,190);
+	});
 }
 
 initShell();

@@ -60,14 +60,3 @@ if (typeof $(".startbutton")[0] !== "undefined") {
 		],520,190]});
 	});
 }
-
-var enableTimer = 0;
-
-window.addEventListener('scroll', function() {
-  clearTimeout(enableTimer);
-  document.body.classList.remove('hover');
-
-  enableTimer = setTimeout(function(){
-  	document.body.classList.add('hover');
-  }, 1000);
-}, false);
