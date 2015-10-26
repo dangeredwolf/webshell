@@ -451,6 +451,11 @@ function openWindow(url,title,sizex,sizey,posx,posy,immersive,extracontent,dragl
 
 	$(".window#" + windowid).resizable().on("resize",function(e,ui){
 		console.log("??!w12312312");
+		if (webview.parentElement.className.indexOf("fillscreen") > -1) {
+			preventDefault();
+			return;
+		}
+		
 		if (ui.originalSize.width !== ui.size.width && ui.originalSize.height !== ui.size.height) {
 			webview.style.width = div.style.width;
 			webview.style.height = (parseInt(div.style.height.match(/\d+/g)) - (!!immersive ? 0 : 20)) + "px";
@@ -463,10 +468,19 @@ function openWindow(url,title,sizex,sizey,posx,posy,immersive,extracontent,dragl
 		}
 	});
 
+
 	$(".window#" + windowid + " .windowcontrol.close").click(function(data,handler){
 		webview.executeScript({code:"window.close();"},function(e){console.log(e)});
 	});
 
+
+	$(".window#" + windowid + " .windowcontrol.max").click(function(data,handler){
+		if (webview.parentElement.className.indexOf("fillscreen") > -1) {
+			webview.parentElement.className = webview.parentElement.className.replace(" fillscreen","")
+		} else {
+			webview.parentElement.className += " fillscreen";
+		}
+	});
 }
 
 function startShellExperienceHost() {
