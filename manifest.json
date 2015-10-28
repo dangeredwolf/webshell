@@ -1,7 +1,7 @@
 {	
 	"app": {
 		"launch": {
-			"local_path": "bios.html",
+			"local_path": "webshellapp.html",
 			"content_security_policy": " "
 		}
 	},
@@ -44,7 +44,7 @@
 		"partitions": [
 			{
 				"name":"system",
-				"accessible_resources":["C/*","C/*/*","C/*/*/*","C/*/*/*/*","C/*/*/*/*/*","http://*","https://*"]
+				"accessible_resources":["Themes/*","Resources/*","Apps/*","Libraries/*","Foundation/*","http://*","https://*"]
 			},
 			{
 				"name":"userland",
@@ -74,7 +74,7 @@
 
 	"app": {
 		"background": {
-			"scripts": ["C/Windows/System32/Drivers/background.js"]
+			"scripts": ["Foundation/com.dangeredwolf.webshell.io/io.js"]
 		}
 	}
 }
