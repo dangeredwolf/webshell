@@ -32,6 +32,7 @@
 		"system.network",
 		"system.storage",
 		"tts",
+		"app.window.fullscreen.overrideEsc",
 		"identity"
 	],
 
