@@ -88,6 +88,15 @@ function FormatMonth(monthstring) {
 }
 
 function initShell() {
+	$(".bootlogo")[0].className = "bootlogo fadeout";
+	setTimeout(function(){
+		$(".bootlogo")[0].remove();
+	},500);
+
+	setTimeout(function(){
+		$(".lockscreen")[0].className = "wallpaper lockscreen";
+	},500);
+
 	lockscreenTimeUpdate();
 	initShellEvents();
 }
@@ -324,8 +333,6 @@ function initLockscreen() {
 			testLogin();
 		},500);
 	}
-
-	setTimeout(function(){$(".lockscreen.hidewallpaper")[0].className = "lockscreen wallpaper"},300);
 }
 
 function openWindow(url,title,sizex,sizey,posx,posy,immersive,extracontent,dragleft,dragright) {
@@ -565,10 +572,4 @@ $(window).load(function(){
 	} else {
 		pleaseLoadDataImmedientlyThankYou = true;
 	}
-	$(".bootlogo")[0].className = "bootlogo fadeout";
-	$(".lockscreen")[0].className = "wallpaper hidewallpaper lockscreen";
-
-	setTimeout(function(){
-		$(".bootlogo")[0].remove();
-	},500);
 });

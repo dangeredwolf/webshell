@@ -11,7 +11,7 @@ ntkapi.useBrowserRestartForShutdown = true;
 os.shuttingdown = false;
 os.bypassLockscreen = false;
 os.systemVersion = "1.0";
-os.systemBuild = "6100";
+os.systemBuild = "6130";
 
 os.import = function(library) {
 	if (library === "jquery") {
