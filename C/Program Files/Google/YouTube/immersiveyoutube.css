@@ -1,0 +1,143 @@
+html {
+    zoom:1.2!important;
+}
+
+.appbar-guide-menu-layout {
+    visibility:visible!important;
+    left:-230px!important;
+    transition:left 250ms cubic-bezier(0,1,.46,1)!important;
+    opacity:1!important;
+    top:-50px!important
+}
+
+.show-guide .appbar-guide-menu-layout {
+    left:0px!important
+}
+
+.guide-item {
+    padding:10px!important
+}
+
+.guide-notification-item {
+    padding-bottom:10px;
+}
+
+#content,#masthead-positioner {
+    transition:-webkit-filter 250ms cubic-bezier(0,1,.46,1)
+}
+
+.show-guide #content,.show-guide #masthead-positioner {
+    -webkit-filter:brightness(60%)
+}
+
+#guide-container {
+    padding:0px
+}
+
+#ad_creative_1 {
+    display:none;
+}
+
+.spf-link.g-hovercard {
+    padding-left:10px;
+    padding-top:8px
+}
+
+#yt-masthead-container {
+   padding-left:12px;
+   background:#E53935
+}
+
+.yt-uix-button-icon {
+    -webkit-filter:brightness(10)
+}
+
+#upload-btn {
+    background:transparent;
+    padding-top:2px;
+    border:none;
+    border-radius:none;
+    color:#fff;
+    text-transform:uppercase;
+}
+
+.search-button,#yt-masthead-user #sb-button-notify,.yt-masthead-user-icon {
+    display:none
+}
+
+#yt-masthead-user {
+    margin-left:5px
+}
+
+.yt-base-gutter, .yt-unlimited #footer-container.yt-base-gutter {
+    padding:0!important;
+    padding-right:70px!important
+}
+
+#yt-masthead .yt-masthead-logo-container {
+    width:100px!important
+}
+
+#appbar-guide-button {
+    margin-left:0px
+}
+
+.video-time {
+    background:none;
+    opacity:1;
+    text-shadow:0px 2px 5px rgba(0,0,0,1)
+}
+
+#masthead-search-terms,#masthead-search-term,#masthead-search {
+    background:transparent;
+    border:0;
+    outline:0;
+    box-shadow:none
+}
+
+#masthead-search-terms {
+    border-bottom:2px solid #fff;
+    padding-left:5px;
+    color:#fff
+}
+
+#yt-masthead #logo-container .logo {
+    background:url(https://www.youtube.com/yt/brand/media/image/YouTube_light_color_icon.png)!important;
+    background-size:34px 24px!important;
+    width:34px!important;
+    height:24px!important;
+    margin-bottom:1px!important
+}
+
+.appbar-hidden #masthead-positioner-height-offset {
+    height:24px
+}
+
+#yt-masthead-container {
+    border-bottom:0!important
+}
+
+.yt-card.yt-card-has-padding {
+    padding-bottom:0px!important
+}
+
+#watch-description-text {
+    transition:max-height 0.3s cubic-bezier(1,.46,0,1);
+    max-height:1000px
+}
+
+yt-uix-expander-collapsed #watch-description-text {
+    transition:max-height 0.6s cubic-bezier(0,1,.46,1);
+}
+
+#watch7-main #watch7-content {
+    width:100%;
+}
+
+.player-width {
+    width:100%!important;
+}
+
+#watch7-sidebar-ads {
+    display:none!important
+}

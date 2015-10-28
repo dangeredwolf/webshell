@@ -4,6 +4,8 @@ var scrollTimer = 0;
 var startmenuopen = false;
 var pwHash;
 var pwSalt;
+var storeReady = false;
+var pleaseLoadDataImmedientlyThankYou = false;
 window.tickedNewbie = false;
 
 os.storage.login = new IDBStore({
@@ -13,7 +15,9 @@ os.storage.login = new IDBStore({
 	autoIncrement: true,
 	onStoreReady: function () {
 		console.log("login store ready!");
-		loadLoginData();
+		storeReady = true;
+		if (pleaseLoadDataImmedientlyThankYou)
+			loadLoginData();
 	}
 });
 
@@ -521,6 +525,19 @@ function startShellExperienceHost() {
 		lockDeviceScreen();
 	});
 
+	$("#youtubebutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		openWindow("https://youtube.com","",undefined,undefined,undefined,undefined,true,[
+			{
+				name:"youtubeRule",
+				matches: ["https://*.youtube.com/*","http://*.youtube.com/*"],
+				css: {files: ["C/Program Files/Google/YouTube/immersiveyoutube.css"]},
+				js: {files: ["C/Windows/System32/rundll32.js","C/Windows/System32/shellui.js"]},
+				run_at: "document_end"
+			}
+		],1280,720);
+	});
+
 	$("#aboutbutton").click(function(){
 		$(".startmenubody")[0].className = "startmenubody";
 		openWindow("C/Windows/System32/winver.html","About",600,380);
@@ -545,4 +562,15 @@ function startShellExperienceHost() {
 	});
 }
 
-initShell();
+$(window).load(function(){
+	if (storeReady) {
+		loadLoginData()
+	} else {
+		pleaseLoadDataImmedientlyThankYou = true;
+	}
+	$(".bootlogo")[0].className = "bootlogo fadeout";
+	$(".lockscreen")[0].className = "wallpaper hidewallpaper lockscreen";
+	setTimeout(function(){
+		$(".bootlogo")[0].remove();
+	},500);
+});
