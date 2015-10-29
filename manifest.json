@@ -45,7 +45,7 @@
 		"partitions": [
 			{
 				"name":"system",
-				"accessible_resources":["Themes/*","Resources/*","Apps/*","Libraries/*","Foundation/*","http://*","https://*"]
+				"accessible_resources":["Themes/*","CoreApps/*","Resources/*","Apps/*","Libraries/*","Foundation/*","http://*","https://*"]
 			},
 			{
 				"name":"userland",

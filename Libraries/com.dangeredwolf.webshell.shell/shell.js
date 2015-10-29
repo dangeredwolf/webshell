@@ -6,6 +6,7 @@ var pwHash;
 var pwSalt;
 var storeReady = false;
 var pleaseLoadDataImmedientlyThankYou = false;
+var settingUp = false;
 window.tickedNewbie = false;
 
 os.storage.login = new IDBStore({
@@ -22,7 +23,6 @@ os.storage.login = new IDBStore({
 });
 
 function loadLoginData() {
-	initShell();
 
 	os.storage.login.get("passwordSalt",function(e){
 		pwSalt = e ? e.value : undefined;
@@ -36,6 +36,7 @@ function loadLoginData() {
 		}
 
 		if (typeof pwHash !== "undefined" && typeof pwSalt !== "undefined") {
+			initShell();
 			initLockscreen();
 		}
 	});
@@ -51,6 +52,7 @@ function loadLoginData() {
 		}
 
 		if (typeof pwHash !== "undefined" && typeof pwSalt !== "undefined") {
+			initShell();
 			initLockscreen();
 		}
 	});
@@ -88,14 +90,21 @@ function FormatMonth(monthstring) {
 }
 
 function initShell() {
-	$(".bootlogo")[0].className = "bootlogo fadeout";
+	setTimeout(function(){
+		$(".bootlogo")[0].className = "bootlogo fadeout";
+	},1500);
+
 	setTimeout(function(){
 		$(".bootlogo")[0].remove();
-	},500);
+	},2000);
 
 	setTimeout(function(){
 		$(".lockscreen")[0].className = "wallpaper lockscreen";
-	},500);
+
+		if (settingUp) {
+			$(".lockscreen")[0].className += " hidden";			
+		}
+	},2300);
 
 	lockscreenTimeUpdate();
 	initShellEvents();
@@ -185,18 +194,6 @@ function unfocusWindows() {
 
 function initShellEvents() {
 
-	window.openstart = function() {
-		$(".startmenubody")[0].className = "startmenubody startmenubodyopen";
-		startmenuopen = true;
-		console.log("open!");
-	}
-
-	window.closestart = function() {
-		$(".startmenubody")[0].className = "startmenubody";
-		startmenuopen = false;
-		console.log("close!");
-	}
-
 	window.onEvent("openwindow",function(args){
 		console.log(args);
 		openWindow(args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8],args[9],args[10],args[11],args[12]);
@@ -204,6 +201,15 @@ function initShellEvents() {
 
 	window.onEvent("shutdown",function(args){
 		os.shutdown();
+	});
+
+	window.onEvent("setupsavecredentials",function(args){
+		console.log("DING! " + args[0]);
+
+		os.setupPass = args[0];
+		os.confirmPass = args[0];
+
+		saveCredentials();
 	});
 
 	window.onEvent("lockscreen",function(args){
@@ -249,6 +255,55 @@ function generateRandomCharacters(num) {
 }
 
 function setupLogin() {
+	var div = document.createElement("div");
+	div.className = "window";
+	div.style.left = "0px";
+	div.style.top = "0px";
+	div.style.width = "100%";
+	div.style.height = "100%";
+	div.style.opacity = "0.001";
+	document.body.appendChild(div);
+
+	var webview = document.createElement("webview");
+	webview.partition = "persist:system";
+	webview.style.height = "100%";
+	webview.style.width = "100%";
+	webview.className = "windowbody";
+	webview.src = "CoreApps/com.dangeredwolf.webshell.setup/setup.html";
+	div.appendChild(webview);
+
+	webview.addEventListener("contentload",function(){
+		$(".bootlogo")[0].className = "bootlogo fadeout";
+		
+		setTimeout(function(){
+			div.style.opacity = "1";
+		},500);
+	})
+
+	webview.addEventListener("dialog",function(e){
+		if (e.messageText === "ihaspassword") {
+			webview.executeScript({code:"document.querySelector('#setting1').value;"},function(result){
+				window.setupPass = result[0];
+				window.confirmPass = result[0];
+				saveCredentials();
+				webview.executeScript({code:"var div=document.createElement('div');div.id='shallwecontinue';document.body.appendChild(div);setTimeout(function(){document.querySelector('#setting1').value=Math.random();},500);"});
+				div.style.opacity = "1";
+				$(".bootlogo")[0].className = "bootlogo";
+
+				setTimeout(function(){
+					chrome.runtime.reload();
+				},1200)
+			});
+		};
+		return;
+	})
+
+	$(".lockscreen")[0].className += " hidden";
+
+	settingUp = true;
+}
+
+function setupLoginLegacy() {
 	
 	$(".authentication div")[0].innerHTML = "Let's set up your account. Enter a new password.";
 	os.setupPass = undefined;
@@ -291,10 +346,8 @@ function setupLogin() {
 }
 
 function saveCredentials(setupPass) {
-	$(".authentication div")[0].innerHTML = "Saving credentials...";
 	var salt = generateRandomCharacters(100);
 	var hash = CryptoJS.SHA3(setupPass + salt) + "";
-	$(".authentication input")[0].value = "";
 
 	console.log("hash: " + hash + ", salt: " + salt)
 
@@ -306,8 +359,6 @@ function saveCredentials(setupPass) {
 	os.storage.login.put({"id":"passwordHash","value":hash});
 	os.setupPass = undefined;
 	os.confirmPass = undefined;
-	$(".authentication input")[0].value = "";
-	$(".authentication div")[0].innerHTML = "You may now log in!";
 
 	os.savedCredentialsJustNow = true;
 
@@ -317,6 +368,11 @@ function saveCredentials(setupPass) {
 }
 
 function initLockscreen() {
+
+	if (settingUp) {
+		$(".lockscreen")[0].className = "lockscreen hidden wallpaper";
+		return;
+	}
 
 	$(".authentication input").keypress(function(e){
 		if (e.charCode === 13) {
