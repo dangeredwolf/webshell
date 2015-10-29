@@ -285,14 +285,15 @@ function setupLogin() {
 			webview.executeScript({code:"document.querySelector('#setting1').value;"},function(result){
 				window.setupPass = result[0];
 				window.confirmPass = result[0];
-				saveCredentials();
-				webview.executeScript({code:"var div=document.createElement('div');div.id='shallwecontinue';document.body.appendChild(div);setTimeout(function(){document.querySelector('#setting1').value=Math.random();},500);"});
+				console.log("hey there your password is " + result[0] + " lol");
+				saveCredentials(result[0]);
+				webview.executeScript({code:"var div=document.createElement('div');div.id='shallwecontinue';document.body.appendChild(div);//setTimeout(function(){document.querySelector('#setting1').value=Math.random();},500);"});
 				div.style.opacity = "1";
 				$(".bootlogo")[0].className = "bootlogo";
 
 				setTimeout(function(){
 					chrome.runtime.reload();
-				},1200)
+				},12000)
 			});
 		};
 		return;
