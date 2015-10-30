@@ -1,0 +1,66 @@
+<html id="setupview" class="fadeinanim">
+	<head>
+		<link rel="stylesheet" href="../../Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css">
+
+		<script src="../../Libraries/org.jquery/jquery.min.js"></script>
+		<script src="../../Foundation/appbase/appbase.js"></script>
+
+		<link rel="stylesheet" href="../../Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css">
+		<link rel="stylesheet" href="setup.css">
+
+		<link rel="stylesheet" href="../../Libraries/org.materialize/css/materialize.min.css">
+
+	</head>
+
+	<body>
+		<ul id="sidepanel" class="panelroot">
+			<div class="paneroot level0">
+				<a class="roottitle">Settings</a>
+				<a id="personalisationbutton">Personalise</a>
+				<a id="devicebutton">Your Device</a>
+			</div>
+			<div class="panepersonalise level1">
+				<a class="back back0">Personalise</a>
+				<a>Themes</a>
+				<a id="taskbarbutton">Omnibar</a>
+				<a id="wallpaperbutton">Wallpaper</a>
+				<a id="lockscreenbutton">Lock Screen</a>
+			</div>
+			<div class="panedevice level1">
+				<a class="back back0">Your Device</a>
+				<a>Sign-In</a>
+				<a>About</a>
+			</div>
+		</ul>
+
+		<div class="settingspanelview">
+			<div id="taskbarview">
+				Omnibar Style
+				<form action="#">
+				    <p>
+				      <input name="group1" type="radio" id="test1" />
+				      <label for="test1">Shadow (default)</label>
+				    </p>
+				    <p>
+				      <input name="group1" type="radio" id="test2" />
+				      <label for="test2">Frost White</label>
+				    </p>
+			  </form>
+			</div>
+			<div id="wallpaperview">
+				This is basically just a test for wallpapers
+				<select>
+			      <option value="" disabled selected>Choose your option</option>
+			      <option value="1">Option 1</option>
+			      <option value="2">Option 2</option>
+			      <option value="3">Option 3</option>
+			    </select>
+			</div>
+		</div>
+	</body>
+
+
+	<script src="../../Libraries/org.materialize/js/materialize.min.js"></script>
+	<script src="setup.js"></script>
+
+</html>

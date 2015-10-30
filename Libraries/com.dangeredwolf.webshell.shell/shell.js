@@ -192,6 +192,16 @@ function unfocusWindows() {
 	closestart();
 }
 
+function closestart() {
+	startmenuopen = false;
+	$(".startmenubody")[0].className = "startmenubody"
+}
+
+function openstart() {
+	startmenuopen = true;
+	$(".startmenubody")[0].className = "startmenubody startmenubodyopen"
+}
+
 function initShellEvents() {
 
 	window.onEvent("openwindow",function(args){
@@ -285,7 +295,6 @@ function setupLogin() {
 			webview.executeScript({code:"document.querySelector('#setting1').value;"},function(result){
 				window.setupPass = result[0];
 				window.confirmPass = result[0];
-				console.log("hey there your password is " + result[0] + " lol");
 				saveCredentials(result[0]);
 				webview.executeScript({code:"var div=document.createElement('div');div.id='shallwecontinue';document.body.appendChild(div);//setTimeout(function(){document.querySelector('#setting1').value=Math.random();},500);"});
 				div.style.opacity = "1";
@@ -293,7 +302,7 @@ function setupLogin() {
 
 				setTimeout(function(){
 					chrome.runtime.reload();
-				},12000)
+				},1200)
 			});
 		};
 		return;
@@ -302,48 +311,6 @@ function setupLogin() {
 	$(".lockscreen")[0].className += " hidden";
 
 	settingUp = true;
-}
-
-function setupLoginLegacy() {
-	
-	$(".authentication div")[0].innerHTML = "Let's set up your account. Enter a new password.";
-	os.setupPass = undefined;
-	os.confirmPass = undefined;
-
-	$(".authentication input").keypress(function(e){
-
-		if (os.savedCredentialsJustNow) {
-			return;
-		}
-
-		if (e.charCode === 13) {
-			console.log("eep");
-			console.log(os.setupPass);
-			if (typeof os.setupPass === "undefined") {
-				console.log("shit");
-				os.setupPass = $(".authentication input")[0].value+"";
-				console.log($(".authentication input")[0].value+"");
-				$(".authentication div")[0].innerHTML = "Enter your password one more time.";
-				$(".authentication input")[0].value = "";
-				console.log(os.setupPass);
-			} else {
-				os.confirmPass = $(".authentication input")[0].value;
-				if (os.confirmPass !== os.setupPass) {
-					$(".authentication input")[0].value = "";
-					$(".authentication div")[0].innerHTML = "Password mismatch, enter a new password.";
-					os.setupPass = undefined;
-					os.confirmPass = undefined;
-				} else {
-					saveCredentials(os.setupPass);
-					return;
-				}
-				
-			}
-		}
-	});
-
-	setTimeout(function(){$(".lockscreen")[0].className = "lockscreen wallpaper"},300);
-
 }
 
 function saveCredentials(setupPass) {
@@ -602,6 +569,11 @@ function startShellExperienceHost() {
 	$("#aboutbutton").click(function(){
 		$(".startmenubody")[0].className = "startmenubody";
 		openWindow("Apps/com.dangeredwolf.wsapp.wsversion/version.html","About",600,380);
+	});
+
+	$("#settingsbutton").click(function(){
+		$(".startmenubody")[0].className = "startmenubody";
+		openWindow("CoreApps/org.webshell.settings/settings.html","Settings",1200,700,undefined,undefined,undefined,undefined,250);
 	});
 
 	$("#immtestbutton").click(function(){

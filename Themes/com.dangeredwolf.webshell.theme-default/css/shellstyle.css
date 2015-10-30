@@ -1,7 +1,7 @@
 html {
 	background:#fff;
 	color:#000;
-	font-size:1.32em;
+	font-size:1.32em!important;
 }
 
 html,body,input,button {
@@ -741,4 +741,9 @@ html#setupview body * {
 
 #setupview.fadeinanim {
 	animation:fadeinsetup 0.3s cubic-bezier(0,1,.46,1);
+}
+
+.dropdown-content li>a,.dropdown-content li>span {
+    font-size:1rem!important;
+    color:#000!important;
 }
