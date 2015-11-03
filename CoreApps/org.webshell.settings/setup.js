@@ -23,6 +23,11 @@ $("#wallpaperbutton").click(function(){
 	$("#wallpaperview").addClass("viewopen");
 });
 
+$("#aboutbutton").click(function(){
+	$(".settingspanelview div").removeClass();
+	$("#aboutview").addClass("viewopen");
+});
+
 $(document).ready(function() {
     $('select').material_select();
 });

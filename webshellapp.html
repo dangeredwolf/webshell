@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html>
-	<body class="">
+<html id="coreos">
 
-		<link rel="stylesheet" href="Foundation/com.dangeredwolf.webshell.core.ui/corecss.css">
+	<head>
+		<link rel="stylesheet" href="Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css">
+	</head>
+
+	<body class="">
 
 		<div class="bootlogo">
 			<img src="Resources/org.webshell.branding/webshell.png">
 			<div class="bootloader"></div>
 		</div>
 
-		<link rel="stylesheet" href="Libraries/org.jquery.ui/jqueryui.min.css">
-
 		<script src="Libraries/org.jensarps.idbstore/idbstore.js"></script>
 
-		<link rel="stylesheet" href="Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css">
-		<link rel="stylesheet" href="Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css">
-
 		<script src="Foundation/com.dangeredwolf.webshell.system/webshellsystem.js"></script>
-		<script src="Foundation/appbase/appbase.js"></script>
 		<script src="Libraries/org.jquery/jquery.min.js"></script>
 		<script src="Libraries/io.jeffmott.cryptojs/sha3.js"></script>
+		<script src="Libraries/org.jquery.ui/jqueryui.min.js"></script>
 
 		<div class="dwm hidden">
 			<div class="startmenubody">
@@ -34,6 +32,8 @@
 					<button id="aboutbutton">&#xe88f;</button>
 					<div class="coretaskbar">
 						<button class="startbutton"></button>
+						<div class="tasks">
+						</div>
 						<div class="taskbartime">
 							9:41
 						</div>
@@ -52,9 +52,8 @@
 			</div>
 		</div>
 
-		<script src="Libraries/org.jquery.ui/jqueryui.min.js"></script>
+		<div class="wallpaper hidden"></div>
+
 		<script src="Libraries/com.dangeredwolf.webshell.shell/shell.js"></script>
 	</body>
-
-	<div class="wallpaper hidden"></div>
 </html>
