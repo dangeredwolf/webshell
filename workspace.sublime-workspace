@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"lockscre",
+				"lockscreenopened"
+			],
+			[
+				"w",
+				"windowid"
+			],
+			[
+				"startm",
+				"startmenubodyopen"
+			],
+			[
 				"fun",
 				"function"
 			],
@@ -131,7 +143,7 @@
 			"file": "webshellapp.html",
 			"settings":
 			{
-				"buffer_size": 2115,
+				"buffer_size": 1868,
 				"line_ending": "Windows"
 			}
 		},
@@ -155,7 +167,7 @@
 			"file": "Libraries/com.dangeredwolf.webshell.shell/shell.js",
 			"settings":
 			{
-				"buffer_size": 16496,
+				"buffer_size": 14094,
 				"line_ending": "Windows"
 			}
 		},
@@ -163,7 +175,7 @@
 			"file": "CoreApps/org.webshell.settings/setup.css",
 			"settings":
 			{
-				"buffer_size": 1777,
+				"buffer_size": 1982,
 				"line_ending": "Windows"
 			}
 		},
@@ -171,7 +183,26 @@
 			"file": "CoreApps/org.webshell.settings/settings.html",
 			"settings":
 			{
-				"buffer_size": 1974,
+				"buffer_size": 2326,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Windows/System32/drivers/etc/hosts",
+			"settings":
+			{
+				"buffer_size": 498116,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"file": "/C/cygwin64/usr/share/avogadro/crystals/zeolites/CON",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		},
@@ -179,7 +210,7 @@
 			"file": "CoreApps/org.webshell.settings/setup.js",
 			"settings":
 			{
-				"buffer_size": 705,
+				"buffer_size": 829,
 				"line_ending": "Windows"
 			}
 		},
@@ -197,6 +228,31 @@
 			{
 				"buffer_size": 787,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/dangeredwolf/Documents/projectStack/privEsc.js",
+			"settings":
+			{
+				"buffer_size": 3661,
+				"line_ending": "Windows",
+				"name": "//WScript.Echo(\"BrowserStack Privilege Escalator\\n"
+			}
+		},
+		{
+			"file": "/C/Users/dangeredwolf/Documents/flappybird/com.dotgears.flappybird_twerk/manifest.json",
+			"settings":
+			{
+				"buffer_size": 1316,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/jhdnjmjhmfihbfjdgmnappnoaehnhiaf/0.7.9_0/js/factories/templateFactory.js",
+			"settings":
+			{
+				"buffer_size": 7058,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -219,7 +275,7 @@
 			"file": "Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
 			"settings":
 			{
-				"buffer_size": 2178,
+				"buffer_size": 644,
 				"line_ending": "Windows"
 			}
 		},
@@ -235,7 +291,39 @@
 			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
 			"settings":
 			{
-				"buffer_size": 11218,
+				"buffer_size": 14703,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Apps/com.microsoft-unofficial.office.word/word.css",
+			"settings":
+			{
+				"buffer_size": 2124,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/R/Boot/grub.cfg",
+			"settings":
+			{
+				"buffer_size": 4520,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Foundation/com.dangeredwolf.webshell.core.ui/corecss.css",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
+			"settings":
+			{
+				"buffer_size": 2297,
 				"line_ending": "Windows"
 			}
 		}
@@ -274,9 +362,9 @@
 	[
 		"/C/Users/dangeredwolf/Documents/chromedesk",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Apps",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Apps/com.dangeredwolf.wsapp.immersivetest",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Apps/com.dangeredwolf.wsapp.run",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Apps/com.dangeredwolf.wsapp.wsversion",
+		"/C/Users/dangeredwolf/Documents/chromedesk/Apps/com.microsoft-unofficial.office.word",
 		"/C/Users/dangeredwolf/Documents/chromedesk/CoreApps",
 		"/C/Users/dangeredwolf/Documents/chromedesk/CoreApps/com.dangeredwolf.webshell.setup",
 		"/C/Users/dangeredwolf/Documents/chromedesk/CoreApps/org.webshell.settings",
@@ -293,13 +381,15 @@
 		"/C/Users/dangeredwolf/Documents/chromedesk/Resources",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Resources/com.dangeredwolf.webshell.resources.shell",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Resources/com.dangeredwolf.webshell.resources.wallpapers",
+		"/C/Users/dangeredwolf/Documents/chromedesk/Resources/org.webshell.branding",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Themes",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Themes/com.dangeredwolf.webshell.theme-default",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Themes/com.dangeredwolf.webshell.theme-default/css",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Themes/com.dangeredwolf.webshell.theme-default/font"
+		"/C/Users/dangeredwolf/Documents/chromedesk/Themes/com.dangeredwolf.webshell.theme-default/css"
 	],
 	"file_history":
 	[
+		"/O/Documents/chromedesk/C/Windows/System32/ntoskrnl.js",
+		"/C/Users/dangeredwolf/Documents/chromedesk/Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Libraries/com.dangeredwolf.webshell.shell/shell.js",
 		"/C/Users/dangeredwolf/Documents/chromedesk/CoreApps/com.dangeredwolf.webshell.setup/setup.css",
 		"/C/Users/dangeredwolf/OneDrive/Universal Software License.docx",
@@ -354,7 +444,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -369,6 +459,49 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"UNFOCUS",
+			"dwm",
+			"DWM",
+			"html",
+			"draggable",
+			"nt",
+			"\n}",
+			";\n}",
+			";	",
+			".welcome",
+			"#ff",
+			"#ff ",
+			"#ff",
+			", ",
+			"}\n@",
+			"}\n.",
+			";\n}",
+			": ",
+			"	  ",
+			"  ",
+			"    ",
+			"  ",
+			" 0px",
+			":0px",
+			"left",
+			"0px",
+			":0px",
+			";\n",
+			"closewindow",
+			"onEvent",
+			"'",
+			"[0].addEventListener(",
+			".on(",
+			"bypass",
+			"addEventListener",
+			"startope",
+			"bootlogo",
+			"unfocuswin",
+			"linkwindow",
+			"']\"))",
+			"url",
+			"roboto",
+			".max",
 			"Frosty",
 			"li",
 			"closestart",
@@ -468,7 +601,7 @@
 	"groups":
 	[
 		{
-			"selected": 12,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -484,8 +617,8 @@
 						"selection":
 						[
 							[
-								733,
-								733
+								140,
+								140
 							]
 						],
 						"settings":
@@ -494,10 +627,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 123.0,
+						"translation.y": 129.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -506,15 +639,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2115,
+						"buffer_size": 1868,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1130,
-								1130
+								1734,
+								1734
 							]
 						],
 						"settings":
@@ -523,7 +656,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 50.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 9,
@@ -555,7 +688,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -577,13 +710,14 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 187.0,
+						"translation.y": 197.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -592,15 +726,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16496,
+						"buffer_size": 14094,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15569,
-								15569
+								8345,
+								8352
 							]
 						],
 						"settings":
@@ -609,7 +743,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 10145.0,
+						"translation.y": 5886.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -621,15 +755,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1777,
+						"buffer_size": 1982,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1777,
-								1777
+								1982,
+								1982
 							]
 						],
 						"settings":
@@ -639,10 +773,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 948.0,
+						"translation.y": 1329.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -651,15 +785,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1974,
+						"buffer_size": 2326,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1040,
-								1040
+								2170,
+								2170
 							]
 						],
 						"settings":
@@ -668,7 +802,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 350.0,
+						"translation.y": 418.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -676,19 +810,75 @@
 				},
 				{
 					"buffer": 7,
-					"file": "CoreApps/org.webshell.settings/setup.js",
+					"file": "/C/Windows/System32/drivers/etc/hosts",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 705,
+						"buffer_size": 498116,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								634,
-								634
+								498095,
+								498095
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 294174.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/cygwin64/usr/share/avogadro/crystals/zeolites/CON",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "CoreApps/org.webshell.settings/setup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 829,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								726,
+								726
 							]
 						],
 						"settings":
@@ -700,11 +890,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "Apps/com.dangeredwolf.wsapp.immersivetest/immersive.html",
 					"semi_transient": false,
 					"settings":
@@ -729,11 +919,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"file": "Apps/com.dangeredwolf.wsapp.run/run.html",
 					"semi_transient": false,
 					"settings":
@@ -745,8 +935,8 @@
 						"selection":
 						[
 							[
-								396,
-								396
+								120,
+								120
 							]
 						],
 						"settings":
@@ -758,11 +948,98 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 12,
+					"file": "/C/Users/dangeredwolf/Documents/projectStack/privEsc.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								3661
+							]
+						],
+						"settings":
+						{
+							"auto_name": "//WScript.Echo(\"BrowserStack Privilege Escalator\\n",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 268.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/C/Users/dangeredwolf/Documents/flappybird/com.dotgears.flappybird_twerk/manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1316,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1128,
+								1128
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 524.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/jhdnjmjhmfihbfjdgmnappnoaehnhiaf/0.7.9_0/js/factories/templateFactory.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7058,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								556,
+								556
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2476.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
 					"file": "Apps/com.dangeredwolf.wsapp.wsversion/version.html",
 					"semi_transient": false,
 					"settings":
@@ -787,11 +1064,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 16,
 					"file": "Foundation/com.dangeredwolf.webshell.io/io.js",
 					"semi_transient": false,
 					"settings":
@@ -815,24 +1092,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 17,
 					"file": "Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2178,
+						"buffer_size": 644,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								51,
-								49
+								204,
+								204
 							]
 						],
 						"settings":
@@ -844,11 +1121,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 18,
 					"file": "Apps/com.dangeredwolf.wsapp.wsversion/version.js",
 					"semi_transient": false,
 					"settings":
@@ -872,24 +1149,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 19,
 					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11218,
+						"buffer_size": 14703,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11188,
-								11188
+								14703,
+								14703
 							]
 						],
 						"settings":
@@ -898,10 +1175,127 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 13071.0,
+						"translation.y": 16491.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "Apps/com.microsoft-unofficial.office.word/word.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2124,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								2124
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2211.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "/R/Boot/grub.cfg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4520,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								636,
+								636
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "Foundation/com.dangeredwolf.webshell.core.ui/corecss.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								2297
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
 					"type": "text"
 				}
 			]

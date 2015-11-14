@@ -165,7 +165,6 @@ function login() {
 	$(".wallpaper.hidden:not(.lockscreen)").removeClass("hidden");
 	$(".authentication input").val("");
 	$("html>.wallpaper").on("mousedown", function(){
-		unfocusWindows();
 		closestart();
 	});
 }
@@ -226,9 +225,9 @@ function initShellEvents() {
 	  }, 1000);
 	}, false);
 
-	$(".watermark")[0].innerHTML = "WebShell Version " + os.systemVersion + "<br>Experimental Copy. Build " + os.systemBuild;
+	$(".watermark").html("WebShell Version " + os.systemVersion + "<br>Experimental Copy. Build " + os.systemBuild);
 
-	$(".authentication input")[0].focus();
+	$(".authentication input").focus();
 }
 
 function generateRandomCharacter() {
@@ -335,7 +334,7 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 
 	unfocusWindows();
 
-	var draghandle = make("div").addClass("windowdraghandle");
+	var draghandle = make("div").addClass("windowdraghandle").draggable({});
 	var minimise = make("button").addClass("windowcontrol min").html("&#xE15B");
 	var maximise = make("button").addClass("windowcontrol max").html("&#xE3C6");
 	var close = make("button").addClass("windowcontrol close").html("&#xE5CD");
@@ -349,24 +348,29 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 		div.toggleClass("fillscreen")
 	});
 
-	var webview = make("webview").addClass("windowbody").attr("partition","persist:system").css("height",windowheight + "px").css("width",windowwidth + "px")
-	
-	var windowcontrols = make("div").addClass("windowcontrols").append(minimise).append(maximise).append(close)
+	var webview = make("webview").addClass("windowbody").attr("partition","persist:system").css("height",windowheight + "px").css("width",windowwidth + "px");
+	var windowcontrols = make("div").addClass("windowcontrols").append(minimise).append(maximise).append(close);
+	var div = make("div").addClass("window draggable resizable windownative hidden").attr("id",windowid).css("left",(posx||vw/2-wid/2)+"px").css("top",(posy||vh/2-hei/2)+"px").css("height",windowheight + "px").css("width",windowwidth + "px").append(draghandle).append(windowcontrols).append(webview).draggable({delay:200,distance:3,handle:".windowdraghandle"});
 
-	var div = make("div").addClass("window draggable resizable windownative hidden").attr("id",windowid).css("left",(posx||vw/2-wid/2)+"px").css("top",(posy||vh/2-hei/2)+"px").css("height",windowheight + "px").css("width",windowwidth + "px").append(draghandle).append(windowcontrols).append(webview).draggable({delay:300,distance:3,handle:".windowdraghandle"});
+	var taskicon;
 
 	if (!!icon) {
-		var taskicon;
 
-		if (typeof $(".task[icon='']")[0] !== "undefined") {
-			taskicon = $(".task[icon='']");
+		if (typeof $(".task[icon='" + icon + "']")[0] !== "undefined") {
+			taskicon = $(".task[icon='" + icon + "']");
 		} else {
 			taskicon = make("div").addClass("task").attr("icon",icon);
 		}
 
-		taskicon.addClass("taskopen").click(function(){
-			
+		taskicon.html(icon);
+
+		taskicon.addClass("taskopen").attr("id",windowid).click(function(){
+			unfocusWindows();
+			div.removeClass("windowunfocussed");
+			console.log("hey");
 		});
+
+		$(".tasks").append(taskicon);
 	}
 
 	if (!!dragleft || !!dragright) {
@@ -376,7 +380,7 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 	console.log(dragleft)
 
 	if (!!extracontent) {
-		webview.addContentScripts(extracontent);
+		webview[0].addContentScripts(extracontent);
 	}
 
 	div.mousedown(function(){
@@ -392,7 +396,7 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 		div.delay(400).removeClass("hidden")
 
 		if (!!extracontent) {
-			webview.addContentScripts(extracontent);
+			webview[0].addContentScripts(extracontent);
 		}
 	});
 
@@ -401,9 +405,12 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 	});
 
 	webview.on("close", function(e) {
-		div.addClass("windowclosed");
+		webview.parent().addClass("windowclosed");
 		if (!debugWindowAnimations) {
-			div.delay(1000).remove();
+			//div.delay(1000).remove(); //TODO: Report delay remove() bug to jQuery
+			setTimeout(function(){
+				div.remove();
+			},2000);
 		}
 	});
 
@@ -442,11 +449,6 @@ function startShellExperienceHost() {
 		$(".startmenubody").toggleClass("startmenubodyopen");
 	});
 
-	$("#searchbutton").click(function(){
-		$(".startmenubody")[0].className = "startmenubody";
-		openWindow("https://google.com","Google Search",1180,720);
-	});
-
 	$("#runbutton").click(function(){
 		$(".startmenubody")[0].className = "startmenubody";
 		openWindow("C/Windows/System32/runas.html","Run",425,190);
@@ -464,7 +466,7 @@ function startShellExperienceHost() {
 
 	$("#youtubebutton").click(function(){
 		$(".startmenubody")[0].className = "startmenubody";
-		openWindow("https://youtube.com","",undefined,undefined,undefined,undefined,true,[
+		openWindow("https://youtube.com","",undefined,undefined,undefined,undefined,"&#xe037",[
 			{
 				name:"youtubeRule",
 				matches: ["https://*.youtube.com/*","http://*.youtube.com/*"],
@@ -477,22 +479,22 @@ function startShellExperienceHost() {
 
 	$("#aboutbutton").click(function(){
 		$(".startmenubody").removeClass("startmenubodyopen");
-		openWindow("Apps/com.dangeredwolf.wsapp.wsversion/version.html","About",600,380);
+		openWindow("Apps/com.dangeredwolf.wsapp.wsversion/version.html","About",600,380,undefined,undefined,"&#xe88e");
 	});
 
 	$("#settingsbutton,.task[icon='']").click(function(){
 		$(".startmenubody").removeClass("startmenubodyopen");
-		openWindow("CoreApps/org.webshell.settings/settings.html","Settings",1200,700,undefined,undefined,"",undefined,250);
+		openWindow("CoreApps/org.webshell.settings/settings.html","Settings",1200,700,undefined,undefined,"&#xe8b8",undefined,250);
 	});
 
 	$("#immtestbutton").click(function(){
 		$(".startmenubody").removeClass("startmenubodyopen");
-		openWindow("C/Windows/System32/immersive.html","Immersive Test");
+		openWindow("C/Windows/System32/immersive.html","Immersive Test",undefined,undefined,undefined,undefined,"&#xe5d0");
 	});
 
 	$("#gimmbutton").click(function(){
 		$(".startmenubody").removeClass("startmenubodyopen");
-		openWindow("https://google.com","",undefined,undefined,undefined,undefined,"",[
+		openWindow("https://google.com","",undefined,undefined,undefined,undefined,"&#xe8b6",[
 			{
 				name:"googleRule",
 				matches: ["https://*.google.com/*","http://*.google.com/*"],

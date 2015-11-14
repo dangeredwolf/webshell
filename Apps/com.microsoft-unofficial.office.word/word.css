@@ -1,0 +1,150 @@
+#WACRibbon-QATRowLeft {
+    display:none!important
+}
+
+#WACRibbon-QATRowCenter {
+    margin-top: -55px;
+}
+
+#BreadcrumbTitle {
+    color:#444!important
+}
+
+.cui-topBar1 {
+    background:transparent;
+    height:0!important;
+    margin-top:32px;
+    display:inline!important
+}
+
+.cui-topBar2 .cui-jewel-jewelMenuLauncher,.cui-tt-a {
+    margin-top:0!important;
+    padding-top:10px;
+    cursor: pointer;
+}
+
+.cui-topBar2 .cui-jewel-jewelMenuLauncher {
+    background:#2b579a;
+    color:#fff;
+    height:23px
+}
+
+.cui-topBar2 {
+    border-bottom:2px solid #e1e1e1
+}
+
+.cui-tt, .cui-cg {
+    height:40px;
+    padding-top:0px;
+    margin-left:0!important;
+    cursor: pointer;
+}
+
+.cui-separator {
+    opacity:0
+}
+
+.cui-tts {
+    overflow:visible
+}
+
+.cui-tt-s {
+    background:rgba(0,100,255,0.35);
+}
+
+.cui-tt:not(.cui-tt-s) {
+    background:#fff
+}
+
+.cui-tt {
+    transition:background 0.8s cubic-bezier(0,1,0,1);
+}
+
+.cui-tt-s > .cui-tt-a {
+    background:transparent!important
+}
+
+.cui-jewel-label {
+    color:#fff;
+    font-weight:500;
+    font-size:14px
+}
+
+.cui-tt-span {
+    font-weight:500;
+    font-size:14px;
+}
+
+#btnOpenInClient-Medium {
+    display:none
+}
+
+#sbTellMe {
+    font-size:14px
+}
+
+.cui-TabRowInline .cui-sb {
+    padding-top:10px
+}
+
+@keyframes openribbonpanel {
+    0% {
+        top:-200px
+    }
+
+    100% {
+        top:0
+    }
+}
+
+.cui-tabContainer {
+    animation: openribbonpanel 0.6s cubic-bezier(0,1,0,1);
+}
+
+.WacAirSpaceWac_RibbonClass {
+    animation:closeribbonpanel 0.9s cubic-bezier(0,1,0,1);
+}
+
+@keyframes animateRibbonChange {
+    0% {
+        margin-left:-70px;
+        opacity:0
+    }
+
+    100% {
+        margin-left:0;
+        opacity:1
+    }
+}
+
+.cui-tabBody {
+    animation:animateRibbonChange 0.8s cubic-bezier(0,1,0,1)
+}
+
+body {
+    background:#e1e1e1!important
+}
+
+.cui-QATRowRight {
+    top:0;
+    margin-top: -38px;
+    margin-right: 120px;
+}
+
+.cui-groupTitle {
+    font-weight:500;
+    color:#999;
+    text-transform:uppercase
+}
+
+.UsernameContainer {
+    background-color:transparent
+}
+
+#btnFileSharing-Medium20 {
+    display:none
+}
+
+.WACDocumentPanel[style="top: 188px;"] {
+    top:150px!important
+}
