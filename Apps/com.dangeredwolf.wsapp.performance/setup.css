@@ -1,0 +1,122 @@
+html,body {
+    background:#f5f5f5;
+    color:#000;
+    padding:0
+}
+
+body {
+    padding:0!important
+}
+
+input,select {
+    width:400px;
+    padding:10px
+}
+
+button {
+    background:#fff;
+    color:#000
+}
+
+select {
+    -webkit-appearance:none;
+    outline:0!important
+}
+
+option {
+    background:#fff;
+    -webkit-appearance:none;
+    border-color:#000;
+    outline:0;
+    min-height: 2em;
+    line-height: 2em;
+}
+
+#sidepanel {
+    width:250px;
+    background: #303D46;
+    padding:0;
+    margin:0;
+    height:100%;
+    position:fixed;
+    box-shadow:0 3px 12px rgba(0,0,0,0.2);
+    overflow:hidden;
+    z-index:2;
+}
+
+#sidepanel a {
+    width: 100%;
+    font-size:18px;
+    text-align:center;
+    padding:15px;
+    text-decoration:none!important;
+    display:block;
+    position:relative;
+    color:#fff;
+    transition:background 0.3s cubic-bezier(0,1,.46,1)
+}
+
+#sidepanel>div {
+    position:absolute;
+    top:0;
+    width:100%;
+    transition:margin-left 0.4s cubic-bezier(0,1,.46,1)
+}
+
+#sidepanel a:active {
+    background:#202225
+}
+
+#sidepanel.panelroot .paneroot,#sidepanel.panelpersonalise .panepersonalise,#sidepanel.paneldevice .panedevice {
+    margin-left:0px;
+}
+
+#sidepanel:not(.panelroot) .paneroot {
+    margin-left:-250px;
+}
+
+.level1,.level2 {
+    margin-left:250px
+}
+
+.back,.roottitle {
+    font-weight:500;
+    text-transform:uppercase;
+}
+
+.settingspanelview {
+    position:fixed;
+    right:0;
+    left:250px;
+    bottom:0;
+    top:0;
+    box-sizing:border-box;
+}
+
+.settingspanelview>div {
+    margin-left:-200px;
+    opacity:0;
+    width:100%;
+    height:100%;
+    position:absolute;
+    transition:margin-left 0.3s cubic-bezier(0,1,.46,1),opacity 0.4s cubic-bezier(0,1,.46,1);
+    padding:30px
+}
+
+.settingspanelview .viewopen {
+    opacity:1;
+    margin-left:0;
+}
+
+.back:before {
+    content:"\e5c4";
+    font-family:"Material Icons";
+    position:absolute;
+    top:8px;
+    left:15px;
+    font-size:28px;
+}
+
+#sidepanel a:not(.back):not(.roottitle) {
+    opacity:0.7
+}

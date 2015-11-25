@@ -132,50 +132,10 @@
 	"buffers":
 	[
 		{
-			"file": "manifest.json",
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
 			"settings":
 			{
-				"buffer_size": 1341,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "webshellapp.html",
-			"settings":
-			{
-				"buffer_size": 1868,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "CoreApps/com.dangeredwolf.webshell.setup/setup.html",
-			"settings":
-			{
-				"buffer_size": 978,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "CoreApps/com.dangeredwolf.webshell.setup/setup.js",
-			"settings":
-			{
-				"buffer_size": 5149,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Libraries/com.dangeredwolf.webshell.shell/shell.js",
-			"settings":
-			{
-				"buffer_size": 14094,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "CoreApps/org.webshell.settings/setup.css",
-			"settings":
-			{
-				"buffer_size": 1982,
+				"buffer_size": 2297,
 				"line_ending": "Windows"
 			}
 		},
@@ -183,7 +143,58 @@
 			"file": "CoreApps/org.webshell.settings/settings.html",
 			"settings":
 			{
-				"buffer_size": 2326,
+				"buffer_size": 2272,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "CoreApps/com.dangeredwolf.webshell.setup/setup.html",
+			"settings":
+			{
+				"buffer_size": 947,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "webshellapp.html",
+			"settings":
+			{
+				"buffer_size": 1843,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Windows/Resources/Themes/aero/aero.msstyles",
+			"settings":
+			{
+				"buffer_size": 2588047,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\"function\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\"Cannot find module '\"+o+\"'\");throw f.code=\"MODULE_NOT_FOUND\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\"function\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({\"./config\":[function(require,module,exports){\nmodule.exports = {\n  name: \"Browsec\",\n  browsec: {\n    apiPrefix: \"https://d1blmth2c5vbem.cloudfront.net/v1/\",\n    locationApiPrefix: \"http://d2nib9hpvmumkf.cloudfront.net/v1/\"\n  },\n  ga: {\n    enabled: true,\n    extension_id: \"omghfjlpggmjjaagoclmmobgdodcjboh\",\n    tracking_id: 'UA-43024042-1'\n  },\n  proxy: {\n    defaultCountry: \"nl\",\n    settings: {\n      version: 4,\n      countries: {\n        nl: {\n          servers: [\n            {\n              host: \"nl1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl2.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl3.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl4.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl5.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl6.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl7.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl8.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl9.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl10.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl11.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl12.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl13.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl14.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl15.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl16.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl17.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl18.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl19.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl20.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl22.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        },\n        sg: {\n          servers: [\n            {\n              host: \"sg1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg2.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg3.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg4.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg5.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg6.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg7.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg8.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg9.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg10.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg11.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        },\n        uk: {\n          servers: [\n            {\n              host: \"uk1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk2.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk3.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk4.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk5.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk6.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk7.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk8.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk9.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk10.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk11.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk12.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk13.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        },\n        us: {\n          servers: [\n            {\n              host: \"us1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {           \n              host: \"us2.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {           \n              host: \"us3.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us4.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us5.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us6.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us7.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us8.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us9.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us10.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us11.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us12.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us13.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us14.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us15.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us16.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us17.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us18.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us19.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us20.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us21.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us22.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us23.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us24.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us25.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        },\n        us_test: {\n          hidden: true,\n          servers: [\n            {\n              host: \"us-test-1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        }\n      }\n    }\n  }\n};\n\n},{}],1:[function(require,module,exports){\n/*\n  Returns random int value between 0 (inclusive) and the specified value (exclusive)\n  TODO(grig): more accurate randomInt\n*/\nfunction randomInt(max) {\n  return Math.floor(Math.random() * max);\n}\n\n/*\n  Returns random array element using weights. Element weight should be stored in 'weight' property of array element.\n  If 'weight' property is absent then weight for this element is 1.\n*/\nfunction weightedRandom(array) {\n  var map = [];\n  var totalWeight = 0;\n\n  for (var i = 0; i < array.length; i++) {\n    var weight = array[i].weight || 1;\n\n    map.push({\n      start : totalWeight,\n      end : totalWeight + weight\n    });\n\n    totalWeight += weight;\n  }\n\n  var random = randomInt(totalWeight);\n\n  for (i = 0; i < map.length; i++) {\n    if ((random >= map[i].start) && (random < map[i].end)) {\n      return array[i];\n    }\n  }\n}\n\n/*\n  Clone array\n*/\nfunction clone(array) {\n  return array.slice(0);\n}\n\n/*\n  Return shuffled array without modifying original one\n  TODO(grig): replace cloning with a new empty array\n*/\nfunction shuffle(array) {\n  var arrayClone = clone(array);\n  var currentIndex = arrayClone.length;\n\n  // While there remain elements to shuffle...\n  while (0 !== currentIndex) {\n\n    // Pick a remaining element...\n    var randomIndex = randomInt(currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    var temporaryValue  = arrayClone[currentIndex];\n    arrayClone[currentIndex] = arrayClone[randomIndex];\n    arrayClone[randomIndex]  = temporaryValue;\n  }\n\n  return arrayClone;\n}\n\n/*\n  Return shuffled array with attention to element weights.\n  Element weight should be stored in 'weight' property of array element.\n  If 'weight' property is absent then weight for this element is 1.\n  Original array is not modified.\n*/\nfunction weightedShuffle(array) {\n  var arrayClone = clone(array);\n  var result = [];\n\n  for (var i = 0; i < array.length; i++) {\n    var item = weightedRandom(arrayClone);\n    result.push(item);\n    arrayClone.splice(arrayClone.indexOf(item), 1);\n  }\n\n  return result;\n}\n\nexports.weightedShuffle = weightedShuffle;\nexports.shuffle = shuffle;\n\n},{}],2:[function(require,module,exports){\n(function (global){\nvar $ = require('jquery');\nrequire('./common');\nvar proxy = global.proxy = require('./proxy');\n\nvar scheduler = global.scheduler = require('./update_scheduler');\n\nchrome.proxy.settings.onChange.addListener(proxy.onChange.bind(proxy));\n\nvar ui = global.ui = require('./ui');\n\nvar browsec = global.browsec = require('./browsec');\nvar ga = require('./ga');\nbrowsec.init();\n\nchrome.webRequest.onAuthRequired.addListener(\n  function(details, callback) {\n    try {\n      console.group(\"onAuthRequired\");\n      console.log(details);\n\n      if (details.isProxy && details.realm == 'Browsec' && (details.challenger.host == 'postlm.com' || details.challenger.host.endsWith(\".postlm.com\") || details.challenger.host == 'postls.com' || details.challenger.host.endsWith(\".postls.com\"))) {\n\n        var username = localStorage.userId || localStorage.email;\n        var password = localStorage.password;\n\n        // If we don't have username/password \n        // OR \n        // username is email and password is incorrect\n        if (!username || !password || (username.indexOf('@') > 0 && checkAuthLimitExceeded(details))) {\n\n          var result = browsec.signup();\n\n          if (result) {\n            delete localStorage.email;\n            localStorage.userId = username = result.user_id;\n            localStorage.password = password = result.password;\n          } else {\n            proxy.clearProxySettings();\n            alert(chrome.i18n.getMessage(\"signup_error\"));\n            return;\n          }\n        }\n\n        console.log(\"Authenticate with username '%s'\", username);\n        callback({authCredentials: {username: username, password: password}});\n      } else {\n        // If auth request is not from browsec proxy, do not handle it.\n        callback();\n      }\n    } finally {\n      console.groupEnd();\n    }\n  }, \n  {urls: [\"<all_urls>\"]},\n  [\"asyncBlocking\"]\n);\n\nvar statusLineRegexp = new RegExp(\"^HTTP/1.[01] 408\");\nchrome.webRequest.onHeadersReceived.addListener(\n  function (details) {\n    if (localStorage.connected && localStorage.connected != \"off\") {\n      if (statusLineRegexp.test(details.statusLine)) {\n        ga.trackEvent(\"extension\", \"http_error\", details.statusLine);\n      }\n    }\n  },\n  {urls: [\"<all_urls>\"]}\n);\n\nfunction checkAuthLimitExceeded(details) {\n  var timeFrameMs = 15000;\n  var authRequestsLimit = 3;\n  var authHistory = localStorage.authHistory ? JSON.parse(localStorage.authHistory) : {};\n\n  try {\n    console.group(\"checkAuthLimitExceeded\");\n\n    var hostAuthHistory = authHistory[details.challenger.host];\n    if (!hostAuthHistory || !hostAuthHistory.periodStart || !hostAuthHistory.authRequestsNum) {\n      hostAuthHistory = authHistory[details.challenger.host] = {periodStart: details.timeStamp, authRequestsNum: 1};\n      console.log(\"No host auth history. Create record: %s\", JSON.stringify(hostAuthHistory));\n    } else {\n      console.log(\"Host history record already exists: %s\", JSON.stringify(hostAuthHistory));\n      var periodStart = hostAuthHistory.periodStart;\n      if (details.timeStamp - periodStart > timeFrameMs) {\n        console.log(\"Time frame already finished. Create new row.\");\n        hostAuthHistory.periodStart = details.timeStamp;\n        hostAuthHistory.authRequestsNum = 1;\n      } else {\n        console.log(\"We are still in tracked time frame. Increase auth requests counter\");\n        hostAuthHistory.authRequestsNum++;\n\n        if (hostAuthHistory.authRequestsNum >= authRequestsLimit) {\n          console.log(\"Limit exceeded. Return true and clear host auth history.\");\n\n          delete hostAuthHistory.periodStart;\n          delete hostAuthHistory.authRequestsNum;\n\n          ga.trackEvent(\"auth_request_limit_exceeded\", localStorage.userId || localStorage.email);\n\n          return true;\n        }\n      }\n    }\n\n    return false;\n  } finally {\n    console.log(\"Save auth history: %O\", authHistory);\n    localStorage.authHistory = JSON.stringify(authHistory);\n    console.groupEnd();\n  }\n}\n\nchrome.runtime.onInstalled.addListener(function(details) {\n  console.log(\"chrome.runtime.onInstalled\", details);\n\n  ga.trackEvent(\"extension\", details.reason, chrome.runtime.getManifest().version);\n\n  if (details.reason == \"install\") {\n    proxy.detectDefaultCountry(function() {\n      proxy.setProxySettings(proxy.lastConnected(), function(result) {\n        // Workaroung for Chrome bug\n        $.ajax({\n          url: \"http://www.google.com/favicon.ico\",\n          cache: false,\n          complete: function(jqXHR, textStatus) {\n            console.log(\"Complete test request: %s\", textStatus);\n          }\n        });\n      });\n    });\n  } else if (details.reason == \"update\") {\n\n    var previousVersion = details.previousVersion;\n    var currentVersion = chrome.runtime.getManifest().version;\n\n    if (previousVersion <= \"2.2.99\" && currentVersion >= \"2.3.0\") {\n      // Upgrade from 2.2 and earlier up to 2.3 and later\n      if (proxy.connected() === \"de\") {\n        proxy.setProxySettings(\"uk\");\n      }\n    } else {\n      if (proxy.connected()) {\n        proxy.setProxySettings(proxy.lastConnected(), function() {\n          ui.updateUiConnectionStatus();\n        });\n      }\n    }\n  } else {\n    if (proxy.connected()) {\n      proxy.setProxySettings(proxy.lastConnected(), function() {\n        ui.updateUiConnectionStatus();\n      });\n    }\n  }\n\n  ui.updateUiConnectionStatus();  \n});\n\nchrome.proxy.onProxyError.addListener(function (details) {\n  proxy.checkProxySet(function(isConnected) {\n    if (isConnected) {\n      console.error(\"Proxy on error: \" + JSON.stringify(details));\n      ga.trackEvent(\"extension\", \"proxy_error\", JSON.stringify(details));\n    }\n  });\n});\n\nchrome.runtime.onStartup.addListener(function() {\n  console.log(\"chrome.runtime.onStartup\");\n  \n  delete localStorage.lastRedirectOnError;\n  ui.updateUiConnectionStatus();\n  ga.trackEvent(\"extension\", \"start\", chrome.runtime.getManifest().version);\n});\n\n// TODO if/when we switch to event page, this should be changed\nscheduler.init();\n\n}).call(this,typeof global !== \"undefined\" ? global : typeof self !== \"undefined\" ? self : typeof window !== \"undefined\" ? window : {})\n},{\"./browsec\":3,\"./common\":4,\"./ga\":5,\"./proxy\":6,\"./ui\":8,\"./update_scheduler\":9,\"jquery\":\"jquery\"}],3:[function(require,module,exports){\nvar $ = require('jquery');\nvar config = require('./config').browsec;\nvar ga = require('./ga');\n\nvar browsec = function() {\n  var apiPrefix = config.apiPrefix || \"https://d1blmth2c5vbem.cloudfront.net/v1/\";\n  var locationApiPrefix = config.locationApiPrefix || \"http://d1blmth2c5vbem.cloudfront.net/v1/\";\n\n  return {\n    init: function() {\n      $.ajaxSetup({\n        tryCount : 0,\n        retryLimit : 1,\n        timeout: 10000,\n        retry: function() {\n          this.tryCount++;\n          if (this.tryCount <= this.retryLimit) {\n            //try again\n            $.ajax(this);\n            return true;\n          } else {\n            return false;\n          }\n        }\n      });\n    },\n\n    checkCredentials : function (username, password) {\n      try {\n        console.group(\"checkCredentials\");\n\n        var result = false;\n\n        $.ajax({\n          type: \"POST\",\n          url: apiPrefix + \"auth\", \n          data: {\n            email: username,\n            password: password\n          },\n          async: false,\n          success: function(data, textStatus, jqXHR) {\n            console.log(\"Response status: %d\", data.status);\n            if (data.status === 0) {\n              result = true;\n            }\n          },\n          error: function(jqXHR, textStatus, errorThrown) {\n            if (!this.retry()) {\n              ga.trackEvent(\"check_credentials_error\", textStatus, errorThrown);\n              throw errorThrown;\n            }\n          }\n        });\n\n        return result;\n      } finally {\n        console.groupEnd();\n      }\n    },\n\n    clearCredentials : function () {\n      delete localStorage.userId;\n      delete localStorage.email;\n      delete localStorage.password;\n    },\n\n    ipInfo : function (callback) {\n      var start;\n\n      $.ajax({\n        type: \"GET\",\n        url: locationApiPrefix + \"location?locale=\" + chrome.runtime.getManifest().current_locale,\n        async: true,\n        success: function(data, textStatus, jqXHR) {\n          callback(data);\n        },\n        error: function(jqXHR, textStatus, errorThrown) {\n          this.retry();\n        },\n        beforeSend: function() {\n          start = Date.now();\n        },\n        complete: function() {\n          var duration = Date.now() - start;\n          console.debug(\"Location request duration %d ms\", duration);\n        }\n      });\n    },\n\n    signup : function() {\n      try {\n        console.group(\"Signing up new user\");\n\n        var result = null;\n\n        $.ajax({\n          type: \"POST\",\n          url: apiPrefix + \"signup\", \n          async: false,\n          success: function(data, textStatus, jqXHR) {\n            console.log(\"Response status: %d\", data.status);\n            if (data.status === 0) {\n              result = data.result;\n            } else {\n              ga.trackEvent(\"error_signup\", data);\n            }\n          },\n          error: function(jqXHR, textStatus, errorThrown) {\n            if (!this.retry()) {\n              ga.trackEvent(\"error_signup\", textStatus, errorThrown);\n            }\n          }\n        });\n\n        return result;\n      } finally {\n        console.groupEnd();\n      }\n    },\n\n    servers: function(callback) {\n      var canceled = false;\n\n      var xhr = $.ajax({\n        type: \"GET\",\n        url: apiPrefix + \"servers\",\n        async: true,\n        success: function(data, textStatus, jqXHR) {\n          if (canceled) {\n            if (typeof callback === 'function') {\n              callback('canceled');\n            }\n            return;\n          }\n\n          if (typeof callback === 'function') {\n            callback(null, data);\n          }\n        },\n        error: function(jqXHR, textStatus, errorThrown) {\n          if (canceled) {\n            // Aborted request return textStatus == 'abort', errorThrown == 'abort'.\n            // We might have checked for these statuses; however, once a task\n            // has been canceled, any status should be ignored.\n            console.log('servers', 'request canceled: status:', textStatus, 'error:', errorThrown);\n            // may check for XHR\n            if (typeof callback === 'function') {\n              callback('canceled');\n            }\n            return;\n          }\n          var error = {status: textStatus, error: errorThrown};\n          console.error(\"browsec.servers\", JSON.stringify(error));\n          ga.trackEvent(\"error\", \"browsec.servers\", JSON.stringify(error));\n          callback(error);\n        }\n      });\n      var task = {\n        cancel: function() {\n          canceled = true;\n          xhr.abort();\n        }\n      };\n      return task;\n    }\n  };\n}();\n\nmodule.exports = browsec;\n\n},{\"./config\":\"./config\",\"./ga\":5,\"jquery\":\"jquery\"}],4:[function(require,module,exports){\nrequire('./utils/format');\nrequire('./utils/ends_with');\nrequire('./utils/starts_with');\nrequire('./utils/error_handler');\n\n},{\"./utils/ends_with\":11,\"./utils/error_handler\":12,\"./utils/format\":13,\"./utils/starts_with\":14}],5:[function(require,module,exports){\n(function (global){\nvar config = require('./config').ga;\n\nif (config.enabled) {\n  // Google Analytics\n  (function() {\n    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\n    ga.src = 'https://ssl.google-analytics.com/ga.js';\n    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\n  })();\n  global._gaq = global._gaq || [];\n  _gaq.push(['_setAccount', config.tracking_id]);\n  _gaq.push(['_trackPageview']);\n\n  var ga = {\n    trackEvent : function (category, action, label, value, noninteraction) {\n      // Track events only in production\n      console.log(\"Track event: \" + JSON.stringify([category, action, label, value, noninteraction]));\n      if (chrome.i18n.getMessage(\"@@extension_id\") === config.extension_id) {\n        _gaq.push(['_trackEvent', category, action, label, value, noninteraction]);\n      }\n    }\n  };\n} else {\n  var ga = {\n    trackEvent: function() {\n      console.log(\"ga.trackEvent\", \"[DISABLED]\", arguments);\n    }\n  };\n}\n\nmodule.exports = ga;\n\n}).call(this,typeof global !== \"undefined\" ? global : typeof self !== \"undefined\" ? self : typeof window !== \"undefined\" ? window : {})\n},{\"./config\":\"./config\"}],6:[function(require,module,exports){\n(function (global){\nvar ga = require('./ga');\nvar weightedShuffle = require('./array').weightedShuffle;\nvar config = require('./config').proxy;\nvar servers = require('./server_list');\n\nvar proxy = function() {\n\n  var bypassList =  [\"google-analytics.com\"];\n\n  var pacScript = 'function domainIs(host,domain){return host==domain||dnsDomainIs(host,\".\"+domain)}function FindProxyForURL(url,host){var config=\"{0}\";var bypass={1};host=host.toLowerCase();if(isPlainHostName(host)||isInNetEx(host,\"127.0.0.0/8\")||isInNetEx(host,\"10.0.0.0/8\")||isInNetEx(host,\"172.16.0.0/12\")||isInNetEx(host,\"192.168.0.0/16\")||isInNetEx(host,\"fc00::/7\")||isInNetEx(host,\"fe80::/10\")){return\"DIRECT\"}for(var i=0;i<bypass.length;i++){if(domainIs(host,bypass[i])){return\"DIRECT\"}}return config}';\n\n  var defaultCountry = config.defaultCountry || \"nl\";\n\n  function getServerString(countryConfig, altPort) {\n    var serverString = \"\";\n\n    var servers = weightedShuffle(countryConfig.servers);\n    /* jshint -W004 */\n    for (var i = 0; i < servers.length; i++) {\n      var server = servers[i];\n      var port = getServerPort(server, altPort);\n      serverString += \"HTTPS \" + server.host + \":\" + port + \"; \";\n    }\n\n    if (countryConfig.backupServers) {\n      var backupServers = weightedShuffle(countryConfig.backupServers);\n      for (var i = 0; i < backupServers.length; i++) {\n        var server = backupServers[i];\n        var port = getServerPort(server, altPort);\n        serverString += \"HTTPS \" + server.host + \":\" + port + \"; \";\n      }\n    }\n    /* jshint +W004 */\n\n    console.log(\"Srv string: \" + serverString);\n\n    return serverString;\n  }\n\n  function getServerPort(server, altPort) {\n    if (altPort && Array.isArray(server.alt_ports) && server.alt_ports.indexOf(altPort) >= 0) {\n      return altPort;\n    } else {\n      return server.port;\n    }\n  }\n\n  return {\n    countryCodes: function(callback, includeHidden) {\n      if (typeof includeHidden === 'undefined') {\n        includeHidden = this.isIncludeHidden();\n      }\n      servers.get(function(err, settings) {\n        if (err) {\n          console.error(err);\n          callback([]);\n          return;\n        }\n\n        var countries = settings.countries;\n        var countryCodes = Object.keys(countries).filter(function(countryCode) {\n          return includeHidden || !countries[countryCode].hidden;\n        }).filter(function(countryCode) {\n          return Array.isArray(countries[countryCode].servers);\n        });\n        callback(countryCodes);\n      });\n    },\n\n    isIncludeHidden : function() {\n      return localStorage.includeHidden && JSON.parse(localStorage.includeHidden);\n    },\n\n    setIncludeHidden : function(value) {\n      localStorage.includeHidden = JSON.stringify(value);\n    },\n\n    isProxySet : function (config) {\n      if (config.levelOfControl == \"controlled_by_this_extension\") \n        if (config.value.mode == 'pac_script') \n          return true;\n\n      return false;\n    },\n\n    checkProxySet : function (callback) {\n      chrome.proxy.settings.get({incognito : false}, function (config) {\n        var isConnected = this.isProxySet(config);\n        callback(isConnected);\n      }.bind(this));\n    },\n\n    setProxySettings : function (countryCode, callback) {\n      chrome.proxy.settings.get({incognito : false}, function(config) {\n\n        if (typeof config != 'undefined' && config.levelOfControl != \"controllable_by_this_extension\" && config.levelOfControl != \"controlled_by_this_extension\") {\n\n          console.warn(\"Proxy settings levelOfControl is: \" + config.levelOfControl);\n          ga.trackEvent(\"extension\", \"alert\", \"error_unable_change_proxy_settings \" + config.levelOfControl);\n          alert(chrome.i18n.getMessage('error_unable_change_proxy_settings'));\n\n          if (typeof callback == \"function\") {\n            callback(false);\n          }\n        } else {\n          var altPort = localStorage.altPort && Number(localStorage.altPort);\n          servers.get(function(err, settings) {\n            if (err) {\n              callback(false);\n              return;\n            }\n            var countries = settings.countries;\n            var countryConfig = countries[countryCode];\n            if (!countryConfig) {\n              console.warn(\"No servers for country: \" + countryCode + \", rolling back to default country\");\n              countryCode = defaultCountry;\n              countryConfig = countries[countryCode];\n            }\n            if (!countryConfig) {\n              console.error(\"Failed to find any suitable servers, turning off\");\n              delete localStorage.lastConnected;\n              localStorage.connected = 'off';\n              callback(false);\n              return;\n            }\n            var serverString = getServerString(countryConfig, altPort);\n\n            var proxyConfig = {\n              mode: \"pac_script\", \n              pacScript: {\n                data: pacScript.format(serverString, JSON.stringify(bypassList))\n              }\n            };\n\n            chrome.proxy.settings.set({scope: 'regular', value: proxyConfig}, function() {\n              localStorage.connected = localStorage.lastConnected = countryCode;\n\n              if (typeof callback == \"function\") {\n                callback(true);\n              }\n            });\n          });\n        }\n      }.bind(this));\n    },\n\n    clearProxySettings : function (callback) {\n      chrome.proxy.settings.clear({scope: 'regular'}, function() {\n        localStorage.connected = \"off\";\n\n        if (typeof callback == \"function\") {\n          callback(true);\n        }\n      });\n    },\n\n    logProxySettings : function () {\n      chrome.proxy.settings.get({incognito : false}, function(config) {\n        console.log(JSON.stringify(config));\n      });\n    }, \n\n    onChange : function(details) {\n      console.log(\"Proxy on change: \" + JSON.stringify(details));\n\n      this.checkProxySet(function (isConnected) {\n        ui.setUiConnectionStatus(isConnected);\n\n        if (!isConnected) {\n          localStorage.connected = \"off\";\n        }\n      }); \n    },\n\n    connected : function(localStorage) {\n      localStorage = localStorage || global.localStorage;\n      var status = localStorage.connected;\n\n      if (status === \"off\") {\n        return false;\n      } else {\n        return status;\n      }\n    }, \n\n    lastConnected : function(localStorage) {\n      localStorage = localStorage || global.localStorage;\n      return localStorage.lastConnected || defaultCountry;\n    },\n\n    detectDefaultCountry : function(callback) {\n      browsec.ipInfo(function (location) {\n        /* jshint laxbreak:true */\n        if (location.continent_code === \"NA\" || location.continent_code === \"SA\") {\n          // If user isfrom North or South America send him to US server\n          defaultCountry = \"us\";\n        } else if (location.country_code === \"SG\" // Singapore\n                || location.country_code === \"MY\" // Malaysia\n                || location.country_code === \"ID\" // Indonesia\n                || location.country_code === \"PH\" // Philippines\n                || location.country_code === \"TH\" // Thailand\n          ) {\n          defaultCountry = \"sg\";\n        } else if (location.country_code === \"UK\" || location.country_code === \"IE\") {\n          defaultCountry = \"uk\";\n        }\n        /* jshint laxbreak:false */\n\n        callback();\n      });\n    }\n  };\n}();\n\nmodule.exports = proxy;\n\n\n}).call(this,typeof global !== \"undefined\" ? global : typeof self !== \"undefined\" ? self : typeof window !== \"undefined\" ? window : {})\n},{\"./array\":1,\"./config\":\"./config\",\"./ga\":5,\"./server_list\":7}],7:[function(require,module,exports){\n/**\n * Manages list of servers\n *\n * TODO(grig): transaction / last known good support\n *\n * @module ./server_list\n */\n\nvar ga = require('./ga');\n\nvar defaultConfig = require('./config').proxy.settings || {};\n\n/*\n * TODO(grig): test callback status\n */\nexports.set = function set(value, callback) {\n  var error = validate(value);\n  if (error) {\n    throw new ValidationError(error);\n  }\n  try {\n    localStorage.currentConfig = JSON.stringify(value);\n    if (typeof callback === 'function') {\n      setTimeout(function() {\n        callback(null);\n      }, 0);\n    }\n  } catch(e) {\n    if (typeof callback === 'function') {\n      setTimeout(function() {\n        callback(e);\n      }, 0);\n    }\n  }\n};\n\nfunction validate(settings) {\n  if (typeof settings !== 'object' || settings === null) {\n    return 'settings should be an object';\n  }\n\n  if (!settings.hasOwnProperty('countries')) {\n    return 'settings should have a \"countries\" property';\n  }\n\n  var config = settings.countries;\n  if (Object.keys(config).length === 0) {\n    return \"config should have at least one key (country)\";\n  }\n  for (var countryCode in config) {\n    if (!config.hasOwnProperty(countryCode)) {\n      continue;\n    }\n    var country = config[countryCode];\n    if (!Array.isArray(country.servers) && !Array.isArray(country.premium_servers)) {\n      return \"country must have either 'servers' or 'premium_servers' fields set to an array of servers\";\n    }\n\n    var error;\n    if (Array.isArray(country.servers)) {\n      error = validateServers(country.servers);\n      if (error) {\n        return error;\n      }\n    }\n\n    if (Array.isArray(country.premium_servers)) {\n      error = validateServers(country.premium_servers);\n      if (error) {\n        return error;\n      }\n    }\n  }\n  return null;\n}\n\nfunction validateServers(servers) {\n  for (var i = 0; i < servers.length; i++) {\n    var server = servers[i];\n    if (typeof server.host !== 'string') {\n      return \"server must have a 'host' property\";\n    }\n    if (!(typeof server.port === 'string' || typeof server.port === 'number')) {\n      return \"server must have a 'port' property\";\n    }\n  }\n  return null;\n}\n\nfunction ValidationError(message) {\n  this.name = 'ValidationError';\n  this.message = message || '';\n  this.stack = (new Error()).stack;\n}\n\nValidationError.prototype = Object.create(Error.prototype);\nValidationError.prototype.constructor = ValidationError;\n\n/*\n * TODO(grig): test no countries in default config\n * TODO(grig): test no proxy config\n * TODO(grig): test errors\n */\nexports.get = function get(callback) {\n  var value = localStorage.currentConfig;\n  if (typeof value === 'string') {\n    try {\n      var currentConfig = JSON.parse(value);\n      var error = validate(currentConfig);\n      if (error) {\n        throw new ValidationError(error);\n      }\n      setTimeout(function() {\n        callback(null, currentConfig || defaultConfig);\n      }, 0);\n    } catch (e) {\n      var version = 'n/a';\n      if (chrome.runtime && chrome.runtime.getManifest()) {\n        version = chrome.runtime.getManifest().version;\n      }\n      var message = e.toString();\n      try {\n        // find application-level file name and line number from the stack\n        var stack = e.stack.split(\"\\n\");\n        for (var i = 0; i < stack.length; i++) {\n          if (/ at .*\\.js:.*/.test(stack[i])) {\n            message = message + stack[i];\n            break;\n          }\n        }\n      } catch (_) {\n        // nothing\n      }\n      ga.trackEvent(\"error\", version, message, 0, false);\n\n      console.warn(\"invalid current configuration, fall back to default: \", e);\n      delete localStorage.currentConfig;\n      setTimeout(function() {\n        callback(null, defaultConfig);\n      }, 0);\n    }\n  } else {\n    setTimeout(function() {\n      callback(null, defaultConfig);\n    }, 0);\n  }\n};\n\nexports.clear = function(callback) {\n  delete localStorage.currentConfig;\n  if (typeof callback === 'function') { setTimeout(callback, 0); }\n};\n\n},{\"./config\":\"./config\",\"./ga\":5}],8:[function(require,module,exports){\nvar proxy = require('./proxy');\n\nvar ui = {\n  setUiConnectionStatus : function (connected) {\n    if (connected) {\n      chrome.browserAction.setIcon({path: 'images/icon-enabled.png'});  \n      // chrome.browserAction.setTitle({title: chrome.i18n.getMessage('browser_action_active_title')});\n    } else {\n      chrome.browserAction.setIcon({path: 'images/icon-disabled.png'});  \n      // chrome.browserAction.setTitle({title: chrome.i18n.getMessage('browser_inaction_active_title')});\n    }\n  },\n\n  updateUiConnectionStatus : function () {\n    proxy.checkProxySet(function (isConnected) {\n      this.setUiConnectionStatus(isConnected);\n    }.bind(this));\n  }\n};\n\nmodule.exports = ui;\n\n},{\"./proxy\":6}],9:[function(require,module,exports){\n/**\n * @module ./update_scheduler\n */\n\nvar update_task = require('./update_task');\n\nvar REFRESH_TIMEOUT = 6*3600*1000;\nvar RETRY_TIMEOUT = 5*60*1000;\n\nvar retryTimeout = RETRY_TIMEOUT;\nvar refreshTimeout = REFRESH_TIMEOUT;\n\nfunction run() {\n  var task;\n  var canceled = false;\n\n  var timeoutId = setTimeout(function() {\n    console.log(\"retry\");\n    run(); // TODO schedule on next tick\n    canceled = true;\n    if (task) {\n      task.cancel();\n    }\n  }, retryTimeout);\n\n  task = update_task.start(function(err) {\n    if (err) {\n      console.warn(\"Error updating severs, retrying in \" + retryTimeout / (60 * 1000) + \" minutes\", err);\n      // nothing; retry will be triggered anyway\n      return;\n    }\n    if (canceled) {\n      console.error(\"Attempting to complete an already-canceled update task\");\n      return;\n    }\n\n    clearTimeout(timeoutId);\n    setTimeout(function() {\n      console.log(\"refresh\");\n      // TODO(grig): possible parallel task executions?\n      run();\n    }, refreshTimeout);\n  });\n}\n\nexports.init = function init(options) {\n  console.log(\"init\");\n  options = options || {};\n  retryTimeout = options.retryTimeout || retryTimeout;\n  refreshTimeout = options.refreshTimeout || refreshTimeout;\n\n  setTimeout(run, 0);\n};\n\n},{\"./update_task\":10}],10:[function(require,module,exports){\n/**\n * @module ./update_task\n */\n\nvar server_list = require('./server_list');\nvar proxy = require('./proxy');\nvar browsec = require('./browsec');\n\nexports.start = function update(callback) {\n  console.log(\"update\");\n\n  var task = function() {\n    var canceled = false;\n    var subtask;\n\n    subtask = browsec.servers(function(err, servers) {\n      if (err) {\n        if (typeof callback === 'function') {\n          callback(err);\n        }\n        return;\n      }\n      if (canceled) {\n        if (typeof callback === 'function') {\n          callback(\"canceled\");\n        }\n        return;\n      }\n      server_list.set(servers, function(err) {\n        if (err) {\n          if (typeof callback === 'function') {\n            callback(err);\n          }\n          return;\n        }\n        if (canceled) {\n          if (typeof callback === 'function') {\n            callback(\"canceled\");\n          }\n          return;\n        }\n        if (proxy.connected(localStorage)) {\n          // update proxy settings\n          var currentCountry = proxy.lastConnected(localStorage);\n          proxy.setProxySettings(currentCountry, function(result) {\n            if (canceled) {\n              if (typeof callback === 'function') {\n                callback(\"canceled\");\n              }\n              return;\n            }\n\n            if (typeof callback === 'function') {\n              if (result) {\n                callback();\n              } else {\n                callback(new Error(\"failed to update proxy settings\"));\n              }\n            }\n          });\n        } else {\n          if (canceled) {\n            if (typeof callback === 'function') {\n              callback(\"canceled\");\n            }\n            return;\n          } else {\n            if (typeof callback === 'function') {\n              callback(null);\n              return;\n            }\n          }\n        }\n      });\n    });\n    var task = {\n      cancel: function cancel() {\n        canceled = true;\n        if (subtask) {\n          subtask.cancel();\n        }\n      }\n    };\n    return task;\n  }();\n  return task;\n};\n\n},{\"./browsec\":3,\"./proxy\":6,\"./server_list\":7}],11:[function(require,module,exports){\nif (!String.prototype.endsWith) {\n  String.prototype.endsWith = function(suffix) {\n    return this.indexOf(suffix, this.length - suffix.length) !== -1;\n  };\n}\n\n\n},{}],12:[function(require,module,exports){\nvar ga = require('../ga');\n\n// Error handler\nwindow.onerror = function (message, filename, lineno) {\n  try {\n    console.error(\"message: {0}\\nfilename: {1}\\nlineno: {2}\".format(message, filename, lineno));\n\n    var version = 'n/a';\n    if (chrome.runtime.getManifest()) {\n      version = chrome.runtime.getManifest().version;\n    }\n    ga.trackEvent(\"error\", version, \"{0} at {1}:{2}\".format(message, filename, lineno), 0, false);\n\n  } catch (e) {\n    console.error(e);\n  }\n\n  return false;\n};\n\n\n},{\"../ga\":5}],13:[function(require,module,exports){\n// Helper functions\nfunction format(str, args) {\n    return str.replace(/{(\\d+)}/g, function(match, number) { \n      return typeof args[number] != 'undefined' ? args[number] : match;\n    });\n}\n\nif (!String.prototype.format) {\n  String.prototype.format = function() {\n    return format(this, arguments);\n  };\n}\n\nmodule.exports = format;\n\n},{}],14:[function(require,module,exports){\nif (!String.prototype.startsWith) {\n  String.prototype.startsWith = function(prefix) {\n    return this.indexOf(prefix) === 0;\n  };\n}\n\n\n},{}]},{},[2]);\n",
+			"file": "/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/omghfjlpggmjjaagoclmmobgdodcjboh/2.5.6_0/background.js",
+			"file_size": 43793,
+			"file_write_time": 130898361580000000,
+			"settings":
+			{
+				"buffer_size": 42351,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Apps/com.google-unofficial.search/package.json",
+			"settings":
+			{
+				"buffer_size": 610,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "manifest.json",
+			"settings":
+			{
+				"buffer_size": 1453,
 				"line_ending": "Windows"
 			}
 		},
@@ -191,139 +202,59 @@
 			"file": "/C/Windows/System32/drivers/etc/hosts",
 			"settings":
 			{
-				"buffer_size": 498116,
+				"buffer_size": 347613,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "",
-			"file": "/C/cygwin64/usr/share/avogadro/crystals/zeolites/CON",
-			"file_size": -1,
-			"file_write_time": -1,
+			"contents": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<unattend xmlns=\"urn:schemas-microsoft-com:unattend\">\n    <settings pass=\"windowsPE\">\n        <component name=\"Microsoft-Windows-Setup\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <UserData>\n                <ProductKey>\n                    <WillShowUI>Never</WillShowUI>\n                    <Key>F6CQN-H6R37-V8VDG-MV44P-PGXHV</Key>\n                </ProductKey>\n                <FullName>dangeredwolf</FullName>\n                <Organization>WebShell Foundation</Organization>\n                <AcceptEula>true</AcceptEula>\n            </UserData>\n            <Diagnostics>\n                <OptIn>false</OptIn>\n            </Diagnostics>\n            <Restart></Restart>\n            <EnableNetwork>true</EnableNetwork>\n            <EnableFirewall>true</EnableFirewall>\n            <DynamicUpdate>\n               <Enable>true</Enable>\n               <WillShowUI>Never</WillShowUI>\n            </DynamicUpdate>\n            <ComplianceCheck>\n               <DisplayReport>Never</DisplayReport>\n            </ComplianceCheck>\n            <UpgradeData>\n               <Upgrade>false</Upgrade>\n               <WillShowUI>Never</WillShowUI>\n            </UpgradeData>\n            <WindowsDeploymentServices>\n           <Login>\n              <WillShowUI>OnError</WillShowUI>\n              <Credentials>\n                 <Username>Administrator</Username>\n                 <Domain>MY-DOMAIN-NAME</Domain>\n                 <Password>********</Password>\n              </Credentials>\n           </Login>\n          <ImageSelection>\n              <WillShowUI>OnError</WillShowUI>\n              <InstallImage>\n                 <ImageName>MY_IMAGE_NAME</ImageName>\n                 <ImageGroup>My IMAGE GROUP</ImageGroup>\n              </InstallImage>\n              <InstallTo>\n                 <DiskID>0</DiskID>\n                 <PartitionID>1</PartitionID>\n              </InstallTo>\n           </ImageSelection>\n        </WindowsDeploymentServices>\n        </component>\n        <component name=\"Microsoft-Windows-International-Core-WinPE\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" processorArchitecture=\"x86\">\n            <SetupUILanguage>\n                <WillShowUI>Never</WillShowUI>\n                <UILanguage>en-US</UILanguage>\n            </SetupUILanguage>\n            <InputLocale>en-US</InputLocale>\n            <UILanguage>en-US</UILanguage>\n            <SystemLocale>en-US</SystemLocale>\n            <UserLocale>en-US</UserLocale>\n        </component>\n    </settings>\n    <settings pass=\"specialize\">\n        <component name=\"Microsoft-Windows-Deployment\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <RunSynchronous>\n                <RunSynchronousCommand wcm:action=\"add\">\n                    <Path>start cmd.exe</Path>\n                    <Order>1</Order>\n                </RunSynchronousCommand>\n            </RunSynchronous>\n        </component>\n        <component name=\"Microsoft-Windows-Shell-Setup\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <ShowWindowsLive>false</ShowWindowsLive>\n        </component>\n        <component name=\"Microsoft-Windows-ErrorReportingCore\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <DisableWER>1</DisableWER>\n        </component>\n    </settings>\n    <settings pass=\"oobeSystem\">\n        <component name=\"Microsoft-Windows-International-Core\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" processorArchitecture=\"x86\">\n            <InputLocale>en-US</InputLocale>\n            <UILanguage>en-US</UILanguage>\n            <SystemLocale>en-US</SystemLocale>\n            <UserLocale>en-US</UserLocale>\n        </component>\n        <component name=\"Microsoft-Windows-Setup\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <UserData>\n                <ProductKey>\n                    <WillShowUI>Never</WillShowUI>\n                    <Key>F6CQN-H6R37-V8VDG-MV44P-PGXHV</Key>\n                </ProductKey>\n                <FullName>dangeredwolf</FullName>\n                <Organization>WebShell Foundation</Organization>\n                <AcceptEula>true</AcceptEula>\n            </UserData>\n            <Diagnostics>\n                <OptIn>false</OptIn>\n            </Diagnostics>\n            <Restart>Restart</Restart>\n            <EnableNetwork>true</EnableNetwork>\n            <EnableFirewall>true</EnableFirewall>\n            <DynamicUpdate>\n               <Enable>true</Enable>\n               <WillShowUI>Never</WillShowUI>\n            </DynamicUpdate>\n            <ComplianceCheck>\n               <DisplayReport>Never</DisplayReport>\n            </ComplianceCheck>\n            <UpgradeData>\n               <Upgrade>false</Upgrade>\n               <WillShowUI>Never</WillShowUI>\n            </UpgradeData>\n            <WindowsDeploymentServices>\n           <Login>\n              <WillShowUI>OnError</WillShowUI>\n              <Credentials>\n                 <Username>Administrator</Username>\n                 <Domain>MY-DOMAIN-NAME</Domain>\n                 <Password>********</Password>\n              </Credentials>\n           </Login>\n          <ImageSelection>\n              <WillShowUI>OnError</WillShowUI>\n              <InstallImage>\n                 <ImageName>MY_IMAGE_NAME</ImageName>\n                 <ImageGroup>My IMAGE GROUP</ImageGroup>\n              </InstallImage>\n              <InstallTo>\n                 <DiskID>0</DiskID>\n                 <PartitionID>1</PartitionID>\n              </InstallTo>\n           </ImageSelection>\n        </WindowsDeploymentServices>\n        </component>\n        <component name=\"Security-Malware-Windows-Defender\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n          <DisableAntiSpyware>true</DisableAntiSpyware>\n        </component>\n        <component name=\"Microsoft-Windows-Security-Licensing-SLC \" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n          \n        </component>\n        <component name=\"Microsoft-Windows-Shell-Setup\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <OOBE>\n                <ProtectYourPC>3</ProtectYourPC>\n                <NetworkLocation>Work</NetworkLocation>\n                <SkipMachineOOBE>true</SkipMachineOOBE>\n                <SkipUserOOBE>true</SkipUserOOBE>\n                <HideEULAPage>true</HideEULAPage>\n            </OOBE>\n            <UserAccounts>\n                <LocalAccounts>\n                    <LocalAccount wcm:action=\"add\">\n                        <Password>\n                            <Value></Value>\n                            <PlainText>true</PlainText>\n                        </Password>\n                        <Name>webshell</Name>\n                        <Group>Administrators</Group>\n                    </LocalAccount>\n                </LocalAccounts>\n            </UserAccounts>\n        </component>\n    </settings>\n</unattend>\n",
+			"file": "/C/Users/dangeredwolf/Documents/AutoUnattend.xml",
+			"file_size": 8091,
+			"file_write_time": 130926346572372854,
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 8250,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "CoreApps/org.webshell.settings/setup.js",
+			"file": "/C/Users/dangeredwolf/Documents/WindowsEmbedded/AutoUnattend.xml",
 			"settings":
 			{
-				"buffer_size": 829,
+				"buffer_size": 5845,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Apps/com.dangeredwolf.wsapp.immersivetest/immersive.html",
+			"contents": "Windows NT 3.1, Windows NT 3.1 Advanced Server, Windows NT 3.1 Advanced Server SP1, Windows NT 3.1 Advanced Server SP1, Windows NT 3.1 SP2, Windows NT 3.1 Advanced Server SP2, Windows NT 3.1 SP3, Windows NT 3.1 Advanced Server SP3, Windows NT 3.1 Advanced Server SP3, Windows NT 3.5 Workstation, Windows NT 3.5 Server, Windows NT 3.5 Server SP1, Windows NT 3.5 Server SP1, Windows NT 3.5 Workstation SP2, Windows NT 3.5 Server SP2, Windows NT 3.5 Workstation SP3, Windows NT 3.5 Server SP3, Windows NT 3.5 Server SP3, Windows NT 3.51 Workstation, Windows NT 3.51 Server, Windows NT 3.51 Server SP1, Windows NT 3.51 Server SP1, Windows NT 3.51 Workstation SP2, Windows NT 3.51 Server SP2, Windows NT 3.51 Workstation SP3, Windows NT 3.51 Server SP3, Windows NT 3.51 Server SP3, Windows NT 3.51 Workstation SP4, Windows NT 3.51 Server SP4, Windows NT 3.51 Workstation SP5, Windows NT 3.51 Server SP5, Windows NT 4.0 Workstation, Windows NT 4.0 Embedded, Windows NT 4.0 Server, Windows NT 4.0 Server Enterprise Edition, Windows NT 4.0 Terminal Server Edition, Windows NT 4.0 Workstation SP1, Windows NT 4.0 Server SP1, Windows NT 4.0 Server Enterprise Edition SP1, Windows NT 4.0 Terminal Server Edition SP1, Windows NT 4.0 Workstation SP2, Windows NT 4.0 Server SP2, Windows NT 4.0 Server Enterprise Edition SP2, Windows NT 4.0 Terminal Server Edition SP2, Windows NT 4.0 Workstation SP3, Windows NT 4.0 Server SP3, Windows NT 4.0 Server Enterprise Edition SP3, Windows NT 4.0 Terminal Server Edition SP3, Windows NT 4.0 Workstation SP4, Windows NT 4.0 Server SP4, Windows NT 4.0 Server Enterprise Edition SP4, Windows NT 4.0 Terminal Server Edition SP4, Windows NT 4.0 Workstation SP5, Windows NT 4.0 Server SP5, Windows NT 4.0 Server Enterprise Edition SP5, Windows NT 4.0 Terminal Server Edition SP5, Windows NT 4.0 Workstation SP6, Windows NT 4.0 Server SP6, Windows NT 4.0 Server Enterprise Edition SP6, Windows NT 4.0 Terminal Server Edition SP6, Windows NT 4.0 Workstation SP6a, Windows NT 4.0 Server SP6a, Windows NT 4.0 Server Enterprise Edition SP6a, Windows NT 4.0 Terminal Server Edition SP6a, Windows 2000 Professional, Windows 2000 Server, Windows 2000 Advanced Server, Windows 2000 Datacenter Server, Windows 2000 Professional SP1, Windows 2000 Server SP1, Windows 2000 Advanced Server SP1, Windows 2000 Datacenter Server SP1, Windows 2000 Professional SP2, Windows 2000 Server SP2, Windows 2000 Advanced Server SP2, Windows 2000 Datacenter Server SP2, Windows 2000 Professional SP3, Windows 2000 Server SP3, Windows 2000 Advanced Server SP3, Windows 2000 Datacenter Server SP3, Windows 2000 Professional SP4, Windows 2000 Server SP4, Windows 2000 Advanced Server SP4, Windows 2000 Datacenter Server SP4, Windows XP Home Edition, Windows XP Professional, Windows XP Home Edition SP1, Windows XP Professional SP1, Windows XP Home Edition SP1a, Windows XP Professional SP1a, Windows XP Home Edition SP2, Windows XP Professional SP2, Windows XP Home Edition SP3, Windows XP Professional SP3, Windows XP Home Edition N, Windows XP Professional N, Windows XP Home Edition N SP1, Windows XP Professional N SP1, Windows XP Home Edition N SP1a, Windows XP Professional N SP1a, Windows XP Home Edition N SP2, Windows XP Professional N SP2, Windows XP Home Edition N SP3, Windows XP Professional N SP3, Windows XP Professional x64 Edition, Windows XP Professional x64 Edition SP1, Windows XP Professional x64 Edition SP2, Windows XP 64-Bit Edition for Itanium systems, Windows XP 64-Bit Edition, Windows XP Media Center Edition, Windows XP Media Center Edition SP2, Windows XP Media Center Edition 2004, Windows XP Media Center Edition 2005, Windows Embedded Standard 2009, Windows Embedded Professional, Windows Embedded Embedded Enterprise, Windows Embedded Industry, Windows Embedded for Point of Service, Windows Embedded NAVReady, Windows Embedded Standard Automotive, Windows Embedded Handheld, Windows Embedded POSReady 2009, Windows Fundamentals for Legacy PCs, Windows XP Tablet PC Edition, Windows XP Tablet PC Edition 2005, Windows Server 2003 Web, Windows Server 2003 Standard, Windows Server 2003 Enterprise, Windows Server 2003 Enterprise Edition for Itanium-Based Systems, Windows Server 2003 Datacenter Edition for Itanium-Based Systems, Windows Server 2003 Datacenter, Windows Server 2003 Web SP1, Windows Server 2003 Standard SP1, Windows Server 2003 Enterprise SP1, Windows Server 2003 Datacenter SP1, Windows Server 2003 Web SP2, Windows Server 2003 Standard SP2, Windows Server 2003 Enterprise SP2, Windows Server 2003 Datacenter SP2, Windows Server 2003 Web R2, Windows Server 2003 Standard R2, Windows Server 2003 Enterprise R2, Windows Server 2003 Datacenter R2, Windows Server 2003 Workgroup R2, Windows Server 2003 Web x64 R2, Windows Server 2003 Standard x64 R2, Windows Server 2003 Enterprise x64 R2, Windows Server 2003 Datacenter x64 R2, Windows Compute Cluster Server, Windows Home Server, Windows Small Business Server, Windows Storage Server, Windows Server for Embedded Systems, Windows Vista Starter, Windows Vista Home Basic, Windows Vista Home Basic N, Windows Vista Home Premium, Windows Vista Business, Windows Vista Business N, Windows Vista Ultimate, Windows Vista Home Basic x64, Windows Vista Home Premium x64, Windows Vista Business x64, Windows Vista Ultimate x64, Windows Vista Starter SP1, Windows Vista Home Basic SP1, Windows Vista Home Basic N SP1, Windows Vista Home Premium SP1, Windows Vista Business SP1, Windows Vista Business N SP1, Windows Vista Ultimate SP1, Windows Vista Home Basic x64, SP1 Windows Vista Home Premium x64 SP1, Windows Vista Business x64 SP1, Windows Vista Ultimate x64 SP1, Windows Vista Business Embedded, Windows Vista Ultimate Embedded, Windows Vista Business Embedded SP1, Windows Vista Ultimate Embedded SP1, Windows Vista Starter SP2, Windows Vista Home Basic SP2, Windows Vista Home Basic N SP2, Windows Vista Home Premium SP2, Windows Vista Business SP2, Windows Vista Business N SP2, Windows Vista Ultimate SP2, Windows Vista Home Basic x64, SP2 Windows Vista Home Premium x64 SP2, Windows Vista Business x64 SP2, Windows Vista Ultimate x64 SP2, Windows Vista Business Embedded, Windows Vista Ultimate Embedded, Windows Vista Business Embedded SP2, Windows Vista Ultimate Embedded SP2, Windows Vista(RED), Windows Vista(RED) SP1, Windows Vista(RED) SP2, Windows Server 2008 Standard, Windows Server 2008 Standard x64, Windows Server 2008 Enterprise, Windows Server 2008 Enterprise x64, Windows Server 2008 Datacenter, Windows Server 2008 Datacenter x64, Windows HPC Server, Windows Web Server, Windows Web Server x64, Windows Storage Server, Windows Small Business Server, Windows Essential Business Server, Windows Server 2008 for Itanium based Systems, Windows Server 2008 Foundation, Windows Server 2008 Standard SP2, Windows Server 2008 Standard x64 SP2, Windows Server 2008 Enterprise SP2, Windows Server 2008 Enterprise x64 SP2, Windows Server 2008 Datacenter SP2, Windows Server 2008 Datacenter x64 SP2, Windows HPC Server SP2, Windows Web Server SP2, Windows Web Server x64 SP2, Windows Storage Server SP2, Windows Small Business Server SP2, Windows Essential Business Server SP2, Windows Server 2008 for Itanium based Systems SP2, Windows Server 2008 Foundation SP2, Windows Server 2008 Standard, Windows Server 2008 Standard x64, Windows Server 2008 Enterprise, Windows Server 2008 Enterprise x64, Windows Server 2008 Datacenter, Windows Server 2008 Datacenter x64, Windows HPC Server, Windows Web Server, Windows Web Server x64, Windows Storage Server, Windows Small Business Server, Windows Essential Business Server, Windows Server 2008 for Itanium based Systems, Windows Server 2008 Foundation, Windows Server 2008 Standard R2, Windows Server 2008 Standard x64 R2, Windows Server 2008 Enterprise R2, Windows Server 2008 Enterprise x64 R2, Windows Server 2008 Datacenter R2, Windows Server 2008 Datacenter x64 R2, Windows HPC Server R2, Windows Web Server R2, Windows Web Server x64 R2, Windows Storage Server R2, Windows Small Business Server R2, Windows Essential Business Server R2, Windows Server 2008 for Itanium based Systems R2, Windows Server 2008 Foundation R2, Windows 7 Starter, Windows 7 Home Basic, Windows 7 Home Basic N, Windows 7 Home Premium, Windows 7 Professional, Windows 7 Professional N, Windows 7 Ultimate, Windows 7 Home Basic x64, Windows 7 Home Premium x64, Windows 7 Professional x64, Windows 7 Ultimate x64, Windows 7 Starter SP1, Windows 7 Home Basic SP1, Windows 7 Home Basic N SP1, Windows 7 Home Premium SP1, Windows 7 Professional SP1, Windows 7 Professional N SP1, Windows 7 Ultimate SP1, Windows 7 Home Basic x64, SP1 Windows 7 Home Premium x64 SP1, Windows 7 Professional x64 SP1, Windows 7 Enterprise x64 SP1, Windows 7 Ultimate x64 SP1, Windows Thin PC, Windows Embedded Standard 7, Windows Embedded Industry 7, Windows Embedded Enterprise 7, Windows Embedded Compact 7, Windows Embedded Standard x64 7, Windows Embedded Industry x64 7, Windows Embedded Enterprise x64 7, Windows Embedded Compact x64 7, Windows Home Server 2011, Windows 8, Windows 8 x64, Windows 8.1, Windows 8.1 x64, Windows 8 N, Windows 8 N x64, Windows 8.1, N Windows 8.1 N x64, Windows 8 Pro, Windows 8 Pro x64, Windows 8 N Pro, Windows 8 N Pro x64, Windows 8.1 Pro, Windows 8.1 N Pro, Windows 8.1 x64 Pro, Windows 8.1 N x64 Pro, Windows RT, Windows RT 8.1, Windows 8.1 Enterprise, Windows 8.1 Enterprise, Windows Server 2012 Standard x64, Windows Server 2012 R2 Standard x64, Windows Server 2012 Standard x64, Windows Server 2012 R2 Standard x64, Hyper-V Server 2012 x64, Hyper-V Server 2012 R2 x64, Windows Server 2012 Foundation x64, Windows Server 2012 R2 Foundation x64, Windows Server 2012 Essentials x64, Windows Server 2012 R2 Essentials x64, Windows Server 2012 Datacenter x64, Windows Server 2012 R2 Datacenter x64, Windows Server 2012 for Embedded Systems, Windows Embedded 8 Standard, Windows Embedded 8 Industry Pro, Windows Embedded 8 Industry Enterprise, Windows Embedded 8 Handheld, Windows Embedded 8.1 Industry Pro, Windows Embedded 8.1 Industry Enterprise, Windows Embedded 8.1 Handheld, Windows Phone 8, Windows Phone 8.1, Windows Embedded Compact 2013, Windows 10 Home, Windows 10 Pro, Windows 10 Enterprise, Windows 10 Education, Windows 10 Home x64, Windows 10 Pro x64, Windows 10 Enterprise x64, Windows 10 Education x64, Windows 10 Home N, Windows 10 Pro N, Windows 10 Home N x64, Windows 10 Pro N x64, Windows 10 Mobile, Windows 10 IOT, Windows 10 Home TH2, Windows 10 Pro TH2, Windows 10 Enterprise TH2, Windows 10 Education TH2, Windows 10 Home TH2 x64, Windows 10 Pro TH2 x64, Windows 10 Enterprise TH2 x64, Windows 10 Education TH2 x64, Windows 10 Home TH2 N, Windows 10 Pro TH2 N, Windows 10 Home TH2 N x64, Windows 10 Pro TH2 N x64, Windows 10 Mobile, Windows 10 IOT",
 			"settings":
 			{
-				"buffer_size": 994,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Apps/com.dangeredwolf.wsapp.run/run.html",
-			"settings":
-			{
-				"buffer_size": 787,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/dangeredwolf/Documents/projectStack/privEsc.js",
-			"settings":
-			{
-				"buffer_size": 3661,
+				"buffer_size": 10810,
 				"line_ending": "Windows",
-				"name": "//WScript.Echo(\"BrowserStack Privilege Escalator\\n"
+				"name": "Windows NT 3.1, Windows NT 3.1 Advanced Server, Wi"
 			}
 		},
 		{
-			"file": "/C/Users/dangeredwolf/Documents/flappybird/com.dotgears.flappybird_twerk/manifest.json",
+			"file": "/C/Program Files/NTLite/settings.xml",
 			"settings":
 			{
-				"buffer_size": 1316,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/jhdnjmjhmfihbfjdgmnappnoaehnhiaf/0.7.9_0/js/factories/templateFactory.js",
-			"settings":
-			{
-				"buffer_size": 7058,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Apps/com.dangeredwolf.wsapp.wsversion/version.html",
-			"settings":
-			{
-				"buffer_size": 664,
+				"buffer_size": 1865,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Foundation/com.dangeredwolf.webshell.io/io.js",
+			"file": "/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/resources/scripts/accessibility.js",
 			"settings":
 			{
-				"buffer_size": 401,
+				"buffer_size": 8707,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
+			"file": "/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/en-GB/index.html",
 			"settings":
 			{
-				"buffer_size": 644,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Apps/com.dangeredwolf.wsapp.wsversion/version.js",
-			"settings":
-			{
-				"buffer_size": 170,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
-			"settings":
-			{
-				"buffer_size": 14703,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Apps/com.microsoft-unofficial.office.word/word.css",
-			"settings":
-			{
-				"buffer_size": 2124,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/R/Boot/grub.cfg",
-			"settings":
-			{
-				"buffer_size": 4520,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Foundation/com.dangeredwolf.webshell.core.ui/corecss.css",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
-			"settings":
-			{
-				"buffer_size": 2297,
+				"buffer_size": 51913,
 				"line_ending": "Windows"
 			}
 		}
@@ -360,34 +291,39 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/dangeredwolf/Documents/chromedesk",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Apps",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Apps/com.dangeredwolf.wsapp.run",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Apps/com.dangeredwolf.wsapp.wsversion",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Apps/com.microsoft-unofficial.office.word",
-		"/C/Users/dangeredwolf/Documents/chromedesk/CoreApps",
-		"/C/Users/dangeredwolf/Documents/chromedesk/CoreApps/com.dangeredwolf.webshell.setup",
-		"/C/Users/dangeredwolf/Documents/chromedesk/CoreApps/org.webshell.settings",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Foundation",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Foundation/appbase",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Foundation/com.dangeredwolf.webshell.core.ui",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Foundation/com.dangeredwolf.webshell.io",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Foundation/com.dangeredwolf.webshell.system",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Libraries",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Libraries/com.dangeredwolf.webshell.shell",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Libraries/org.jensarps.idbstore",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Libraries/org.jquery",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Libraries/org.jquery.ui",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Resources",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Resources/com.dangeredwolf.webshell.resources.shell",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Resources/com.dangeredwolf.webshell.resources.wallpapers",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Resources/org.webshell.branding",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Themes",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Themes/com.dangeredwolf.webshell.theme-default",
-		"/C/Users/dangeredwolf/Documents/chromedesk/Themes/com.dangeredwolf.webshell.theme-default/css"
+		"/C/Users/dangeredwolf/Documents/webshell",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps",
+		"/C/Users/dangeredwolf/Documents/webshell/Foundation",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries"
 	],
 	"file_history":
 	[
+		"/H/sources/inf/setup.cfg",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.search/app.json",
+		"/C/Boot/BCD",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.microsoft-unofficial.office.word/word.css",
+		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.wsversion/version.js",
+		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
+		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.io/io.js",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.wsversion/version.html",
+		"/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/jhdnjmjhmfihbfjdgmnappnoaehnhiaf/0.7.9_0/js/factories/templateFactory.js",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.run/run.html",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.immersivetest/immersive.html",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/setup.js",
+		"/C/Users/dangeredwolf/Documents/webshell/manifest.json",
+		"/C/Users/dangeredwolf/Documents/webshell/webshellapp.html",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup/setup.html",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup/setup.js",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/com.dangeredwolf.webshell.shell/shell.js",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/setup.css",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/settings.html",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/cygwin64/usr/share/avogadro/crystals/zeolites/CON",
+		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.core.ui/corecss.css",
+		"/R/Boot/grub.cfg",
+		"/C/Users/dangeredwolf/Documents/flappybird/com.dotgears.flappybird_twerk/manifest.json",
+		"/C/Users/dangeredwolf/Documents/projectStack/privEsc.js",
 		"/O/Documents/chromedesk/C/Windows/System32/ntoskrnl.js",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
 		"/C/Users/dangeredwolf/Documents/chromedesk/Libraries/com.dangeredwolf.webshell.shell/shell.js",
@@ -439,12 +375,11 @@
 		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/rundll32.js",
 		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/dwm.html",
 		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/System32/runas.html",
-		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/bios.html",
-		"/C/Windows/System32/drivers/etc/hosts"
+		"/C/Users/dangeredwolf/Documents/chromedesk/C/Windows/bios.html"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 71.0
 	},
 	"find_in_files":
 	{
@@ -459,6 +394,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"userdata",
+			"product",
+			"eula",
+			"#",
+			"com",
+			"#",
+			"127.0.0.1 i.scdn.co",
+			"#",
+			"openwindow",
+			"newwindow",
 			"UNFOCUS",
 			"dwm",
 			"DWM",
@@ -595,348 +540,60 @@
 	"folders":
 	[
 		{
-			"path": "C:\\Users\\dangeredwolf\\Documents\\chromedesk"
+			"path": "C:\\Users\\dangeredwolf\\Documents\\webshell"
 		}
 	],
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 11,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "manifest.json",
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1341,
+						"buffer_size": 2297,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								140,
-								140
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 129.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "webshellapp.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1868,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1734,
-								1734
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 50.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "CoreApps/com.dangeredwolf.webshell.setup/setup.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 978,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								38,
-								38
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 22,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "CoreApps/com.dangeredwolf.webshell.setup/setup.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5149,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								378,
-								378
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 197.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Libraries/com.dangeredwolf.webshell.shell/shell.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14094,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8345,
-								8352
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5886.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "CoreApps/org.webshell.settings/setup.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1982,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1982,
-								1982
+								159,
+								159
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1329.0,
+						"translation.y": 1502.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 1,
 					"file": "CoreApps/org.webshell.settings/settings.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2326,
+						"buffer_size": 2272,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2170,
-								2170
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 418.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/C/Windows/System32/drivers/etc/hosts",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 498116,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								498095,
-								498095
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 294174.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/C/cygwin64/usr/share/avogadro/crystals/zeolites/CON",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "CoreApps/org.webshell.settings/setup.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 829,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								726,
-								726
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "Apps/com.dangeredwolf.wsapp.immersivetest/immersive.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 994,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								351,
-								351
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "Apps/com.dangeredwolf.wsapp.run/run.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 787,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								120,
-								120
+								20,
+								20
 							]
 						],
 						"settings":
@@ -952,107 +609,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "/C/Users/dangeredwolf/Documents/projectStack/privEsc.js",
+					"buffer": 2,
+					"file": "CoreApps/com.dangeredwolf.webshell.setup/setup.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3661,
+						"buffer_size": 947,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								3661
-							]
-						],
-						"settings":
-						{
-							"auto_name": "//WScript.Echo(\"BrowserStack Privilege Escalator\\n",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 268.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "/C/Users/dangeredwolf/Documents/flappybird/com.dotgears.flappybird_twerk/manifest.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1316,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1128,
-								1128
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": -0.0,
-						"translation.y": 524.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/jhdnjmjhmfihbfjdgmnappnoaehnhiaf/0.7.9_0/js/factories/templateFactory.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7058,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								556,
-								556
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2476.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "Apps/com.dangeredwolf.wsapp.wsversion/version.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 664,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6,
-								6
+								354,
+								354
 							]
 						],
 						"settings":
@@ -1064,188 +634,45 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
-					"file": "Foundation/com.dangeredwolf.webshell.io/io.js",
+					"buffer": 3,
+					"file": "webshellapp.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 401,
+						"buffer_size": 1843,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								401,
-								401
+								1289,
+								1289
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 23,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 644,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								204,
-								204
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 404.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
-					"file": "Apps/com.dangeredwolf.wsapp.wsversion/version.js",
+					"buffer": 4,
+					"file": "/C/Windows/Resources/Themes/aero/aero.msstyles",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 170,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								168,
-								168
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14703,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								14703,
-								14703
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 16491.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "Apps/com.microsoft-unofficial.office.word/word.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2124,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								2124
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2211.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "/R/Boot/grub.cfg",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4520,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								636,
-								636
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "Foundation/com.dangeredwolf.webshell.core.ui/corecss.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
+						"buffer_size": 2588047,
 						"regions":
 						{
 						},
@@ -1258,36 +685,123 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 23,
-					"file": "Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
+					"buffer": 5,
+					"file": "/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/omghfjlpggmjjaagoclmmobgdodcjboh/2.5.6_0/background.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2297,
+						"buffer_size": 42351,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								2297
+								8671,
+								8656
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7944.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Apps/com.google-unofficial.search/package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								352,
+								352
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1453,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1351,
+								1351
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1412.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/Windows/System32/drivers/etc/hosts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 347613,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								113,
+								113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1295,7 +809,182 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/Users/dangeredwolf/Documents/AutoUnattend.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7124,
+								7124
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3129.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/Users/dangeredwolf/Documents/WindowsEmbedded/AutoUnattend.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4781,
+								4781
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1900.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10810,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								10810
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Windows NT 3.1, Windows NT 3.1 Advanced Server, Wi",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3435.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/C/Program Files/NTLite/settings.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1865,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								107,
+								107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/resources/scripts/accessibility.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8707,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								741,
+								741
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 608.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/en-GB/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 51913,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
 					"type": "text"
 				}
 			]
@@ -1378,7 +1067,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 327.0,
+	"side_bar_width": 242.0,
 	"status_bar_visible": false,
 	"template_settings":
 	{

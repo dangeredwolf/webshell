@@ -75,7 +75,6 @@ html,body,.dwm {
 	min-width:225px;
 	min-height:100px;
 	transition:all 300ms cubic-bezier(0,1,0,1)
-		
 }
 
 .window.ui-draggable-dragging {
@@ -208,12 +207,12 @@ button:focus {
 	background:rgba(0,0,0,0.3);
 	transition:background 300ms,opacity 300ms;
 	opacity:1;
-	border: 0;
+	border:0
 }
 
 .windowcontrol:focus,.windowcontrol.close:focus {
-	outline: 0;
-	border: 0;
+	outline:0;
+	border:0
 }
 
 .windowcontrol.close {
@@ -295,20 +294,23 @@ button:focus {
 }
 
 .lockscreentime {
-	font-weight:100;
-	font-size:150px;
-	text-align:center;
-	top:100px;
+	font-weight:500;
+	font-size:18px;
+	text-align:right;
+	top:10px;
 	display:block;
 	position:absolute;
-	transition:all 350ms;
-	font-family:Roboto,"Segoe UI",SegoeUI,"Segoe WP",SegoeWP,Segoe,Roboto,"San Francisco","Helvetica Neue",Helvetica,Arial,sans-serif;
-	width:100%
+	width:100%;
+	right:12px
 }
 
 .lockscreendate {
-	font-weight:400;
-	font-size:36px
+	position:absolute;
+	text-align:left;
+	left:24px;
+	top:0;
+	
+
 }
 
 @keyframes loganim {
@@ -324,39 +326,47 @@ button:focus {
 }
 
 .authentication {
-	bottom:200px;
+	bottom:50%;
 	left:50%;
-	width:100%;
-	position:absolute
+	width:350px;
+	position:absolute;
+	background:#fcfcfc;
+	color:#000;
+	height:400px;
+	margin-left:-175px;
+	box-shadow:0 5px 10px rgba(0,0,0,1);
+	border-radius:3px;
+	margin-bottom:-250px
 }
 
 .authentication>img {
-	margin-left:-250px;
 	position:absolute;
 	display:block;
-	margin-top:20px;
-	border-radius:100px
+	margin-top:50px;
+	border-radius:100px;
+	left:50%;
+	margin-left:-65px;
+	width:130px;
+	height:130px;
+	box-shadow:0 2px 5px rgba(0,0,0,0.5)
 }
 
-.authentication>div:not(.welcome) {
-	font-size:32px;
-	margin-top:50px
-}
-
-.welcome {
-	font-size:26px;
-	margin-top:28px;
-	margin-left:48px;
-	position:absolute
+.authentication>div {
+	font-size:22px;
+	margin-top:220px;
+	text-align:center
 }
 
 input,select {
-	padding:8px;
+	padding:12px;
 	padding-left:12px;
 	font-size:1em;
+	border-radius:3px;
 	margin:8px;
 	font-family:Roboto;
-	border:2px solid #e0e0e0
+	box-shadow:0 2px 5px rgba(0,0,0,0.7);
+	border:none;
+	cursor:pointer
 }
 
 input:focus {
@@ -366,7 +376,10 @@ input:focus {
 .authentication input {
 	margin:auto;
 	position:absolute;
-	top:120px
+	bottom:60px;
+	left:50%;
+	width:200px;
+	margin-left:-110px
 }
 
 .displaynone {
@@ -390,42 +403,36 @@ a:hover {
 }
 
 button.startbutton,button.startbutton:hover,button.startbutton:focus,button.startbutton:active {
-	background: url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbutton.png") no-repeat!important;
-	width: 55px!important;
-	height: 50px!important;
-	margin-top: 5px!important;
-	margin-left: -8px!important;
+	background:url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbutton.png") no-repeat!important;
+	width:65px!important;
+	height:65px!important;
+	margin-left:-4px!important;
 	bottom:-30px!important;
 	position:absolute;
-	background-size: 32px 32px!important;
-	background-position: 10px 10px!important;
-	border:none;
+	background-size:48px 48px!important;
+	background-position:10px 10px!important;
 	outline:none;
 	background-color:transparent;
 	z-index:11;
-	padding-top: 71px!important;
+	padding-top:71px!important
 }
 
 .startmenubody button.startbutton:hover,.startmenubody button.startbutton,.startmenubody button.startbutton:focus,.startbutton:active {
-	background-position:10px 10px;
-	background-size:32px 32px;
-	border:none;
-	transform:scale(1)!important;
-	background-color: transparent;
+	border:none
 }
 
 .startbutton:after {
 	content:"";
-	width:32px;
-	height:32px;
+	width:48px;
+	height:48px;
 	position:absolute;
 	left:10px;
-	bottom:35px;
+	bottom:20px;
 	border:none;
 	color:transparent;
 	background-color:transparent!important;
 	background:url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbuttonhover.png") no-repeat;
-	background-size:32px 32px;
+	background-size:48px 48px;
 	z-index:12;
 	opacity:0;
 	transition:opacity 0.3s
@@ -437,17 +444,21 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 
 .startmenubody {
 	color:#fff;
-	position:absolute;
+	position:relative;
 	padding:0;
-	bottom:0;
-	height:65px;
-	width:100%;
+	bottom:65px;
 	z-index:13;
-	transition:height 300ms cubic-bezier(0,1,0,1),max-height 300ms cubic-bezier(0,1,0,1)
+	transition:bottom 300ms cubic-bezier(0,1,0,1);
+	margin-left:auto;
+	margin-right:auto;
+	min-width:50px;
+	max-width:90%;
+	max-height:500px;
+	height:100%
 }
 
 .startmenubody.startmenubodyopen {
-	height:800px
+	bottom:500px
 }
 
 .startmenubody button {
@@ -466,14 +477,9 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 	padding-top:8px;
 	transition:margin-top cubic-bezier(0,1,0,1) 300ms;
 	transition-delay:50ms;
-	margin-top:620px;
+	margin-top: 130px;
+	opacity:1
 }
-
-.startmenubody.startmenubodyopen button {
-	margin-top:620px;
-	opacity: 1;
-}
-
 .startmenubody button:active {
 	transform:scale(0.9)
 }
@@ -540,16 +546,14 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 	position:absolute;
 	bottom:14px;
 	right:16px;
-	text-align:right;
-	transition:all 250ms
+	text-align:right
 }
 
 .startmenubackground {
-	background:rgba(0,0,0,0.15);
-	background:linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.8));
+	background:linear-gradient(rgba(30,50,60,0.8),rgba(30,50,60,0.95),rgb(30,50,60));
 	padding-left:8px;
 	height:100%;
-
+	border-radius:6px 6px 0 
 }
 
 .startmenubody>.startmenubackground>div {
@@ -574,10 +578,9 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 .coretaskbar {
 	opacity:1!important;
 	height:50px;
-	width:100%;
 	pointer-events:all!important;
-	position:fixed;
-	bottom:0
+	position:absolute;
+	top:0
 }
 
 .coretaskbar>div {
@@ -597,9 +600,9 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 	height:35px!important;
 	width:35px!important;
 	position:absolute;
-	bottom:200px;
 	font-size:0!important;
-	padding:0!important
+	padding:0!important;
+	margin-top:450px!important
 }
 
 .powerbutton:hover,.lockbutton:hover {
@@ -610,29 +613,24 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 }
 
 .lockbutton {
-	left:60px;
-	opacity:0;
-	transition:opacity 0.4s cubic-bezier(1,0,1,0);
+	left:120px;
+	opacity:0	
 }
 
 .powerbutton {
-	left:10px;
-	opacity:0;
-	transition:opacity 0.4s cubic-bezier(1,0,1,0);
+	left:70px
 }
 
 .lockbutton:before {
 	content:"\e897";
 	padding-right:10px;
-	font-size:24px;
-	margin-top:3px
+	font-size:32px
 }
 
 .powerbutton:before {
 	content:"\e8ac";
 	padding-right:10px;
-	font-size:24px;
-	margin-top:3px
+	font-size:32px
 }
 
 .bootlogo>img,.bootlogo {
@@ -892,23 +890,22 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 
 .tasks {
 	position:absolute;
-	left:50px;
+	left:70px;
 	height:100%;
-	width:100%;
 	bottom:-7px
 }
 
 .task {
 	font-family:"Material Icons";
-	font-size:32px;
+	font-size:48px;
 	height:70px;
-	padding:10px;
+	padding:15px;
 	padding-top:25px;
 	padding-bottom:7px;
 	text-align:center;
 	position:relative;
 	display:inline;
-	width:50px;
+	width:70px;
 	margin-left:5px;
 	animation:fadein 0.3s cubic-bezier(0,1,0,1);
 	transition:opacity 0.3s cubic-bezier(0,1,0,1),border-bottom 0.3s cubic-bezier(0,1,0,1);
@@ -917,4 +914,18 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 
 .task.taskopen {
 	border-bottom:3px solid #fff
+}
+
+.startmoduletitle {
+	top:90px;
+	font-size:18px;
+	position:absolute
+}
+
+.startmoduletitle:after {
+	font-family:"Material Icons";
+	content:"\e315";
+	font-size:32px;
+	top:-5px;
+	position:absolute;
 }

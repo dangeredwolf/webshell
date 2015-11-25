@@ -414,3 +414,15 @@ body.vasq #hdtb-msb .hdtb-mitem.hdtb-msel, body.vasq #hdtb-msb .hdtb-mitem.hdtb-
     box-shadow:0px 1px 3px rgba(0,0,0,0.5)!important;
     background:#fff;
 }
+
+div#prm {
+    max-height: 20px!important;
+}
+
+.content {
+    padding-bottom:0!important;
+}
+
+div#rcnt {
+    width: 50px;
+}

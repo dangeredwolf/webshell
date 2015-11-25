@@ -166,6 +166,7 @@ function login() {
 	$(".authentication input").val("");
 	$("html>.wallpaper").on("mousedown", function(){
 		closestart();
+		unfocusWindows();
 	});
 }
 
@@ -385,6 +386,7 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 
 	div.mousedown(function(){
 		unfocusWindows();
+		div.removeClass("windowunfocussed");
 	});
 
 	$(".dwm").append(div);

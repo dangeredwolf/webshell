@@ -1,0 +1,29 @@
+{
+	"name":"Google App",
+	"package":"com.google-unofficial.search",
+	"developer":"dangeredwolf",
+	"version":"1.0",
+	"type":"app",
+	"format":"online";
+
+	"icons": {
+		// TODO
+	},
+
+	"onlineappflags": {
+		name:"googleRule",
+		matches: ["https://*.google.com/*","http://*.google.com/*"],
+		css: {files: ["Apps/com.google-unofficial.search/immersivesearch.css"]},
+		js: {files: ["Libraries/org.jquery/jquery.min.js","Libraries/org.jquery.ui/jqueryui.min.js"]},
+		run_at: "document_end"
+	},
+
+	"windowflags": {
+		"dragpadding": [50,190],
+		"url":"https://google.com"
+	},
+
+	"supporturl":"https://support.google.com"
+
+	
+}
