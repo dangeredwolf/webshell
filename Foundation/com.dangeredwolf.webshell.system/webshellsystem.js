@@ -2,9 +2,9 @@ var os = window;
 window.os = window;
 
 os.version = "1.0";
-os.build = "13009 (openshell.milestone.alpha1)";
+os.build = "13010 (openshell.milestone.alpha1)";
 
-os.log = function(a,b,c){console.log(a,b||"",c||"")}; // NOTE TO SELF: Keep function wrappers, otherwise illegal invocation error http://stackoverflow.com/questions/7213369/uncaught-typeerror-illegal-invocation-on-addeventlistener
+// NOTE TO SELF: Keep function wrappers, otherwise illegal invocation error http://stackoverflow.com/questions/7213369/uncaught-typeerror-illegal-invocation-on-addeventlistener
 os.sendShutdownSignal = function(){os.close()};
 os.delay = function(a,b){setTimeout(a,b||500)};
 os.enterKeyCode = 13;
@@ -22,7 +22,7 @@ os.storage = [];
 if (CryptoJS.SHA3) {
 	os.hash = CryptoJS.SHA3;
 } else {
-	os.log("There's no SHA3 function available yet!");
+	console.log("There's no SHA3 function available yet!");
 	os.delay(function(){
 		os.hash = CryptoJS.SHA3;
 	},50);
