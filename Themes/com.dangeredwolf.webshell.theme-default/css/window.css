@@ -58,6 +58,14 @@ html:not(.reduceRedundantEffects) .window.windowunfocussed {
 	opacity:0.95
 }
 
+html.reduceRedundantEffects .window:not(.windowunfocussed) {
+	border:1px solid #000
+}
+
+html.reduceRedundantEffects .window {
+	transition:none!important
+}
+
 .window.fillscreen {
 	top:0!important;
 	left:0!important
@@ -84,6 +92,11 @@ html.reduceRedundantEffects .window,html.reduceRedundantEffects .windowclosed {
 	box-shadow:none;
 	opacity:1!important;
 	visibility:visible
+}
+
+html.reduceRedundantEffects .windowclosed {
+	visibility:hidden;
+	display:none
 }
 
 .windowcontrols {
@@ -121,6 +134,16 @@ html.reduceRedundantEffects .window,html.reduceRedundantEffects .windowclosed {
 .windowcontrol:focus,.windowcontrol.close:focus {
 	outline:0;
 	border:0
+}
+
+html.reduceRedundantEffects .windowcontrol {
+	visibility:hidden;
+	-webkit-font-smoothing:none;
+	transition:none!important
+}
+
+html.reduceRedundantEffects .windowcontrol.close,html.reduceRedundantEffects .window:not(.windowunfocussed) .windowcontrol {
+	visibility:visible
 }
 
 .windowcontrol.close {

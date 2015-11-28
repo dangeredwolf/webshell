@@ -9,7 +9,7 @@ ntkapi.useBrowserRestartForShutdown = true;
 
 os.shuttingdown = false;
 os.systemVersion = "1.0";
-os.systemBuild = "12000 (openshell.milestone.alpha1)"
+os.systemBuild = "12001 (openshell.milestone.alpha1)"
 
 ntkapi.killWindowWithDelay = function(thewindow,delay) {
 	setTimeout(function(){

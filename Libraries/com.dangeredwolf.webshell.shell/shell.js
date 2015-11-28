@@ -9,6 +9,7 @@ var pleaseLoadDataImmedientlyThankYou = false;
 var settingUp = false;
 window.tickedNewbie = false;
 var worryAboutPerformance = false;
+var performanceFalseAlarms = 0;
 var body = $(document.body);
 
 function make(thing) {
@@ -187,7 +188,7 @@ function openstart() {
 
 function initShellEvents() {
 
-	FPSMeter.run(3);
+	FPSMeter.run(5);
 
 	window.addEventListener("openwindow",function(args){
 		console.log(args);
@@ -243,8 +244,9 @@ function initShellEvents() {
 			console.log("FPS still below threshold at " + e.fps + ", enabling reduceRedundantEffects");
 			$("html").addClass("reduceRedundantEffects");
 			worryAboutPerformance = false;
-		} if ($("html").hasClass("reduceRedundantEffects") && e.fps > 57) {
+		} if ($("html").hasClass("reduceRedundantEffects") && e.fps > 56 && performanceFalseAlarms < 2) {
 			console.log("Reduce redundant effects is on and performance is exceptionally good, let's try turning up effects!");
+			performanceFalseAlarms++;
 			$("html").removeClass("reduceRedundantEffects");
 		}
 	},false);
@@ -397,6 +399,22 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 		});
 
 		$(".tasks").append(taskicon);
+
+		$('#element').mousedown(function(event) {
+		switch (event.which) {
+		case 1:
+			console.log('Left mouse button pressed');
+			break;
+		case 2:
+			console.log('Middle mouse button pressed');
+			break;
+		case 3:
+			console.log('Right mouse button pressed');
+			break;
+		default:
+			console.log('You have a strange mouse');
+	}
+});
 	}
 
 	if (!!dragleft || !!dragright) {
