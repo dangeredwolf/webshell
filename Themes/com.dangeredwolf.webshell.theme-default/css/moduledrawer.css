@@ -10,21 +10,6 @@ html.reduceRedundantEffects .startmenubackground {
 	border-radius:0
 }
 
-.startmenubody>.startmenubackground>div {
-	transition:opacity 550ms cubic-bezier(0,1,0,1);
-	transition-delay:100ms
-}
-
-.startmenubody:not(.startmenubodyopen) button:not(.powerbutton):not(.lockbutton) {
-	transition:opacity 350ms cubic-bezier(0,1,0,1);
-	transition-delay:0ms
-}
-
-.startmenubody:not(.startmenubodyopen)>.startmenubackground>div {
-	opacity:0;
-	pointer-events:none
-}
-
 .coretaskbar {
 	opacity:1!important;
 	height: 100px;
@@ -48,8 +33,9 @@ html.reduceRedundantEffects .startmenubackground {
 	pointer-events:none
 }
 
-button.startbutton,button.startbutton:hover,button.startbutton:focus,button.startbutton:active {
-	background:url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbutton.png") no-repeat!important;
+.startbutton {
+	background-image:url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbutton.png")!important;
+	background-repeat:no-repeat!important;
 	width:65px!important;
 	height:65px!important;
 	margin-left: 3px!important;
@@ -57,35 +43,20 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 	position:absolute;
 	background-size:48px 48px!important;
 	background-position:10px 10px!important;
-	outline:none;
+	outline:0!important;
 	background-color:transparent;
 	z-index:11;
-	padding-top:71px!important
+	padding-top:71px!important;
+	transition:-webkit-filter 1000ms cubic-bezier(0,1,0,1)!important;
 }
 
-.startmenubody button.startbutton:hover,.startmenubody button.startbutton,.startmenubody button.startbutton:focus,.startbutton:active {
-	border:none
+.startbutton:hover {
+	-webkit-filter:brightness(120%)
 }
 
-.startbutton:after {
-	content:"";
-	width:48px;
-	height:48px;
-	position:absolute;
-	left:10px;
-	bottom:20px;
-	border:none;
-	color:transparent;
-	background-color:transparent!important;
-	background:url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbuttonhover.png") no-repeat;
-	background-size:48px 48px;
-	z-index:12;
-	opacity:0;
-	transition:opacity 0.3s
-}
-
-.startbutton:hover:after {
-	opacity:1
+.startbutton:active {
+	transform:none!important;
+	-webkit-filter:opacity(50%);
 }
 
 .startmenubody {
@@ -126,7 +97,8 @@ button.startbutton,button.startbutton:hover,button.startbutton:focus,button.star
 	transition:margin-top cubic-bezier(0,1,0,1) 300ms;
 	transition-delay:50ms;
 	margin-top: 130px;
-	opacity:1
+	outline:0!important;
+	opacity:1;
 }
 .startmenubody button:active {
 	transform:scale(0.9)

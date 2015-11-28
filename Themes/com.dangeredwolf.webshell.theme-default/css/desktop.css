@@ -16,7 +16,7 @@
 	bottom:0;
 	left:0;
 	right:0;
-	background-image:url("../../../../Resources/com.dangeredwolf.webshell.resources.wallpapers/wallpaper3.jpg");
+	background-image:url("../../../../Resources/com.dangeredwolf.webshell.resources.wallpapers/wallpaper4.jpg");
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-position:50% 50%
@@ -26,10 +26,11 @@
 	font-weight:400;
 	font-size:14px;
 	position:absolute;
-	bottom:50px;
+	bottom:100px;
 	right:20px;
 	text-align:right;
-	line-height:22px
+	line-height:22px;
+	opacity:0.5
 }
 
 html,body,.dwm {
