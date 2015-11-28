@@ -338,3 +338,5 @@ Roboto Font
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+Additional entities I'd like to thanks personally: StackOverflow's Community, Google, GitHub

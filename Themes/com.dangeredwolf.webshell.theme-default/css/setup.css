@@ -1,6 +1,23 @@
+@keyframes fadeinsetup {
+    0% {
+        opacity:0;
+        margin-left:100px;
+    }
+
+    100% {
+        opacity:1;
+        margin-left:0;
+    }
+}
+
 html,body {
     background:#000;
     color:#fff;
+    padding:0
+}
+
+body {
+    padding:13px
 }
 
 input,select {
@@ -8,6 +25,8 @@ input,select {
     padding:10px;
     background:#000;
     margin-left:70px;
+    border-bottom:solid 2px #fff;
+    border-radius:0;
     color:#fff
 }
 
@@ -18,7 +37,7 @@ button {
 
 .setuptitle {
     padding:70px;
-    font-size: 56px;
+    font-size:56px;
     font-weight:100
 }
 
@@ -33,26 +52,14 @@ option {
     -webkit-appearance:none;
     border-color:#fff;
     outline:0;
-    min-height: 2em;
-    line-height: 2em;
-}
-
-@keyframes fadeinsetup {
-    0% {
-        opacity:0;
-        margin-left:100px;
-    }
-
-    100% {
-        opacity:1;
-        margin-left:0;
-    }
+    min-height:2em;
+    line-height:2em
 }
 
 #setupview>body {
     animation:fadein 0.3s
 }
 
-#setupview {
-    animation:fadeinsetup 0.3s cubic-bezier(0,1,.46,1)
+#setupview.fadeinanim {
+    animation:fadeinsetup 0.3s cubic-bezier(0,1,.46,1);
 }

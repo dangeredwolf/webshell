@@ -1,20 +1,31 @@
+updateBootStatus("Initialising shell.js...")
+
 const debugWindowAnimations = false;
 const debugAuthentication = false;
-var scrollTimer = 0;
-var startmenuopen = false;
-var pwHash;
-var pwSalt;
-var storeReady = false;
-var pleaseLoadDataImmedientlyThankYou = false;
-var settingUp = false;
-window.tickedNewbie = false;
-var worryAboutPerformance = false;
-var performanceFalseAlarms = 0;
-var body = $(document.body);
+const bootLogo = $(".bootlogo");
+const lockScreen = $(".lockscreen");
+const tasks = $(".tasks");
+const lockScreenTimeNode = $(".lockscreentime.time");
+const passwordInputBox = $(".authentication>input");
+const windowManagerContainer = $(".dwm");
+const wallpaper = $(".wallpaper");
+const watermark = $(".watermark");
+const authenticationTitle = $(".authentication>div");
+const moduleDrawerBody = $(".startmenubody");
 
-function make(thing) {
-	return $(document.createElement(thing));
-}
+var mightNeedToSetup;
+var options;
+var loginHash;
+var loginSalt;
+var isModuleDrawerOpen = false;
+var loginDataReady = false;
+var pageLoadedQuickSoProcessDataImmediately = false;
+var settingUp = false;
+var worryAboutPerformance = 0;
+var performanceFalseAlarms = 0;
+var isSettingUp = false;
+var setupTitle;
+var langSelection;
 
 os.storage.login = new IDBStore({
 	dbVersion: '1',
@@ -22,343 +33,482 @@ os.storage.login = new IDBStore({
 	keyPath: 'id',
 	autoIncrement: true,
 	onStoreReady: function () {
-		console.log("login store ready!");
-		storeReady = true;
-		if (pleaseLoadDataImmedientlyThankYou)
-			loadLoginData();
+		os.log("login store ready!");
+		loginDataReady = true;
+		if (pageLoadedQuickSoProcessDataImmediately) {
+			processLoginData();
+		}
 	}
 });
 
-function loadLoginData() {
+function processLoginData() {
+
+	updateBootStatus("Processing login data...")
 
 	os.storage.login.get("passwordSalt",function(e){
-		pwSalt = e ? e.value : undefined;
+		loginSalt = e ? e.value : undefined;
 
-		if (tickedNewbie) {
-			setupLogin();
+		if (typeof loginSalt === "undefined") {
+			initSetup();
 		}
 
-		if (typeof pwSalt === "undefined") {
-			tickedNewbie = true;
-		}
-
-		if (typeof pwHash !== "undefined" && typeof pwSalt !== "undefined") {
+		if (typeof loginSalt !== "undefined" && typeof loginHash !== "undefined") {
 			initShell();
-			initLockscreen();
 		}
 	});
 
 	os.storage.login.get("passwordHash",function(e){
-		pwHash = e ? e.value : undefined;
+		loginHash = e ? e.value : undefined;
 
-		if (tickedNewbie) {
-			setupLogin();
+		if (typeof loginHash === "undefined") {
+			initSetup();
 		}
 
-		if (typeof pwHash === "undefined") {
-			tickedNewbie = true;
-		}
-
-		if (typeof pwHash !== "undefined" && typeof pwSalt !== "undefined") {
+		if (typeof loginHash !== "undefined" && typeof loginSalt !== "undefined") {
 			initShell();
-			initLockscreen();
 		}
 	});
 }
 
-function FormatMonth(monthstring) {
-	switch (monthstring) {
-		case "Jan":
-			return "January";
-		case "Feb":
-			return "February";
-		case "Mar":
-			return "March";
-		case "Apr":
-			return "April";
-		case "May":
-			return "May";
-		case "Jun":
-			return "June";
-		case "Jul":
-			return "July";
-		case "Aug":
-			return "August";
-		case "Sep":
-			return "September";
-		case "Oct":
-			return "October";
-		case "Nov":
-			return "November";
-		case "Dec":
-			return "December";
-		default:
-			return "Month";	
-	}
-}
-
 function initShell() {
 
-	$(".bootlogo").delay(1500).addClass("fadeout");
-	$(".bootlogo").delay(2000).remove();
+	updateBootStatus("Initialising Shell...");
 
 	if (!settingUp) {
-		$(".lockscreen").delay(2300).removeClass("hidden");
+		bootLogo.delay(1500).addClass("fadeout");
+		lockScreen.delay(2300).removeClass("hidden");
+		os.delay(bootLogo.remove,2000);
+		updateLockScreenTime();
+		initialiseShellAwareness();
+		initLockScreen();
 	}
 
-	lockscreenTimeUpdate();
-	initShellEvents();
 }
 
-function lockscreenTimeUpdate() {
+function updateLockScreenTime() {
 
-	if ($(".lockscreenopened").length) {
-		console.log("well bye");
+	if ($(".lockscreenopened").length > 0) {
+		os.log("well bye");
 		return;
 	}
 
 	var thedate = new Date();
 	var parsetime = thedate.toTimeString().split(":");
 	var parsedate = thedate.toDateString().split(" ");
-	var month = FormatMonth(parsedate[1]);
-	var timenode = $(".lockscreentime.time");
+	var month = os.formatMonth(parsedate[1]);
 
-	timenode.html(parsetime[0] + ":" + parsetime[1] + "<div class='lockscreendate'>" + parsedate[2] + " " + month + "</div>");
+	lockScreenTimeNode.html(parsetime[0] + ":" + parsetime[1] + "<div class='lockscreendate'>" + parsedate[2] + " " + month + "</div>");
 
-	setTimeout(lockscreenTimeUpdate,2000);
+	setTimeout(updateLockScreenTime,2000);
 }
 
-function lockDeviceScreen() {
-	$(".lockscreen").removeClass("lockscreenopened")
-	$(".authentication input").focus();
+function _lockDeviceScreen() {
+	lockScreen.removeClass("lockscreenopened hidden")
+	passwordInputBox.focus();
 	
-	body.delay(400).removeClass();
-	$("html>body>.wallpaper:not(.lockscreen)").delay(400).addClass("hidden");
+	os.body.delay(400).removeClass();
+	$([wallpaper,windowManagerContainer]).delay(400).addClass("hidden");
 	
-	lockscreenTimeUpdate();
+	updateLockScreenTime();
 }
 
-function parseBool(a) {
-	return a === "true";
-}
+os.lock = _lockDeviceScreen;
 
 function testLogin() {
-	if (!pwHash) {
+	if (!loginHash) {
 		throw "The account storage container for this user has not been set up";
-		$(".authentication div").html("Something happened");
+		authenticationTitle.html("Something happened");
 	}
 
-	if (CryptoJS.SHA3($(".authentication input").val() + pwSalt + "") + "" === pwHash + "") {
-		$(".lockscreen").attr("class","lockscreenopened lockscreen hidden");
+	if (os.hash(passwordInputBox.val() + loginSalt + "") + "" === loginHash + "") {
+		lockScreen.addClass("lockscreenopened hidden");
 		login();
 	} else {
-		$(".authentication div").html("Incorrect Password");
+		authenticationTitle.html("Incorrect Password");
 
 		setTimeout(function(){
-			$(".authentication div").html("Hey, User!");
+			authenticationTitle.html("Hey, User!");
 		},1500)
 	}
 }
 
 function login() {
-	startShellExperienceHost();
+	initialiseShellUX();
 
-	$(".dwm").removeClass("hidden");
-	$(".wallpaper.hidden").removeClass("hidden");
-	$(".authentication input").val("");
-	$("html>.wallpaper").on("mousedown", function(){
-		closestart();
+	windowManagerContainer.removeClass("hidden");
+	passwordInputBox.val("");
+
+	wallpaper.removeClass("hidden").on("mousedown", function(){
 		unfocusWindows();
 	});
 }
 
 function unfocusWindows() {
 	$(".window:not(.windowunfocussed)").addClass("windowunfocussed");
+	closeModuleDrawer();
 }
 
-function closestart() {
-	startmenuopen = false;
-	$(".startmenubody").removeClass("startmenubodyopen");
+function closeModuleDrawer() {
+	isModuleDrawerOpen = false;
+	moduleDrawerBody.removeClass("startmenubodyopen");
 }
 
-function openstart() {
-	startmenuopen = true;
-	$(".startmenubody").addClass("startmenubodyopen");
+function openModuleDrawer() {
+	isModuleDrawerOpen = true;
+	moduleDrawerBody.addClass("startmenubodyopen");
 }
 
-function initShellEvents() {
+function toggleModuleDrawer() {
+	isModuleDrawerOpen = !isModuleDrawerOpen;
 
-	FPSMeter.run(5);
+	if (isModuleDrawerOpen) {
+		openModuleDrawer();
+	} else {
+		closeModuleDrawer();
+	}
+}
 
-	window.addEventListener("openwindow",function(args){
-		console.log(args);
+function initialiseShellAwareness() {
+
+	updateBootStatus("Initialising Shell Awareness and Adaptation Process...");
+
+	FPSMeter.run(6);
+
+	root.on("openwindow",function(args){
 		openWindow(args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8],args[9],args[10],args[11],args[12]);
 	});
 
-	window.addEventListener("shutdown",function(args){
-		os.shutdown();
-	});
+	root.on("shutdown",os.shutdown);
 
-	window.addEventListener("setupsavecredentials",function(args){
-		console.log("DING! " + args[0]);
-
-		os.setupPass = args[0];
-		os.confirmPass = args[0];
-
-		saveCredentials();
-	});
-
-	window.addEventListener("lockscreen",function(args){
+	root.on("lockscreen",function(args){
 		lockDeviceScreen();
 	});
 
-	window.addEventListener("starttoggle",function(){
-		startmenuopen = !startmenuopen;
-		if (startmenuopen) {
-			openstart();
-		} else {
-			closestart();
-		}
-	})
+	root.on("starttoggle",toggleModuleDrawer);
+	watermark.html("WebShell Version " + os.version + "<br>Experimental Copy. Build " + os.build);
+	passwordInputBox.focus();
 
-	window.addEventListener('scroll', function() { // This is for potential performance benefits by reducing paint cycles needed while scrolling
-	  clearTimeout(scrollTimer);
-	  document.body.classList.remove('hover');
-
-	  scrollTimer = setTimeout(function(){
-	  	document.body.classList.add('hover');
-	  }, 1000);
-	}, false);
-
-	$(".watermark").html("WebShell Version " + os.systemVersion + "<br>Experimental Copy. Build " + os.systemBuild);
-
-	$(".authentication input").focus();
-
-	document.addEventListener('fps',function(e){
-		console.log("FPS " + e.fps + " (" + (e.fps > 50 && "Doing Great!" || e.fps > 40 && "Doing Well!" || e.fps > 30 && "Doing OK!" || e.fps > 20 && "Doing Poorly" || "Doing Bad") + ")");
+	doc.on('fps',function(e){
+		os.log("FPS " + e.fps + " (" + os.fpsStatusParseHelper(e.fps) + ")");
 		
-		if (e.fps < 30 && !$("html").hasClass("reduceRedundantEffects") && !worryAboutPerformance) {
-			worryAboutPerformance = true;
-			console.log("Worrying about performance! If this keeps up we'll reduce some redundant effects.")
-		} else if (e.fps < 30 && worryAboutPerformance) {
-			console.log("FPS still below threshold at " + e.fps + ", enabling reduceRedundantEffects");
-			$("html").addClass("reduceRedundantEffects");
-			worryAboutPerformance = false;
-		} if ($("html").hasClass("reduceRedundantEffects") && e.fps > 56 && performanceFalseAlarms < 2) {
-			console.log("Reduce redundant effects is on and performance is exceptionally good, let's try turning up effects!");
+		if (e.fps < 30 && !html.hasClass("reduceRedundantEffects") && worryAboutPerformance < 4) {
+			worryAboutPerformance++;
+			os.log("Worrying about performance! If this keeps up we'll reduce some redundant effects.")
+		} else if (e.fps < 30 && worryAboutPerformance >= 4) {
+			os.log("FPS still below threshold at " + e.fps + ", enabling reduceRedundantEffects");
+			html.addClass("reduceRedundantEffects");
+			worryAboutPerformance = 0;
+		} if (html.hasClass("reduceRedundantEffects") && e.fps > 55 && performanceFalseAlarms < 2) {
+			os.log("Reduce redundant effects is on and performance is exceptionally good, let's try turning up effects!");
 			performanceFalseAlarms++;
-			$("html").removeClass("reduceRedundantEffects");
+			html.removeClass("reduceRedundantEffects");
 		}
 	},false);
 
 }
 
-function generateRandomCharacter() {
-	var chars = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9","!","@","#","$","%","^","&","*","(",")","_","-","=","+","[","]","{","}","\\","|","'","\"",";",":","<",">",".",",","/","?","~","`"];
-	var randomNumber = Math.floor(Math.random() * chars.length);
-	return chars[randomNumber];
-}
+function initSetup() {
 
-function generateRandomCharacters(num) {
-	var randomChars = "";
-	for (var i = 0; i < num; i++) {
-		randomChars += generateRandomCharacter();
-	}
+	isSettingUp = true;
 
-	return randomChars;
-}
+	body.html("");
 
-function setupLogin() {
-	var webview = make("webview").attr("partition","persist:system").attr("style","height:100%;width:100%").addClass("windowbody").attr("src","CoreApps/com.dangeredwolf.webshell.setup/setup.html");
-	var div = make("div").css("left",0).css("top",0).css("width","100%").css("height","100%").css("opacity","0.001").addClass("window").append(webview);
-	body.append(div);
-	webview.on("contentload",function(){
-		$(".bootlogo").addClass("fadeout");
-		div.delay(500).css("opacity",1)
-	})
+	head.append(make("link")
+	.attr("rel","stylesheet")
+	.attr("href","Themes/com.dangeredwolf.webshell.theme-default/css/setup.css"));
 
-	webview.on("dialog",function(e){
-		if (e.messageText === "ihaspassword") {
-			webview[0].executeScript({code:"document.querySelector('#setting1').value;"},function(result){
-				window.setupPass = result[0];
-				window.confirmPass = result[0];
-				saveCredentials(result[0]);
-				webview[0].executeScript({code:"var div=document.createElement('div');div.id='shallwecontinue';document.body.appendChild(div);//setTimeout(function(){document.querySelector('#setting1').value=Math.random();},500);"});
-				div.css("opacity",1)
-				$(".bootlogo").removeClass("fadeout");
+	langSelection = make("select")
+	.attr("id","langselection")
+	.append(
+		make("option")
+		.val("")
+		.html("-------")
+	)
+	.append(
+		make("option")
+		.val("en")
+		.html("English")
+	)
+	.append(
+		make("option")
+		.val("de")
+		.html("Deutsche")
+	)
+	.append(
+		make("option")
+		.val("es")
+		.html("Español")
+	)
+	.append(
+		make("option")
+		.val("fr")
+		.html("Français")
+	)
+	.append(
+		make("option")
+		.val("nl")
+		.html("Nederlands")
+	)
+	.change(function(){
+		html.removeClass("fadeinanim").addClass("fadeoutanim");
 
-				setTimeout(function(){
-					chrome.runtime.reload();
-				},1200)
-			});
-		};
-		return;
-	})
+		os.delay(function() {
+			if ($("#regionopts").length > 0) {
+				options = $("#regionopts").html("");
+			} else {
+				options = make("select")
+				.attr("id","regionopts")
+				.change(startKeyboardSelection);
 
-	$(".lockscreen").addClass("hidden");
+				body.append(options);
+			}
+
+			html.removeClass("fadeoutanim").addClass("fadeinanim");
+
+			switch ($("#langselection>:checked").val()) {
+				case "en": 
+					setupTitle.html("Language");
+
+					var option0 = make("option")
+					.val("")
+					.html("-------");
+
+					var option1 = make("option")
+					.val("en_US")
+					.html("English (United States)");
+
+					var option2 = make("option")
+					.val("en_GB")
+					.html("English (United Kingdom)");
+
+					var option3 = make("option")
+					.val("en_GB")
+					option3.html("English (Canada)");
+
+					var option4 = make("option")
+					.val("en_GB")
+					option4.html("English (Australia)");
+
+					var option5 = make("option")
+					.val("en_GB")
+					.html("English (India)");
+
+					var option6 = make("option")
+					.val("en_GB")
+					option6.html("English (Ireland)");
+
+					options.append(option0).append(option1).append(option2).append(option3).append(option4).append(option5).append(option6);
+
+					break;
+				case "es":
+					setupTitle.html("Idioma");
+
+					var option0 = make("option")
+					.val("")
+					.html("-------");
+
+					var option1 = make("option")
+					.val("es_419")
+					.html("Español (America Latina)");
+
+					var option2 = make("option")
+					.val("es_419")
+					.html("Español (México)");
+
+					var option3 = make("option")
+					.val("es")
+					.html("Español (España)");
+
+					var option4 = make("option")
+					.val("es_419")
+					.html("Español (Estados Unidos)");
+
+					options.append(option0).append(option1).append(option2).append(option3).append(option4);
+
+					break;
+				case "fr":
+					setupTitle.html("Langue");
+
+					var option0 = make("option")
+					.val("")
+					.html("-------");
+
+					var option1 = make("option")
+					.val("fr")
+					.html("Français (France)");
+
+					var option2 = make("option")
+					.val("fr")
+					.html("Français (Canada)");
+
+					options.append(option0).append(option1).append(option2);
+
+					break;
+				case "de":
+					setupTitle.html("Sprache");
+
+					var option0 = make("option")
+					.val("")
+					.html("-------");
+
+					var option1 = make("option")
+					.val("de")
+					.html("Deutsche (Deutschland)");
+
+					var option2 = make("option")
+					.val("de")
+					.html("Deutsche (Österreich)");
+
+					var option3 = make("option")
+					.val("de")
+					.html("Deutsche (Schweiz)");
+
+					options.append(option0).append(option1).append(option2).append(option3);
+
+					break;
+				case "nl":
+					setupTitle.html("Naal");
+
+					var option0 = make("option")
+					.val("")
+					.html("-------");
+
+					var option1 = make("option")
+					.val("nl")
+					.html("Nederlands (Nederland)");
+
+					var option2 = make("option")
+					.val("nl")
+					.html("Nederlands (Suriname, Caribbean)");
+
+					options.append(option0).append(option1).append(option2);
+
+					break;
+				default:
+					setupTitle.html("Language / Langue / Idioma / Sprache / Taal");
+					options.remove();
+					break;
+			}
+
+		},350)
+	});
+
+	setupTitle = make("div")
+	.addClass("setuptitle")
+	.html("Language / Langue / Idioma / Sprache / Taal");
+
+	body.append(setupTitle).append(langSelection);
 
 	settingUp = true;
+
+	html.addClass("fadeinanim").attr("id","setupview");
+}
+
+function startKeyboardSelection() {
+	html.removeClass("fadeinanim").addClass("fadeoutanim");
+	os.delay(startUserSetup,350);
+}
+
+function startUserSetup() {
+	body.html("");
+
+	setupTitle = make("div")
+	.html("Let's set up your account")
+	.attr("class","setuptitle");	
+
+	setting1 = make("input")
+	.attr("placeholder","Password")
+	.attr("id","setting1")
+	.keypress(function(e){
+		if (e.charCode === os.enterKeyCode) {
+			setting2.focus();
+		} 
+	});
+
+	setting2 = make("input")
+	.attr("placeholder","Confirm Password")
+	.keypress(function(e){
+		if (e.charCode === os.enterKeyCode) {
+			if (setting1.val() === setting2.val()) {
+				setupTitle.html("Saving data...");
+				saveCredentials(setting1.val());
+			} else {
+				setupTitle.html("Those passwords didn't match. Try again?");
+			}
+		} 
+	});
+	
+	body.append(setupTitle).append(setting1).append(setting2);
+
+	html.attr("class","fadeinanim");
 }
 
 function saveCredentials(setupPass) {
-	var salt = generateRandomCharacters(100);
-	var hash = CryptoJS.SHA3(setupPass + salt) + "";
+	var salt = os.randomChars(100);
+	var hash = os.hash(setupPass + salt) + "";
 
 	os.storage.login.put({"id":"passwordSalt","value":salt});
 	os.storage.login.put({"id":"passwordHash","value":hash});
 	os.setupPass = undefined;
 	os.confirmPass = undefined;
 
-	os.savedCredentialsJustNow = true;
+	setupTitle.html("WebShell will restart in a moment to finish setup!");
 
-	initLockscreen();
+	os.delay(function(){chrome.runtime.reload()},3000);
 
 	return;
 }
 
-function initLockscreen() {
+function initLockScreen() {
 
-	if (settingUp) {
-		$(".lockscreen").addClass("hidden");
-		return;
-	}
-
-	$(".authentication input").keypress(function(e){
-		if (e.charCode === 13) {
+	passwordInputBox.keypress(function(e){
+		if (e.charCode === os.enterKeyCode) {
 			testLogin();
 		}
 	});
 }
 
-function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,dragright) {
+function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,windowPositionY,windowIcon,windowContent,windowDragOffsetLeft,windowDragOffsetRight) {
 
 	if (shuttingdown) {
 		throw "Failed to open window because we're shutting down";
 		return;
 	}
 
-	console.log(extracontent);
+	os.log(windowContent);
 
-	var url = !url ? "https://www.google.com//%//%" : url;
+	var url = url || "https://www.google.com//%//%";
+	var windowSizeX = windowSizeX || 800;
+	var windowSizeY = windowSizeY || 500;
 
-	var windowwidth = sizex || 800;
-	var windowheight = sizey || 500;
-	var wid = windowwidth;
-	var hei = windowheight;
+	var wid = windowSizeX;
+	var hei = windowSizeY;
 	var vw = $(window).width();
 	var vh = $(window).height();
-	var windowid = Math.floor(Math.random() * 999999999999999);
+	var windowID = Math.floor(Math.random() * 999999999999999);
 
 	unfocusWindows();
 
-	var draghandle = make("div").addClass("windowdraghandle").draggable({});
-	var minimise = make("button").addClass("windowcontrol min").html("&#xE15B");
-	var maximise = make("button").addClass("windowcontrol max").html("&#xE3C6");
-	var close = make("button").addClass("windowcontrol close").html("&#xE5CD");
-	var draghandle = make("div").addClass("windowdraghandle");
+	var draghandle = os.make("div")
+	.addClass("windowdraghandle");
+	
+	var minimise = os.make("button")
+	.addClass("windowcontrol min")
+	.html("&#xE15B");
+
+	var maximise = os.make("button")
+	.addClass("windowcontrol max")
+	.html("&#xE3C6");
+
+	var close = os.make("button")
+	.addClass("windowcontrol close")
+	.html("&#xE5CD");
+
+	var draghandle = os.make("div")
+	.addClass("windowdraghandle");
 
 	var closefunc = function() {
-		webview[0].executeScript({code:"window.close();"},function(e){console.log(e)});
+		webviewnojq.executeScript({code:"window.close();"},function(e){os.log(e)});
 		webview.parent().addClass("windowclosed");
 		taskicon.addClass("taskclosing");
 
@@ -376,55 +526,97 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 		div.toggleClass("fillscreen")
 	});
 
-	var webview = make("webview").addClass("windowbody").attr("partition","persist:system").css("height",windowheight + "px").css("width",windowwidth + "px");
-	var windowcontrols = make("div").addClass("windowcontrols").append(minimise).append(maximise).append(close);
-	var div = make("div").addClass("window draggable resizable hidden").attr("id",windowid).css("left",(posx||vw/2-wid/2)+"px").css("top",(posy||vh/2-hei/2)+"px").css("height",windowheight + "px").css("width",windowwidth + "px").append(draghandle).append(windowcontrols).append(webview).draggable({delay:200,distance:3,handle:".windowdraghandle"});
+	var webview = os.make("webview")
+	.addClass("windowbody")
+	.attr("partition","persist:system")
+	.css("height",windowSizeY + "px")
+	.css("width",windowSizeX + "px");
+
+	webviewnojq = webview[0];
+
+	var windowcontrols = os.make("div")
+	.addClass("windowcontrols")
+	.append(minimise)
+	.append(maximise)
+	.append(close);
+	
+	var div = os.make("div")
+	.addClass("window draggable resizable hidden")
+	.attr("id",windowID)
+	.css("left",(windowPositionX||vw/2-wid/2)+"px")
+	.css("top",(windowPositionY||vh/2-hei/2)+"px")
+	.css("height",windowSizeY + "px").css("width",windowSizeX + "px")
+	.append(draghandle)
+	.append(windowcontrols)
+	.append(webview)
+	.draggable({delay:200,distance:3,handle:".windowdraghandle"})
+	.resizable()
+	.on("resize",function(e,u){
+		if (div.hasClass("fillscreen")) {
+			preventDefault();
+			return;
+		}
+		
+		if (u.originalSize.width !== u.size.width && u.originalSize.height !== u.size.height) {
+			webview.width(div.width());
+			webview.height(div.height());
+		} else if (u.originalSize.width !== u.size.width) {
+			webview.width(div.width());
+			div.height(webview.height());
+		} else if (u.originalSize.height !== u.size.height) {
+			webview.height(div.height());
+			div.width(webview.width());
+		}
+	});
 
 	var taskicon;
 
-	if (!!icon) {
+	if (!!windowIcon) {
 
-		if ($(".task[icon='" + icon + "']").length <= -1) {
+		if ($(".task[icon='" + icon + "']").length >= 0) {
 			taskicon = $(".task[icon='" + icon + "']");
 		} else {
-			taskicon = make("div").addClass("task").attr("icon",icon);
+			taskicon = os.make("div")
+			.addClass("task")
+			.attr("icon",windowIcon);
 		}
 
-		taskicon.html(icon);
-
-		taskicon.addClass("taskopen").attr("id",windowid).click(function(){
+		taskicon.html(windowIcon)
+		.addClass("taskopen")
+		.attr("id",windowID)
+		.click(function(){
 			unfocusWindows();
 			div.removeClass("windowunfocussed");
-			console.log("hey");
+			os.log("hey");
 		});
 
-		$(".tasks").append(taskicon);
+		tasks.append(taskicon);
 
-		$('#element').mousedown(function(event) {
-		switch (event.which) {
-		case 1:
-			console.log('Left mouse button pressed');
-			break;
-		case 2:
-			console.log('Middle mouse button pressed');
-			break;
-		case 3:
-			console.log('Right mouse button pressed');
-			break;
-		default:
-			console.log('You have a strange mouse');
-	}
-});
-	}
-
-	if (!!dragleft || !!dragright) {
-		draghandle.attr("style","left:" + (dragleft ? dragleft : 0) + "px;right:" + (dragright ? dragright : 150) + "px")
+		$('#taskicon').mousedown(function(event) {
+			switch (event.which) {
+				case 1:
+					os.log('Left mouse button pressed');
+					break;
+				case 2:
+					os.log('Middle mouse button pressed');
+					break;
+				case 3:
+					os.log('Right mouse button pressed');
+					break;
+				default:
+					os.log('You have a strange mouse');
+			}
+		});
 	}
 
-	console.log(dragleft)
+	if (!!windowDragOffsetLeft || !!windowDragOffsetRight) {
+		draghandle.attr("style","left:" + (windowDragOffsetLeft ? windowDragOffsetLeft : 0) + "px;right:" + (windowDragOffsetRight ? windowDragOffsetRight : 150) + "px")
+	}
 
-	if (!!extracontent) {
-		webview[0].addContentScripts(extracontent);
+	os.log(windowDragOffsetLeft)
+
+	if (!!windowContent) {
+		webviewnojq.addContentScripts(windowContent);
 	}
 
 	div.mousedown(function(){
@@ -434,14 +626,14 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 
 	$(".dwm").append(div);
 
-	webview[0].setUserAgentOverride(navigator.userAgent.replace(/Chrome\/\d+/g,"Chrome/99") + " WebShell/" + systemVersion + "." + systemBuild);
+	webviewnojq.setUserAgentOverride(navigator.userAgent.replace(/Chrome\/\d+/g,"Chrome/99") + " WebShell/" + os.version + "." + os.build);
 
 	webview.on("contentload",function() {
 		
 		div.delay(400).removeClass("hidden")
 
-		if (!!extracontent) {
-			webview[0].addContentScripts(extracontent);
+		if (!!windowContent) {
+			webviewnojq.addContentScripts(windowContent);
 		}
 	});
 
@@ -459,50 +651,18 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 		webview.removeClass("unresponsive");
 	});
 
-	$(".window#" + windowid).resizable().on("resize",function(e,ui){
-		if (div.hasClass("fillscreen")) {
-			preventDefault();
-			return;
-		}
-		
-		if (ui.originalSize.width !== ui.size.width && ui.originalSize.height !== ui.size.height) {
-			webview.width(div.width());
-			webview.height(div.height());
-		} else if (ui.originalSize.width !== ui.size.width) {
-			webview.width(div.width());
-			div.height(webview.height());
-		} else if (ui.originalSize.height !== ui.size.height) {
-			webview.height(div.height());
-			div.width(webview.width());
-		}
-	});
-
-	webview[0].src = url;
+	webview.attr("src",url);
 }
 
-function startShellExperienceHost() {
+function initialiseShellUX() {
 
-	$(".startbutton").click(function(){
-		$(".startmenubody").toggleClass("startmenubodyopen");
-	});
+	updateBootStatus("Initialising Shell UX...");
 
-	$("#runbutton").click(function(){
-		$(".startmenubody")[0].className = "startmenubody";
-		openWindow("C/Windows/System32/runas.html","Run",425,190);
-	});
-
-	$("#shutdownbutton").click(function(){
-		$(".startmenubody")[0].className = "startmenubody";
-		os.shutdown();
-	});
-
-	$("#lockbutton").click(function(){
-		$(".startmenubody")[0].className = "startmenubody";
-		lockDeviceScreen();
-	});
+	$(".startbutton").click(toggleModuleDrawer);
+	$("#shutdownbutton").click(os.shutdown);
+	$("#lockbutton").click(os.lock);
 
 	$("#youtubebutton").click(function(){
-		$(".startmenubody")[0].className = "startmenubody";
 		openWindow("https://youtube.com","",undefined,undefined,undefined,undefined,"&#xe037",[
 			{
 				name:"youtubeRule",
@@ -514,23 +674,11 @@ function startShellExperienceHost() {
 		],1280,720);
 	});
 
-	$("#aboutbutton").click(function(){
-		$(".startmenubody").removeClass("startmenubodyopen");
-		openWindow("Apps/com.dangeredwolf.wsapp.wsversion/version.html","About",600,380,undefined,undefined,"&#xe88e");
-	});
-
-	$("#settingsbutton,.task[icon='']").click(function(){
-		$(".startmenubody").removeClass("startmenubodyopen");
+	$("#settingsbutton").click(function(){
 		openWindow("CoreApps/org.webshell.settings/settings.html","Settings",1200,700,undefined,undefined,"&#xe8b8",undefined,250);
 	});
 
-	$("#immtestbutton").click(function(){
-		$(".startmenubody").removeClass("startmenubodyopen");
-		openWindow("C/Windows/System32/immersive.html","Immersive Test",undefined,undefined,undefined,undefined,"&#xe5d0");
-	});
-
 	$("#gimmbutton").click(function(){
-		$(".startmenubody").removeClass("startmenubodyopen");
 		openWindow("https://google.com","",undefined,undefined,undefined,undefined,"&#xe8b6",[
 			{
 				name:"googleRule",
@@ -544,9 +692,13 @@ function startShellExperienceHost() {
 }
 
 $(window).load(function(){
-	if (storeReady) {
-		loadLoginData();
+	if (loginDataReady) {
+		updateBootStatus("Waiting for login data to be processed...")
+		processLoginData();
 	} else {
-		pleaseLoadDataImmedientlyThankYou = true;
+		pageLoadedQuickSoProcessDataImmediately = true;
+		updateBootStatus("Waiting for login data...")
 	}
 });
+
+updateBootStatus("Waiting for page load...")
