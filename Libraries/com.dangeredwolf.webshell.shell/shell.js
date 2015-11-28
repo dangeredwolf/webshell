@@ -573,16 +573,11 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 
 	if (!!windowIcon) {
 
-		if ($(".task[icon='" + windowIcon + "']").length >= 0) {
-			taskicon = $(".task[icon='" + windowIcon + "']");
-		} else {
-			taskicon = os.make("div")
-			.addClass("task")
-			.attr("icon",windowIcon)
-			.html(windowIcon);
-		}
-
-		taskicon.addClass("taskopen")
+		taskicon = os.make("div")
+		.addClass("task")
+		.attr("icon",windowIcon)
+		.html(windowIcon)
+		.addClass("taskopen")
 		.attr("id",windowID)
 		.mousedown(function(event) {
 			switch (event.which) {
