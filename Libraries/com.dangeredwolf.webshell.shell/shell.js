@@ -578,25 +578,18 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		} else {
 			taskicon = os.make("div")
 			.addClass("task")
-			.attr("icon",windowIcon);
+			.attr("icon",windowIcon)
+			.html(windowIcon);
 		}
 
-		taskicon.html(windowIcon)
-		.addClass("taskopen")
+		taskicon.addClass("taskopen")
 		.attr("id",windowID)
-		.click(function(){
-			unfocusWindows();
-			div.removeClass("windowunfocussed");
-			os.log("hey");
-		});
-
-		tasks.append(taskicon);
-
-		$('#taskicon').mousedown(function(event) {
+		.mousedown(function(event) {
 			switch (event.which) {
 				case 1:
-					os.log('Left mouse button pressed');
-					break;
+					unfocusWindows();
+					div.removeClass("windowunfocussed");
+					os.log("hey");
 				case 2:
 					os.log('Middle mouse button pressed');
 					break;
@@ -607,6 +600,8 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 					os.log('You have a strange mouse');
 			}
 		});
+
+		$(".tasks").append(taskicon);
 	}
 
 	if (!!windowDragOffsetLeft || !!windowDragOffsetRight) {
