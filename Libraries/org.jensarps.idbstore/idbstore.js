@@ -1,11 +1,3 @@
-/*
- IDBWrapper - A cross-browser wrapper for IndexedDB
- Version 1.6.0
- Copyright (c) 2011 - 2015 Jens Arps
- http://jensarps.de/
-
- Licensed under the MIT (X11) license
-*/
 (function(h,i,l){"function"===typeof define?define(i):"undefined"!==typeof module&&module.exports?module.exports=i():l[h]=i()})("IDBStore",function(){var h=function(a){throw a;},i=function(){},l={storeName:"Store",storePrefix:"IDBWrapper-",dbVersion:1,keyPath:"id",autoIncrement:!0,onStoreReady:function(){},onError:h,indexes:[]},j=function(a,c){"undefined"==typeof c&&"function"==typeof a&&(c=a);"[object Object]"!=Object.prototype.toString.call(a)&&(a={});for(var b in l)this[b]="undefined"!=typeof a[b]?
 a[b]:l[b];this.dbName=this.storePrefix+this.storeName;this.dbVersion=parseInt(this.dbVersion,10)||1;c&&(this.onStoreReady=c);b="object"==typeof window?window:self;this.idb=b.shimIndexedDB||b.indexedDB||b.webkitIndexedDB||b.mozIndexedDB;this.keyRange=b.IDBKeyRange||b.webkitIDBKeyRange||b.mozIDBKeyRange;this.consts={READ_ONLY:"readonly",READ_WRITE:"readwrite",VERSION_CHANGE:"versionchange",NEXT:"next",NEXT_NO_DUPLICATE:"nextunique",PREV:"prev",PREV_NO_DUPLICATE:"prevunique"};this.openDB()};j.prototype=
 {constructor:j,version:"1.6.0",db:null,dbName:null,dbVersion:null,store:null,storeName:null,storePrefix:null,keyPath:null,autoIncrement:null,indexes:null,onStoreReady:null,onError:null,_insertIdCount:0,openDB:function(){var a=this.idb.open(this.dbName,this.dbVersion),c=!1;a.onerror=function(b){var a=!1;"error"in b.target?a="VersionError"==b.target.error.name:"errorCode"in b.target&&(a=12==b.target.errorCode);if(a)this.onError(Error("The version number provided is lower than the existing one."));else this.onError(b)}.bind(this);

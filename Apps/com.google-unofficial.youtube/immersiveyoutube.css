@@ -19,54 +19,58 @@ html {
 }
 
 .guide-notification-item {
-    padding-bottom:10px;
+    padding-bottom:10px!important;
 }
 
 #content,#masthead-positioner {
-    transition:-webkit-filter 250ms cubic-bezier(0,1,.46,1)
+    transition:-webkit-filter 250ms cubic-bezier(0,1,.46,1)!important
 }
 
-.show-guide #content,.show-guide #masthead-positioner {
-    -webkit-filter:brightness(60%)
+html:not(.guide-pinned) .show-guide #content,html:not(.guide-pinned) .show-guide #masthead-positioner {
+    -webkit-filter:brightness(60%)!important
+}
+
+.guide-pinned #masthead-positioner {
+    left:190px!important;
 }
 
 #guide-container {
-    padding:0px
+    padding:0!important
 }
 
 #ad_creative_1 {
-    display:none;
+    display:none!important
 }
 
 .spf-link.g-hovercard {
-    padding-left:10px;
-    padding-top:8px
+    padding-left:10px!important;
+    padding-top:8px!important
 }
 
 #yt-masthead-container {
-   padding-left:12px;
-   background:#E53935
+   padding-left:12px!important;
+   background:#E53935!important
 }
 
 .yt-uix-button-icon {
-    -webkit-filter:brightness(10)
+    -webkit-filter:brightness(10)!important
 }
 
 #upload-btn {
-    background:transparent;
-    padding-top:2px;
-    border:none;
-    border-radius:none;
-    color:#fff;
-    text-transform:uppercase;
+    background:transparent!important;
+    padding-top:2px!important;
+    border:none!important;
+    border-radius:none!important;
+    color:#fff!important;
+    text-transform:uppercase!important;
 }
 
 .search-button,#yt-masthead-user #sb-button-notify,.yt-masthead-user-icon {
-    display:none
+    display:none!important
 }
 
 #yt-masthead-user {
-    margin-left:5px
+    margin-left:5px!important
 }
 
 .yt-base-gutter, .yt-unlimited #footer-container.yt-base-gutter {
@@ -79,26 +83,26 @@ html {
 }
 
 #appbar-guide-button {
-    margin-left:0px
+    margin-left:0!important
 }
 
 .video-time {
-    background:none;
-    opacity:1;
-    text-shadow:0px 2px 5px rgba(0,0,0,1)
+    background:none!important;
+    opacity:1!important;
+    text-shadow:0 2px 5px rgba(0,0,0,1)!important
 }
 
 #masthead-search-terms,#masthead-search-term,#masthead-search {
-    background:transparent;
-    border:0;
-    outline:0;
-    box-shadow:none
+    background:transparent!important;
+    border:0!important;
+    outline:0!important;
+    box-shadow:none!important
 }
 
 #masthead-search-terms {
-    border-bottom:2px solid #fff;
-    padding-left:5px;
-    color:#fff
+    border-bottom:2px solid #fff!important;
+    padding-left:5px!important;
+    color:#fff!important
 }
 
 #yt-masthead #logo-container .logo {
@@ -110,7 +114,7 @@ html {
 }
 
 .appbar-hidden #masthead-positioner-height-offset {
-    height:24px
+    height:24px!important
 }
 
 #yt-masthead-container {
@@ -122,16 +126,16 @@ html {
 }
 
 #watch-description-text {
-    transition:max-height 0.3s cubic-bezier(1,.46,0,1);
-    max-height:1000px
+    transition:max-height 0.3s cubic-bezier(1,.46,0,1)!important;
+    max-height:1000px!important
 }
 
 yt-uix-expander-collapsed #watch-description-text {
-    transition:max-height 0.6s cubic-bezier(0,1,.46,1);
+    transition:max-height 0.6s cubic-bezier(0,1,.46,1)!important;
 }
 
 #watch7-main #watch7-content {
-    width:100%;
+    width:100%!important;
 }
 
 .player-width {
@@ -140,4 +144,25 @@ yt-uix-expander-collapsed #watch-description-text {
 
 #watch7-sidebar-ads {
     display:none!important
+}
+
+.yt-uix-button-primary, .yt-uix-button-primary[disabled], .yt-uix-button-primary[disabled]:hover, .yt-uix-button-primary[disabled]:active, .yt-uix-button-primary[disabled]:focus {
+    border-color:transparent!important;
+    background:transparent!important;
+    text-transform:uppercase!important;
+}
+
+.guide-header p {
+    padding:10px!important;
+}
+
+li.guide-section h3 {
+    padding-left:10px!important;
+}
+
+#masthead-search-term:focus {
+    border-bottom:0!important;
+    border-radius:3px!important;
+    background:#fff!important;
+    box-shadow:0 2px 4px rgba(0,0,0,0.5)!important;
 }

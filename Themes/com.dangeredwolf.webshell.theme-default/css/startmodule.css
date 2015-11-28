@@ -1,0 +1,55 @@
+.startmoduletitle {
+	top:90px;
+	font-size:18px;
+	position:absolute;
+	padding-left: 10px;
+}
+
+.startmoduletitle:after {
+	font-family:"Material Icons";
+	content:"\e315";
+	font-size:32px;
+	top:-5px;
+	position:absolute;
+}
+
+.powerbutton,.lockbutton {
+	background-color:transparent!important;
+	height:35px!important;
+	width:35px!important;
+	position:absolute;
+	font-size:0!important;
+	padding:0!important;
+	margin-top:100px!important
+}
+
+.powerbutton:hover,.lockbutton:hover {
+	height:35px!important;
+	max-height:35px!important;
+	border:none!important;
+	padding:0
+}
+
+.lockbutton {
+	right:20px	
+}
+
+.powerbutton {
+	right:70px;
+}
+
+.lockbutton:before {
+	content:"\e897";
+	padding-right:10px;
+	font-size:32px
+}
+
+.powerbutton:before {
+	content:"\e8ac";
+	padding-right:10px;
+	font-size:32px
+}
+
+.powerbutton,.lockbutton {
+	transition-delay:0ms!important
+}

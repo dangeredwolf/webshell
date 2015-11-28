@@ -36,3 +36,23 @@ option {
     min-height: 2em;
     line-height: 2em;
 }
+
+@keyframes fadeinsetup {
+    0% {
+        opacity:0;
+        margin-left:100px;
+    }
+
+    100% {
+        opacity:1;
+        margin-left:0;
+    }
+}
+
+#setupview>body {
+    animation:fadein 0.3s
+}
+
+#setupview {
+    animation:fadeinsetup 0.3s cubic-bezier(0,1,.46,1)
+}

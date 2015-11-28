@@ -1,0 +1,71 @@
+#coreos {
+	color:#fff;
+	background:#000;
+}
+
+.bootlogo img {
+	position:absolute;
+	left:50%;
+	margin-left:-100px;
+	margin-top:-100px;
+	top:50%;
+	width:200px;
+	height:200px
+}
+
+.bootlogo>img,.bootlogo {
+	z-index:99
+}
+
+.bootlogo {
+	position:absolute;
+	left:50%;
+	margin-left:-100px;
+	margin-top:-100px;
+	top:50%;
+	width:200px;
+	height:200px;
+	background:#000
+}
+
+.bootlogo img {
+	width:200px;
+	height:200px
+}
+
+@keyframes bootloaderanim {
+	0% {
+		margin-left:0%;
+		width:10%;
+	}
+
+	25% {
+		margin-left:10%;
+		width:80%;
+	}
+
+	50% {
+		margin-left:90%;
+		width:10%;
+	}
+
+	75% {
+		margin-left:10%;
+		width:80%;
+	}
+
+	100% {
+		margin-left:0%;
+		width:10%;
+	}
+}
+
+
+.bootloader {
+	background:#00bbdd;
+	height:5px;
+	border-radius:5px;
+	width:100%;
+	margin-top:350px;
+	animation:bootloaderanim 1s infinite cubic-bezier(0,1,.46,1)
+}

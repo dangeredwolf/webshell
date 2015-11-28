@@ -8,6 +8,7 @@ var storeReady = false;
 var pleaseLoadDataImmedientlyThankYou = false;
 var settingUp = false;
 window.tickedNewbie = false;
+var worryAboutPerformance = false;
 var body = $(document.body);
 
 function make(thing) {
@@ -147,7 +148,7 @@ function testLogin() {
 	}
 
 	if (CryptoJS.SHA3($(".authentication input").val() + pwSalt + "") + "" === pwHash + "") {
-		$(".lockscreen").attr("class","lockscreen lockscreenopened wallpaper hidden");
+		$(".lockscreen").attr("class","lockscreenopened lockscreen hidden");
 		login();
 	} else {
 		$(".authentication div").html("Incorrect Password");
@@ -162,7 +163,7 @@ function login() {
 	startShellExperienceHost();
 
 	$(".dwm").removeClass("hidden");
-	$(".wallpaper.hidden:not(.lockscreen)").removeClass("hidden");
+	$(".wallpaper.hidden").removeClass("hidden");
 	$(".authentication input").val("");
 	$("html>.wallpaper").on("mousedown", function(){
 		closestart();
@@ -185,6 +186,8 @@ function openstart() {
 }
 
 function initShellEvents() {
+
+	FPSMeter.run(3);
 
 	window.addEventListener("openwindow",function(args){
 		console.log(args);
@@ -229,6 +232,23 @@ function initShellEvents() {
 	$(".watermark").html("WebShell Version " + os.systemVersion + "<br>Experimental Copy. Build " + os.systemBuild);
 
 	$(".authentication input").focus();
+
+	document.addEventListener('fps',function(e){
+		console.log("FPS " + e.fps + " (" + (e.fps > 50 && "Doing Great!" || e.fps > 40 && "Doing Well!" || e.fps > 30 && "Doing OK!" || e.fps > 20 && "Doing Poorly" || "Doing Bad") + ")");
+		
+		if (e.fps < 30 && !$("html").hasClass("reduceRedundantEffects") && !worryAboutPerformance) {
+			worryAboutPerformance = true;
+			console.log("Worrying about performance! If this keeps up we'll reduce some redundant effects.")
+		} else if (e.fps < 30 && worryAboutPerformance) {
+			console.log("FPS still below threshold at " + e.fps + ", enabling reduceRedundantEffects");
+			$("html").addClass("reduceRedundantEffects");
+			worryAboutPerformance = false;
+		} if ($("html").hasClass("reduceRedundantEffects") && e.fps > 57) {
+			console.log("Reduce redundant effects is on and performance is exceptionally good, let's try turning up effects!");
+			$("html").removeClass("reduceRedundantEffects");
+		}
+	},false);
+
 }
 
 function generateRandomCharacter() {
@@ -250,12 +270,12 @@ function setupLogin() {
 	var webview = make("webview").attr("partition","persist:system").attr("style","height:100%;width:100%").addClass("windowbody").attr("src","CoreApps/com.dangeredwolf.webshell.setup/setup.html");
 	var div = make("div").css("left",0).css("top",0).css("width","100%").css("height","100%").css("opacity","0.001").addClass("window").append(webview);
 	body.append(div);
-	webview[0].addEventListener("contentload",function(){
+	webview.on("contentload",function(){
 		$(".bootlogo").addClass("fadeout");
 		div.delay(500).css("opacity",1)
 	})
 
-	webview[0].addEventListener("dialog",function(e){
+	webview.on("dialog",function(e){
 		if (e.messageText === "ihaspassword") {
 			webview[0].executeScript({code:"document.querySelector('#setting1').value;"},function(result){
 				window.setupPass = result[0];
@@ -281,12 +301,6 @@ function setupLogin() {
 function saveCredentials(setupPass) {
 	var salt = generateRandomCharacters(100);
 	var hash = CryptoJS.SHA3(setupPass + salt) + "";
-
-	console.log("hash: " + hash + ", salt: " + salt)
-
-	if (debugAuthentication) {
-		$(".authentication div").html("DEBUG!!!!!!! hash: " + hash + ", salt: " + salt);
-	}
 
 	os.storage.login.put({"id":"passwordSalt","value":salt});
 	os.storage.login.put({"id":"passwordHash","value":hash});
@@ -341,9 +355,20 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 	var close = make("button").addClass("windowcontrol close").html("&#xE5CD");
 	var draghandle = make("div").addClass("windowdraghandle");
 
-	close.click(function(data,handler){
+	var closefunc = function() {
 		webview[0].executeScript({code:"window.close();"},function(e){console.log(e)});
-	});
+		webview.parent().addClass("windowclosed");
+		taskicon.addClass("taskclosing");
+
+		if (!debugWindowAnimations) {
+			setTimeout(function(){
+				div.remove();
+				taskicon.remove();
+			},2000);
+		}
+	}
+
+	close.click(closefunc);
 
 	maximise.click(function(data,handler){
 		div.toggleClass("fillscreen")
@@ -351,13 +376,13 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 
 	var webview = make("webview").addClass("windowbody").attr("partition","persist:system").css("height",windowheight + "px").css("width",windowwidth + "px");
 	var windowcontrols = make("div").addClass("windowcontrols").append(minimise).append(maximise).append(close);
-	var div = make("div").addClass("window draggable resizable windownative hidden").attr("id",windowid).css("left",(posx||vw/2-wid/2)+"px").css("top",(posy||vh/2-hei/2)+"px").css("height",windowheight + "px").css("width",windowwidth + "px").append(draghandle).append(windowcontrols).append(webview).draggable({delay:200,distance:3,handle:".windowdraghandle"});
+	var div = make("div").addClass("window draggable resizable hidden").attr("id",windowid).css("left",(posx||vw/2-wid/2)+"px").css("top",(posy||vh/2-hei/2)+"px").css("height",windowheight + "px").css("width",windowwidth + "px").append(draghandle).append(windowcontrols).append(webview).draggable({delay:200,distance:3,handle:".windowdraghandle"});
 
 	var taskicon;
 
 	if (!!icon) {
 
-		if (typeof $(".task[icon='" + icon + "']")[0] !== "undefined") {
+		if ($(".task[icon='" + icon + "']").length <= -1) {
 			taskicon = $(".task[icon='" + icon + "']");
 		} else {
 			taskicon = make("div").addClass("task").attr("icon",icon);
@@ -406,15 +431,7 @@ function openWindow(url,title,sizex,sizey,posx,posy,icon,extracontent,dragleft,d
 		openWindow(e.targetUrl,e.name,e.initialWidth,e.initialHeight);
 	});
 
-	webview.on("close", function(e) {
-		webview.parent().addClass("windowclosed");
-		if (!debugWindowAnimations) {
-			//div.delay(1000).remove(); //TODO: Report delay remove() bug to jQuery
-			setTimeout(function(){
-				div.remove();
-			},2000);
-		}
-	});
+	webview.on("close",closefunc);
 
 	webview.on("unresponsive", function(e) {
 		webview.addClass("unresponsive");

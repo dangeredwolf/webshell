@@ -1,0 +1,127 @@
+@keyframes closingtask {
+	from {
+		opacity:1
+	}
+	to {
+		width:0;
+		padding:0;
+		margin:0;
+		font-size:0;
+		opacity:0
+	}
+}
+
+.tasks {
+	position:absolute;
+	left:70px;
+	height: 100px;
+	bottom: -23px;
+	overflow-x: scroll;
+	overflow-y: visible
+}
+
+.task {
+	font-family:"Material Icons";
+	font-size:48px;
+	height:70px;
+	padding:15px;
+	padding-top:25px;
+	padding-bottom:7px;
+	text-align:center;
+	position:relative;
+	display:inline;
+	width:70px;
+	margin-left:5px;
+	animation:fadein 0.3s cubic-bezier(0,1,0,1);
+	transition:opacity 0.3s cubic-bezier(0,1,0,1),border-bottom 0.3s cubic-bezier(0,1,0,1);
+	border-bottom:0 solid #fff
+}
+
+.task.taskopen {
+	border-bottom:3px solid #fff
+}
+
+.task.taskclosing {
+	animation:closingtask 0.3s;
+	animation-fill-mode:forwards;
+}
+
+.ui-resizable {
+	position:relative
+}
+
+.ui-resizable-handle {
+	position:absolute;
+	font-size:0.1px;
+	display:block;
+	-ms-touch-action:none;
+	touch-action:none
+}
+
+.ui-resizable-disabled .ui-resizable-handle,.ui-resizable-autohide .ui-resizable-handle {
+	display:none
+}
+
+.ui-resizable-n {
+	cursor:n-resize;
+	height:7px;
+	width:100%;
+	top:-5px;
+	left:0
+}
+
+.ui-resizable-s {
+	cursor:s-resize;
+	height:7px;
+	width:100%;
+	bottom:-5px;
+	left:0
+}
+
+.ui-resizable-e {
+	cursor:e-resize;
+	width:7px;
+	right:-5px;
+	top:0;
+	height:100%
+}
+
+.ui-resizable-w {
+	cursor:w-resize;
+	width:7px;
+	left:-5px;
+	top:0;
+	height:100%
+}
+
+.ui-resizable-se {
+	cursor:se-resize;
+	width:12px;
+	height:12px;
+	right:1px;
+	bottom:1px
+}
+
+.ui-resizable-sw {
+	cursor:sw-resize;
+	width:9px;
+	height:9px;
+	left:-5px;
+	bottom:-5px
+}
+
+.ui-resizable-nw {
+	cursor:nw-resize;
+	width:9px;
+	height:9px;
+	left:-5px;
+	top:-5px
+}
+
+.ui-resizable-ne {
+	cursor:ne-resize;
+	width:9px;
+	height:9px;
+	right:-5px;
+	top:-5px
+}

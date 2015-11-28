@@ -1,0 +1,137 @@
+.startmenubackground {
+	background:linear-gradient(rgba(30,50,60,0.8),rgba(30,50,60,0.95),rgb(30,50,60));
+	height:100%;
+	border-radius:6px 6px 0;
+	transition:0
+}
+
+html.reduceRedundantEffects .startmenubackground {
+	background:rgb(30,50,60);
+	border-radius:0
+}
+
+.startmenubody>.startmenubackground>div {
+	transition:opacity 550ms cubic-bezier(0,1,0,1);
+	transition-delay:100ms
+}
+
+.startmenubody:not(.startmenubodyopen) button:not(.powerbutton):not(.lockbutton) {
+	transition:opacity 350ms cubic-bezier(0,1,0,1);
+	transition-delay:0ms
+}
+
+.startmenubody:not(.startmenubodyopen)>.startmenubackground>div {
+	opacity:0;
+	pointer-events:none
+}
+
+.coretaskbar {
+	opacity:1!important;
+	height: 100px;
+	pointer-events:all!important;
+	position:absolute;
+	top:0;
+	width: 100%;
+	overflow-x:scroll;
+	overflow-y:hidden;
+	position: absolute;
+}
+
+.coretaskbar::-webkit-scrollbar { width: 0 !important }
+
+
+.coretaskbar>div {
+	pointer-events:all!important
+}
+
+.hidden .authentication {
+	pointer-events:none
+}
+
+button.startbutton,button.startbutton:hover,button.startbutton:focus,button.startbutton:active {
+	background:url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbutton.png") no-repeat!important;
+	width:65px!important;
+	height:65px!important;
+	margin-left: 3px!important;
+	bottom: 3px!important;
+	position:absolute;
+	background-size:48px 48px!important;
+	background-position:10px 10px!important;
+	outline:none;
+	background-color:transparent;
+	z-index:11;
+	padding-top:71px!important
+}
+
+.startmenubody button.startbutton:hover,.startmenubody button.startbutton,.startmenubody button.startbutton:focus,.startbutton:active {
+	border:none
+}
+
+.startbutton:after {
+	content:"";
+	width:48px;
+	height:48px;
+	position:absolute;
+	left:10px;
+	bottom:20px;
+	border:none;
+	color:transparent;
+	background-color:transparent!important;
+	background:url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbuttonhover.png") no-repeat;
+	background-size:48px 48px;
+	z-index:12;
+	opacity:0;
+	transition:opacity 0.3s
+}
+
+.startbutton:hover:after {
+	opacity:1
+}
+
+.startmenubody {
+	color:#fff;
+	position:relative;
+	padding:0;
+	bottom:65px;
+	z-index:13;
+	transition:bottom 300ms cubic-bezier(0,1,0,1);
+	margin-left:auto;
+	margin-right:auto;
+	min-width:50px;
+	max-width:90%;
+	max-height:500px;
+	height:100%
+}
+
+.dwm.hidden+.startmenubody {
+	display:none
+}
+
+.startmenubody.startmenubodyopen {
+	bottom:500px
+}
+
+.startmenubody button {
+	width:100px;
+	height:100px;
+	color:#fff;
+	background: transparent;
+	border:none;
+	margin:3px;
+	text-align:left;
+	font-weight:400;
+	display:inline-block!important;
+	font-family:"Material Icons";
+	font-size: 64px;
+	transition:margin-top cubic-bezier(0,1,0,1) 300ms;
+	transition-delay:50ms;
+	margin-top: 130px;
+	opacity:1
+}
+.startmenubody button:active {
+	transform:scale(0.9)
+}
+
+.startbutton {
+	padding-left:0!important
+}
