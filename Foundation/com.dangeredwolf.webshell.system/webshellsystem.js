@@ -2,7 +2,7 @@ var os = window;
 window.os = window;
 
 os.version = "1.0";
-os.build = "13010 (openshell.milestone.alpha1)";
+os.build = "13012 (openshell.milestone.alpha1)";
 
 // NOTE TO SELF: Keep function wrappers, otherwise illegal invocation error http://stackoverflow.com/questions/7213369/uncaught-typeerror-illegal-invocation-on-addeventlistener
 os.sendShutdownSignal = function(){os.close()};

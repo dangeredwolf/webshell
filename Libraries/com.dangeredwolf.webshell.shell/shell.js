@@ -580,19 +580,14 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		.addClass("taskopen")
 		.attr("id",windowID)
 		.mousedown(function(event) {
-			switch (event.which) {
-				case 1:
-					unfocusWindows();
-					div.removeClass("windowunfocussed");
-					console.log("hey");
-				case 2:
-					console.log('Middle mouse button pressed');
-					break;
-				case 3:
-					console.log('Right mouse button pressed');
-					break;
-				default:
-					console.log('You have a strange mouse');
+			if (event.which === 1 || event.which === 2) {
+				unfocusWindows();
+				div.removeClass("windowunfocussed");
+				console.log("Left (Or, perhaps, middle) clicked");
+			} else if (event.which === 3) {
+				console.log("Right clicked");
+			} else {
+				console.log("your mouse is weird");
 			}
 		});
 
