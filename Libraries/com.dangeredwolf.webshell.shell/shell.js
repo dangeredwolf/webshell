@@ -33,7 +33,7 @@ os.storage.login = new IDBStore({
 	keyPath: 'id',
 	autoIncrement: true,
 	onStoreReady: function () {
-		os.log("login store ready!");
+		console.log("login store ready!");
 		loginDataReady = true;
 		if (pageLoadedQuickSoProcessDataImmediately) {
 			processLoginData();
@@ -88,7 +88,7 @@ function initShell() {
 function updateLockScreenTime() {
 
 	if ($(".lockscreenopened").length > 0) {
-		os.log("well bye");
+		console.log("well bye");
 		return;
 	}
 
@@ -189,17 +189,17 @@ function initialiseShellAwareness() {
 	passwordInputBox.focus();
 
 	doc.on('fps',function(e){
-		os.log("FPS " + e.fps + " (" + os.fpsStatusParseHelper(e.fps) + ")");
+		console.log("FPS " + e.fps + " (" + os.fpsStatusParseHelper(e.fps) + ")");
 		
 		if (e.fps < 30 && !html.hasClass("reduceRedundantEffects") && worryAboutPerformance < 4) {
 			worryAboutPerformance++;
-			os.log("Worrying about performance! If this keeps up we'll reduce some redundant effects.")
+			console.log("Worrying about performance! If this keeps up we'll reduce some redundant effects.")
 		} else if (e.fps < 30 && worryAboutPerformance >= 4) {
-			os.log("FPS still below threshold at " + e.fps + ", enabling reduceRedundantEffects");
+			console.log("FPS still below threshold at " + e.fps + ", enabling reduceRedundantEffects");
 			html.addClass("reduceRedundantEffects");
 			worryAboutPerformance = 0;
 		} if (html.hasClass("reduceRedundantEffects") && e.fps > 55 && performanceFalseAlarms < 2) {
-			os.log("Reduce redundant effects is on and performance is exceptionally good, let's try turning up effects!");
+			console.log("Reduce redundant effects is on and performance is exceptionally good, let's try turning up effects!");
 			performanceFalseAlarms++;
 			html.removeClass("reduceRedundantEffects");
 		}
@@ -475,7 +475,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		return;
 	}
 
-	os.log(windowContent);
+	console.log(windowContent);
 
 	var url = url || "https://www.google.com//%//%";
 	var windowSizeX = windowSizeX || 800;
@@ -508,7 +508,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	.addClass("windowdraghandle");
 
 	var closefunc = function() {
-		webviewnojq.executeScript({code:"window.close();"},function(e){os.log(e)});
+		webviewnojq.executeScript({code:"window.close();"},function(e){console.log(e)});
 		webview.parent().addClass("windowclosed");
 		taskicon.addClass("taskclosing");
 
@@ -584,15 +584,15 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 				case 1:
 					unfocusWindows();
 					div.removeClass("windowunfocussed");
-					os.log("hey");
+					console.log("hey");
 				case 2:
-					os.log('Middle mouse button pressed');
+					console.log('Middle mouse button pressed');
 					break;
 				case 3:
-					os.log('Right mouse button pressed');
+					console.log('Right mouse button pressed');
 					break;
 				default:
-					os.log('You have a strange mouse');
+					console.log('You have a strange mouse');
 			}
 		});
 
@@ -603,7 +603,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		draghandle.attr("style","left:" + (windowDragOffsetLeft ? windowDragOffsetLeft : 0) + "px;right:" + (windowDragOffsetRight ? windowDragOffsetRight : 150) + "px")
 	}
 
-	os.log(windowDragOffsetLeft)
+	console.log(windowDragOffsetLeft)
 
 	if (!!windowContent) {
 		webviewnojq.addContentScripts(windowContent);
