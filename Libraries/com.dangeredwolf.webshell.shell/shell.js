@@ -574,7 +574,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	if (!!windowIcon) {
 
 		if ($(".task[icon='" + icon + "']").length >= 0) {
-			taskicon = $(".task[icon='" + icon + "']");
+			taskicon = $(".task[icon='" + windowIcon + "']");
 		} else {
 			taskicon = os.make("div")
 			.addClass("task")
