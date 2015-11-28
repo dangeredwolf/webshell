@@ -188,7 +188,7 @@ function initialiseShellAwareness() {
 	watermark.html("WebShell Version " + os.version + "<br>Experimental Copy. Build " + os.build);
 	passwordInputBox.focus();
 
-	document.addEventHandler('fps',function(e){
+	document.addEventListener('fps',function(e){
 		console.log("FPS " + e.fps + " (" + os.fpsStatusParseHelper(e.fps) + ")");
 		
 		if (e.fps < 30 && !html.hasClass("reduceRedundantEffects") && worryAboutPerformance < 4) {
