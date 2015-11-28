@@ -470,7 +470,7 @@ function initLockScreen() {
 
 function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,windowPositionY,windowIcon,windowContent,windowDragOffsetLeft,windowDragOffsetRight) {
 
-	if (shuttingdown) {
+	if (os.isCurrentlyShuttingDown) {
 		throw "Failed to open window because we're shutting down";
 		return;
 	}
