@@ -12,18 +12,22 @@ html.reduceRedundantEffects .startmenubackground {
 
 .coretaskbar {
 	opacity:1!important;
-	height: 100px;
-	pointer-events:all!important;
+	height: 100%;
+	pointer-events:none!important;
 	position:absolute;
 	top:0;
 	width: 100%;
 	overflow-x:scroll;
-	overflow-y:hidden;
-	position: absolute;
+	position:absolute
 }
 
-.coretaskbar::-webkit-scrollbar { width: 0 !important }
+.coretaskbar>* {
+	pointer-events:all!important
+}
 
+.coretaskbar::-webkit-scrollbar {
+	display:none!important
+}
 
 .coretaskbar>div {
 	pointer-events:all!important
@@ -39,7 +43,7 @@ html.reduceRedundantEffects .startmenubackground {
 	width:65px!important;
 	height:65px!important;
 	margin-left: 3px!important;
-	bottom: 3px!important;
+	bottom: 420px!important;
 	position:absolute;
 	background-size:48px 48px!important;
 	background-position:10px 10px!important;
@@ -47,7 +51,7 @@ html.reduceRedundantEffects .startmenubackground {
 	background-color:transparent;
 	z-index:11;
 	padding-top:71px!important;
-	transition:-webkit-filter 1000ms cubic-bezier(0,1,0,1)!important;
+	transition:-webkit-filter 1000ms cubic-bezier(0,1,0,1),bottom 300ms cubic-bezier(0,1,0,1)!important;
 }
 
 .startbutton:hover {
@@ -100,6 +104,11 @@ html.reduceRedundantEffects .startmenubackground {
 	outline:0!important;
 	opacity:1;
 }
+
+.startmenubody.startmenubodyopen .startbutton {
+	bottom:-15px!important
+}
+
 .startmenubody button:active {
 	transform:scale(0.9)
 }

@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"set",
+				"setupTitle"
+			],
+			[
+				"randomC",
+				"randomCharConst"
+			],
+			[
+				"toggle",
+				"toggleModuleDrawer"
+			],
+			[
+				"Redu",
+				"reduceRedundantEffects"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
 				"lockscre",
 				"lockscreenopened"
 			],
@@ -22,10 +42,6 @@
 			[
 				"crea",
 				"createElement"
-			],
-			[
-				"set",
-				"setting1"
 			],
 			[
 				"backgr",
@@ -132,34 +148,34 @@
 	"buffers":
 	[
 		{
-			"file": "Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/corestyle.css",
 			"settings":
 			{
-				"buffer_size": 2297,
+				"buffer_size": 3015,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "CoreApps/org.webshell.settings/settings.html",
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
 			"settings":
 			{
-				"buffer_size": 2272,
+				"buffer_size": 195,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "CoreApps/com.dangeredwolf.webshell.setup/setup.html",
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/lockscreen.css",
 			"settings":
 			{
-				"buffer_size": 947,
+				"buffer_size": 1619,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "webshellapp.html",
+			"file": "Libraries/com.dangeredwolf.webshell.shell/shell.js",
 			"settings":
 			{
-				"buffer_size": 1837,
+				"buffer_size": 16798,
 				"line_ending": "Windows"
 			}
 		},
@@ -167,42 +183,143 @@
 			"file": "Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
 			"settings":
 			{
-				"buffer_size": 645,
+				"buffer_size": 3013,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Windows/Resources/Themes/aero/aero.msstyles",
+			"file": "CoreApps/org.webshell.settings/settings.html",
 			"settings":
 			{
-				"buffer_size": 2588047,
+				"buffer_size": 2255,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "webshellapp.html",
+			"settings":
+			{
+				"buffer_size": 1935,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/desktop.css",
+			"settings":
+			{
+				"buffer_size": 583,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/moduledrawer.css",
+			"settings":
+			{
+				"buffer_size": 2189,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/io.kaizouman.fpsmeter/fpsmeter.min.js",
+			"settings":
+			{
+				"buffer_size": 2361,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\"function\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\"Cannot find module '\"+o+\"'\");throw f.code=\"MODULE_NOT_FOUND\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\"function\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({\"./config\":[function(require,module,exports){\nmodule.exports = {\n  name: \"Browsec\",\n  browsec: {\n    apiPrefix: \"https://d1blmth2c5vbem.cloudfront.net/v1/\",\n    locationApiPrefix: \"http://d2nib9hpvmumkf.cloudfront.net/v1/\"\n  },\n  ga: {\n    enabled: true,\n    extension_id: \"omghfjlpggmjjaagoclmmobgdodcjboh\",\n    tracking_id: 'UA-43024042-1'\n  },\n  proxy: {\n    defaultCountry: \"nl\",\n    settings: {\n      version: 4,\n      countries: {\n        nl: {\n          servers: [\n            {\n              host: \"nl1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl2.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl3.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl4.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl5.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl6.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl7.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl8.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl9.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl10.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl11.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl12.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl13.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl14.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl15.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl16.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl17.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl18.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl19.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl20.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"nl22.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        },\n        sg: {\n          servers: [\n            {\n              host: \"sg1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg2.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg3.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg4.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg5.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg6.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg7.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg8.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg9.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg10.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"sg11.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        },\n        uk: {\n          servers: [\n            {\n              host: \"uk1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk2.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk3.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk4.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk5.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk6.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk7.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk8.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk9.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk10.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk11.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk12.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"uk13.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        },\n        us: {\n          servers: [\n            {\n              host: \"us1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {           \n              host: \"us2.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {           \n              host: \"us3.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us4.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us5.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us6.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us7.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us8.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us9.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us10.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us11.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us12.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us13.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us14.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us15.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us16.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us17.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us18.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us19.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us20.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us21.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us22.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us23.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us24.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            },\n            {\n              host: \"us25.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        },\n        us_test: {\n          hidden: true,\n          servers: [\n            {\n              host: \"us-test-1.postls.com\",\n              port: 443,\n              alt_ports: [444, 8443]\n            }\n          ]\n        }\n      }\n    }\n  }\n};\n\n},{}],1:[function(require,module,exports){\n/*\n  Returns random int value between 0 (inclusive) and the specified value (exclusive)\n  TODO(grig): more accurate randomInt\n*/\nfunction randomInt(max) {\n  return Math.floor(Math.random() * max);\n}\n\n/*\n  Returns random array element using weights. Element weight should be stored in 'weight' property of array element.\n  If 'weight' property is absent then weight for this element is 1.\n*/\nfunction weightedRandom(array) {\n  var map = [];\n  var totalWeight = 0;\n\n  for (var i = 0; i < array.length; i++) {\n    var weight = array[i].weight || 1;\n\n    map.push({\n      start : totalWeight,\n      end : totalWeight + weight\n    });\n\n    totalWeight += weight;\n  }\n\n  var random = randomInt(totalWeight);\n\n  for (i = 0; i < map.length; i++) {\n    if ((random >= map[i].start) && (random < map[i].end)) {\n      return array[i];\n    }\n  }\n}\n\n/*\n  Clone array\n*/\nfunction clone(array) {\n  return array.slice(0);\n}\n\n/*\n  Return shuffled array without modifying original one\n  TODO(grig): replace cloning with a new empty array\n*/\nfunction shuffle(array) {\n  var arrayClone = clone(array);\n  var currentIndex = arrayClone.length;\n\n  // While there remain elements to shuffle...\n  while (0 !== currentIndex) {\n\n    // Pick a remaining element...\n    var randomIndex = randomInt(currentIndex);\n    currentIndex--;\n\n    // And swap it with the current element.\n    var temporaryValue  = arrayClone[currentIndex];\n    arrayClone[currentIndex] = arrayClone[randomIndex];\n    arrayClone[randomIndex]  = temporaryValue;\n  }\n\n  return arrayClone;\n}\n\n/*\n  Return shuffled array with attention to element weights.\n  Element weight should be stored in 'weight' property of array element.\n  If 'weight' property is absent then weight for this element is 1.\n  Original array is not modified.\n*/\nfunction weightedShuffle(array) {\n  var arrayClone = clone(array);\n  var result = [];\n\n  for (var i = 0; i < array.length; i++) {\n    var item = weightedRandom(arrayClone);\n    result.push(item);\n    arrayClone.splice(arrayClone.indexOf(item), 1);\n  }\n\n  return result;\n}\n\nexports.weightedShuffle = weightedShuffle;\nexports.shuffle = shuffle;\n\n},{}],2:[function(require,module,exports){\n(function (global){\nvar $ = require('jquery');\nrequire('./common');\nvar proxy = global.proxy = require('./proxy');\n\nvar scheduler = global.scheduler = require('./update_scheduler');\n\nchrome.proxy.settings.onChange.addListener(proxy.onChange.bind(proxy));\n\nvar ui = global.ui = require('./ui');\n\nvar browsec = global.browsec = require('./browsec');\nvar ga = require('./ga');\nbrowsec.init();\n\nchrome.webRequest.onAuthRequired.addListener(\n  function(details, callback) {\n    try {\n      console.group(\"onAuthRequired\");\n      console.log(details);\n\n      if (details.isProxy && details.realm == 'Browsec' && (details.challenger.host == 'postlm.com' || details.challenger.host.endsWith(\".postlm.com\") || details.challenger.host == 'postls.com' || details.challenger.host.endsWith(\".postls.com\"))) {\n\n        var username = localStorage.userId || localStorage.email;\n        var password = localStorage.password;\n\n        // If we don't have username/password \n        // OR \n        // username is email and password is incorrect\n        if (!username || !password || (username.indexOf('@') > 0 && checkAuthLimitExceeded(details))) {\n\n          var result = browsec.signup();\n\n          if (result) {\n            delete localStorage.email;\n            localStorage.userId = username = result.user_id;\n            localStorage.password = password = result.password;\n          } else {\n            proxy.clearProxySettings();\n            alert(chrome.i18n.getMessage(\"signup_error\"));\n            return;\n          }\n        }\n\n        console.log(\"Authenticate with username '%s'\", username);\n        callback({authCredentials: {username: username, password: password}});\n      } else {\n        // If auth request is not from browsec proxy, do not handle it.\n        callback();\n      }\n    } finally {\n      console.groupEnd();\n    }\n  }, \n  {urls: [\"<all_urls>\"]},\n  [\"asyncBlocking\"]\n);\n\nvar statusLineRegexp = new RegExp(\"^HTTP/1.[01] 408\");\nchrome.webRequest.onHeadersReceived.addListener(\n  function (details) {\n    if (localStorage.connected && localStorage.connected != \"off\") {\n      if (statusLineRegexp.test(details.statusLine)) {\n        ga.trackEvent(\"extension\", \"http_error\", details.statusLine);\n      }\n    }\n  },\n  {urls: [\"<all_urls>\"]}\n);\n\nfunction checkAuthLimitExceeded(details) {\n  var timeFrameMs = 15000;\n  var authRequestsLimit = 3;\n  var authHistory = localStorage.authHistory ? JSON.parse(localStorage.authHistory) : {};\n\n  try {\n    console.group(\"checkAuthLimitExceeded\");\n\n    var hostAuthHistory = authHistory[details.challenger.host];\n    if (!hostAuthHistory || !hostAuthHistory.periodStart || !hostAuthHistory.authRequestsNum) {\n      hostAuthHistory = authHistory[details.challenger.host] = {periodStart: details.timeStamp, authRequestsNum: 1};\n      console.log(\"No host auth history. Create record: %s\", JSON.stringify(hostAuthHistory));\n    } else {\n      console.log(\"Host history record already exists: %s\", JSON.stringify(hostAuthHistory));\n      var periodStart = hostAuthHistory.periodStart;\n      if (details.timeStamp - periodStart > timeFrameMs) {\n        console.log(\"Time frame already finished. Create new row.\");\n        hostAuthHistory.periodStart = details.timeStamp;\n        hostAuthHistory.authRequestsNum = 1;\n      } else {\n        console.log(\"We are still in tracked time frame. Increase auth requests counter\");\n        hostAuthHistory.authRequestsNum++;\n\n        if (hostAuthHistory.authRequestsNum >= authRequestsLimit) {\n          console.log(\"Limit exceeded. Return true and clear host auth history.\");\n\n          delete hostAuthHistory.periodStart;\n          delete hostAuthHistory.authRequestsNum;\n\n          ga.trackEvent(\"auth_request_limit_exceeded\", localStorage.userId || localStorage.email);\n\n          return true;\n        }\n      }\n    }\n\n    return false;\n  } finally {\n    console.log(\"Save auth history: %O\", authHistory);\n    localStorage.authHistory = JSON.stringify(authHistory);\n    console.groupEnd();\n  }\n}\n\nchrome.runtime.onInstalled.addListener(function(details) {\n  console.log(\"chrome.runtime.onInstalled\", details);\n\n  ga.trackEvent(\"extension\", details.reason, chrome.runtime.getManifest().version);\n\n  if (details.reason == \"install\") {\n    proxy.detectDefaultCountry(function() {\n      proxy.setProxySettings(proxy.lastConnected(), function(result) {\n        // Workaroung for Chrome bug\n        $.ajax({\n          url: \"http://www.google.com/favicon.ico\",\n          cache: false,\n          complete: function(jqXHR, textStatus) {\n            console.log(\"Complete test request: %s\", textStatus);\n          }\n        });\n      });\n    });\n  } else if (details.reason == \"update\") {\n\n    var previousVersion = details.previousVersion;\n    var currentVersion = chrome.runtime.getManifest().version;\n\n    if (previousVersion <= \"2.2.99\" && currentVersion >= \"2.3.0\") {\n      // Upgrade from 2.2 and earlier up to 2.3 and later\n      if (proxy.connected() === \"de\") {\n        proxy.setProxySettings(\"uk\");\n      }\n    } else {\n      if (proxy.connected()) {\n        proxy.setProxySettings(proxy.lastConnected(), function() {\n          ui.updateUiConnectionStatus();\n        });\n      }\n    }\n  } else {\n    if (proxy.connected()) {\n      proxy.setProxySettings(proxy.lastConnected(), function() {\n        ui.updateUiConnectionStatus();\n      });\n    }\n  }\n\n  ui.updateUiConnectionStatus();  \n});\n\nchrome.proxy.onProxyError.addListener(function (details) {\n  proxy.checkProxySet(function(isConnected) {\n    if (isConnected) {\n      console.error(\"Proxy on error: \" + JSON.stringify(details));\n      ga.trackEvent(\"extension\", \"proxy_error\", JSON.stringify(details));\n    }\n  });\n});\n\nchrome.runtime.onStartup.addListener(function() {\n  console.log(\"chrome.runtime.onStartup\");\n  \n  delete localStorage.lastRedirectOnError;\n  ui.updateUiConnectionStatus();\n  ga.trackEvent(\"extension\", \"start\", chrome.runtime.getManifest().version);\n});\n\n// TODO if/when we switch to event page, this should be changed\nscheduler.init();\n\n}).call(this,typeof global !== \"undefined\" ? global : typeof self !== \"undefined\" ? self : typeof window !== \"undefined\" ? window : {})\n},{\"./browsec\":3,\"./common\":4,\"./ga\":5,\"./proxy\":6,\"./ui\":8,\"./update_scheduler\":9,\"jquery\":\"jquery\"}],3:[function(require,module,exports){\nvar $ = require('jquery');\nvar config = require('./config').browsec;\nvar ga = require('./ga');\n\nvar browsec = function() {\n  var apiPrefix = config.apiPrefix || \"https://d1blmth2c5vbem.cloudfront.net/v1/\";\n  var locationApiPrefix = config.locationApiPrefix || \"http://d1blmth2c5vbem.cloudfront.net/v1/\";\n\n  return {\n    init: function() {\n      $.ajaxSetup({\n        tryCount : 0,\n        retryLimit : 1,\n        timeout: 10000,\n        retry: function() {\n          this.tryCount++;\n          if (this.tryCount <= this.retryLimit) {\n            //try again\n            $.ajax(this);\n            return true;\n          } else {\n            return false;\n          }\n        }\n      });\n    },\n\n    checkCredentials : function (username, password) {\n      try {\n        console.group(\"checkCredentials\");\n\n        var result = false;\n\n        $.ajax({\n          type: \"POST\",\n          url: apiPrefix + \"auth\", \n          data: {\n            email: username,\n            password: password\n          },\n          async: false,\n          success: function(data, textStatus, jqXHR) {\n            console.log(\"Response status: %d\", data.status);\n            if (data.status === 0) {\n              result = true;\n            }\n          },\n          error: function(jqXHR, textStatus, errorThrown) {\n            if (!this.retry()) {\n              ga.trackEvent(\"check_credentials_error\", textStatus, errorThrown);\n              throw errorThrown;\n            }\n          }\n        });\n\n        return result;\n      } finally {\n        console.groupEnd();\n      }\n    },\n\n    clearCredentials : function () {\n      delete localStorage.userId;\n      delete localStorage.email;\n      delete localStorage.password;\n    },\n\n    ipInfo : function (callback) {\n      var start;\n\n      $.ajax({\n        type: \"GET\",\n        url: locationApiPrefix + \"location?locale=\" + chrome.runtime.getManifest().current_locale,\n        async: true,\n        success: function(data, textStatus, jqXHR) {\n          callback(data);\n        },\n        error: function(jqXHR, textStatus, errorThrown) {\n          this.retry();\n        },\n        beforeSend: function() {\n          start = Date.now();\n        },\n        complete: function() {\n          var duration = Date.now() - start;\n          console.debug(\"Location request duration %d ms\", duration);\n        }\n      });\n    },\n\n    signup : function() {\n      try {\n        console.group(\"Signing up new user\");\n\n        var result = null;\n\n        $.ajax({\n          type: \"POST\",\n          url: apiPrefix + \"signup\", \n          async: false,\n          success: function(data, textStatus, jqXHR) {\n            console.log(\"Response status: %d\", data.status);\n            if (data.status === 0) {\n              result = data.result;\n            } else {\n              ga.trackEvent(\"error_signup\", data);\n            }\n          },\n          error: function(jqXHR, textStatus, errorThrown) {\n            if (!this.retry()) {\n              ga.trackEvent(\"error_signup\", textStatus, errorThrown);\n            }\n          }\n        });\n\n        return result;\n      } finally {\n        console.groupEnd();\n      }\n    },\n\n    servers: function(callback) {\n      var canceled = false;\n\n      var xhr = $.ajax({\n        type: \"GET\",\n        url: apiPrefix + \"servers\",\n        async: true,\n        success: function(data, textStatus, jqXHR) {\n          if (canceled) {\n            if (typeof callback === 'function') {\n              callback('canceled');\n            }\n            return;\n          }\n\n          if (typeof callback === 'function') {\n            callback(null, data);\n          }\n        },\n        error: function(jqXHR, textStatus, errorThrown) {\n          if (canceled) {\n            // Aborted request return textStatus == 'abort', errorThrown == 'abort'.\n            // We might have checked for these statuses; however, once a task\n            // has been canceled, any status should be ignored.\n            console.log('servers', 'request canceled: status:', textStatus, 'error:', errorThrown);\n            // may check for XHR\n            if (typeof callback === 'function') {\n              callback('canceled');\n            }\n            return;\n          }\n          var error = {status: textStatus, error: errorThrown};\n          console.error(\"browsec.servers\", JSON.stringify(error));\n          ga.trackEvent(\"error\", \"browsec.servers\", JSON.stringify(error));\n          callback(error);\n        }\n      });\n      var task = {\n        cancel: function() {\n          canceled = true;\n          xhr.abort();\n        }\n      };\n      return task;\n    }\n  };\n}();\n\nmodule.exports = browsec;\n\n},{\"./config\":\"./config\",\"./ga\":5,\"jquery\":\"jquery\"}],4:[function(require,module,exports){\nrequire('./utils/format');\nrequire('./utils/ends_with');\nrequire('./utils/starts_with');\nrequire('./utils/error_handler');\n\n},{\"./utils/ends_with\":11,\"./utils/error_handler\":12,\"./utils/format\":13,\"./utils/starts_with\":14}],5:[function(require,module,exports){\n(function (global){\nvar config = require('./config').ga;\n\nif (config.enabled) {\n  // Google Analytics\n  (function() {\n    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\n    ga.src = 'https://ssl.google-analytics.com/ga.js';\n    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\n  })();\n  global._gaq = global._gaq || [];\n  _gaq.push(['_setAccount', config.tracking_id]);\n  _gaq.push(['_trackPageview']);\n\n  var ga = {\n    trackEvent : function (category, action, label, value, noninteraction) {\n      // Track events only in production\n      console.log(\"Track event: \" + JSON.stringify([category, action, label, value, noninteraction]));\n      if (chrome.i18n.getMessage(\"@@extension_id\") === config.extension_id) {\n        _gaq.push(['_trackEvent', category, action, label, value, noninteraction]);\n      }\n    }\n  };\n} else {\n  var ga = {\n    trackEvent: function() {\n      console.log(\"ga.trackEvent\", \"[DISABLED]\", arguments);\n    }\n  };\n}\n\nmodule.exports = ga;\n\n}).call(this,typeof global !== \"undefined\" ? global : typeof self !== \"undefined\" ? self : typeof window !== \"undefined\" ? window : {})\n},{\"./config\":\"./config\"}],6:[function(require,module,exports){\n(function (global){\nvar ga = require('./ga');\nvar weightedShuffle = require('./array').weightedShuffle;\nvar config = require('./config').proxy;\nvar servers = require('./server_list');\n\nvar proxy = function() {\n\n  var bypassList =  [\"google-analytics.com\"];\n\n  var pacScript = 'function domainIs(host,domain){return host==domain||dnsDomainIs(host,\".\"+domain)}function FindProxyForURL(url,host){var config=\"{0}\";var bypass={1};host=host.toLowerCase();if(isPlainHostName(host)||isInNetEx(host,\"127.0.0.0/8\")||isInNetEx(host,\"10.0.0.0/8\")||isInNetEx(host,\"172.16.0.0/12\")||isInNetEx(host,\"192.168.0.0/16\")||isInNetEx(host,\"fc00::/7\")||isInNetEx(host,\"fe80::/10\")){return\"DIRECT\"}for(var i=0;i<bypass.length;i++){if(domainIs(host,bypass[i])){return\"DIRECT\"}}return config}';\n\n  var defaultCountry = config.defaultCountry || \"nl\";\n\n  function getServerString(countryConfig, altPort) {\n    var serverString = \"\";\n\n    var servers = weightedShuffle(countryConfig.servers);\n    /* jshint -W004 */\n    for (var i = 0; i < servers.length; i++) {\n      var server = servers[i];\n      var port = getServerPort(server, altPort);\n      serverString += \"HTTPS \" + server.host + \":\" + port + \"; \";\n    }\n\n    if (countryConfig.backupServers) {\n      var backupServers = weightedShuffle(countryConfig.backupServers);\n      for (var i = 0; i < backupServers.length; i++) {\n        var server = backupServers[i];\n        var port = getServerPort(server, altPort);\n        serverString += \"HTTPS \" + server.host + \":\" + port + \"; \";\n      }\n    }\n    /* jshint +W004 */\n\n    console.log(\"Srv string: \" + serverString);\n\n    return serverString;\n  }\n\n  function getServerPort(server, altPort) {\n    if (altPort && Array.isArray(server.alt_ports) && server.alt_ports.indexOf(altPort) >= 0) {\n      return altPort;\n    } else {\n      return server.port;\n    }\n  }\n\n  return {\n    countryCodes: function(callback, includeHidden) {\n      if (typeof includeHidden === 'undefined') {\n        includeHidden = this.isIncludeHidden();\n      }\n      servers.get(function(err, settings) {\n        if (err) {\n          console.error(err);\n          callback([]);\n          return;\n        }\n\n        var countries = settings.countries;\n        var countryCodes = Object.keys(countries).filter(function(countryCode) {\n          return includeHidden || !countries[countryCode].hidden;\n        }).filter(function(countryCode) {\n          return Array.isArray(countries[countryCode].servers);\n        });\n        callback(countryCodes);\n      });\n    },\n\n    isIncludeHidden : function() {\n      return localStorage.includeHidden && JSON.parse(localStorage.includeHidden);\n    },\n\n    setIncludeHidden : function(value) {\n      localStorage.includeHidden = JSON.stringify(value);\n    },\n\n    isProxySet : function (config) {\n      if (config.levelOfControl == \"controlled_by_this_extension\") \n        if (config.value.mode == 'pac_script') \n          return true;\n\n      return false;\n    },\n\n    checkProxySet : function (callback) {\n      chrome.proxy.settings.get({incognito : false}, function (config) {\n        var isConnected = this.isProxySet(config);\n        callback(isConnected);\n      }.bind(this));\n    },\n\n    setProxySettings : function (countryCode, callback) {\n      chrome.proxy.settings.get({incognito : false}, function(config) {\n\n        if (typeof config != 'undefined' && config.levelOfControl != \"controllable_by_this_extension\" && config.levelOfControl != \"controlled_by_this_extension\") {\n\n          console.warn(\"Proxy settings levelOfControl is: \" + config.levelOfControl);\n          ga.trackEvent(\"extension\", \"alert\", \"error_unable_change_proxy_settings \" + config.levelOfControl);\n          alert(chrome.i18n.getMessage('error_unable_change_proxy_settings'));\n\n          if (typeof callback == \"function\") {\n            callback(false);\n          }\n        } else {\n          var altPort = localStorage.altPort && Number(localStorage.altPort);\n          servers.get(function(err, settings) {\n            if (err) {\n              callback(false);\n              return;\n            }\n            var countries = settings.countries;\n            var countryConfig = countries[countryCode];\n            if (!countryConfig) {\n              console.warn(\"No servers for country: \" + countryCode + \", rolling back to default country\");\n              countryCode = defaultCountry;\n              countryConfig = countries[countryCode];\n            }\n            if (!countryConfig) {\n              console.error(\"Failed to find any suitable servers, turning off\");\n              delete localStorage.lastConnected;\n              localStorage.connected = 'off';\n              callback(false);\n              return;\n            }\n            var serverString = getServerString(countryConfig, altPort);\n\n            var proxyConfig = {\n              mode: \"pac_script\", \n              pacScript: {\n                data: pacScript.format(serverString, JSON.stringify(bypassList))\n              }\n            };\n\n            chrome.proxy.settings.set({scope: 'regular', value: proxyConfig}, function() {\n              localStorage.connected = localStorage.lastConnected = countryCode;\n\n              if (typeof callback == \"function\") {\n                callback(true);\n              }\n            });\n          });\n        }\n      }.bind(this));\n    },\n\n    clearProxySettings : function (callback) {\n      chrome.proxy.settings.clear({scope: 'regular'}, function() {\n        localStorage.connected = \"off\";\n\n        if (typeof callback == \"function\") {\n          callback(true);\n        }\n      });\n    },\n\n    logProxySettings : function () {\n      chrome.proxy.settings.get({incognito : false}, function(config) {\n        console.log(JSON.stringify(config));\n      });\n    }, \n\n    onChange : function(details) {\n      console.log(\"Proxy on change: \" + JSON.stringify(details));\n\n      this.checkProxySet(function (isConnected) {\n        ui.setUiConnectionStatus(isConnected);\n\n        if (!isConnected) {\n          localStorage.connected = \"off\";\n        }\n      }); \n    },\n\n    connected : function(localStorage) {\n      localStorage = localStorage || global.localStorage;\n      var status = localStorage.connected;\n\n      if (status === \"off\") {\n        return false;\n      } else {\n        return status;\n      }\n    }, \n\n    lastConnected : function(localStorage) {\n      localStorage = localStorage || global.localStorage;\n      return localStorage.lastConnected || defaultCountry;\n    },\n\n    detectDefaultCountry : function(callback) {\n      browsec.ipInfo(function (location) {\n        /* jshint laxbreak:true */\n        if (location.continent_code === \"NA\" || location.continent_code === \"SA\") {\n          // If user isfrom North or South America send him to US server\n          defaultCountry = \"us\";\n        } else if (location.country_code === \"SG\" // Singapore\n                || location.country_code === \"MY\" // Malaysia\n                || location.country_code === \"ID\" // Indonesia\n                || location.country_code === \"PH\" // Philippines\n                || location.country_code === \"TH\" // Thailand\n          ) {\n          defaultCountry = \"sg\";\n        } else if (location.country_code === \"UK\" || location.country_code === \"IE\") {\n          defaultCountry = \"uk\";\n        }\n        /* jshint laxbreak:false */\n\n        callback();\n      });\n    }\n  };\n}();\n\nmodule.exports = proxy;\n\n\n}).call(this,typeof global !== \"undefined\" ? global : typeof self !== \"undefined\" ? self : typeof window !== \"undefined\" ? window : {})\n},{\"./array\":1,\"./config\":\"./config\",\"./ga\":5,\"./server_list\":7}],7:[function(require,module,exports){\n/**\n * Manages list of servers\n *\n * TODO(grig): transaction / last known good support\n *\n * @module ./server_list\n */\n\nvar ga = require('./ga');\n\nvar defaultConfig = require('./config').proxy.settings || {};\n\n/*\n * TODO(grig): test callback status\n */\nexports.set = function set(value, callback) {\n  var error = validate(value);\n  if (error) {\n    throw new ValidationError(error);\n  }\n  try {\n    localStorage.currentConfig = JSON.stringify(value);\n    if (typeof callback === 'function') {\n      setTimeout(function() {\n        callback(null);\n      }, 0);\n    }\n  } catch(e) {\n    if (typeof callback === 'function') {\n      setTimeout(function() {\n        callback(e);\n      }, 0);\n    }\n  }\n};\n\nfunction validate(settings) {\n  if (typeof settings !== 'object' || settings === null) {\n    return 'settings should be an object';\n  }\n\n  if (!settings.hasOwnProperty('countries')) {\n    return 'settings should have a \"countries\" property';\n  }\n\n  var config = settings.countries;\n  if (Object.keys(config).length === 0) {\n    return \"config should have at least one key (country)\";\n  }\n  for (var countryCode in config) {\n    if (!config.hasOwnProperty(countryCode)) {\n      continue;\n    }\n    var country = config[countryCode];\n    if (!Array.isArray(country.servers) && !Array.isArray(country.premium_servers)) {\n      return \"country must have either 'servers' or 'premium_servers' fields set to an array of servers\";\n    }\n\n    var error;\n    if (Array.isArray(country.servers)) {\n      error = validateServers(country.servers);\n      if (error) {\n        return error;\n      }\n    }\n\n    if (Array.isArray(country.premium_servers)) {\n      error = validateServers(country.premium_servers);\n      if (error) {\n        return error;\n      }\n    }\n  }\n  return null;\n}\n\nfunction validateServers(servers) {\n  for (var i = 0; i < servers.length; i++) {\n    var server = servers[i];\n    if (typeof server.host !== 'string') {\n      return \"server must have a 'host' property\";\n    }\n    if (!(typeof server.port === 'string' || typeof server.port === 'number')) {\n      return \"server must have a 'port' property\";\n    }\n  }\n  return null;\n}\n\nfunction ValidationError(message) {\n  this.name = 'ValidationError';\n  this.message = message || '';\n  this.stack = (new Error()).stack;\n}\n\nValidationError.prototype = Object.create(Error.prototype);\nValidationError.prototype.constructor = ValidationError;\n\n/*\n * TODO(grig): test no countries in default config\n * TODO(grig): test no proxy config\n * TODO(grig): test errors\n */\nexports.get = function get(callback) {\n  var value = localStorage.currentConfig;\n  if (typeof value === 'string') {\n    try {\n      var currentConfig = JSON.parse(value);\n      var error = validate(currentConfig);\n      if (error) {\n        throw new ValidationError(error);\n      }\n      setTimeout(function() {\n        callback(null, currentConfig || defaultConfig);\n      }, 0);\n    } catch (e) {\n      var version = 'n/a';\n      if (chrome.runtime && chrome.runtime.getManifest()) {\n        version = chrome.runtime.getManifest().version;\n      }\n      var message = e.toString();\n      try {\n        // find application-level file name and line number from the stack\n        var stack = e.stack.split(\"\\n\");\n        for (var i = 0; i < stack.length; i++) {\n          if (/ at .*\\.js:.*/.test(stack[i])) {\n            message = message + stack[i];\n            break;\n          }\n        }\n      } catch (_) {\n        // nothing\n      }\n      ga.trackEvent(\"error\", version, message, 0, false);\n\n      console.warn(\"invalid current configuration, fall back to default: \", e);\n      delete localStorage.currentConfig;\n      setTimeout(function() {\n        callback(null, defaultConfig);\n      }, 0);\n    }\n  } else {\n    setTimeout(function() {\n      callback(null, defaultConfig);\n    }, 0);\n  }\n};\n\nexports.clear = function(callback) {\n  delete localStorage.currentConfig;\n  if (typeof callback === 'function') { setTimeout(callback, 0); }\n};\n\n},{\"./config\":\"./config\",\"./ga\":5}],8:[function(require,module,exports){\nvar proxy = require('./proxy');\n\nvar ui = {\n  setUiConnectionStatus : function (connected) {\n    if (connected) {\n      chrome.browserAction.setIcon({path: 'images/icon-enabled.png'});  \n      // chrome.browserAction.setTitle({title: chrome.i18n.getMessage('browser_action_active_title')});\n    } else {\n      chrome.browserAction.setIcon({path: 'images/icon-disabled.png'});  \n      // chrome.browserAction.setTitle({title: chrome.i18n.getMessage('browser_inaction_active_title')});\n    }\n  },\n\n  updateUiConnectionStatus : function () {\n    proxy.checkProxySet(function (isConnected) {\n      this.setUiConnectionStatus(isConnected);\n    }.bind(this));\n  }\n};\n\nmodule.exports = ui;\n\n},{\"./proxy\":6}],9:[function(require,module,exports){\n/**\n * @module ./update_scheduler\n */\n\nvar update_task = require('./update_task');\n\nvar REFRESH_TIMEOUT = 6*3600*1000;\nvar RETRY_TIMEOUT = 5*60*1000;\n\nvar retryTimeout = RETRY_TIMEOUT;\nvar refreshTimeout = REFRESH_TIMEOUT;\n\nfunction run() {\n  var task;\n  var canceled = false;\n\n  var timeoutId = setTimeout(function() {\n    console.log(\"retry\");\n    run(); // TODO schedule on next tick\n    canceled = true;\n    if (task) {\n      task.cancel();\n    }\n  }, retryTimeout);\n\n  task = update_task.start(function(err) {\n    if (err) {\n      console.warn(\"Error updating severs, retrying in \" + retryTimeout / (60 * 1000) + \" minutes\", err);\n      // nothing; retry will be triggered anyway\n      return;\n    }\n    if (canceled) {\n      console.error(\"Attempting to complete an already-canceled update task\");\n      return;\n    }\n\n    clearTimeout(timeoutId);\n    setTimeout(function() {\n      console.log(\"refresh\");\n      // TODO(grig): possible parallel task executions?\n      run();\n    }, refreshTimeout);\n  });\n}\n\nexports.init = function init(options) {\n  console.log(\"init\");\n  options = options || {};\n  retryTimeout = options.retryTimeout || retryTimeout;\n  refreshTimeout = options.refreshTimeout || refreshTimeout;\n\n  setTimeout(run, 0);\n};\n\n},{\"./update_task\":10}],10:[function(require,module,exports){\n/**\n * @module ./update_task\n */\n\nvar server_list = require('./server_list');\nvar proxy = require('./proxy');\nvar browsec = require('./browsec');\n\nexports.start = function update(callback) {\n  console.log(\"update\");\n\n  var task = function() {\n    var canceled = false;\n    var subtask;\n\n    subtask = browsec.servers(function(err, servers) {\n      if (err) {\n        if (typeof callback === 'function') {\n          callback(err);\n        }\n        return;\n      }\n      if (canceled) {\n        if (typeof callback === 'function') {\n          callback(\"canceled\");\n        }\n        return;\n      }\n      server_list.set(servers, function(err) {\n        if (err) {\n          if (typeof callback === 'function') {\n            callback(err);\n          }\n          return;\n        }\n        if (canceled) {\n          if (typeof callback === 'function') {\n            callback(\"canceled\");\n          }\n          return;\n        }\n        if (proxy.connected(localStorage)) {\n          // update proxy settings\n          var currentCountry = proxy.lastConnected(localStorage);\n          proxy.setProxySettings(currentCountry, function(result) {\n            if (canceled) {\n              if (typeof callback === 'function') {\n                callback(\"canceled\");\n              }\n              return;\n            }\n\n            if (typeof callback === 'function') {\n              if (result) {\n                callback();\n              } else {\n                callback(new Error(\"failed to update proxy settings\"));\n              }\n            }\n          });\n        } else {\n          if (canceled) {\n            if (typeof callback === 'function') {\n              callback(\"canceled\");\n            }\n            return;\n          } else {\n            if (typeof callback === 'function') {\n              callback(null);\n              return;\n            }\n          }\n        }\n      });\n    });\n    var task = {\n      cancel: function cancel() {\n        canceled = true;\n        if (subtask) {\n          subtask.cancel();\n        }\n      }\n    };\n    return task;\n  }();\n  return task;\n};\n\n},{\"./browsec\":3,\"./proxy\":6,\"./server_list\":7}],11:[function(require,module,exports){\nif (!String.prototype.endsWith) {\n  String.prototype.endsWith = function(suffix) {\n    return this.indexOf(suffix, this.length - suffix.length) !== -1;\n  };\n}\n\n\n},{}],12:[function(require,module,exports){\nvar ga = require('../ga');\n\n// Error handler\nwindow.onerror = function (message, filename, lineno) {\n  try {\n    console.error(\"message: {0}\\nfilename: {1}\\nlineno: {2}\".format(message, filename, lineno));\n\n    var version = 'n/a';\n    if (chrome.runtime.getManifest()) {\n      version = chrome.runtime.getManifest().version;\n    }\n    ga.trackEvent(\"error\", version, \"{0} at {1}:{2}\".format(message, filename, lineno), 0, false);\n\n  } catch (e) {\n    console.error(e);\n  }\n\n  return false;\n};\n\n\n},{\"../ga\":5}],13:[function(require,module,exports){\n// Helper functions\nfunction format(str, args) {\n    return str.replace(/{(\\d+)}/g, function(match, number) { \n      return typeof args[number] != 'undefined' ? args[number] : match;\n    });\n}\n\nif (!String.prototype.format) {\n  String.prototype.format = function() {\n    return format(this, arguments);\n  };\n}\n\nmodule.exports = format;\n\n},{}],14:[function(require,module,exports){\nif (!String.prototype.startsWith) {\n  String.prototype.startsWith = function(prefix) {\n    return this.indexOf(prefix) === 0;\n  };\n}\n\n\n},{}]},{},[2]);\n",
-			"file": "/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/omghfjlpggmjjaagoclmmobgdodcjboh/2.5.6_0/background.js",
-			"file_size": 43793,
-			"file_write_time": 130898361580000000,
+			"file": "Credits.txt",
 			"settings":
 			{
-				"buffer_size": 42351,
+				"buffer_size": 19703,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Apps/com.google-unofficial.search/package.json",
+			"file": "Libraries/org.materialize/js/materialize.min.js",
 			"settings":
 			{
-				"buffer_size": 610,
+				"buffer_size": 122727,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "manifest.json",
+			"file": "Libraries/org.materialize/css/materialize.min.css",
 			"settings":
 			{
-				"buffer_size": 1453,
+				"buffer_size": 105658,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/org.jquery/jquery.min.js",
+			"settings":
+			{
+				"buffer_size": 95870,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/org.jquery.ui/jqueryui.min.js",
+			"settings":
+			{
+				"buffer_size": 239703,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/io.jeffmott.cryptojs/sha3.js",
+			"settings":
+			{
+				"buffer_size": 18973,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/org.jensarps.idbstore/idbstore.js",
+			"settings":
+			{
+				"buffer_size": 10926,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/osload.css",
+			"settings":
+			{
+				"buffer_size": 988,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/setup.css",
+			"settings":
+			{
+				"buffer_size": 883,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/startmodule.css",
+			"settings":
+			{
+				"buffer_size": 840,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/taskbar.css",
+			"settings":
+			{
+				"buffer_size": 889,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/window.css",
+			"settings":
+			{
+				"buffer_size": 4144,
 				"line_ending": "Windows"
 			}
 		},
@@ -210,26 +327,7 @@
 			"file": "/C/Windows/System32/drivers/etc/hosts",
 			"settings":
 			{
-				"buffer_size": 347613,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<unattend xmlns=\"urn:schemas-microsoft-com:unattend\">\n    <settings pass=\"windowsPE\">\n        <component name=\"Microsoft-Windows-Setup\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <UserData>\n                <ProductKey>\n                    <WillShowUI>Never</WillShowUI>\n                    <Key>F6CQN-H6R37-V8VDG-MV44P-PGXHV</Key>\n                </ProductKey>\n                <FullName>dangeredwolf</FullName>\n                <Organization>WebShell Foundation</Organization>\n                <AcceptEula>true</AcceptEula>\n            </UserData>\n            <Diagnostics>\n                <OptIn>false</OptIn>\n            </Diagnostics>\n            <Restart></Restart>\n            <EnableNetwork>true</EnableNetwork>\n            <EnableFirewall>true</EnableFirewall>\n            <DynamicUpdate>\n               <Enable>true</Enable>\n               <WillShowUI>Never</WillShowUI>\n            </DynamicUpdate>\n            <ComplianceCheck>\n               <DisplayReport>Never</DisplayReport>\n            </ComplianceCheck>\n            <UpgradeData>\n               <Upgrade>false</Upgrade>\n               <WillShowUI>Never</WillShowUI>\n            </UpgradeData>\n            <WindowsDeploymentServices>\n           <Login>\n              <WillShowUI>OnError</WillShowUI>\n              <Credentials>\n                 <Username>Administrator</Username>\n                 <Domain>MY-DOMAIN-NAME</Domain>\n                 <Password>********</Password>\n              </Credentials>\n           </Login>\n          <ImageSelection>\n              <WillShowUI>OnError</WillShowUI>\n              <InstallImage>\n                 <ImageName>MY_IMAGE_NAME</ImageName>\n                 <ImageGroup>My IMAGE GROUP</ImageGroup>\n              </InstallImage>\n              <InstallTo>\n                 <DiskID>0</DiskID>\n                 <PartitionID>1</PartitionID>\n              </InstallTo>\n           </ImageSelection>\n        </WindowsDeploymentServices>\n        </component>\n        <component name=\"Microsoft-Windows-International-Core-WinPE\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" processorArchitecture=\"x86\">\n            <SetupUILanguage>\n                <WillShowUI>Never</WillShowUI>\n                <UILanguage>en-US</UILanguage>\n            </SetupUILanguage>\n            <InputLocale>en-US</InputLocale>\n            <UILanguage>en-US</UILanguage>\n            <SystemLocale>en-US</SystemLocale>\n            <UserLocale>en-US</UserLocale>\n        </component>\n    </settings>\n    <settings pass=\"specialize\">\n        <component name=\"Microsoft-Windows-Deployment\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <RunSynchronous>\n                <RunSynchronousCommand wcm:action=\"add\">\n                    <Path>start cmd.exe</Path>\n                    <Order>1</Order>\n                </RunSynchronousCommand>\n            </RunSynchronous>\n        </component>\n        <component name=\"Microsoft-Windows-Shell-Setup\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <ShowWindowsLive>false</ShowWindowsLive>\n        </component>\n        <component name=\"Microsoft-Windows-ErrorReportingCore\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <DisableWER>1</DisableWER>\n        </component>\n    </settings>\n    <settings pass=\"oobeSystem\">\n        <component name=\"Microsoft-Windows-International-Core\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" processorArchitecture=\"x86\">\n            <InputLocale>en-US</InputLocale>\n            <UILanguage>en-US</UILanguage>\n            <SystemLocale>en-US</SystemLocale>\n            <UserLocale>en-US</UserLocale>\n        </component>\n        <component name=\"Microsoft-Windows-Setup\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <UserData>\n                <ProductKey>\n                    <WillShowUI>Never</WillShowUI>\n                    <Key>F6CQN-H6R37-V8VDG-MV44P-PGXHV</Key>\n                </ProductKey>\n                <FullName>dangeredwolf</FullName>\n                <Organization>WebShell Foundation</Organization>\n                <AcceptEula>true</AcceptEula>\n            </UserData>\n            <Diagnostics>\n                <OptIn>false</OptIn>\n            </Diagnostics>\n            <Restart>Restart</Restart>\n            <EnableNetwork>true</EnableNetwork>\n            <EnableFirewall>true</EnableFirewall>\n            <DynamicUpdate>\n               <Enable>true</Enable>\n               <WillShowUI>Never</WillShowUI>\n            </DynamicUpdate>\n            <ComplianceCheck>\n               <DisplayReport>Never</DisplayReport>\n            </ComplianceCheck>\n            <UpgradeData>\n               <Upgrade>false</Upgrade>\n               <WillShowUI>Never</WillShowUI>\n            </UpgradeData>\n            <WindowsDeploymentServices>\n           <Login>\n              <WillShowUI>OnError</WillShowUI>\n              <Credentials>\n                 <Username>Administrator</Username>\n                 <Domain>MY-DOMAIN-NAME</Domain>\n                 <Password>********</Password>\n              </Credentials>\n           </Login>\n          <ImageSelection>\n              <WillShowUI>OnError</WillShowUI>\n              <InstallImage>\n                 <ImageName>MY_IMAGE_NAME</ImageName>\n                 <ImageGroup>My IMAGE GROUP</ImageGroup>\n              </InstallImage>\n              <InstallTo>\n                 <DiskID>0</DiskID>\n                 <PartitionID>1</PartitionID>\n              </InstallTo>\n           </ImageSelection>\n        </WindowsDeploymentServices>\n        </component>\n        <component name=\"Security-Malware-Windows-Defender\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n          <DisableAntiSpyware>true</DisableAntiSpyware>\n        </component>\n        <component name=\"Microsoft-Windows-Security-Licensing-SLC \" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n          \n        </component>\n        <component name=\"Microsoft-Windows-Shell-Setup\" processorArchitecture=\"x86\" publicKeyToken=\"31bf3856ad364e35\" language=\"neutral\" versionScope=\"nonSxS\" xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n            <OOBE>\n                <ProtectYourPC>3</ProtectYourPC>\n                <NetworkLocation>Work</NetworkLocation>\n                <SkipMachineOOBE>true</SkipMachineOOBE>\n                <SkipUserOOBE>true</SkipUserOOBE>\n                <HideEULAPage>true</HideEULAPage>\n            </OOBE>\n            <UserAccounts>\n                <LocalAccounts>\n                    <LocalAccount wcm:action=\"add\">\n                        <Password>\n                            <Value></Value>\n                            <PlainText>true</PlainText>\n                        </Password>\n                        <Name>webshell</Name>\n                        <Group>Administrators</Group>\n                    </LocalAccount>\n                </LocalAccounts>\n            </UserAccounts>\n        </component>\n    </settings>\n</unattend>\n",
-			"file": "/C/Users/dangeredwolf/Documents/AutoUnattend.xml",
-			"file_size": 8091,
-			"file_write_time": 130926346572372854,
-			"settings":
-			{
-				"buffer_size": 8250,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/dangeredwolf/Documents/WindowsEmbedded/AutoUnattend.xml",
-			"settings":
-			{
-				"buffer_size": 5845,
+				"buffer_size": 115,
 				"line_ending": "Windows"
 			}
 		},
@@ -240,46 +338,6 @@
 				"buffer_size": 10810,
 				"line_ending": "Windows",
 				"name": "Windows NT 3.1, Windows NT 3.1 Advanced Server, Wi"
-			}
-		},
-		{
-			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
-			"settings":
-			{
-				"buffer_size": 14674,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Apps/com.google-unofficial.search/immersivesearch.css",
-			"settings":
-			{
-				"buffer_size": 7357,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Program Files/NTLite/settings.xml",
-			"settings":
-			{
-				"buffer_size": 1865,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/resources/scripts/accessibility.js",
-			"settings":
-			{
-				"buffer_size": 8707,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/en-GB/index.html",
-			"settings":
-			{
-				"buffer_size": 51913,
-				"line_ending": "Windows"
 			}
 		}
 	],
@@ -318,18 +376,52 @@
 		"/C/Users/dangeredwolf/Documents/webshell",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.search",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.youtube",
 		"/C/Users/dangeredwolf/Documents/webshell/CoreApps",
-		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings",
 		"/C/Users/dangeredwolf/Documents/webshell/Foundation",
 		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.system",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/com.dangeredwolf.webshell.shell",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/io.jeffmott.cryptojs",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/io.kaizouman.fpsmeter",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.jensarps.idbstore",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.jquery",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.jquery.ui",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.materialize",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.materialize/css",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.materialize/js",
+		"/C/Users/dangeredwolf/Documents/webshell/Resources",
+		"/C/Users/dangeredwolf/Documents/webshell/Resources/com.dangeredwolf.webshell.resources.shell",
+		"/C/Users/dangeredwolf/Documents/webshell/Resources/org.webshell.branding",
 		"/C/Users/dangeredwolf/Documents/webshell/Themes",
 		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default",
 		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/css"
 	],
 	"file_history":
 	[
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup/setup.js",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup/setup.html",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup/setup.css",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.materialize/LICENSE",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.youtube/immersiveyoutube.css",
+		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/css/lockscreen.css",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/setup.css",
+		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
+		"/C/Users/dangeredwolf/Documents/webshell/webshellapp.html",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/settings.html",
+		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
+		"/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/en-GB/index.html",
+		"/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/resources/scripts/accessibility.js",
+		"/C/Program Files/NTLite/settings.xml",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.search/immersivesearch.css",
+		"/C/Users/dangeredwolf/Documents/WindowsEmbedded/AutoUnattend.xml",
+		"/C/Users/dangeredwolf/Documents/AutoUnattend.xml",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/dangeredwolf/Documents/webshell/manifest.json",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.search/package.json",
+		"/C/Windows/Resources/Themes/aero/aero.msstyles",
+		"/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/omghfjlpggmjjaagoclmmobgdodcjboh/2.5.6_0/background.js",
 		"/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/mfaihdlpglflfgpfjcifdjdjcckigekc/48.5021.537.0_0/manifest.json",
 		"/H/sources/inf/setup.cfg",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.search/app.json",
@@ -337,21 +429,13 @@
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.microsoft-unofficial.office.word/word.css",
 		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.wsversion/version.js",
-		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
 		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.io/io.js",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.wsversion/version.html",
 		"/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/jhdnjmjhmfihbfjdgmnappnoaehnhiaf/0.7.9_0/js/factories/templateFactory.js",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.run/run.html",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.immersivetest/immersive.html",
 		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/setup.js",
-		"/C/Users/dangeredwolf/Documents/webshell/manifest.json",
-		"/C/Users/dangeredwolf/Documents/webshell/webshellapp.html",
-		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup/setup.html",
-		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup/setup.js",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/com.dangeredwolf.webshell.shell/shell.js",
-		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/setup.css",
-		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/settings.html",
-		"/C/Windows/System32/drivers/etc/hosts",
 		"/C/cygwin64/usr/share/avogadro/crystals/zeolites/CON",
 		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.core.ui/corecss.css",
 		"/R/Boot/grub.cfg",
@@ -412,7 +496,7 @@
 	],
 	"find":
 	{
-		"height": 98.0
+		"height": 75.0
 	},
 	"find_in_files":
 	{
@@ -427,131 +511,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			";\n}",
-			": ",
-			"shadow",
-			"userdata",
-			"product",
-			"eula",
-			"#",
-			"com",
-			"#",
-			"127.0.0.1 i.scdn.co",
-			"#",
-			"openwindow",
-			"newwindow",
-			"UNFOCUS",
-			"dwm",
-			"DWM",
-			"html",
-			"draggable",
-			"nt",
-			"\n}",
-			";\n}",
-			";	",
-			".welcome",
-			"#ff",
-			"#ff ",
-			"#ff",
-			", ",
-			"}\n@",
-			"}\n.",
-			";\n}",
-			": ",
-			"	  ",
-			"  ",
-			"    ",
-			"  ",
-			" 0px",
-			":0px",
-			"left",
-			"0px",
-			":0px",
-			";\n",
-			"closewindow",
-			"onEvent",
-			"'",
-			"[0].addEventListener(",
-			".on(",
-			"bypass",
-			"addEventListener",
-			"startope",
-			"bootlogo",
-			"unfocuswin",
-			"linkwindow",
-			"']\"))",
-			"url",
-			"roboto",
-			".max",
-			"Frosty",
-			"li",
-			"closestart",
-			"savecr",
-			"fadein",
-			"fadeinanim",
-			"fadeou",
-			"fadein",
-			"fadeout",
-			"fadein",
-			"initshell",
-			"initshe",
+			"cdn",
+			"img",
+			"fps",
+			"log",
+			"os",
+			"os.log",
 			"savecred",
-			".lockscreen",
-			"classname",
-			"jp",
-			"cubic",
-			"();\n",
-			"lockscreen(",
-			"startmenu",
+			"initsetup",
+			"isSetting",
+			"initSetup",
+			"setupLogin",
+			"initSetup",
+			"setuplogin",
+			"mightNeedToSetup",
+			"initlockscreen",
+			"update",
+			"initialise",
+			"initialiseShell(",
+			"initialiseShell",
+			"processlogindata",
+			"dataLoadedQuickSoProcessItImmediately",
+			"processLoginData",
+			"dataLoadedQuickSoProcessItImmediately",
+			"savecred",
+			"title",
+			"Title.",
+			"title.",
+			"attr(\"class",
+			"fadeoutanim",
+			"openwindow",
+			"setting",
+			"setuplogin",
+			"password",
+			"[0]",
+			"langselection",
+			"0px",
+			";\n}",
+			": ",
+			"setup",
+			"langselec",
+			"setTimeout",
+			"make(\"option\");",
+			"option5.html(",
+			"option1.html",
+			"$(\".setuptitle\")",
+			");",
+			"options.appendChild",
+			"value",
+			"innerHTML = ",
+			"option2.innerHTML = ",
+			"options",
+			"option5",
+			"langselection",
+			"langselect",
+			"document.createElement",
+			"watermark",
+			"$(\".authentication input\")",
+			"\"webview",
+			"webview[0",
+			"].",
+			"webview[0]",
+			"[0]",
+			"$(\"html\")",
+			"document.addEventListener",
+			"window.addEventListener",
+			"startmenubo",
+			"moduleDrawerBody",
+			"startmenubody",
+			"$(\"",
+			"$(\".authentication div\")",
+			"dwm",
+			"authentication input",
+			"timenode",
+			"$(\"",
+			"tasks\"",
+			"$(\"",
+			"ui",
+			"windowID",
+			"windowid",
+			"wid",
+			"13",
+			"initLockscreen",
 			"lockscreen",
-			"startme",
-			"startmenubody",
-			"startmenubodyopen",
-			"cubiC",
-			"html {",
-			"startmenubody",
-			"taskbar",
-			"taskbar {",
-			"testL",
-			"100",
-			"authentication",
-			"authentication hidd",
-			"loadlog",
-			".set",
-			"pwsalt",
-			"passwordH",
-			"setuplog",
-			"logind",
-			"chrome.storage.sync",
-			"chrome.storage.local",
-			"localStorage",
-			"lockscreenopen",
-			"logo",
-			"logoco",
-			".sbsb_c",
-			"sbfcn",
-			"gb_ca",
-			"typeof",
-			"e[",
-			"e",
-			"e[0]",
-			"d+",
-			"ui.element[0]",
-			"ui.element[0].childNodes[2]",
-			"ui.element[0].childNodes[2].childNodes[0]",
-			"-webkit-filter",
-			"moz-fil",
-			"webview",
-			".windowbody",
-			"webview",
-			"originalPosition",
-			"webview",
-			"windowbody",
-			"window",
-			"document",
-			"closew",
-			"close",
-			"iframe"
+			"lockscreen(",
+			"lockscreen.",
+			"lockscreen",
+			"LockScreen",
+			"lockscreen",
+			"Lockscreen",
+			"lockscreen",
+			"bootlogo",
+			"$(\".lockscreen\")",
+			"$(\".bootlogo\")",
+			"DelayAmount",
+			"Delay",
+			"delay",
+			"windows",
+			"randomchar",
+			"math",
+			"Math",
+			"generateRandomCharacter",
+			"generateRandomCharacters",
+			"generateRandomCharacter(",
+			"generateRandomCharacter",
+			"body",
+			"make",
+			"windowwidth",
+			"windowheight",
+			"dragright",
+			"dragleft",
+			"extracontent",
+			"icon",
+			"posy",
+			"posx",
+			"wuwin",
+			"sizey",
+			"sizex",
+			"title",
+			"wid",
+			"Windows",
+			"os.shutdow",
+			"lockDeviceScreen",
+			"$(\".startmenubody\")[0].className = \"startmenubody\";",
+			"		$(\".startmenubody\").removeClass(\"startmenubodyopen\");",
+			"shellux",
+			"startShellExperienceHost",
+			"closemoduledrawer",
+			"openMo"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -582,59 +669,57 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 22,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/corestyle.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2297,
+						"buffer_size": 3015,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								159,
-								159
+								106,
+								106
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								173,
+								173
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1561.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "CoreApps/org.webshell.settings/settings.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2272,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								20,
-								20
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -646,24 +731,24 @@
 				},
 				{
 					"buffer": 2,
-					"file": "CoreApps/com.dangeredwolf.webshell.setup/setup.html",
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/lockscreen.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 947,
+						"buffer_size": 1619,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								354,
-								354
+								1619,
+								1619
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -675,31 +760,31 @@
 				},
 				{
 					"buffer": 3,
-					"file": "webshellapp.html",
+					"file": "Libraries/com.dangeredwolf.webshell.shell/shell.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1837,
+						"buffer_size": 16798,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1098,
-								1098
+								4553,
+								4553
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5076.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -708,15 +793,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 645,
+						"buffer_size": 3013,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								181,
-								181
+								75,
+								75
 							]
 						],
 						"settings":
@@ -728,16 +813,189 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "/C/Windows/Resources/Themes/aero/aero.msstyles",
+					"file": "CoreApps/org.webshell.settings/settings.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2588047,
+						"buffer_size": 2255,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1453,
+								1453
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1237.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "webshellapp.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1935,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								293,
+								293
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/desktop.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 583,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								583,
+								583
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 160.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/moduledrawer.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1641,
+								1641
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2174.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Libraries/io.kaizouman.fpsmeter/fpsmeter.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2361,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2361,
+								2361
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "Credits.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19703,
+								19703
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 10237.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "Libraries/org.materialize/js/materialize.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 122727,
 						"regions":
 						{
 						},
@@ -750,9 +1008,94 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "Libraries/org.materialize/css/materialize.min.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 105658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105658,
+								105658
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 998514.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Libraries/org.jquery/jquery.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 95870,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "Libraries/org.jquery.ui/jqueryui.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 239703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								239703,
+								239703
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 94502.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -760,183 +1103,236 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/omghfjlpggmjjaagoclmmobgdodcjboh/2.5.6_0/background.js",
+					"buffer": 15,
+					"file": "Libraries/io.jeffmott.cryptojs/sha3.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 42351,
+						"buffer_size": 18973,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8671,
-								8656
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 8261.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Apps/com.google-unofficial.search/package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 610,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								352,
-								352
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "manifest.json",
+					"buffer": 16,
+					"file": "Libraries/org.jensarps.idbstore/idbstore.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1453,
+						"buffer_size": 10926,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1351,
-								1351
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/osload.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								988,
+								988
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1468.0,
+						"translation.y": 2407.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "/C/Windows/System32/drivers/etc/hosts",
+					"buffer": 18,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/setup.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 347613,
+						"buffer_size": 883,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								113,
-								113
+								883,
+								883
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1018.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/startmodule.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 840,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								840,
+								840
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1594.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/taskbar.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								888,
+								888
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1030.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/window.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4144,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3968,
+								3968
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6917.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "/C/Windows/System32/drivers/etc/hosts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 115,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								115,
+								115
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "/C/Users/dangeredwolf/Documents/AutoUnattend.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8250,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7124,
-								7124
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3247.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "/C/Users/dangeredwolf/Documents/WindowsEmbedded/AutoUnattend.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5845,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4781,
-								4781
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1938.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
+					"buffer": 23,
 					"semi_transient": false,
 					"settings":
 					{
@@ -957,158 +1353,10 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1650.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14674,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								14674,
-								14674
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 24180.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "Apps/com.google-unofficial.search/immersivesearch.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7357,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7236,
-								7236
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 10789.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "/C/Program Files/NTLite/settings.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1865,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								107,
-								107
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/resources/scripts/accessibility.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8707,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								741,
-								741
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 632.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/en-GB/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 51913,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								42,
-								42
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
+					"stack_index": 23,
 					"type": "text"
 				}
 			]
@@ -1116,7 +1364,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 37.0
 	},
 	"input":
 	{
@@ -1153,7 +1401,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 64.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":

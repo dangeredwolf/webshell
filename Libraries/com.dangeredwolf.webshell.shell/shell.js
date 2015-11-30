@@ -1,38 +1,36 @@
-updateBootStatus("Initialising shell.js...")
+updateBootStatus("Initialising shell.js..."); // Update boot status
 
-const debugWindowAnimations = false;
-const debugAuthentication = false;
-const bootLogo = $(".bootlogo");
-const lockScreen = $(".lockscreen");
-const tasks = $(".tasks");
-const lockScreenTimeNode = $(".lockscreentime.time");
-const passwordInputBox = $(".authentication>input");
-const windowManagerContainer = $(".dwm");
-const wallpaper = $(".wallpaper");
-const watermark = $(".watermark");
-const authenticationTitle = $(".authentication>div");
-const moduleDrawerBody = $(".startmenubody");
+const debugWindowAnimations = false; // Prevents removal of window and task elements upon closing of window
+const bootLogo = $(".bootlogo"); // Constant of .bootlogo element, the loading screen container
+const lockScreen = $(".lockscreen"); // Constant of .lockscreen element, the container of lockscreen elements
+const tasks = $(".tasks"); // Constant of .tasks element, container of taskbar buttons for each window
+const lockScreenTimeNode = $(".lockscreentime.time"); // Constant of .time element inside .lockscreentime element
+const passwordInputBox = $(".authentication>input"); // Constant of password box inside .authentication element
+const windowManagerContainer = $(".dwm"); // Constant of .dwm element, container of generated windows
+const wallpaper = $(".wallpaper"); // Constant of .wallpaper element, element which helps render desktop background
+const watermark = $(".watermark"); // Constant of system version watermark element, .watermark
+const authenticationTitle = $(".authentication>div"); // Constant of authentication title, default text: "Hey, User!"
+const moduleDrawerBody = $(".startmenubody"); // Constant of module drawer body, containing modules like All Apps 
 
-var mightNeedToSetup;
-var options;
-var loginHash;
-var loginSalt;
-var isModuleDrawerOpen = false;
-var loginDataReady = false;
-var pageLoadedQuickSoProcessDataImmediately = false;
-var settingUp = false;
-var worryAboutPerformance = 0;
-var performanceFalseAlarms = 0;
-var isSettingUp = false;
-var setupTitle;
-var langSelection;
+var loginHash; // Upon reading hash, it's put here
+var loginSalt; // Upon reading salt, it's put here
+var isModuleDrawerOpen = false; // Ticked if module drawer is open or not 
+var loginDataReady = false; // Ticked if os.storage.login has initialised and if the containing data has been retrieved
+var pageLoadedQuickSoProcessDataImmediately = false; // Ticked if document.ready is triggered before os.storage.login finishes initialising
+var worryAboutPerformance = 0; // Counter used by performance manager to check if performance is too slow for too long, then switching to high-performance mode
+var performanceFalseAlarms = 0; // Counter by performance manager to check if it's switching between high-performance and high-quality modes too frequently 
 
-os.storage.login = new IDBStore({
+var settingUp = false; // Returns true if in setup mode, false otherwise
+var setupTitle; // Constant element defined during setup process
+var langSelection; // Constant element defined during setup process, holds options for language
+var options; // Constant element defined during setup process, holds different setup options
+
+os.storage.login = new IDBStore({ // Initialise os.storage.login data; asynchronous
 	dbVersion: '1',
 	storeName: 'login',
 	keyPath: 'id',
 	autoIncrement: true,
-	onStoreReady: function () {
+	onStoreReady: function () { // Code triggered after os.storage.login initialises
 		console.log("login store ready!");
 		loginDataReady = true;
 		if (pageLoadedQuickSoProcessDataImmediately) {
@@ -41,123 +39,178 @@ os.storage.login = new IDBStore({
 	}
 });
 
+/*
+revokeCredentials()
+
+This function is called if function processLoginData detects that there is a problem with the login data it retrieved (i.e. invalid hash/salt)
+*/
+function revokeCredentials() {
+	os.storage.login.clear(); // Clean bad storage 
+	os.delay(function(){chrome.runtime.reload()},300); // Reload client, triggering setup
+}
+
+/*
+processLoginData()
+
+This function is called once os.storage.login has finished initialising and the document is ready
+*/
 function processLoginData() {
 
-	updateBootStatus("Processing login data...")
+	updateBootStatus("Processing login data...");
 
 	os.storage.login.get("passwordSalt",function(e){
-		loginSalt = e ? e.value : undefined;
+		loginSalt = e ? e.value : undefined; // Set global variable
 
-		if (typeof loginSalt === "undefined") {
-			initSetup();
+		if (typeof loginSalt === "undefined") { // Can't find salt? Go to setup ASAP
+			initSetup(); 
+		} else if (loginSalt.length === 100) { // Legacy (pre-build 13200) login, needs to be reset
+			revokeCredentials();
+			return;
 		}
 
-		if (typeof loginSalt !== "undefined" && typeof loginHash !== "undefined") {
+		if (typeof loginSalt !== "undefined" && typeof loginHash !== "undefined") { // Salt and hash loaded? Let's get everything else ready
 			initShell();
 		}
 	});
 
 	os.storage.login.get("passwordHash",function(e){
-		loginHash = e ? e.value : undefined;
+		loginHash = e ? e.value : undefined; // Set global variable
 
-		if (typeof loginHash === "undefined") {
+		if (typeof loginHash === "undefined") { // Can't find hash? Go to setup ASAP
 			initSetup();
+		} else if (os.hash("").toString().length !== loginHash.length) { // Hash tested to be invalid, needs to be reset
+			revokeCredentials();
+			return;
 		}
 
-		if (typeof loginHash !== "undefined" && typeof loginSalt !== "undefined") {
+		if (typeof loginHash !== "undefined" && typeof loginSalt !== "undefined") { // Hash and salt loaded? Let's get everything else ready
 			initShell();
 		}
 	});
 }
 
+/*
+initShell()
+
+Initialises the general shell, when not in setup mode
+*/
 function initShell() {
 
 	updateBootStatus("Initialising Shell...");
 
-	if (!settingUp) {
-		bootLogo.delay(1500).addClass("fadeout");
-		lockScreen.delay(2300).removeClass("hidden");
-		os.delay(bootLogo.remove,2000);
-		updateLockScreenTime();
-		initialiseShellAwareness();
-		initLockScreen();
+	if (!settingUp) { // As long as the shell isn't in setup mode, start regular processes
+		bootLogo.delay(1500).addClass("fadeout"); // Fade out logo 
+		lockScreen.delay(2300).removeClass("hidden"); // Show lockscreen
+		os.delay(bootLogo.remove,2000); // Remove bootlogo after 2 seconds
+		updateLockScreenTime(); // Start updating lockscreen time
+		initialiseShellAwareness(); // Initialise shell awareness thread
+		initLockScreen(); // Initialise the lockscreen
 	}
 
 }
 
+/*
+updateLockScreenTime()
+
+Thread that handles lockscreen time
+*/
 function updateLockScreenTime() {
 
-	if ($(".lockscreenopened").length > 0) {
+	if ($(".lockscreenopened").length > 0) { // Lockscreen not open? No need to keep track of time here
 		console.log("well bye");
 		return;
 	}
 
-	var thedate = new Date();
-	var parsetime = thedate.toTimeString().split(":");
-	var parsedate = thedate.toDateString().split(" ");
-	var month = os.formatMonth(parsedate[1]);
+	var thedate = new Date(); // Get current date
+	var parsetime = thedate.toTimeString().split(":"); // Parse time into array
+	var parsedate = thedate.toDateString().split(" "); // Parse date into array
+	var month = os.formatMonth(parsedate[1]); // Format the month (i.e. Jan -> January)
 
-	lockScreenTimeNode.html(parsetime[0] + ":" + parsetime[1] + "<div class='lockscreendate'>" + parsedate[2] + " " + month + "</div>");
+	lockScreenTimeNode.html(parsetime[0] + ":" + parsetime[1] + "<div class='lockscreendate'>" + parsedate[2] + " " + month + "</div>"); // Display time and date
 
-	setTimeout(updateLockScreenTime,2000);
+	setTimeout(updateLockScreenTime,2000); // Update time again after 2 seconds
 }
 
+/*
+_lockDeviceScreen()
+
+Lock device screen, os.lock is an alias of this
+*/
 function _lockDeviceScreen() {
-	lockScreen.removeClass("lockscreenopened hidden")
-	passwordInputBox.focus();
+	lockScreen.removeClass("lockscreenopened hidden"); // Show the lockscreen
+	passwordInputBox.focus(); // Focus on password box
 	
-	os.body.delay(400).removeClass();
-	$([wallpaper,windowManagerContainer]).delay(400).addClass("hidden");
+	os.body.delay(400).removeClass(); // Hide body
+	$([wallpaper,windowManagerContainer]).delay(400).addClass("hidden"); // Hide wallpaper and window manager
 	
-	updateLockScreenTime();
+	updateLockScreenTime(); // Start updating time again
 }
 
-os.lock = _lockDeviceScreen;
+os.lock = _lockDeviceScreen; // Set os.lock alias link to _lockDeviceScreen
 
-function testLogin() {
-	if (!loginHash) {
-		throw "The account storage container for this user has not been set up";
+/*
+testLogin()
+
+Test entered password against stored hash and salt
+*/
+function testLogin() { 
+	if (!loginHash || !loginSalt) { // This shouldn't be called without login hash and/or salt
 		authenticationTitle.html("Something happened");
+		throw "The account storage container for this user has not been set up";
 	}
 
-	if (os.hash(passwordInputBox.val() + loginSalt + "") + "" === loginHash + "") {
-		lockScreen.addClass("lockscreenopened hidden");
-		login();
+	if (os.hash(passwordInputBox.val() + loginSalt + "") + "" === loginHash + "") { // Compute hash from password + salt, compare to stored hash
+		lockScreen.addClass("lockscreenopened hidden"); // Hide lockscreen
+		initialiseShellUX(); // Initialise rest of the shell
+
+		windowManagerContainer.removeClass("hidden"); // Start rendering window manager
+		passwordInputBox.val(""); // Clear password box as a basic security precaution
+
+		wallpaper.removeClass("hidden") // Show wallpaper
+		.on("mousedown", function(){ // If you click wallpaper, every window will unfocus
+			unfocusWindows();
+		});
 	} else {
-		authenticationTitle.html("Incorrect Password");
-
-		setTimeout(function(){
-			authenticationTitle.html("Hey, User!");
-		},1500)
+		authenticationTitle.html("Incorrect Password"); // Incorrect password!!
+		authenticationTitle.delay(1500).html("Hey, User!"); // Reset this
 	}
 }
 
-function login() {
-	initialiseShellUX();
+/*
+unfocusWindows()
 
-	windowManagerContainer.removeClass("hidden");
-	passwordInputBox.val("");
-
-	wallpaper.removeClass("hidden").on("mousedown", function(){
-		unfocusWindows();
-	});
-}
-
+Releases focus from all windows
+*/
 function unfocusWindows() {
 	$(".window:not(.windowunfocussed)").addClass("windowunfocussed");
 	closeModuleDrawer();
 }
 
+/*
+closeModuleDrawer()
+
+Closes the module drawer
+*/
 function closeModuleDrawer() {
 	isModuleDrawerOpen = false;
 	moduleDrawerBody.removeClass("startmenubodyopen");
 }
 
+/*
+openModuleDrawer()
+
+Opens the module drawer
+*/
 function openModuleDrawer() {
 	isModuleDrawerOpen = true;
 	moduleDrawerBody.addClass("startmenubodyopen");
 }
 
+/*
+toggleModuleDrawer()
+
+Toggles the module drawer
+*/
 function toggleModuleDrawer() {
 	isModuleDrawerOpen = !isModuleDrawerOpen;
 
@@ -168,37 +221,30 @@ function toggleModuleDrawer() {
 	}
 }
 
+/*
+initialiseShellAwareness()
+
+Initialises shell events and performance manager
+*/
 function initialiseShellAwareness() {
 
 	updateBootStatus("Initialising Shell Awareness and Adaptation Process...");
 
-	FPSMeter.run(6);
+	FPSMeter.run(6); // Initialise fps metre, running every 6 seconds
 
-	root.on("openwindow",function(args){
-		openWindow(args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8],args[9],args[10],args[11],args[12]);
-	});
+	watermark.html("WebShell Version " + os.version + "<br>Experimental Copy. Build " + os.build); // Initialise watermark
 
-	root.on("shutdown",os.shutdown);
-
-	root.on("lockscreen",function(args){
-		lockDeviceScreen();
-	});
-
-	root.on("starttoggle",toggleModuleDrawer);
-	watermark.html("WebShell Version " + os.version + "<br>Experimental Copy. Build " + os.build);
-	passwordInputBox.focus();
-
-	document.addEventListener('fps',function(e){
+	document.addEventListener('fps',function(e){ // Start performance manager
 		console.log("FPS " + e.fps + " (" + os.fpsStatusParseHelper(e.fps) + ")");
 		
-		if (e.fps < 30 && !html.hasClass("reduceRedundantEffects") && worryAboutPerformance < 4) {
+		if (e.fps < 30 && !html.hasClass("reduceRedundantEffects") && worryAboutPerformance < 4) { // Too slow!!
 			worryAboutPerformance++;
 			console.log("Worrying about performance! If this keeps up we'll reduce some redundant effects.")
-		} else if (e.fps < 30 && worryAboutPerformance >= 4) {
+		} else if (e.fps < 30 && worryAboutPerformance >= 4) { // Still too slow!!!!!
 			console.log("FPS still below threshold at " + e.fps + ", enabling reduceRedundantEffects");
 			html.addClass("reduceRedundantEffects");
 			worryAboutPerformance = 0;
-		} if (html.hasClass("reduceRedundantEffects") && e.fps > 55 && performanceFalseAlarms < 2) {
+		} if (html.hasClass("reduceRedundantEffects") && e.fps > 55 && performanceFalseAlarms < 2) { // Too fast!!!
 			console.log("Reduce redundant effects is on and performance is exceptionally good, let's try turning up effects!");
 			performanceFalseAlarms++;
 			html.removeClass("reduceRedundantEffects");
@@ -207,17 +253,24 @@ function initialiseShellAwareness() {
 
 }
 
+/*
+initSetup()
+
+Initialises setup
+*/
 function initSetup() {
 
-	isSettingUp = true;
+	settingUp = true; // Set settingUp flag
 
-	body.html("");
+	body.html(""); // Clear the body
 
-	head.append(make("link")
+	head.append(make("link") // Add setup.css
 	.attr("rel","stylesheet")
 	.attr("href","Themes/com.dangeredwolf.webshell.theme-default/css/setup.css"));
 
-	langSelection = make("select")
+	// The following messy-ish code is used to generate setup elements
+
+	langSelection = make("select") 
 	.attr("id","langselection")
 	.append(
 		make("option")
@@ -249,23 +302,23 @@ function initSetup() {
 		.val("nl")
 		.html("Nederlands")
 	)
-	.change(function(){
-		html.removeClass("fadeinanim").addClass("fadeoutanim");
+	.change(function(){ // On selection
+		html.removeClass("fadeinanim").addClass("fadeoutanim"); // Fade out 
 
 		os.delay(function() {
-			if ($("#regionopts").length > 0) {
+			if ($("#regionopts").length > 0) { // #regionopts exists?
 				options = $("#regionopts").html("");
-			} else {
-				options = make("select")
+			} else { // Otherwise...
+				options = make("select") // Make #regionopts
 				.attr("id","regionopts")
-				.change(startKeyboardSelection);
+				.change(startKeyboardSelection); // Link events
 
-				body.append(options);
+				body.append(options); // Add to body
 			}
 
-			html.removeClass("fadeoutanim").addClass("fadeinanim");
+			html.removeClass("fadeoutanim").addClass("fadeinanim"); // Fadein
 
-			switch ($("#langselection>:checked").val()) {
+			switch ($("#langselection>:checked").val()) { // TODO: Use new generation format for these options
 				case "en": 
 					setupTitle.html("Language");
 
@@ -393,58 +446,74 @@ function initSetup() {
 		},350)
 	});
 
-	setupTitle = make("div")
+	setupTitle = make("div") // Regen setup title
 	.addClass("setuptitle")
 	.html("Language / Langue / Idioma / Sprache / Taal");
 
 	body.append(setupTitle).append(langSelection);
 
-	settingUp = true;
-
-	html.addClass("fadeinanim").attr("id","setupview");
+	html.addClass("fadeinanim") // Add Fadein animation 
+	.attr("id","setupview"); // Tag as setup view
 }
 
+/*
+startKeyboardSelection()
+
+Placeholder function at the moment
+*/
 function startKeyboardSelection() {
 	html.removeClass("fadeinanim").addClass("fadeoutanim");
 	os.delay(startUserSetup,350);
 }
 
+/*
+startUserSetup()
+
+Setup login
+*/
 function startUserSetup() {
-	body.html("");
+	body.html("")
 
 	setupTitle = make("div")
 	.html("Let's set up your account")
 	.attr("class","setuptitle");	
 
-	setting1 = make("input")
-	.attr("placeholder","Password")
-	.attr("id","setting1")
-	.keypress(function(e){
-		if (e.charCode === os.enterKeyCode) {
-			setting2.focus();
-		} 
-	});
-
-	setting2 = make("input")
-	.attr("placeholder","Confirm Password")
-	.keypress(function(e){
-		if (e.charCode === os.enterKeyCode) {
-			if (setting1.val() === setting2.val()) {
-				setupTitle.html("Saving data...");
-				saveCredentials(setting1.val());
-			} else {
-				setupTitle.html("Those passwords didn't match. Try again?");
-			}
-		} 
-	});
-	
-	body.append(setupTitle).append(setting1).append(setting2);
+	body.append(setupTitle)
+	.append(
+		make("input")
+		.attr("placeholder","Password")
+		.attr("id","setting1")
+		.keypress(function(e){
+			if (e.charCode === os.enterKeyCode) {
+				$("#setting2").focus()
+			} 
+		})
+	)
+	.append(make("input")
+		.attr("placeholder","Confirm Password")
+		.attr("id","setting2")
+		.keypress(function(e){
+			if (e.charCode === os.enterKeyCode) {
+				if ($("#setting1").val() === $("#setting2").val()) {
+					setupTitle.html("Saving data...");
+					saveCredentials($("#setting1").val());
+				} else {
+					setupTitle.html("Those passwords didn't match. Try again?");
+				}
+			} 
+		})
+	);
 
 	html.attr("class","fadeinanim");
 }
 
+/*
+saveCredentials(string setupPass)
+
+Takes given password, generates salt and hash
+*/
 function saveCredentials(setupPass) {
-	var salt = os.randomChars(100);
+	var salt = os.randomChars(32);
 	var hash = os.hash(setupPass + salt) + "";
 
 	os.storage.login.put({"id":"passwordSalt","value":salt});
@@ -459,6 +528,11 @@ function saveCredentials(setupPass) {
 	return;
 }
 
+/*
+initLockScreen()
+
+Start lockscreen events
+*/
 function initLockScreen() {
 
 	passwordInputBox.keypress(function(e){
@@ -468,49 +542,63 @@ function initLockScreen() {
 	});
 }
 
+/*
+openWindow(string url, string title, int sizeX, int sizeY, int positionX, int positionY, string icon, object content, int dragOffsetL, int dragOffsetR)
+
+Opens a new window
+*/
 function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,windowPositionY,windowIcon,windowContent,windowDragOffsetLeft,windowDragOffsetRight) {
 
-	if (os.isCurrentlyShuttingDown) {
+	if (os.isCurrentlyShuttingDown) { // If shutting down... don't open new windows!
 		throw "Failed to open window because we're shutting down";
 		return;
 	}
 
-	console.log(windowContent);
+	var taskicon;
+	var url = url || "https://www.google.com//%//%"; // Make sure there's actually a url
+	var windowSizeX = windowSizeX || 800; // Default to x = 800
+	var windowSizeY = windowSizeY || 500; // Default to y = 500
 
-	var url = url || "https://www.google.com//%//%";
-	var windowSizeX = windowSizeX || 800;
-	var windowSizeY = windowSizeY || 500;
-
-	var wid = windowSizeX;
+	var wid = windowSizeX; // Shortened versions
 	var hei = windowSizeY;
-	var vw = $(window).width();
-	var vh = $(window).height();
-	var windowID = Math.floor(Math.random() * 999999999999999);
+	var vw = $(window).width(); // Window width
+	var vh = $(window).height(); // Window height
+	var windowID = Math.floor(Math.random() * 999999999999999); // Generate window ID
 
 	unfocusWindows();
 
-	var draghandle = os.make("div")
+	var draghandle = make("div")
 	.addClass("windowdraghandle");
 	
-	var minimise = os.make("button")
+	var minimise = make("button")
 	.addClass("windowcontrol min")
-	.html("&#xE15B");
+	.html("&#xE15B")
+	.click(function(data,handler){
+		div.toggleClass("minimised")
+	});
 
-	var maximise = os.make("button")
+	var maximise = make("button")
 	.addClass("windowcontrol max")
-	.html("&#xE3C6");
+	.html("&#xE3C6")
+	.click(function(data,handler){
+		div.toggleClass("fillscreen")
+	});
 
-	var close = os.make("button")
+	var close = make("button")
 	.addClass("windowcontrol close")
-	.html("&#xE5CD");
+	.html("&#xE5CD")
+	.click(closefunc);
 
-	var draghandle = os.make("div")
+	var draghandle = make("div")
 	.addClass("windowdraghandle");
 
 	var closefunc = function() {
 		webviewnojq.executeScript({code:"window.close();"},function(e){console.log(e)});
-		webview.parent().addClass("windowclosed");
-		taskicon.addClass("taskclosing");
+		div.addClass("windowclosed");
+
+		try {
+			taskicon.addClass("taskclosing");
+		} catch (e){}
 
 		if (!debugWindowAnimations) {
 			setTimeout(function(){
@@ -520,38 +608,54 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		}
 	}
 
-	close.click(closefunc);
-
-	maximise.click(function(data,handler){
-		div.toggleClass("fillscreen")
-	});
-
-	var webview = os.make("webview")
+	var webview = make("webview")
 	.addClass("windowbody")
 	.attr("partition","persist:system")
 	.css("height",windowSizeY + "px")
-	.css("width",windowSizeX + "px");
+	.css("width",windowSizeX + "px")
+	.on("contentload",function() {	
+		div.delay(400).removeClass("hidden")
+		if (!!windowContent) {
+			webviewnojq.addContentScripts(windowContent);
+		}
+	})
+	.on("newwindow", function(e) {
+		openWindow(e.targetUrl,e.name,e.initialWidth,e.initialHeight);
+	})
+	.on("close",closefunc)
+	.on("unresponsive", function(e) {
+		webview.addClass("unresponsive");
+	})
+	.on("responsive", function(e) {
+		webview.removeClass("unresponsive");
+	})
+	.attr("src",url);
 
 	webviewnojq = webview[0];
 
-	var windowcontrols = os.make("div")
+	var windowcontrols = make("div")
 	.addClass("windowcontrols")
 	.append(minimise)
 	.append(maximise)
 	.append(close);
 	
-	var div = os.make("div")
+	var div = make("div")
 	.addClass("window draggable resizable hidden")
 	.attr("id",windowID)
-	.css("left",(windowPositionX||vw/2-wid/2)+"px")
-	.css("top",(windowPositionY||vh/2-hei/2)+"px")
-	.css("height",windowSizeY + "px").css("width",windowSizeX + "px")
+	.css("left",windowPositionX||vw/2-wid/2)
+	.css("top",windowPositionY||vh/2-hei/2)
+	.css("height",windowSizeY)
+	.css("width",windowSizeX)
 	.append(draghandle)
 	.append(windowcontrols)
 	.append(webview)
 	.draggable({delay:200,distance:3,handle:".windowdraghandle"})
 	.resizable()
-	.on("resize",function(e,u){
+	.mousedown(function() {
+		unfocusWindows();
+		div.removeClass("windowunfocussed");
+	})
+	.on("resize",function(e,u) {
 		if (div.hasClass("fillscreen")) {
 			preventDefault();
 			return;
@@ -569,11 +673,9 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		}
 	});
 
-	var taskicon;
+	if (windowIcon) {
 
-	if (!!windowIcon) {
-
-		taskicon = os.make("div")
+		taskicon = make("div")
 		.addClass("task")
 		.attr("icon",windowIcon)
 		.html(windowIcon)
@@ -582,7 +684,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		.mousedown(function(event) {
 			if (event.which === 1 || event.which === 2) {
 				unfocusWindows();
-				div.removeClass("windowunfocussed");
+				div.removeClass("windowunfocussed minimised");
 				console.log("Left (Or, perhaps, middle) clicked");
 			} else if (event.which === 3) {
 				console.log("Right clicked");
@@ -594,51 +696,27 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		$(".tasks").append(taskicon);
 	}
 
-	if (!!windowDragOffsetLeft || !!windowDragOffsetRight) {
-		draghandle.attr("style","left:" + (windowDragOffsetLeft ? windowDragOffsetLeft : 0) + "px;right:" + (windowDragOffsetRight ? windowDragOffsetRight : 150) + "px")
+	if (windowDragOffsetLeft || windowDragOffsetRight) {
+		draghandle.css("left",windowDragOffsetLeft ? windowDragOffsetLeft : 0)
+		.css("right",windowDragOffsetRight ? windowDragOffsetRight : 150)
 	}
 
-	console.log(windowDragOffsetLeft)
-
-	if (!!windowContent) {
+	if (windowContent) {
 		webviewnojq.addContentScripts(windowContent);
 	}
-
-	div.mousedown(function(){
-		unfocusWindows();
-		div.removeClass("windowunfocussed");
-	});
 
 	$(".dwm").append(div);
 
 	webviewnojq.setUserAgentOverride(navigator.userAgent.replace(/Chrome\/\d+/g,"Chrome/99") + " WebShell/" + os.version + "." + os.build);
 
-	webview.on("contentload",function() {
-		
-		div.delay(400).removeClass("hidden")
-
-		if (!!windowContent) {
-			webviewnojq.addContentScripts(windowContent);
-		}
-	});
-
-	webview.on("newwindow", function(e) {
-		openWindow(e.targetUrl,e.name,e.initialWidth,e.initialHeight);
-	});
-
-	webview.on("close",closefunc);
-
-	webview.on("unresponsive", function(e) {
-		webview.addClass("unresponsive");
-	});
-
-	webview.on("responsive", function(e) {
-		webview.removeClass("unresponsive");
-	});
-
-	webview.attr("src",url);
+	
 }
 
+/*
+initialiseShellUX()
+
+Initialises Shell UX, like moduledrawer
+*/
 function initialiseShellUX() {
 
 	updateBootStatus("Initialising Shell UX...");
