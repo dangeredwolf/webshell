@@ -584,14 +584,6 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		div.toggleClass("fillscreen")
 	});
 
-	var close = make("button")
-	.addClass("windowcontrol close")
-	.html("&#xE5CD")
-	.click(closefunc);
-
-	var draghandle = make("div")
-	.addClass("windowdraghandle");
-
 	var closefunc = function() {
 		webviewnojq.executeScript({code:"window.close();"},function(e){console.log(e)});
 		div.addClass("windowclosed");
@@ -607,6 +599,14 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 			},2000);
 		}
 	}
+
+	var close = make("button")
+	.addClass("windowcontrol close")
+	.html("&#xE5CD")
+	.click(closefunc);
+
+	var draghandle = make("div")
+	.addClass("windowdraghandle");
 
 	var webview = make("webview")
 	.addClass("windowbody")
