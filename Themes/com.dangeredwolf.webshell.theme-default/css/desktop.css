@@ -1,5 +1,6 @@
 .dwm {
-	pointer-events:none
+	pointer-events:none;
+	transition:-webkit-filter 0.8s cubic-bezier(0,1,0,1)
 }
 
 .dwm>div {
@@ -16,10 +17,26 @@
 	bottom:0;
 	left:0;
 	right:0;
-	background-image:url("../../../../Resources/com.dangeredwolf.webshell.resources.wallpapers/wallpaper4.jpg");
+	margin-top:0%;
+	margin-left:0%;
+	animation:fadein 0.8s cubic-bezier(0,1,0,1);
+	background-image: url("../../../../Resources/com.dangeredwolf.webshell.resources.wallpapers/wallpaper2.jpg");
 	background-size:cover;
 	background-repeat:no-repeat;
-	background-position:50% 50%
+	background-position:50% 50%;
+	transition:all 0.8s cubic-bezier(0,1,0,1);
+}
+
+.lockscreen:not(.hidden)+div,.lockscreen:not(.hidden)+div+div,.lockscreen:not(.hidden)+div+div+div {
+	-webkit-filter:blur(20px) brightness(80%);
+}
+
+html.reduceRedundantEffects .lockscreen:not(.hidden)+div,html.reduceRedundantEffects .lockscreen:not(.hidden)+div+div,html.reduceRedundantEffects .lockscreen:not(.hidden)+div+div+div {
+	-webkit-filter:brightness(80%)
+}
+
+html.reduceRedundantEffects .lockscreen:not(.hidden)+div,html.reduceRedundantEffects .lockscreen:not(.hidden)+div+div {
+	-webkit-filter:blur(20px)
 }
 
 .watermark {

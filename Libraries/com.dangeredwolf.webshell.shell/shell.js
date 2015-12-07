@@ -25,6 +25,8 @@ var setupTitle; // Constant element defined during setup process
 var langSelection; // Constant element defined during setup process, holds options for language
 var options; // Constant element defined during setup process, holds different setup options
 
+var hasShellBeenInitialised = false; // Variable if shell has been initialised or not
+
 os.storage.login = new IDBStore({ // Initialise os.storage.login data; asynchronous
 	dbVersion: '1',
 	storeName: 'login',
@@ -137,11 +139,11 @@ _lockDeviceScreen()
 Lock device screen, os.lock is an alias of this
 */
 function _lockDeviceScreen() {
+
+	closeModuleDrawer();
+
 	lockScreen.removeClass("lockscreenopened hidden"); // Show the lockscreen
 	passwordInputBox.focus(); // Focus on password box
-	
-	os.body.delay(400).removeClass(); // Hide body
-	$([wallpaper,windowManagerContainer]).delay(400).addClass("hidden"); // Hide wallpaper and window manager
 	
 	updateLockScreenTime(); // Start updating time again
 }
@@ -163,11 +165,9 @@ function testLogin() {
 		lockScreen.addClass("lockscreenopened hidden"); // Hide lockscreen
 		initialiseShellUX(); // Initialise rest of the shell
 
-		windowManagerContainer.removeClass("hidden"); // Start rendering window manager
 		passwordInputBox.val(""); // Clear password box as a basic security precaution
 
-		wallpaper.removeClass("hidden") // Show wallpaper
-		.on("mousedown", function(){ // If you click wallpaper, every window will unfocus
+		wallpaper.on("mousedown", function(){ // If you click wallpaper, every window will unfocus
 			unfocusWindows();
 		});
 	} else {
@@ -574,19 +574,36 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	.addClass("windowcontrol min")
 	.html("&#xE15B")
 	.click(function(data,handler){
-		div.toggleClass("minimised")
+		div.toggleClass("minimised");
+
+		if (div.hasClass("fillscreen") && div.hasClass("minimised") && $(".window.fillscreen:not(.minimised)").length <= 0) {
+			html.removeClass("appIsInFillscreen");
+		} else if (div.hasClass("fillscreen") && !div.hasClass("minimised") && $(".window.fillscreen:not(.minimised)").length > 0) {
+			html.addClass("appIsInFillscreen");
+		}
 	});
 
 	var maximise = make("button")
 	.addClass("windowcontrol max")
 	.html("&#xE3C6")
 	.click(function(data,handler){
-		div.toggleClass("fillscreen")
+		div.toggleClass("fillscreen");
+
+		if ($(".window.fillscreen").length <= 0) { // Are ANY apps in fill screen left? If not, remove class, if so, keep or add
+			html.removeClass("appIsInFillscreen");
+		} else {
+			html.addClass("appIsInFillscreen");
+			$(".window").addClass("fillscreen")
+		}
 	});
 
 	var closefunc = function() {
 		webviewnojq.executeScript({code:"window.close();"},function(e){console.log(e)});
 		div.addClass("windowclosed");
+
+		if (div.hasClass("fillscreen") && $(".window.fillscreen").length <= 1) {
+			html.removeClass("appIsInFillscreen");
+		}
 
 		try {
 			taskicon.addClass("taskclosing");
@@ -596,6 +613,9 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 			setTimeout(function(){
 				div.remove();
 				taskicon.remove();
+				if (html.hasClass("appIsInFillscreen") && $(".window.fillscreen").length <= 0) {
+					html.removeClass("appIsInFillscreen");
+				}
 			},2000);
 		}
 	}
@@ -649,7 +669,12 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	.append(draghandle)
 	.append(windowcontrols)
 	.append(webview)
-	.draggable({delay:200,distance:3,handle:".windowdraghandle"})
+	.draggable({delay:200,distance:3,handle:".windowdraghandle",drag:function(){
+		if (div.hasClass("fillscreen")) {
+			$(".window").removeClass("fillscreen");
+			html.removeClass("appIsInFillscreen");
+		}
+	}})
 	.resizable()
 	.mousedown(function() {
 		unfocusWindows();
@@ -672,6 +697,10 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 			div.width(webview.width());
 		}
 	});
+
+	if ($(".appIsInFillscreen").length > 0) {
+		div.addClass("fillscreen");
+	}
 
 	if (windowIcon) {
 
@@ -719,6 +748,12 @@ Initialises Shell UX, like moduledrawer
 */
 function initialiseShellUX() {
 
+	if (hasShellBeenInitialised) { // Shell already initialised, bye
+		return;
+	}
+
+	hasShellBeenInitialised = true;
+
 	updateBootStatus("Initialising Shell UX...");
 
 	$(".startbutton").click(toggleModuleDrawer);
@@ -750,7 +785,7 @@ function initialiseShellUX() {
 				js: {files: ["Libraries/org.jquery/jquery.min.js","Libraries/org.jquery.ui/jqueryui.min.js"]},
 				run_at: "document_end"
 			}
-		],520,190);
+		],100,190);
 	});
 }
 
