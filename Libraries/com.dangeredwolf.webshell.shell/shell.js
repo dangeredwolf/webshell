@@ -1,16 +1,20 @@
-updateBootStatus("Initialising shell.js..."); // Update boot status
+// org.webshell.shell
+// (c) 2016, The WebShell Foundation
+// Code released under the GPL (GNU Public License)
+
+updateBootStatus("initialising:org.webshell.shell"); // Update boot status
 
 const debugWindowAnimations = false; // Prevents removal of window and task elements upon closing of window
 const bootLogo = $(".bootlogo"); // Constant of .bootlogo element, the loading screen container
 const lockScreen = $(".lockscreen"); // Constant of .lockscreen element, the container of lockscreen elements
-const tasks = $(".tasks"); // Constant of .tasks element, container of taskbar buttons for each window
+const opentasks = $(".opentasks"); // Constant of .opentasks element, container of taskbar buttons for each window
 const lockScreenTimeNode = $(".lockscreentime.time"); // Constant of .time element inside .lockscreentime element
 const passwordInputBox = $(".authentication>input"); // Constant of password box inside .authentication element
 const windowManagerContainer = $(".dwm"); // Constant of .dwm element, container of generated windows
 const wallpaper = $(".wallpaper"); // Constant of .wallpaper element, element which helps render desktop background
 const watermark = $(".watermark"); // Constant of system version watermark element, .watermark
 const authenticationTitle = $(".authentication>div"); // Constant of authentication title, default text: "Hey, User!"
-const moduleDrawerBody = $(".startmenubody"); // Constant of module drawer body, containing modules like All Apps 
+const moduleDrawer = $(".moduledrawer"); // Constant of module drawer body, containing modules like All Apps 
 
 var loginHash; // Upon reading hash, it's put here
 var loginSalt; // Upon reading salt, it's put here
@@ -42,6 +46,22 @@ os.storage.login = new IDBStore({ // Initialise os.storage.login data; asynchron
 });
 
 /*
+onPageLoad()
+
+This function is called when the webpage has completed loading
+*/
+
+function onPageLoad() {
+	if (loginDataReady) {
+		updateBootStatus("halt:org.webshell.shell:processLoginData");
+		processLoginData();
+	} else {
+		pageLoadedQuickSoProcessDataImmediately = true;
+		updateBootStatus("halt:org.webshell.shell:processLoginData");
+	}
+}
+
+/*
 revokeCredentials()
 
 This function is called if function processLoginData detects that there is a problem with the login data it retrieved (i.e. invalid hash/salt)
@@ -58,7 +78,7 @@ This function is called once os.storage.login has finished initialising and the 
 */
 function processLoginData() {
 
-	updateBootStatus("Processing login data...");
+	updateBootStatus("Loading org.webshell.shell:processLoginData");
 
 	os.storage.login.get("passwordSalt",function(e){
 		loginSalt = e ? e.value : undefined; // Set global variable
@@ -98,7 +118,7 @@ Initialises the general shell, when not in setup mode
 */
 function initShell() {
 
-	updateBootStatus("Initialising Shell...");
+	updateBootStatus("org.webshell.shell:initShell");
 
 	if (!settingUp) { // As long as the shell isn't in setup mode, start regular processes
 		bootLogo.delay(1500).addClass("fadeout"); // Fade out logo 
@@ -193,7 +213,7 @@ Closes the module drawer
 */
 function closeModuleDrawer() {
 	isModuleDrawerOpen = false;
-	moduleDrawerBody.removeClass("startmenubodyopen");
+	moduleDrawer.removeClass("moduledraweropen");
 }
 
 /*
@@ -203,7 +223,7 @@ Opens the module drawer
 */
 function openModuleDrawer() {
 	isModuleDrawerOpen = true;
-	moduleDrawerBody.addClass("startmenubodyopen");
+	moduleDrawer.addClass("moduledraweropen");
 }
 
 /*
@@ -213,12 +233,7 @@ Toggles the module drawer
 */
 function toggleModuleDrawer() {
 	isModuleDrawerOpen = !isModuleDrawerOpen;
-
-	if (isModuleDrawerOpen) {
-		openModuleDrawer();
-	} else {
-		closeModuleDrawer();
-	}
+	moduleDrawer.toggleClass("moduledraweropen");
 }
 
 /*
@@ -228,7 +243,7 @@ Initialises shell events and performance manager
 */
 function initialiseShellAwareness() {
 
-	updateBootStatus("Initialising Shell Awareness and Adaptation Process...");
+	updateBootStatus("org.webshell.shell:initialiseShellAwareness");
 
 	FPSMeter.run(6); // Initialise fps metre, running every 6 seconds
 
@@ -237,7 +252,7 @@ function initialiseShellAwareness() {
 	document.addEventListener('fps',function(e){ // Start performance manager
 		console.log("FPS " + e.fps + " (" + os.fpsStatusParseHelper(e.fps) + ")");
 		
-		if (e.fps < 30 && !html.hasClass("reduceRedundantEffects") && worryAboutPerformance < 4) { // Too slow!!
+		if (e.fps < 30 && !html.hasClass("reduceRedundantEffects") && worryAboutPerformance < 3) { // Too slow!!
 			worryAboutPerformance++;
 			console.log("Worrying about performance! If this keeps up we'll reduce some redundant effects.")
 		} else if (e.fps < 30 && worryAboutPerformance >= 4) { // Still too slow!!!!!
@@ -266,7 +281,7 @@ function initSetup() {
 
 	head.append(make("link") // Add setup.css
 	.attr("rel","stylesheet")
-	.attr("href","Themes/com.dangeredwolf.webshell.theme-default/css/setup.css"));
+	.attr("href","Themes/org.webshell.theme-default/css/setup.css"));
 
 	// The following messy-ish code is used to generate setup elements
 
@@ -722,7 +737,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 			}
 		});
 
-		$(".tasks").append(taskicon);
+		opentasks.append(taskicon);
 	}
 
 	if (windowDragOffsetLeft || windowDragOffsetRight) {
@@ -754,9 +769,9 @@ function initialiseShellUX() {
 
 	hasShellBeenInitialised = true;
 
-	updateBootStatus("Initialising Shell UX...");
+	updateBootStatus("org.webshell.shell:initialiseShellUX");
 
-	$(".startbutton").click(toggleModuleDrawer);
+	$(".drawertoggle").click(toggleModuleDrawer);
 	$("#shutdownbutton").click(os.shutdown);
 	$("#lockbutton").click(os.lock);
 
@@ -789,14 +804,6 @@ function initialiseShellUX() {
 	});
 }
 
-$(window).load(function(){
-	if (loginDataReady) {
-		updateBootStatus("Waiting for login data to be processed...")
-		processLoginData();
-	} else {
-		pageLoadedQuickSoProcessDataImmediately = true;
-		updateBootStatus("Waiting for login data...")
-	}
-});
+$(window).load(onPageLoad);
 
-updateBootStatus("Waiting for page load...")
+updateBootStatus("halt:org.webshell.shell:onPageLoad")

@@ -1,6 +1,13 @@
 var os = window;
 window.os = window;
 
+os._bootStatusElement = $(".bootstatus");
+os.updateBootStatus = function(status) {
+	os._bootStatusElement.html(status)
+}
+
+updateBootStatus("halt:org.webshell.system");
+
 os.version = "1.0";
 os.build = "14000 (openshell.milestone.alpha2)";
 
@@ -15,7 +22,6 @@ os.root = $(window);
 os.doc = $(document);
 os.head = $("head");
 os.html = $("html");
-os._bootStatusElement = $(".bootstatus");
 
 os.isCurrentlyShuttingDown = false;
 os.storage = [];
@@ -113,8 +119,4 @@ os.randomChars = function(charCount) {
 	}
 
 	return randomGenChars;
-}
-
-os.updateBootStatus = function(status) {
-	_bootStatusElement.html(status)
 }

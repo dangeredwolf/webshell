@@ -1,16 +1,16 @@
-.startmenubackground {
+.drawerbackground {
 	background:linear-gradient(rgba(30,50,60,0.8),rgba(30,50,60,0.95),rgb(30,50,60));
 	height:100%;
 	border-radius:6px 6px 0;
 	transition:0
 }
 
-html.reduceRedundantEffects .startmenubackground {
+html.reduceRedundantEffects .drawerbackground {
 	background:rgb(30,50,60);
 	border-radius:0
 }
 
-.coretaskbar {
+.module.opentasks {
 	opacity:1!important;
 	height: 100%;
 	pointer-events:none!important;
@@ -21,23 +21,19 @@ html.reduceRedundantEffects .startmenubackground {
 	position:absolute
 }
 
-.coretaskbar>* {
+.module.opentasks>* {
 	pointer-events:all!important
 }
 
-.coretaskbar::-webkit-scrollbar {
+.module.opentasks::-webkit-scrollbar {
 	display:none!important
 }
 
-.coretaskbar>div {
+.module.opentasks>div {
 	pointer-events:all!important
 }
 
-.hidden .authentication {
-	pointer-events:none
-}
-
-.startbutton {
+.drawertoggle {
 	background-image:url("../../../../Resources/com.dangeredwolf.webshell.resources.shell/startbutton.png")!important;
 	background-repeat:no-repeat!important;
 	width:65px!important;
@@ -54,16 +50,16 @@ html.reduceRedundantEffects .startmenubackground {
 	transition:-webkit-filter 1000ms cubic-bezier(0,1,0,1),bottom 300ms cubic-bezier(0,1,0,1)!important;
 }
 
-.startbutton:hover {
+.drawertoggle:hover {
 	-webkit-filter:brightness(120%)
 }
 
-.startbutton:active {
+.drawertoggle:active {
 	transform:none!important;
 	-webkit-filter:opacity(50%);
 }
 
-.startmenubody {
+.modulecontainer {
 	color:#fff;
 	position:relative;
 	padding:0;
@@ -78,24 +74,24 @@ html.reduceRedundantEffects .startmenubackground {
 	height:100%
 }
 
-.appIsInFillscreen .startmenubody:not(.startmenubodyopen) {
+.appIsInFillscreen .modulecontainer:not(.modulecontaineropen) {
 	bottom: 10px;
 	transition-delay:100ms
 }
 
-.appIsInFillscreen .startmenubody:not(.startmenubodyopen):hover {
+.appIsInFillscreen .modulecontainer:not(.modulecontaineropen):hover {
 	bottom:65px
 }
 
-.dwm.hidden+.startmenubody {
+.dwm.hidden+.modulecontainer {
 	display:none
 }
 
-.startmenubody.startmenubodyopen {
+.modulecontainer.modulecontaineropen {
 	bottom:500px
 }
 
-.startmenubody button {
+.modulecontainer button {
 	width:100px;
 	height:100px;
 	color:#fff;
@@ -114,14 +110,14 @@ html.reduceRedundantEffects .startmenubackground {
 	opacity:1;
 }
 
-.startmenubody.startmenubodyopen .startbutton {
+.modulecontainer.modulecontaineropen .drawertoggle {
 	bottom:-15px!important
 }
 
-.startmenubody button:active {
+.modulecontainer button:active {
 	transform:scale(0.9)
 }
 
-.startbutton {
+.drawertoggle {
 	padding-left:0!important
 }

@@ -11,21 +11,7 @@
 	}
 }
 
-.tasks {
-	position:absolute;
-	left:70px;
-	height: 100px;
-	top:7px;
-	overflow-x:scroll;
-	overflow-y:visible;
-	transition:left 500ms cubic-bezier(0,1,0,1)
-}
-
-.startmenubody.startmenubodyopen .tasks {
-	left:0
-}
-
-.tasks::-webkit-scrollbar {
+.module.opentasks::-webkit-scrollbar {
 	display:none
 }
 

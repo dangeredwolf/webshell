@@ -95,3 +95,7 @@
 	width:200px;
 	margin-left:-110px
 }
+
+.hidden .authentication {
+	pointer-events:none
+}

@@ -9,7 +9,7 @@
 
 		<div class="bootlogo">
 			<img src="Resources/org.webshell.branding/webshell.png">
-			<div class="bootstatus">Loading JS...</div>
+			<div class="bootstatus">halt:com.dangeredwolf.webshell.system:initscript</div>
 			<div class="bootloader"></div>
 		</div>
 
@@ -35,18 +35,21 @@
 			<h1 class="watermark"></h1>
 		</div>
 
-		<div class="startmenubody">
-			<div class="startmenubackground">
-			<div class="startmoduletitle">All Apps</div>
-				<button class="powerbutton" id="shutdownbutton"></button>
-				<button class="lockbutton" id="lockbutton"></button>
-				<button id="settingsbutton">&#xe8b8;</button>
-				<button id="gimmbutton">&#xe8b6;</button>
-				<button id="youtubebutton">&#xe037;</button>
-				<div class="coretaskbar">
-					<button class="startbutton"></button>
-					<div class="tasks"></div>
+		<div class="modulecontainer">
+			<div class="drawerbackground">
+				<div class="module allapps">
+					<div class="moduletitle">All Apps</div>
+					<button class="powerbutton" id="shutdownbutton"></button>
+					<button class="lockbutton" id="lockbutton"></button>
+					<button id="settingsbutton">&#xe8b8;</button>
+					<button id="gimmbutton">&#xe8b6;</button>
+					<button id="youtubebutton">&#xe037;</button>	
 				</div>
+			</div>
+
+			<div class="module modulelockbottom opentasks">
+				<button class="drawertoggle"></button>
+				<div class="tasks"></div>
 			</div>
 		</div>
 
