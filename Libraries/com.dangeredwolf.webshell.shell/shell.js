@@ -2,19 +2,17 @@
 // (c) 2016, The WebShell Foundation
 // Code released under the GPL (GNU Public License)
 
-updateBootStatus("initialising:org.webshell.shell"); // Update boot status
-
 const debugWindowAnimations = false; // Prevents removal of window and task elements upon closing of window
 const bootLogo = $(".bootlogo"); // Constant of .bootlogo element, the loading screen container
 const lockScreen = $(".lockscreen"); // Constant of .lockscreen element, the container of lockscreen elements
-const opentasks = $(".opentasks"); // Constant of .opentasks element, container of taskbar buttons for each window
+const tasks = $(".tasks"); // Constant of .tasks element, container of taskbar buttons for each window
 const lockScreenTimeNode = $(".lockscreentime.time"); // Constant of .time element inside .lockscreentime element
 const passwordInputBox = $(".authentication>input"); // Constant of password box inside .authentication element
 const windowManagerContainer = $(".dwm"); // Constant of .dwm element, container of generated windows
 const wallpaper = $(".wallpaper"); // Constant of .wallpaper element, element which helps render desktop background
 const watermark = $(".watermark"); // Constant of system version watermark element, .watermark
 const authenticationTitle = $(".authentication>div"); // Constant of authentication title, default text: "Hey, User!"
-const moduleDrawer = $(".moduledrawer"); // Constant of module drawer body, containing modules like All Apps 
+const moduleDrawer = $(".modulecontainer"); // Constant of module drawer body, containing modules like All Apps 
 
 var loginHash; // Upon reading hash, it's put here
 var loginSalt; // Upon reading salt, it's put here
@@ -78,7 +76,7 @@ This function is called once os.storage.login has finished initialising and the 
 */
 function processLoginData() {
 
-	updateBootStatus("Loading org.webshell.shell:processLoginData");
+	updateBootStatus("org.webshell.shell:processLoginData");
 
 	os.storage.login.get("passwordSalt",function(e){
 		loginSalt = e ? e.value : undefined; // Set global variable
@@ -122,7 +120,7 @@ function initShell() {
 
 	if (!settingUp) { // As long as the shell isn't in setup mode, start regular processes
 		bootLogo.delay(1500).addClass("fadeout"); // Fade out logo 
-		lockScreen.delay(2300).removeClass("hidden"); // Show lockscreen
+		$(".wallpaper,.lockscreen,.modulecontainer,.dwm,.authentication,.opentasks").delay(2600).removeClass("hidden forcehidden");
 		os.delay(bootLogo.remove,2000); // Remove bootlogo after 2 seconds
 		updateLockScreenTime(); // Start updating lockscreen time
 		initialiseShellAwareness(); // Initialise shell awareness thread
@@ -213,7 +211,7 @@ Closes the module drawer
 */
 function closeModuleDrawer() {
 	isModuleDrawerOpen = false;
-	moduleDrawer.removeClass("moduledraweropen");
+	moduleDrawer.removeClass("modulecontaineropen");
 }
 
 /*
@@ -223,7 +221,7 @@ Opens the module drawer
 */
 function openModuleDrawer() {
 	isModuleDrawerOpen = true;
-	moduleDrawer.addClass("moduledraweropen");
+	moduleDrawer.addClass("modulecontaineropen");
 }
 
 /*
@@ -233,7 +231,7 @@ Toggles the module drawer
 */
 function toggleModuleDrawer() {
 	isModuleDrawerOpen = !isModuleDrawerOpen;
-	moduleDrawer.toggleClass("moduledraweropen");
+	moduleDrawer.toggleClass("modulecontaineropen");
 }
 
 /*
@@ -737,7 +735,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 			}
 		});
 
-		opentasks.append(taskicon);
+		tasks.append(taskicon);
 	}
 
 	if (windowDragOffsetLeft || windowDragOffsetRight) {

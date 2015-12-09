@@ -13,29 +13,22 @@
 			<div class="bootloader"></div>
 		</div>
 
-		<script src="Libraries/org.jquery/jquery.min.js"></script>
+		<script data-main="Foundation/com.dangeredwolf.webshell.system/wsload.js" src="Libraries/org.dojofoundation.requirejs/require.min.js"></script>
 
-		<script src="Libraries/io.jeffmott.cryptojs/sha3.js"></script>
-		<script src="Libraries/io.kaizouman.fpsmeter/fpsmeter.min.js"></script>
-		<script src="Libraries/org.jensarps.idbstore/idbstore.js"></script>
-		<script src="Libraries/org.jquery.ui/jqueryui.min.js"></script>
-
-		<script src="Foundation/com.dangeredwolf.webshell.system/webshellsystem.js"></script>
-
-		<div class="lockscreen">
+		<div class="lockscreen hidden forcehidden">
 			<div class="lockscreentime time"></div>
-			<div class="authentication">
+			<div class="authentication hidden forcehidden">
 				<img width="180" src="Resources/com.dangeredwolf.webshell.resources.shell/defaultprofile.png">
 				<div>Hey, User!</div>
 				<input type="password" placeholder="Password">
 			</div>
 		</div>
 
-		<div class="dwm">
+		<div class="dwm hidden forcehidden">
 			<h1 class="watermark"></h1>
 		</div>
 
-		<div class="modulecontainer">
+		<div class="modulecontainer hidden forcehidden">
 			<div class="drawerbackground">
 				<div class="module allapps">
 					<div class="moduletitle">All Apps</div>
@@ -47,14 +40,14 @@
 				</div>
 			</div>
 
-			<div class="module modulelockbottom opentasks">
+			<div class="module modulelockbottom opentasks hidden forcehidden">
 				<button class="drawertoggle"></button>
 				<div class="tasks"></div>
 			</div>
 		</div>
 
-		<div class="wallpaper"></div>
+		<div class="wallpaper hidden forcehidden"></div>
 
-		<script src="Libraries/com.dangeredwolf.webshell.shell/shell.js"></script>
+		<!--script src="Libraries/com.dangeredwolf.webshell.shell/shell.js"></script-->
 	</body>
 </html>

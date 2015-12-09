@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"moduled",
+				"moduledrawer"
+			],
+			[
+				"mod",
+				"moduleName"
+			],
+			[
+				"moduledr",
+				"moduledraweropen"
+			],
+			[
+				"toggle",
+				"toggleClass"
+			],
+			[
 				"app",
 				"appIsInFillscreen"
 			],
@@ -14,10 +30,6 @@
 			[
 				"randomC",
 				"randomCharConst"
-			],
-			[
-				"toggle",
-				"toggleModuleDrawer"
 			],
 			[
 				"Redu",
@@ -151,6 +163,150 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/taskbar.css",
+			"settings":
+			{
+				"buffer_size": 691,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/com.dangeredwolf.webshell.shell/authentication.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/org.jquery.ui/jqueryui.min.js",
+			"settings":
+			{
+				"buffer_size": 239731,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/org.jensarps.idbstore/idbstore.js",
+			"settings":
+			{
+				"buffer_size": 10978,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/io.kaizouman.fpsmeter/fpsmeter.min.js",
+			"settings":
+			{
+				"buffer_size": 2396,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Foundation/com.dangeredwolf.webshell.system/wsload.js",
+			"settings":
+			{
+				"buffer_size": 1582,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Foundation/com.dangeredwolf.webshell.system/utils.js",
+			"settings":
+			{
+				"buffer_size": 2618,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/org.hammerjs/hammer.min.js",
+			"settings":
+			{
+				"buffer_size": 18177,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Libraries/org.materialize/materialize.min.js",
+			"settings":
+			{
+				"buffer_size": 122707,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/io.jeffmott.cryptojs/sha3.min.js",
+			"settings":
+			{
+				"buffer_size": 15847,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/corestyle.css",
+			"settings":
+			{
+				"buffer_size": 2932,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/org.dojofoundation.requirejs/require.min.js",
+			"settings":
+			{
+				"buffer_size": 15636,
+				"line_ending": "Windows",
+				"name": "/*"
+			}
+		},
+		{
+			"file": "Credits.txt",
+			"settings":
+			{
+				"buffer_size": 31940,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "webshellapp.html",
+			"settings":
+			{
+				"buffer_size": 1713,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Libraries/org.jquery/jquery.min.js",
+			"settings":
+			{
+				"buffer_size": 95903,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/moduledrawer.css",
+			"settings":
+			{
+				"buffer_size": 2809,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Themes/com.dangeredwolf.webshell.theme-default/css/lockscreen.css",
+			"settings":
+			{
+				"buffer_size": 1463,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -186,6 +342,7 @@
 	[
 		"/C/Users/dangeredwolf/Documents/webshell",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps",
+		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.dangeredwolf.wsapp.wsversion",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.search",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.youtube",
 		"/C/Users/dangeredwolf/Documents/webshell/CoreApps",
@@ -198,12 +355,12 @@
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/com.dangeredwolf.webshell.shell",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/io.jeffmott.cryptojs",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/io.kaizouman.fpsmeter",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.dojofoundation.requirejs",
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.hammerjs",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.jensarps.idbstore",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.jquery",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.jquery.ui",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.materialize",
-		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.materialize/css",
-		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.materialize/js",
 		"/C/Users/dangeredwolf/Documents/webshell/Resources",
 		"/C/Users/dangeredwolf/Documents/webshell/Resources/com.dangeredwolf.webshell.resources.shell",
 		"/C/Users/dangeredwolf/Documents/webshell/Resources/org.webshell.branding",
@@ -213,11 +370,13 @@
 	],
 	"file_history":
 	[
+		"/C/Users/dangeredwolf/Documents/webshell/Libraries/com.dangeredwolf.webshell.shell/shell.js",
+		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/setup.css",
+		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
 		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/css/shellstyle.css",
 		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/css/corestyle.css",
 		"/C/Users/dangeredwolf/Documents/webshell/Foundation/appbase/appbase.css",
 		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/css/lockscreen.css",
-		"/C/Users/dangeredwolf/Documents/webshell/Libraries/com.dangeredwolf.webshell.shell/shell.js",
 		"/C/Users/dangeredwolf/Documents/Projects/googleapparccr/com.google.android.gm_5.8.107203005.release-58019337_minAPI14(nodpi).apk_export_JQBHz/app_main.html",
 		"/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/mfaihdlpglflfgpfjcifdjdjcckigekc/48.5021.542.0_0/main.html",
 		"/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/mfaihdlpglflfgpfjcifdjdjcckigekc/48.5021.542.0_0/filesystem.js",
@@ -225,7 +384,6 @@
 		"/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/mfaihdlpglflfgpfjcifdjdjcckigekc/48.5021.542.0_0/plugin.js",
 		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.io/io.js",
 		"/C/Users/dangeredwolf/AppData/Local/Google/Chrome/User Data/Default/Extensions/knipolnnllmklapflnccelgolnpehhpl/2015.1118.418.2_0/manifest.json",
-		"/C/Users/dangeredwolf/Documents/webshell/Foundation/com.dangeredwolf.webshell.system/webshellsystem.js",
 		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/settings.html",
 		"/C/Users/dangeredwolf/Documents/webshell/webshellapp.html",
 		"/C/Users/dangeredwolf/Documents/webshell/manifest.json",
@@ -262,7 +420,6 @@
 		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/com.dangeredwolf.webshell.setup/setup.css",
 		"/C/Users/dangeredwolf/Documents/webshell/Libraries/org.materialize/LICENSE",
 		"/C/Users/dangeredwolf/Documents/webshell/Apps/com.google-unofficial.youtube/immersiveyoutube.css",
-		"/C/Users/dangeredwolf/Documents/webshell/CoreApps/org.webshell.settings/setup.css",
 		"/C/Users/dangeredwolf/Documents/webshell/Themes/com.dangeredwolf.webshell.theme-default/font/fonts.css",
 		"/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/en-GB/index.html",
 		"/C/Users/dangeredwolf/Documents/GWX/DownloadSwap/resources/scripts/accessibility.js",
@@ -344,7 +501,7 @@
 	],
 	"find":
 	{
-		"height": 75.0
+		"height": 72.0
 	},
 	"find_in_files":
 	{
@@ -359,6 +516,60 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"opentasks",
+			"define",
+			"\"moduledraweropen\"",
+			"moduledraweropen",
+			"ModuleDrawerOpen",
+			"moduledraweropen",
+			"ModuleDrawerOpen",
+			"moduledraweropen",
+			"ModuleDrawer",
+			"moduledrawer",
+			"moduleDrawer",
+			"ModuleDrawer",
+			"moduledrawer",
+			"initshell",
+			"loading ",
+			"hidden",
+			"initshell",
+			"processlogindata",
+			"__loadModule",
+			"loadModule",
+			"hammer",
+			"hammerjs",
+			"hammer",
+			"updateBootSt",
+			"define",
+			"define(",
+			"define",
+			"com.dangeredwolf",
+			"halt",
+			"updatebootstatus",
+			"ModuleDrawer",
+			"moduleDrawer",
+			"toggleModuleDrawer",
+			"drawertoggle",
+			"draweropener",
+			"togglemodule",
+			"start",
+			"startbutton",
+			"moduleDrawerBody",
+			"startmenubody",
+			"startbutton",
+			"opentasks",
+			"tasks",
+			"startmenubody",
+			"moduledrawerbackground",
+			"startbutton",
+			"moduleTaskbar",
+			"coretaskbar",
+			"startmenubody",
+			"tasks",
+			"startmenubody",
+			"tasks",
+			"startmenubodyopen",
+			"startmenubody",
 			"x.writeview(",
 			"avisitModel",
 			"avisitmodel",
@@ -432,61 +643,7 @@
 			"settingup",
 			"mightneedtosetup",
 			"mightneedto",
-			"debugAuthen",
-			"hash",
-			"sha3",
-			".sha3=",
-			"sha3=",
-			"sha3",
-			"cdn",
-			"img",
-			"fps",
-			"log",
-			"os",
-			"os.log",
-			"savecred",
-			"initsetup",
-			"isSetting",
-			"initSetup",
-			"setupLogin",
-			"initSetup",
-			"setuplogin",
-			"mightNeedToSetup",
-			"initlockscreen",
-			"update",
-			"initialise",
-			"initialiseShell(",
-			"initialiseShell",
-			"processlogindata",
-			"dataLoadedQuickSoProcessItImmediately",
-			"processLoginData",
-			"dataLoadedQuickSoProcessItImmediately",
-			"savecred",
-			"title",
-			"Title.",
-			"title.",
-			"attr(\"class",
-			"fadeoutanim",
-			"openwindow",
-			"setting",
-			"setuplogin",
-			"password",
-			"[0]",
-			"langselection",
-			"0px",
-			";\n}",
-			": ",
-			"setup",
-			"langselec",
-			"setTimeout",
-			"make(\"option\");",
-			"option5.html(",
-			"option1.html",
-			"$(\".setuptitle\")",
-			");",
-			"options.appendChild",
-			"value",
-			"innerHTML = "
+			"debugAuthen"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -517,14 +674,528 @@
 	"groups":
 	[
 		{
+			"selected": 10,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/taskbar.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 691,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								58,
+								59
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Libraries/com.dangeredwolf.webshell.shell/authentication.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Libraries/org.jquery.ui/jqueryui.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 239731,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								14
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 72.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Libraries/org.jensarps.idbstore/idbstore.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								43
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Libraries/io.kaizouman.fpsmeter/fpsmeter.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2396,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2361,
+								2367
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 19820.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Foundation/com.dangeredwolf.webshell.system/wsload.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1582,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1351,
+								1351
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 928.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Foundation/com.dangeredwolf.webshell.system/utils.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2618,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1309,
+								1309
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Libraries/org.hammerjs/hammer.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18177,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18177,
+								18177
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 162101.0,
+						"translation.y": -0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Libraries/org.materialize/materialize.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 122707,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56261,
+								56261
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 217847.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\Users\\dangeredwolf\\Documents\\webshell\\Foundation\\com.dangeredwolf.webshell.system",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "Libraries/io.jeffmott.cryptojs/sha3.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7416,
+								7416
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/corestyle.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								946,
+								946
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 7337.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "Libraries/org.dojofoundation.requirejs/require.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15636,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29,
+								29
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/*",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Credits.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 31940,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31109,
+								31110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 14059.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "webshellapp.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1713,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1439,
+								1448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 344.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "Libraries/org.jquery/jquery.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 95903,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								95877,
+								95877
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 285716.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/moduledrawer.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2665,
+								2665
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 2689.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "Themes/com.dangeredwolf.webshell.theme-default/css/lockscreen.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1463,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1463,
+								1463
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2499.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 37.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -561,7 +1232,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 70.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

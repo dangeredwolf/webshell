@@ -1,15 +1,6 @@
-var os = window;
-window.os = window;
-
-os._bootStatusElement = $(".bootstatus");
-os.updateBootStatus = function(status) {
-	os._bootStatusElement.html(status)
-}
-
-updateBootStatus("halt:org.webshell.system");
-
-os.version = "1.0";
-os.build = "14000 (openshell.milestone.alpha2)";
+// org.webshell.system.utils
+// (c) 2016, The WebShell Foundation
+// Code released under the GPL (GNU Public License)
 
 // NOTE TO SELF: Keep function wrappers, otherwise illegal invocation error http://stackoverflow.com/questions/7213369/uncaught-typeerror-illegal-invocation-on-addeventlistener
 
@@ -25,21 +16,6 @@ os.html = $("html");
 
 os.isCurrentlyShuttingDown = false;
 os.storage = [];
-
-if (CryptoJS.SHA3) {
-	os.hash = CryptoJS.SHA3;
-} else {
-	console.log("There's no SHA3 function available yet!");
-	os.delay(function(){
-		os.hash = CryptoJS.SHA3;
-	},50);
-	os.delay(function(){
-		os.hash = CryptoJS.SHA3;
-	},100);
-	os.delay(function(){
-		os.hash = CryptoJS.SHA3;
-	},150);
-}
 
 os.__killWindowWithDelay = function(selectedWindow,delayAmount) {
 	os.delay(function(){
