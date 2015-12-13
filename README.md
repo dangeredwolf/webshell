@@ -1,45 +1,62 @@
 WebShell
+--------------
+WebShell is an open-source project designed to build a general-purpose, fully-featured operating system interface upon modern web technologies, for consumers, enterprise, and even developers.
+
+Why do I *need* an OS built upon the web?
+-----
+We all spend the majority of our time in a web browser. Even when we aren't, we usually run it in the background to make sure it's always ready and available. So, it would make pretty good sense to use web technologies as a starting point. Chrome OS has pioneered an internet-first architecture, but the window manager is still based on legacy window managing technologies.
+
+Plus building off the web has a number of neat advantages I'll cover later on in this.
+
+That's nice, but is it possible?
+-------
+This is probably a large reason why no one has tried to make something like this. It is, however, most certainly possible. Thanks to huge advancements in both web technology performance and compute power, most people on the internet own devices that are capable of handling this.
+
+I don't believe you, prove to me it's possible
+------
+Don't think you can build a web-based interface manager? Try [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/). Those are both web based, but feel like native apps in terms of performance, look, and feel. They're also both based off Chrome technologies (Including, but not limited to, Node.JS), and coincidentally, so is WebShell.
+
+So it's possible, but surely there are performance tradeoffs.
 --------
+The short answer is *yes, but it might be worth it.*
 
-WebShell is a project designed to advanced the open web forward by building an open platform for anyone to contribute to, or run apps on. WebShell has a flexible license which allows it to be adapted to a wide number of uses. WebShell is currently in early Alpha stages, with a good bit of work finished on the UI, but there aren't any finished apps. It's still in active, constant development, so things might change in the future.
+Ever heard of [Phonebloks](https://www.youtube.com/watch?v=oDAw7vW7H0c)/[Project Ara](https://www.youtube.com/watch?v=8mhjngbsXQ0)? These neat prototype devices are built with a similar philosophy to WebShell. Open, simple, modular, built with a general purpose, but can be extended or reduced to your preference. Sure, Ara might have slightly less battery life or slightly reduced speeds than a flagship phone, or is slightly thicker, and WebShell might be slightly slower or slightly more battery-intensive than a native shell. But, as [The Verge once reported about Ara](https://youtu.be/PQqudiUdGuo?t=1m57s), to help "people [feel] that the tradeoffs are worth it". This is true to WebShell as well, the compromises to build WebShell can be worth it in the long run.
 
-Why build a window manager on modern web technologies?
---------
-The "old web" as we know it is vanishing into history. WebKit and Chromium have spurred adoption of the "open web", where websites can come to life, to move the web forward. Because of just how fast web browsers have gotten, and how decently powerful our little devices have gotten. WebShell doesn't use much more power than a web page, and can adjust visual effects if performance isn't doing so well. We're living in a web place now. We depend greatly on web browsers, and they can do anything now--Write documents, presentations and spreadsheets, like with Google Drive, Apple iWork for iCloud, and Microsoft Office Online. You can write code with your web browser, test it in realtime, like with Koding and others. Our storage lives in the cloud, which are being provided by a huge number of small and large players from Dropbox, Mega, Google, Apple, Microsoft, Amazon, and so on. We can do so much more in web browsers than we could have ever imagined 10 years ago, yet our operating systems haven't changed much. They're either proprietary, or difficult to customize unless you are a C++ developer. There isn't a common set of native apps for these platforms. Finally, they haven't evolved much recently, other than some minor visual overhauls and flattening. Companies have tried to change this, like Microsoft with Windows 8, and people thought the changes were way too stark. Perhaps we could do something better.
+How well does the window manager work? Is it full-featured?
+------
+Basically, yes. It has everything you'd expect from a window manager.
+* Moving around windows from the top
+* Resizing windows from edges or corners
+* Minimize windows
+* Maximize windows
+* Of course, close windows down
 
-Can you even build a window manager like this? How would that work?
---------
-WebShell is based on Chrome's app architecture, allowing for more powerful experiences across the board. WebShell apps are isolated, having their own set of stylesheets, and running in their own processes thanks to Chrome's architecture, just like a native app can. This is good for two reasons. One, security, because apps are completely isolated. Two, compatibility, as if this app were to run in another version of WebShell, or an entirely different distro entirely, it will still generally work perfectly. WebShell uses jQuery and jQuery UI to make it easier to manage its codebase. 
+WebShell should, in the future, be better at adapting to other device form-factors, such as phones.
 
-In WebShell, we support everything you'd expect from a window manager. You can open windows, drag windows around from the top, resize windows from the edges or corners, maximize windows to fill up the screen, minimize windows to the taskbar. We also have a slightly new concept for an application launcher. It currently does not have a final name, but we call it the module drawer instead. Inside the module drawer, it will have different "modules" which can be used to personalize the module drawer. The module drawer is accessed by sliding it out by clicking the WebShell button, also causing the task list to jump to the top. Currently there is only "All Apps", but there will be many more eventually, for things like quick controls, virtual desktops, and maybe even weather updates and notifications. We wanted to create a start menu replacement that was easy to get used to, and we settled on this one. It works great on tablets too, and doesn't have nearly the amount of miles on the mouse that a full screen start would have. The taskbar is an OS X/Windows/ChromeOS hybrid, and it's actually easier than it sounds. It's centered on the screen, and holds your apps. If it gets too full, you can scroll through them.
+If I'm a web developer, is it easy for me to build apps for WebShell? Or customize Shell to my heart's desires?
+-----
+Yes and yes! WebShell was designed to be modular and easy to build upon, add to, remove from, skin, and develop for, with a common set of libraries and APIs. WebShell apps are generally isolated from the rest of the system, so they would likely function even on a future version, or even a complete fork of WebShell, unless they remove or break any dependencies, mainly libraries.
 
-You said something about customization?
---------
-One of the beauties of WebShell is its customization. It's built on HTML5, CSS3, JS and jQuery. If you're a web developer, then congratulations, you already know how to theme and tinker with WebShell. It's easy for anyone to pick up, and we're in the process of documenting the code better, to make it even easier. Of course, it's in Alpha now, so it's nowhere near ready to be an educational tool, but one day it could be.
+Know HTML/CSS/JS? You can build a WebShell app. The app loading functionality is currently not implemented in Alpha 1 or 2, so you'd have to hardcode them in like we currently have, but eventually WebShell would be able to detect installed apps and make them available.
 
-I want to try this, how?
---------
-Clone WebShell into the directory of your choosing, open a Chromium based browser, navigate to chrome://extensions, tick "Developer Mode" if you need, click "Load unpacked extension...", choose the directory you just extracted, and you're off! You can currently launch webshell via chrome://extensions or chrome://apps
+What about security?
+------
+WebShell uses industry-standard methods of cryptography, meeting or exceeding the practices of even the most prestige tech leaders. WebShell utilizes a slightly tweaked version of SHA3, and uses a 32-byte salt. This is extremely secure compared to Windows operating systems, and even many Linux operating systems. Retrieving the password is literally impossible, and due to the salt, it will take approximately 21 quattuordecillion (that is a word) years according to howsecureismypassword.net to bruteforce the salt. However, that number is technically a lot less in practice, because the salt is supposed to be visible, but a decently secure password will help a ton. The only way to crack a WebShell password is to literally try every single possible combination (bruteforcing), which is generally ineffective in any case, especially not JavaScript. At the same time, it's still reasonably fast to log in, and you can get up and running in seconds. Every build of WebShell has security against unlocking a device with any improper credentials. This will be taken further once encryption is enabled (next paragraph). As of the time of writing this, WebShell does not have any enforced password requirements, so just be smart about it.
 
-I have a great idea, where should I leave it?
---------
-Feel free to leave it in the "Issues" section of the GitHub page, and I'll take a look at it.
+At the moment, WebShell does not need to encrypt any other data, but a mechanism is planned in later builds to allow for this. The idea is that we would use AES, a randomly generated private key, which would be encrypted with AES using your password+salt, so encrypted content can be accessed almost immediately after login. This architecture also has the advantage of making it easy to let you change your password if you know your old one. Instead of needing to decrypt and re-encrypt all your data, we'd only need to decrypt and re-encrypt the encryption key with your new password.
 
-I found a bug, where should I report it?
---------
-Feel free to report it in the "Issues" section of the GitHub page, and I'll take a look at it.
+As for apps, they're run inside Chrome [WebViews](https://developer.chrome.com/apps/tags/webview), which have the security properties of Chrome, being isolated inside another process. They can't mess with WebShell's system, and can't mess with other apps, other than apps that specifically want to communicate with it in a certain way. This way, it's only possible for an app to be compromised if it's very, very insecurely written. You might as well use password, password1, 12345, or 123456 as your password. If I just mentioned your own password, please do not write a WebShell app (also, you should really change it, thank you, but *hopefully* the people reading this have basic security knowledge, which I think they do, in which this is a fun thing to read).
 
-Will you make an actual OS/firmware out of this?
---------
-We've been looking into doing just this, but we aren't sure exactly what we're going to use. It will probably be Linux based, though, and boot straight into WebShell, comparable to Chrome OS.
+So yes, security is looking pretty great so far.
 
-I have an older PC, will this run fine for me?
---------
-Depends. Do you have a graphics chipset (like a video card) with decent speeds? If you do, that's great. If you have integrated graphics (such as Intel HD or Iris/Iris Pro), those will work too. However, if you don't have graphics acceleration, you'll experience some extra slowdown because it has to rely on slower software rendering instead. WebShell does adjust itself to lower performance by reducing visual effects, but software rendering slows down any operating system, especially WebShell. Generally, most CPUs are OK as long as you have an OK GPU (Unless you have a Pentium 2 or something, that will take a big performance hit). For RAM, anything above 1 GB should be decent, depending on the operating system. It's pretty easy to try WebShell for yourself, so feel free to test it out.
+When will WebShell have a "finished" product?
+----
+It's not clear, if ever. At the moment it's still early in development. There isn't a huge demand for it at the moment, albeit it is a bit cutting-edge, as well as too early in development for it to have extreme meaning. It's mostly just an idea at the moment, a collection of ideas of what the ideal desktop interface should be, with many prototypes of little things inside.
 
-What about my existing apps?
---------
+What kinds of libraries do you use?
+------
+Quite a few, actually. We believe in building upon the work of others to build something amazing. The WebShell Project utilizes jQuery, jQuery UI, RequireJS, IDBStore, Materialize, FPSMeter, CryptoJS, and Bootstrap.
 
-We're looking into building the ARC runtime into WebShell, to run Android apps inside of WebShell. Currently it isn't certain if it's 100% possible or not, but the technology is there.
-
-We plan to make a compatibility layer to run Chrome apps inside WebShell, though!
+Will WebShell be turned into an actual OS?
+------
+Nothing final about this, but I'm certainly thinking about that and researching the rest roadmap for such a task.

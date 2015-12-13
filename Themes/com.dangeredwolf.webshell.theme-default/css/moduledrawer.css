@@ -59,25 +59,29 @@ html.reduceRedundantEffects .drawerbackground {
 	background-repeat:no-repeat!important;
 	width:65px!important;
 	height:65px!important;
-	margin-left: 3px!important;
-	bottom: 420px!important;
+	margin-left:0!important;
+	bottom: 425px!important;
 	position:absolute;
 	background-size:48px 48px!important;
 	background-position:10px 10px!important;
 	outline:0!important;
 	background-color:transparent;
 	z-index:11;
-	padding-top:71px!important;
+	padding-top:73px!important;
+	border:0;
 	transition:-webkit-filter 1000ms cubic-bezier(0,1,0,1),bottom 300ms cubic-bezier(0,1,0,1)!important;
 }
 
-.drawertoggle:hover {
-	-webkit-filter:brightness(120%)
+.drawertoggle:hover,.drawertoggle:focus {
+	-webkit-filter:brightness(120%);
+	background:transparent;
+	border:0
 }
 
 .drawertoggle:active {
 	transform:none!important;
 	-webkit-filter:opacity(50%);
+	border:0
 }
 
 .modulecontainer {
@@ -106,29 +110,6 @@ html.reduceRedundantEffects .drawerbackground {
 
 .dwm.hidden+.modulecontainer {
 	display:none
-}
-
-.modulecontainer button {
-	width:100px;
-	height:100px;
-	color:#fff;
-	background: transparent;
-	border:none;
-	margin:3px;
-	text-align:left;
-	font-weight:400;
-	display:inline-block!important;
-	font-family:"Material Icons";
-	font-size: 64px;
-	transition:margin-top cubic-bezier(0,1,0,1) 300ms;
-	transition-delay:50ms;
-	margin-top: 130px;
-	outline:0!important;
-	opacity:1;
-}
-
-.modulecontainer button:active {
-	transform:scale(0.9)
 }
 
 .drawertoggle {

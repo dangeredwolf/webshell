@@ -12,15 +12,15 @@ const windowManagerContainer = $(".dwm"); // Constant of .dwm element, container
 const wallpaper = $(".wallpaper"); // Constant of .wallpaper element, element which helps render desktop background
 const watermark = $(".watermark"); // Constant of system version watermark element, .watermark
 const authenticationTitle = $(".authentication>div"); // Constant of authentication title, default text: "Hey, User!"
-const moduleDrawer = $(".modulecontainer"); // Constant of module drawer body, containing modules like All Apps 
+const moduleDrawer = $(".modulecontainer"); // Constant of module drawer body, containing modules like All Apps
 
 var loginHash; // Upon reading hash, it's put here
 var loginSalt; // Upon reading salt, it's put here
-var isModuleDrawerOpen = false; // Ticked if module drawer is open or not 
+var isModuleDrawerOpen = false; // Ticked if module drawer is open or not
 var loginDataReady = false; // Ticked if os.storage.login has initialised and if the containing data has been retrieved
 var pageLoadedQuickSoProcessDataImmediately = false; // Ticked if document.ready is triggered before os.storage.login finishes initialising
 var worryAboutPerformance = 0; // Counter used by performance manager to check if performance is too slow for too long, then switching to high-performance mode
-var performanceFalseAlarms = 0; // Counter by performance manager to check if it's switching between high-performance and high-quality modes too frequently 
+var performanceFalseAlarms = 0; // Counter by performance manager to check if it's switching between high-performance and high-quality modes too frequently
 
 var settingUp = false; // Returns true if in setup mode, false otherwise
 var setupTitle; // Constant element defined during setup process
@@ -51,11 +51,11 @@ This function is called when the webpage has completed loading
 
 function onPageLoad() {
 	if (loginDataReady) {
-		updateBootStatus("halt:org.webshell.shell:processLoginData");
+		updateBootStatus("halt:org.webshell.shell:processLoginData:ready");
 		processLoginData();
 	} else {
+		updateBootStatus("halt:org.webshell.shell:processLoginData:notready");
 		pageLoadedQuickSoProcessDataImmediately = true;
-		updateBootStatus("halt:org.webshell.shell:processLoginData");
 	}
 }
 
@@ -65,7 +65,7 @@ revokeCredentials()
 This function is called if function processLoginData detects that there is a problem with the login data it retrieved (i.e. invalid hash/salt)
 */
 function revokeCredentials() {
-	os.storage.login.clear(); // Clean bad storage 
+	os.storage.login.clear(); // Clean bad storage
 	os.delay(function(){chrome.runtime.reload()},300); // Reload client, triggering setup
 }
 
@@ -81,9 +81,15 @@ function processLoginData() {
 	os.storage.login.get("passwordSalt",function(e){
 		loginSalt = e ? e.value : undefined; // Set global variable
 
+		console.log("got salt!");
+		console.log(loginHash + "hash by salt");
+		console.log(loginSalt + "salt by salt");
+		console.log("ready by salt? " + (typeof loginHash !== "undefined" && typeof loginSalt !== "undefined"));
+
 		if (typeof loginSalt === "undefined") { // Can't find salt? Go to setup ASAP
-			initSetup(); 
+			initSetup();
 		} else if (loginSalt.length === 100) { // Legacy (pre-build 13200) login, needs to be reset
+			console.error("Invalid credentials");
 			revokeCredentials();
 			return;
 		}
@@ -96,9 +102,15 @@ function processLoginData() {
 	os.storage.login.get("passwordHash",function(e){
 		loginHash = e ? e.value : undefined; // Set global variable
 
+		console.log("got hash!");
+		console.log(loginHash + "hash by hash");
+		console.log(loginSalt + "salt by hash");
+		console.log("ready by hash? " + (typeof loginHash !== "undefined" && typeof loginSalt !== "undefined"));
+
 		if (typeof loginHash === "undefined") { // Can't find hash? Go to setup ASAP
 			initSetup();
 		} else if (os.hash("").toString().length !== loginHash.length) { // Hash tested to be invalid, needs to be reset
+			console.error("Invalid credentials");
 			revokeCredentials();
 			return;
 		}
@@ -119,12 +131,12 @@ function initShell() {
 	updateBootStatus("org.webshell.shell:initShell");
 
 	if (!settingUp) { // As long as the shell isn't in setup mode, start regular processes
-		bootLogo.delay(1500).addClass("fadeout"); // Fade out logo 
+		bootLogo.delay(1500).addClass("fadeout"); // Fade out logo
 		$(".wallpaper,.lockscreen,.modulecontainer,.dwm,.authentication,.opentasks").delay(2600).removeClass("hidden forcehidden");
 		os.delay(bootLogo.remove,2000); // Remove bootlogo after 2 seconds
 		updateLockScreenTime(); // Start updating lockscreen time
-		initialiseShellAwareness(); // Initialise shell awareness thread
 		initLockScreen(); // Initialise the lockscreen
+		initialiseShellAwareness(); // Initialise shell awareness thread
 	}
 
 }
@@ -162,7 +174,7 @@ function _lockDeviceScreen() {
 
 	lockScreen.removeClass("lockscreenopened hidden"); // Show the lockscreen
 	passwordInputBox.focus(); // Focus on password box
-	
+
 	updateLockScreenTime(); // Start updating time again
 }
 
@@ -173,7 +185,7 @@ testLogin()
 
 Test entered password against stored hash and salt
 */
-function testLogin() { 
+function testLogin() {
 	if (!loginHash || !loginSalt) { // This shouldn't be called without login hash and/or salt
 		authenticationTitle.html("Something happened");
 		throw "The account storage container for this user has not been set up";
@@ -243,13 +255,13 @@ function initialiseShellAwareness() {
 
 	updateBootStatus("org.webshell.shell:initialiseShellAwareness");
 
-	FPSMeter.run(6); // Initialise fps metre, running every 6 seconds
-
 	watermark.html("WebShell Version " + os.version + "<br>Experimental Copy. Build " + os.build); // Initialise watermark
+
+	FPSMeter.run(6); // Initialise fps metre, running every 6 seconds
 
 	document.addEventListener('fps',function(e){ // Start performance manager
 		console.log("FPS " + e.fps + " (" + os.fpsStatusParseHelper(e.fps) + ")");
-		
+
 		if (e.fps < 30 && !html.hasClass("reduceRedundantEffects") && worryAboutPerformance < 3) { // Too slow!!
 			worryAboutPerformance++;
 			console.log("Worrying about performance! If this keeps up we'll reduce some redundant effects.")
@@ -283,7 +295,7 @@ function initSetup() {
 
 	// The following messy-ish code is used to generate setup elements
 
-	langSelection = make("select") 
+	langSelection = make("select")
 	.attr("id","langselection")
 	.append(
 		make("option")
@@ -316,7 +328,7 @@ function initSetup() {
 		.html("Nederlands")
 	)
 	.change(function(){ // On selection
-		html.removeClass("fadeinanim").addClass("fadeoutanim"); // Fade out 
+		html.removeClass("fadeinanim").addClass("fadeoutanim"); // Fade out
 
 		os.delay(function() {
 			if ($("#regionopts").length > 0) { // #regionopts exists?
@@ -332,7 +344,7 @@ function initSetup() {
 			html.removeClass("fadeoutanim").addClass("fadeinanim"); // Fadein
 
 			switch ($("#langselection>:checked").val()) { // TODO: Use new generation format for these options
-				case "en": 
+				case "en":
 					setupTitle.html("Language");
 
 					var option0 = make("option")
@@ -465,7 +477,7 @@ function initSetup() {
 
 	body.append(setupTitle).append(langSelection);
 
-	html.addClass("fadeinanim") // Add Fadein animation 
+	html.addClass("fadeinanim") // Add Fadein animation
 	.attr("id","setupview"); // Tag as setup view
 }
 
@@ -489,7 +501,7 @@ function startUserSetup() {
 
 	setupTitle = make("div")
 	.html("Let's set up your account")
-	.attr("class","setuptitle");	
+	.attr("class","setuptitle");
 
 	body.append(setupTitle)
 	.append(
@@ -499,7 +511,7 @@ function startUserSetup() {
 		.keypress(function(e){
 			if (e.charCode === os.enterKeyCode) {
 				$("#setting2").focus()
-			} 
+			}
 		})
 	)
 	.append(make("input")
@@ -513,7 +525,7 @@ function startUserSetup() {
 				} else {
 					setupTitle.html("Those passwords didn't match. Try again?");
 				}
-			} 
+			}
 		})
 	);
 
@@ -582,7 +594,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 
 	var draghandle = make("div")
 	.addClass("windowdraghandle");
-	
+
 	var minimise = make("button")
 	.addClass("windowcontrol min")
 	.html("&#xE15B")
@@ -646,7 +658,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	.attr("partition","persist:system")
 	.css("height",windowSizeY + "px")
 	.css("width",windowSizeX + "px")
-	.on("contentload",function() {	
+	.on("contentload",function() {
 		div.delay(400).removeClass("hidden")
 		if (!!windowContent) {
 			webviewnojq.addContentScripts(windowContent);
@@ -671,7 +683,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	.append(minimise)
 	.append(maximise)
 	.append(close);
-	
+
 	var div = make("div")
 	.addClass("window draggable resizable hidden")
 	.attr("id",windowID)
@@ -698,7 +710,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 			preventDefault();
 			return;
 		}
-		
+
 		if (u.originalSize.width !== u.size.width && u.originalSize.height !== u.size.height) {
 			webview.width(div.width());
 			webview.height(div.height());
@@ -751,7 +763,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 
 	webviewnojq.setUserAgentOverride(navigator.userAgent.replace(/Chrome\/\d+/g,"Chrome/99") + " WebShell/" + os.version + "." + os.build);
 
-	
+
 }
 
 /*
@@ -802,6 +814,5 @@ function initialiseShellUX() {
 	});
 }
 
-$(window).load(onPageLoad);
-
-updateBootStatus("halt:org.webshell.shell:onPageLoad")
+updateBootStatus("halt:org.webshell.shell:onPageLoad");
+onPageLoad();
