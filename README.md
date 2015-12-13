@@ -59,4 +59,4 @@ Quite a few, actually. We believe in building upon the work of others to build s
 
 Will WebShell be turned into an actual OS?
 ------
-Nothing final about this, but I'm certainly thinking about that and researching the rest roadmap for such a task.
+Nothing final about this, but I'm certainly thinking about that, researching potential solutions, and planning roadmap for such a task. 
