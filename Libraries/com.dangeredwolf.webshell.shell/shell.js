@@ -538,7 +538,10 @@ saveCredentials(string setupPass)
 Takes given password, generates salt and hash
 */
 function saveCredentials(setupPass) {
-	var salt = os.randomChars(32);
+	var salt = "";
+	for (var i=0;i<32;i++) {
+		salt += os.randomChar(); // TODO: Figure out why the hell randomChars(int length) isnt working
+	}
 	var hash = os.hash(setupPass + salt) + "";
 
 	os.storage.login.put({"id":"passwordSalt","value":salt});
