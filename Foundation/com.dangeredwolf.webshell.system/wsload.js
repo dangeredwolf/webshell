@@ -7,10 +7,10 @@ const useUniLibrary = true;
 window.os = window;
 
 os.version = "1.0";
-os.build = "14230 (openshell.milestone.alpha2)";
+os.build = "14233 (openshell.milestone.alpha2)";
 os.documentLoaded = true;
 
-os._bootStatusElement = document.querySelector(".bootstatus");
+os._bootStatusElement = document.getElementsByClassName("bootstatus")[0];
 os.updateBootStatus = function(status) {
 	os._bootStatusElement.innerHTML = status;
 }
