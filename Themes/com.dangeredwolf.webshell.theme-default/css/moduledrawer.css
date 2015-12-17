@@ -26,8 +26,8 @@ html.reduceRedundantEffects .drawerbackground {
 	position:absolute;
 	bottom: 0px;
 	width: 100%;
-	overflow-x:scroll;
-	position:absolute
+	position:absolute;
+	overflow: 0;
 }
 
 .module.modulelockbottom {
@@ -115,4 +115,9 @@ html.reduceRedundantEffects .drawerbackground {
 .drawertoggle {
 	padding-left:0!important;
 	bottom:-15px!important
+}
+
+.tasks {
+	margin-left:70px;
+	margin-top:5px
 }

@@ -663,6 +663,9 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		if (!!windowContent) {
 			webviewnojq.addContentScripts(windowContent);
 		}
+		if (!!taskicon) {
+			taskicon.addClass("taskopen")
+		}
 	})
 	.on("newwindow", function(e) {
 		openWindow(e.targetUrl,e.name,e.initialWidth,e.initialHeight);
@@ -733,7 +736,6 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		.addClass("task")
 		.attr("icon",windowIcon)
 		.html(windowIcon)
-		.addClass("taskopen")
 		.attr("id",windowID)
 		.mousedown(function(event) {
 			if (event.which === 1 || event.which === 2) {
