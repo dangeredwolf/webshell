@@ -37,7 +37,7 @@ os.shutdown = function() {
 		delayAmount += 150;
 		os.__killWindowWithDelay(windowList[i],delayAmount);
 	}
-	
+
 	os.delay(os.sendShutdownSignal,delayAmount)
 }
 
@@ -68,7 +68,7 @@ os.formatMonth = function(monthString) {
 		case "Dec":
 			return "December";
 		default:
-			return "Month";	
+			return "Month";
 	}
 }
 
@@ -80,7 +80,7 @@ os.fpsStatusParseHelper = function(fps) {
 	return fps > 50 && "Doing Great!" || fps > 40 && "Doing Well!" || fps > 30 && "Doing OK!" || fps > 20 && "Doing Poorly" || "Doing Bad"
 }
 
-os.make = function(thing) {
+os.make = function(thing) { // See https://stackoverflow.com/q/327047
 	return $(document.createElement(thing));
 }
 

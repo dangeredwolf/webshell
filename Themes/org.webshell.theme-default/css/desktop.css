@@ -24,7 +24,7 @@
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-position:50% 50%;
-	transition:all 0.8s cubic-bezier(0,1,0,1);
+	transition:all 0.8s cubic-bezier(0,1,0,1)
 }
 
 .lockscreen:not(.hidden)+div,.lockscreen:not(.hidden)+div+div,.lockscreen:not(.hidden)+div+div+div {

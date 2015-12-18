@@ -131,12 +131,15 @@ html.reduceRedundantEffects .windowclosed {
 	top:-13px;
 	opacity:0.8;
 	font-family:"Material Icons";
-	font-weight:600
+	font-weight:600;
+	-webkit-appearance: none;
+	margin: 3px;
 }
 
 .windowcontrol:hover {
 	background:rgba(0,0,0,0.3);
 	transition:background 300ms,opacity 300ms;
+	cursor:default;
 	opacity:1;
 	border:0
 }
@@ -211,6 +214,12 @@ html.reduceRedundantEffects .windowcontrol.close,html.reduceRedundantEffects .wi
 	display:block;
 	-ms-touch-action:none;
 	touch-action:none
+}
+
+.fillscreen .ui-resizable-handle {
+	display:none;
+	cursor:default;
+	pointer-events:none
 }
 
 .ui-resizable-disabled .ui-resizable-handle,.ui-resizable-autohide .ui-resizable-handle {

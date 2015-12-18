@@ -2,6 +2,8 @@
 // (c) 2016, The WebShell Foundation
 // Code released under the GPL (GNU Public License)
 
+"use strict"; // http://www.w3schools.com/js/js_strict.asp
+
 const debugWindowAnimations = false; // Prevents removal of window and task elements upon closing of window
 const bootLogo = $(".bootlogo"); // Constant of .bootlogo element, the loading screen container
 const lockScreen = $(".lockscreen"); // Constant of .lockscreen element, the container of lockscreen elements
@@ -657,12 +659,12 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	.addClass("windowdraghandle");
 
 	var webview = make("webview")
+	.attr("src",url) // For speed, we start loading the request immediately before preparing everything else. This gives the page slightly more time to load, and ends up being quicker for the user
 	.addClass("windowbody")
-	.attr("partition","persist:system")
+	.attr("partition","persist:system") // Partitions define data sets. WebShell uses a common "persist:system" at the moment.
 	.css("height",windowSizeY + "px")
 	.css("width",windowSizeX + "px")
-	.on("contentload",function() {
-		div.delay(400).removeClass("hidden")
+	.on("loadstart",function() { // If the page is beginning to load, inject rules for content now, because the DOM should be approximately, preliminarily ready for interaction
 		if (!!windowContent) {
 			webviewnojq.addContentScripts(windowContent);
 		}
@@ -670,19 +672,44 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 			taskicon.addClass("taskopen")
 		}
 	})
-	.on("newwindow", function(e) {
+	.on("contentload", function() { // Once the page finishes loading and rendering, we show the screen.
+		div.removeClass("hidden");
+	})
+	.on("newwindow", function(e) { // Called when inner content requests to open a new tab/window
 		openWindow(e.targetUrl,e.name,e.initialWidth,e.initialHeight);
 	})
-	.on("close",closefunc)
-	.on("unresponsive", function(e) {
+	.on("close",closefunc) // Close called from inside the page
+	.on("unresponsive", function(e) { // Unresponsive (i.e. not responding)
 		webview.addClass("unresponsive");
+		console.log("something is unresponsive!! #" + windowID);
 	})
-	.on("responsive", function(e) {
+	.on("responsive", function(e) { // Called when unresponsive window is responding again
 		webview.removeClass("unresponsive");
+		console.log("responsive again! #" + windowID);
 	})
-	.attr("src",url);
+	.on("exit",function(e){ // Inner Application process terminated for some reason, maybe for normal reasons, but sometimes crashing/forced termination by system
+		switch (e.reason) {
+			case "normal":
+				console.log("window " + windowID + " has closed normally");
+			case "abnormal":
+				console.log("window " + windowID + " has closed abnormally. This is typically okay though.");
+			case "crash":
+				console.log("window " + windowID + " has crashed!!!");
+			case "crash":
+				console.log("window " + windowID + " was killed!!!");
+			default:
+				console.log("what in the world even happened to #" + windowID);
+		}
+	});
 
 	webviewnojq = webview[0];
+
+	webviewnojq.addContentScripts({
+		name:"applibraries",
+		matches:["*"],
+		run_at:"document_start",
+		all_frames:true
+	});
 
 	var windowcontrols = make("div")
 	.addClass("windowcontrols")

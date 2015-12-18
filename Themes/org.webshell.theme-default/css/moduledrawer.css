@@ -15,7 +15,6 @@
 }
 
 html.reduceRedundantEffects .drawerbackground {
-	background:rgb(30,50,60);
 	border-radius:0
 }
 
@@ -28,6 +27,7 @@ html.reduceRedundantEffects .drawerbackground {
 	width: 100%;
 	position:absolute;
 	overflow: 0;
+
 }
 
 .module.modulelockbottom {
@@ -39,7 +39,8 @@ html.reduceRedundantEffects .drawerbackground {
 
 .modulecontainer:not(.modulecontaineropen) .module.modulelockbottom {
 	margin-bottom:500px;
-	transition:margin 0.5s cubic-bezier(0,1,0,1)
+	transition:margin 0.5s cubic-bezier(0,1,0,1);
+	background:rgba(30,50,60,0.5)
 }
 
 .module.opentasks>* {
@@ -100,12 +101,14 @@ html.reduceRedundantEffects .drawerbackground {
 }
 
 .appIsInFillscreen .modulecontainer:not(.modulecontaineropen) {
-	bottom: 10px;
-	transition-delay:100ms
+	bottom: 445px;
+	transition-delay:100ms;
+	z-index:99;
+	pointer-events:all
 }
 
 .appIsInFillscreen .modulecontainer:not(.modulecontaineropen):hover {
-	bottom:65px
+	bottom:500px
 }
 
 .dwm.hidden+.modulecontainer {
