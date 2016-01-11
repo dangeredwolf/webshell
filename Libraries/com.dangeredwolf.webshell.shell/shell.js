@@ -31,6 +31,8 @@ var options; // Constant element defined during setup process, holds different s
 
 var hasShellBeenInitialised = false; // Variable if shell has been initialised or not
 
+var customUserAgent = navigator.userAgent + " WebShell/" + os.version + "." + os.build + " OpenShell/" + os.version + "." + os.build;
+
 os.storage.login = new IDBStore({ // Initialise os.storage.login data; asynchronous
 	dbVersion: '1',
 	storeName: 'login',
@@ -209,13 +211,39 @@ function testLogin() {
 }
 
 /*
+_unfocusWindowsInternal()
+
+Internal function to unfocus windows.
+Please don't use this for anything else.
+This is a private API reserved for unfocusWindows() and unfocusWindowsExcept()
+*/
+function _unfocusWindowsInternal() {
+	$(".window:not(.windowunfocussed)").addClass("windowunfocussed");
+	closeModuleDrawer();
+}
+
+/*
 unfocusWindows()
 
 Releases focus from all windows
 */
 function unfocusWindows() {
-	$(".window:not(.windowunfocussed)").addClass("windowunfocussed");
-	closeModuleDrawer();
+	_unfocusWindowsInternal();
+}
+
+/*
+unfocusWindowsExcept([jQuery obj], [Object obj])
+
+Releases focus from all windows except the one(s) specified
+*/
+
+function unfocusWindowsExcept(obj) {
+	_unfocusWindowsInternal();
+	if (typeof obj === "function") {
+		obj.removeClass("windowunfocussed");
+	} else if (typeof obj === "object") {
+		obj.className = obj.className.replace(" windowunfocussed","");
+	}
 }
 
 /*
@@ -577,30 +605,35 @@ openWindow(string url, string title, int sizeX, int sizeY, int positionX, int po
 
 Opens a new window
 */
-function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,windowPositionY,windowIcon,windowContent,windowDragOffsetLeft,windowDragOffsetRight) {
+function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,windowPositionY,windowIcon,windowContent,windowDragOffsetLeft,windowDragOffsetRight) {
 
 	if (os.isCurrentlyShuttingDown) { // If shutting down... don't open new windows!
 		throw "Failed to open window because we're shutting down";
 		return;
 	}
 
-	var taskicon;
-	var url = url || "https://www.google.com//%//%"; // Make sure there's actually a url
-	var windowSizeX = windowSizeX || 800; // Default to x = 800
-	var windowSizeY = windowSizeY || 500; // Default to y = 500
+	this.url = url || "https://www.google.com//%//%"; // Make sure there's actually a url. If not, totally not execute obviously "tagged in the code" easter egg
+	this.windowSizeX = windowSizeX || 800; // Default to x = 800
+	this.windowSizeY = windowSizeY || 500; // Default to y = 500
+	this.windowID = Math.floor(Math.random() * 999999999999999); // Generate window ID
 
-	var wid = windowSizeX; // Shortened versions
-	var hei = windowSizeY;
-	var vw = $(window).width(); // Window width
-	var vh = $(window).height(); // Window height
-	var windowID = Math.floor(Math.random() * 999999999999999); // Generate window ID
+	this.setWindowSizeX = function(size) {
+		this.windowSizeX = size; // TODO: make this set actual window size
+	}
+
+	this.setWindowSizeY = function(size) {
+		this.windowSizeY = size; // TODO: make this set actual window size
+	}
+
+	var browserWidth = $(window).width(); // Window width
+	var browserHeight = $(window).height(); // Window height
 
 	unfocusWindows();
 
-	var draghandle = make("div")
+	this.draghandle = make("div")
 	.addClass("windowdraghandle");
 
-	var minimise = make("button")
+	this.minimise = make("button")
 	.addClass("windowcontrol min")
 	.html("&#xE15B")
 	.click(function(data,handler){
@@ -613,7 +646,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		}
 	});
 
-	var maximise = make("button")
+	this.maximise = make("button")
 	.addClass("windowcontrol max")
 	.html("&#xE3C6")
 	.click(function(data,handler){
@@ -627,7 +660,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		}
 	});
 
-	var closefunc = function() {
+	this.close = function() {
 		webviewnojq.executeScript({code:"window.close();"},function(e){console.log(e)});
 		div.addClass("windowclosed");
 
@@ -650,10 +683,10 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		}
 	}
 
-	var close = make("button")
+	var closeButton = make("button")
 	.addClass("windowcontrol close")
 	.html("&#xE5CD")
-	.click(closefunc);
+	.click(close);
 
 	var draghandle = make("div")
 	.addClass("windowdraghandle");
@@ -678,7 +711,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	.on("newwindow", function(e) { // Called when inner content requests to open a new tab/window
 		openWindow(e.targetUrl,e.name,e.initialWidth,e.initialHeight);
 	})
-	.on("close",closefunc) // Close called from inside the page
+	.on("close",close) // Close called from inside the page
 	.on("unresponsive", function(e) { // Unresponsive (i.e. not responding)
 		webview.addClass("unresponsive");
 		console.log("something is unresponsive!! #" + windowID);
@@ -715,13 +748,13 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	.addClass("windowcontrols")
 	.append(minimise)
 	.append(maximise)
-	.append(close);
+	.append(closeButton);
 
 	var div = make("div")
 	.addClass("window draggable resizable hidden")
 	.attr("id",windowID)
-	.css("left",windowPositionX||vw/2-wid/2)
-	.css("top",windowPositionY||vh/2-hei/2)
+	.css("left",windowPositionX||browserHeight/2-this.browserWidth/2)
+	.css("top",windowPositionY||windowSizeY/2-this.browserHeight/2)
 	.css("height",windowSizeY)
 	.css("width",windowSizeX)
 	.append(draghandle)
@@ -735,8 +768,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 	}})
 	.resizable()
 	.mousedown(function() {
-		unfocusWindows();
-		div.removeClass("windowunfocussed");
+		unfocusWindowsExcept(div)
 	})
 	.on("resize",function(e,u) {
 		if (div.hasClass("fillscreen")) {
@@ -769,13 +801,13 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		.attr("id",windowID)
 		.mousedown(function(event) {
 			if (event.which === 1 || event.which === 2) {
-				unfocusWindows();
-				div.removeClass("windowunfocussed minimised");
+				unfocusWindowsExcept(div);
+				div.removeClass("minimised");
 				console.log("Left (Or, perhaps, middle) clicked");
 			} else if (event.which === 3) {
 				console.log("Right clicked");
 			} else {
-				console.log("your mouse is weird");
+				console.error("your mouse is weird"); // I left this part of the sample code I found in, but changed log to error, to make sure users looking at console know that their mouse is, in fact, weird.
 			}
 		});
 
@@ -793,7 +825,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 
 	$(".dwm").append(div);
 
-	webviewnojq.setUserAgentOverride(navigator.userAgent.replace(/Chrome\/\d+/g,"Chrome/99") + " WebShell/" + os.version + "." + os.build);
+	webviewnojq.setUserAgentOverride(customUserAgent); // set custom user agent
 
 
 }
