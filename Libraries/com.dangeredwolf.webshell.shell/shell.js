@@ -704,12 +704,12 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 
 	var webviewnojq = webview[0];
 
-	webviewnojq.addContentScripts({
+	webviewnojq.addContentScripts([{
 		name:"applibraries",
 		matches:["*"],
 		run_at:"document_start",
 		all_frames:true
-	});
+	}]);
 
 	var windowcontrols = make("div")
 	.addClass("windowcontrols")
