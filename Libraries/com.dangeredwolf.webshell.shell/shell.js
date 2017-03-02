@@ -735,7 +735,7 @@ function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,wind
 		}
 	});
 
-	var webviewnojq = webview[0];
+	webviewnojq = webview[0];
 
 	webviewnojq.addContentScripts({
 		name:"applibraries",
