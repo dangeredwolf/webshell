@@ -241,7 +241,7 @@ function unfocusWindowsExcept(obj) {
 	_unfocusWindowsInternal();
 	if (typeof obj === "function") {
 		obj.removeClass("windowunfocussed");
-	} else if (typeof obj === "object") {
+	} else if (typeof obj === "object" && typeof obj.className !== "undefined") {
 		obj.className = obj.className.replace(" windowunfocussed","");
 	}
 }
@@ -605,24 +605,24 @@ openWindow(string url, string title, int sizeX, int sizeY, int positionX, int po
 
 Opens a new window
 */
-function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,windowPositionY,windowIcon,windowContent,windowDragOffsetLeft,windowDragOffsetRight) {
+function openWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,windowPositionY,windowIcon,windowContent,windowDragOffsetLeft,windowDragOffsetRight) {
 
 	if (os.isCurrentlyShuttingDown) { // If shutting down... don't open new windows!
 		throw "Failed to open window because we're shutting down";
 		return;
 	}
 
-	this.url = url || "https://www.google.com//%//%"; // Make sure there's actually a url. If not, totally not execute obviously "tagged in the code" easter egg
-	this.windowSizeX = windowSizeX || 800; // Default to x = 800
-	this.windowSizeY = windowSizeY || 500; // Default to y = 500
-	this.windowID = Math.floor(Math.random() * 999999999999999); // Generate window ID
+	var url = url || "https://www.google.com//%//%"; // Make sure there's actually a url. If not, totally not execute obviously "tagged in the code" easter egg
+	var windowSizeX = windowSizeX || 800; // Default to x = 800
+	var windowSizeY = windowSizeY || 500; // Default to y = 500
+	var windowID = Math.floor(Math.random() * 9999999999999); // Generate window ID
 
-	this.setWindowSizeX = function(size) {
-		this.windowSizeX = size; // TODO: make this set actual window size
+	var setWindowSizeX = function(size) {
+		windowSizeX = size; // TODO: make this set actual window size
 	}
 
-	this.setWindowSizeY = function(size) {
-		this.windowSizeY = size; // TODO: make this set actual window size
+	var setWindowSizeY = function(size) {
+		windowSizeY = size; // TODO: make this set actual window size
 	}
 
 	var browserWidth = $(window).width(); // Window width
@@ -630,10 +630,10 @@ function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,window
 
 	unfocusWindows();
 
-	this.draghandle = make("div")
+	var draghandle = make("div")
 	.addClass("windowdraghandle");
 
-	this.minimise = make("button")
+	var minimise = make("button")
 	.addClass("windowcontrol min")
 	.html("&#xE15B")
 	.click(function(data,handler){
@@ -646,7 +646,7 @@ function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,window
 		}
 	});
 
-	this.maximise = make("button")
+	var maximise = make("button")
 	.addClass("windowcontrol max")
 	.html("&#xE3C6")
 	.click(function(data,handler){
@@ -660,7 +660,7 @@ function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,window
 		}
 	});
 
-	this.close = function() {
+	var close = function() {
 		webviewnojq.executeScript({code:"window.close();"},function(e){console.log(e)});
 		div.addClass("windowclosed");
 
@@ -698,10 +698,10 @@ function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,window
 	.css("height",windowSizeY + "px")
 	.css("width",windowSizeX + "px")
 	.on("loadstart",function() { // If the page is beginning to load, inject rules for content now, because the DOM should be approximately, preliminarily ready for interaction
-		if (!!windowContent) {
+		if (typeof windowContent !== "undefined") {
 			webviewnojq.addContentScripts(windowContent);
 		}
-		if (!!taskicon) {
+		if (typeof taskicon !== "undefined") {
 			taskicon.addClass("taskopen")
 		}
 	})
@@ -728,7 +728,7 @@ function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,window
 				console.log("window " + windowID + " has closed abnormally. This is typically okay though.");
 			case "crash":
 				console.log("window " + windowID + " has crashed!!!");
-			case "crash":
+			case "kill":
 				console.log("window " + windowID + " was killed!!!");
 			default:
 				console.log("what in the world even happened to #" + windowID);
@@ -739,7 +739,7 @@ function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,window
 
 	webviewnojq.addContentScripts([{
 		name:"applibraries",
-		matches:["*"],
+		matches:["<all_urls>"],
 		run_at:"document_start",
 		all_frames:true
 	}]);
@@ -753,8 +753,8 @@ function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,window
 	var div = make("div")
 	.addClass("window draggable resizable hidden")
 	.attr("id",windowID)
-	.css("left",windowPositionX||browserHeight/2-this.browserWidth/2)
-	.css("top",windowPositionY||windowSizeY/2-this.browserHeight/2)
+	.css("left",windowPositionX||-(browserHeight/2-browserWidth/2))
+	.css("top",windowPositionY||-(windowSizeY/2-browserHeight/2))
 	.css("height",windowSizeY)
 	.css("width",windowSizeX)
 	.append(draghandle)
@@ -794,7 +794,7 @@ function OSWindow(url,windowTitle,windowSizeX,windowSizeY,windowPositionX,window
 
 	if (windowIcon) {
 
-		taskicon = make("div")
+		var taskicon = make("div")
 		.addClass("task")
 		.attr("icon",windowIcon)
 		.html(windowIcon)
