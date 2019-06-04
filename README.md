@@ -1,6 +1,9 @@
 WebShell
 --------------
-WebShell is an open-source project designed to build a general-purpose, fully-featured operating system interface upon modern web technologies, for consumers, enterprise, and even developers.
+WebShell was an open-source project designed to build a general-purpose, fully-featured operating system interface upon modern web technologies, for consumers, enterprise, and even developers.
+
+**This project is no longer actively maintained. It has served for some inspiration, and indeed borrowed code for, the ModernDeck electron app, but isn't going to be updated in the future. Plus, Chrome removed App support outside of ChromeOS, so it is becoming increasingly less practical. But, it's still a cool example of what could be possible with web technologies in the future.**
+
 
 Why do I *need* an OS built upon the web?
 -----
